@@ -1,0 +1,11 @@
+# Ignore all Word documents, spreadsheets, raw data, and presentations
+*.doc
+*.doc*
+*.docx
+*.csv
+*.xlsx
+*.xls
+*.json
+*.ppt
+*.pptx
+*.pdf
