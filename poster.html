@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSC 2027 | Global Outreach Poster & Marketing Pamphlet</title>
+  <meta name="description" content="Official marketing poster and conference pamphlet for the Groningen Sustainability Conference 2027 at the University of Groningen. 73 Nations participating across 5 global themes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rug-red: #BA1C24;
+      --rug-red-dark: #8F141A;
+      --rug-red-light: #FEE2E2;
+      --navy-dark: #0F172A;
+      --navy-card: #1E293B;
+      --navy-border: #334155;
+      --slate-bg: #F8FAFC;
+      --slate-card: #FFFFFF;
+      --slate-text: #0F172A;
+      --slate-muted: #64748B;
+      --slate-border: #E2E8F0;
+      
+      --t1-teal: #0D9488;
+      --t2-blue: #0284C7;
+      --t3-red: #BA1C24;
+      --t4-purple: #7C3AED;
+      --t5-amber: #D97706;
+      
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--slate-bg);
+      color: var(--slate-text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* Top Brand Bar */
+    .brand-stripe {
+      height: 6px;
+      background: linear-gradient(90deg, var(--rug-red) 0%, #E11D48 50%, var(--rug-red-dark) 100%);
+      width: 100%;
+    }
+
+    /* Control Toolbar (Hidden in print) */
+    .toolbar {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-md);
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .toolbar-logo {
+      height: 28px;
+      fill: #fff;
+    }
+
+    .toolbar-title {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #E2E8F0;
+    }
+
+    .toolbar-nav {
+      display: flex;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px;
+      border-radius: 9999px;
+    }
+
+    .view-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .view-btn:hover {
+      color: #fff;
+    }
+
+    .view-btn.active {
+      background: var(--rug-red);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(186, 28, 36, 0.4);
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 32px auto;
+      padding: 0 24px;
+      transition: max-width 0.3s ease;
+    }
+
+    /* POSTER WRAPPER */
+    .poster-sheet {
+      background: #FFFFFF;
+      border-radius: 24px;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--slate-border);
+      overflow: hidden;
+    }
+
+    /* Poster Header */
+    .poster-header {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      color: #FFFFFF;
+      padding: 40px 48px;
+      position: relative;
+      border-bottom: 1px solid #334155;
+    }
+
+    .poster-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .rug-logo-container {
+      width: 220px;
+      max-width: 45%;
+    }
+
+    .rug-logo-container svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .conf-badge {
+      background: rgba(186, 28, 36, 0.2);
+      border: 1px solid rgba(186, 28, 36, 0.5);
+      color: #FECACA;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .poster-title {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+
+    .poster-subtitle {
+      font-size: 20px;
+      font-weight: 500;
+      color: #38BDF8;
+      margin-bottom: 20px;
+    }
+
+    .poster-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 13.5px;
+      color: #CBD5E1;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .meta-item strong {
+      color: #FFFFFF;
+    }
+
+    /* Skyline Architecture Sketch */
+    .skyline-strip {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--slate-border);
+      padding: 12px 24px 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .skyline-img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: contain;
+      object-position: bottom center;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .skyline-caption {
+      padding: 10px 0 14px;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--slate-muted);
+      border-top: 1px dashed var(--slate-border);
+    }
+
+    /* HERO NATIONS CALLOUT */
+    .hero-nations {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+      padding: 36px 48px;
+      border-bottom: 1px solid var(--slate-border);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-stat {
+      text-align: center;
+      padding-right: 32px;
+      border-right: 2px solid var(--slate-border);
+    }
+
+    .hero-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 88px;
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--rug-red);
+      letter-spacing: -0.04em;
+    }
+
+    .hero-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--navy-dark);
+      margin-top: 4px;
+    }
+
+    .hero-sublabel {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--slate-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      font-weight: 500;
+      color: #334155;
+      margin-bottom: 18px;
+      line-height: 1.45;
+    }
+
+    .continent-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .continent-pill {
+      background: #FFFFFF;
+      border: 1px solid var(--slate-border);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pill-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* Map Showcase Section */
+    .map-section {
+      padding: 36px 48px;
+      border-bottom: 1px solid var(--slate-border);
+      background: #FFFFFF;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--navy-dark);
+      margin-bottom: 6px;
+    }
+
+    .section-desc {
+      font-size: 14.5px;
+      color: var(--slate-muted);
+      margin-bottom: 24px;
+    }
+
+    .map-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--slate-border);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .map-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Themes Section */
+    .themes-section {
+      padding: 40px 48px;
+      background: #F8FAFC;
+    }
+
+    .themes-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .theme-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 1px solid var(--slate-border);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 24px;
+      align-items: center;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .theme-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: var(--theme-color);
+    }
+
+    .theme-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: #CBD5E1;
+    }
+
+    .theme-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .theme-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy-dark);
+      margin-bottom: 6px;
+    }
+
+    .theme-tagline {
+      font-size: 13.5px;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+
+    .theme-focus-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .focus-tag {
+      background: #F1F5F9;
+      color: #334155;
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .sample-countries {
+      font-size: 12px;
+      color: var(--slate-muted);
+    }
+
+    .sample-countries strong {
+      color: #334155;
+    }
+
+    .theme-stat-box {
+      background: var(--theme-bg);
+      border: 1px solid var(--theme-border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .theme-count {
+      font-family: 'Outfit', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--theme-color);
+      line-height: 1;
+    }
+
+    .theme-count-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #475569;
+      margin-top: 4px;
+    }
+
+    /* Participating Nations Honor Roll */
+    .honor-roll-section {
+      padding: 40px 48px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--slate-border);
+    }
+
+    .search-filter-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 260px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--slate-border);
+      font-family: inherit;
+      font-size: 14px;
+      background: #F8FAFC;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--rug-red);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(186, 28, 36, 0.1);
+    }
+
+    .filter-btn {
+      background: #F1F5F9;
+      border: 1px solid var(--slate-border);
+      color: #334155;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      background: #E2E8F0;
+    }
+
+    .filter-btn.active {
+      background: var(--navy-dark);
+      color: #FFFFFF;
+      border-color: var(--navy-dark);
+    }
+
+    .country-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-height: 380px;
+      overflow-y: auto;
+      padding: 16px;
+      background: #F8FAFC;
+      border-radius: 12px;
+      border: 1px solid var(--slate-border);
+    }
+
+    .country-pill {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #1E293B;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .country-pill:hover {
+      border-color: var(--rug-red);
+      color: var(--rug-red);
+      transform: translateY(-1px);
+    }
+
+    .country-tag-region {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--slate-muted);
+      background: #F1F5F9;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* Poster Footer */
+    .poster-footer {
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 36px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-quote {
+      font-size: 15px;
+      font-style: italic;
+      color: #38BDF8;
+      max-width: 600px;
+    }
+
+    .footer-host {
+      font-size: 13px;
+      color: #94A3B8;
+      text-align: right;
+    }
+
+    .footer-host strong {
+      color: #FFFFFF;
+    }
+
+    /* PAMPHLET / BROCHURE MODE */
+    .pamphlet-mode .poster-sheet {
+      border-radius: 16px;
+    }
+
+    .pamphlet-grid {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background: #FFFFFF;
+    }
+
+    .pamphlet-panel {
+      padding: 36px 30px;
+      border-right: 1px dashed var(--slate-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pamphlet-panel:last-child {
+      border-right: none;
+    }
+
+    .panel-header {
+      border-bottom: 2px solid var(--rug-red);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .panel-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--rug-red);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .panel-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy-dark);
+    }
+
+    /* Print Optimizations */
+    @media print {
+      .brand-stripe, .toolbar, .search-filter-bar, .action-btn {
+        display: none !important;
+      }
+      body {
+        background: #FFFFFF;
+        padding: 0;
+      }
+      .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .poster-sheet {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+      }
+      .poster-header {
+        padding: 24px;
+      }
+      .hero-nations, .map-section, .themes-section, .honor-roll-section, .poster-footer {
+        padding: 20px 24px;
+      }
+      .theme-card {
+        page-break-inside: avoid;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-nations {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-stat {
+        border-right: none;
+        border-bottom: 2px solid var(--slate-border);
+        padding-right: 0;
+        padding-bottom: 20px;
+      }
+      .theme-card {
+        grid-template-columns: 1fr;
+      }
+      .theme-stat-box {
+        margin-top: 12px;
+      }
+      .pamphlet-grid {
+        grid-template-columns: 1fr;
+      }
+      .pamphlet-panel {
+        border-right: none;
+        border-bottom: 1px dashed var(--slate-border);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brand-stripe"></div>
+
+  <!-- CONTROL TOOLBAR -->
+  <header class="toolbar">
+    <div class="toolbar-left">
+      <span class="toolbar-title">University of Groningen • GSC 2027</span>
+      <nav class="toolbar-nav">
+        <button class="view-btn active" onclick="switchView('poster')">🎯 Poster View</button>
+        <button class="view-btn" onclick="switchView('pamphlet')">📑 3-Panel Pamphlet View</button>
+      </nav>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <a href="index.html" class="action-btn">📊 Back to Dashboard</a>
+      <button class="action-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+  </header>
+
+  <main class="container" id="mainContainer">
+
+    <!-- POSTER VIEW -->
+    <article class="poster-sheet" id="posterView">
+      
+      <!-- Top Academic Header -->
+      <section class="poster-header">
+        <div class="poster-header-top">
+          <div class="rug-logo-container">
+            <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 639.5 294" width="2500" height="1149"><style>.st0{fill:none}.st1{fill:#c00}.st2{fill:#fff}</style><path class="st1" d="M237.8 0L0 294h401.6L639.5 0H237.8z"/><path class="st2" d="M457.6 63.5h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.3v-.9h-.3c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.8.9-2.8 2.3-2.8 1 0 1.7.6 1.7 2v3.9c0 .9-.1 1.2-1.1 1.2h-.3v.9h5.2v-.9h-.5c-1 0-1.1-.3-1.1-1.2V65c0-2-1.4-2.9-3.3-2.9-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.6.2l.2 1.1zm-1.5 3.8v-.4c0-3.2-1.3-4.6-4.3-4.6-3.2 0-4.6 2.1-4.6 4.9s1.4 4.9 4.6 4.9c3.2 0 4.1-1.6 4.1-3.3H454c0 1.4-.6 2.2-2 2.2-2.3 0-2.4-2.4-2.4-3.6l6.5-.1zm-6.4-1.1c0-1.6.5-2.9 2.1-2.9s2 1.3 2 2.9h-4.1zm-7.2-.7c0 1.6-.5 2.4-1.5 2.4s-1.6-.7-1.6-2.4c0-1.6.6-2.3 1.6-2.3.9.1 1.5.6 1.5 2.3zm.8 7.8c0 .9-.6 1.8-2.4 1.8-1.6 0-2.2-.8-2.2-1.7 0-1 .6-1.8 2.3-1.8 1.6-.1 2.3.7 2.3 1.7zm2.7-10.9l-2.8.2c-.5-.2-1.4-.4-2.2-.4-2.5 0-4.1 1.4-4.1 3.3 0 1.7 1.1 2.6 2.5 3-1.3.1-1.9.6-1.9 1.2s.4 1 1.7 1.2c-1.3.1-2.9.8-2.9 2.4 0 1.5 1.3 2.7 4.3 2.7 3.2 0 4.9-1 4.9-2.8 0-2.2-1.8-2.5-3.6-2.6-2.1-.2-2.4-.3-2.4-.9 0-.6.9-.7 1.5-.8l.5-.1c2.7-.4 3.5-1.9 3.5-3.4 0-.8-.4-1.6-.8-1.9h1.8v-1.1zm-22.4 1.1h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.3v-.9h-.3c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.8.9-2.8 2.3-2.8 1 0 1.7.6 1.7 2v3.9c0 .9-.1 1.2-1.1 1.2h-.3v.9h5.2v-.9h-.5c-1 0-1.1-.3-1.1-1.2V65c0-2-1.4-2.9-3.3-2.9-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.6.2l.2 1.1zm-5.1-4.2c0 .8.5 1.4 1.4 1.4.9 0 1.4-.6 1.4-1.4 0-.8-.5-1.4-1.4-1.4-.9 0-1.4.6-1.4 1.4zm-1.3 4.2h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.5v-.9h-.5c-1 0-1.1-.3-1.1-1.2v-7.3c-1.2.1-2.9.2-3.9.2l.1 1.1zm-12.8 0h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.3v-.9h-.3c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.8.9-2.8 2.3-2.8 1 0 1.7.6 1.7 2v3.9c0 .9-.1 1.2-1.1 1.2h-.1v.9h5.2v-.9h-.5c-1 0-1.1-.3-1.1-1.2V65c0-2-1.4-2.9-3.3-2.9-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.6.2v1.1zm-10.3 3.6c0 2.8 1.4 4.9 4.6 4.9 3.2 0 4.6-2.1 4.6-4.9s-1.4-4.9-4.6-4.9c-3.3 0-4.6 2.1-4.6 4.9zm2.4 0c0-2.6.6-3.8 2.1-3.8 1.6 0 2.1 1.2 2.1 3.8s-.6 3.8-2.1 3.8-2.1-1.2-2.1-3.8zm-11.8-3.6h.8c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h6v-.9h-1c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.6.9-2.8 1.7-2.8.7 0 .9.5 1 1.5h1.8v-2.7c-.4-.2-1-.2-1.5-.2-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.7.2l.1 1zm-4.4 2c0 1.6-.5 2.4-1.5 2.4s-1.6-.7-1.6-2.4c0-1.6.6-2.3 1.6-2.3.8.1 1.5.6 1.5 2.3zm.8 7.8c0 .9-.6 1.8-2.4 1.8-1.6 0-2.2-.8-2.2-1.7 0-1 .6-1.8 2.3-1.8 1.6-.1 2.3.7 2.3 1.7zm2.7-10.9l-2.8.2c-.5-.2-1.4-.4-2.2-.4-2.5 0-4.1 1.4-4.1 3.3 0 1.7 1.1 2.6 2.5 3-1.3.1-1.9.6-1.9 1.2s.4 1 1.7 1.2c-1.3.1-2.9.8-2.9 2.4 0 1.5 1.3 2.7 4.3 2.7 3.2 0 4.9-1 4.9-2.8 0-2.2-1.8-2.5-3.6-2.6-2.1-.2-2.4-.3-2.4-.9 0-.6.9-.7 1.5-.8l.5-.1c2.7-.4 3.5-1.9 3.5-3.4 0-.8-.4-1.6-.8-1.9h1.8v-1.1zm100-17.7h1.7v6c0 .9-.1 1.2-1.1 1.2h-.6v.9h6v-.9h-1c-1 0-1.1-.3-1.1-1.2v-6h2.5v-1.1h-2.5v-1.9c0-1.1.5-1.7 1.2-1.7s.9.4.9 1.7h1.6v-2.5c-.8-.2-1.6-.3-2.5-.3-3.5 0-3.6 2.1-3.6 4.7h-1.7l.2 1.1zm-10.2 3.4c0 2.8 1.4 4.9 4.6 4.9s4.6-2.1 4.6-4.9c0-2.8-1.4-4.9-4.6-4.9-3.3.1-4.6 2.1-4.6 4.9zm2.4 0c0-2.6.6-3.8 2.1-3.8 1.6 0 2.1 1.2 2.1 3.8 0 2.6-.6 3.8-2.1 3.8s-2.1-1.2-2.1-3.8zm-11.7 4.4l-.9 2.3c-.2.7-.5 1.1-1.2 1.1h-.9v.9h5.1v-.9h-.6c-.7 0-.9-.2-.9-.6 0-.3.2-.7.3-1l3.7-8.9c.3-.6.4-.9.8-.9h.4v-.9h-4v.9h.8c.3 0 .5.1.5.3 0 .2-.1.4-.2.7l-1.7 4.4-1.6-4.2c-.1-.3-.2-.6-.2-.9 0-.3.2-.3.5-.3h.7v-.9h-4.7v.9h.3c.5 0 .7.3 1.1 1.2l2.7 6.8zm-12.7-7.8h1.7v5.4c0 2.4 1.1 3 3 3 1.8 0 2.9-.9 2.9-2.9v-.4h-1.6v1c0 .8-.3 1.2-1 1.2s-1-.4-1-1.2v-6h3v-1.1h-3V41H454c-.2 1.9-.6 2.5-2.3 2.7l-.1 1zm-5.1-4.4c0 .8.5 1.4 1.4 1.4.9 0 1.4-.6 1.4-1.4 0-.8-.5-1.4-1.4-1.4-.9 0-1.4.6-1.4 1.4zm-1.2 4.2h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.5v-.9h-.5c-1 0-1.1-.3-1.1-1.2v-7.3c-1.2.1-2.9.2-3.9.2l.1 1.1zm-9.1 7.9c.5.2 1.9.6 3.5.6 2 0 4.1-.9 4.1-3.1 0-1.4-.7-2-2.4-2.5l-1.6-.5c-.9-.3-1.4-.8-1.4-1.5 0-.8.5-1.1 1.4-1.1 1.4 0 1.7.6 1.7 2.1h1.6v-2.6c-.6-.2-1.8-.5-3.3-.5-2.2 0-3.8 1-3.8 2.8 0 1.5 1.1 2.3 3.3 2.9 1.7.5 2 .9 2 1.6 0 .9-.8 1.4-2 1.4-1.3 0-1.7-.9-1.7-2.2H436l.2 2.6zm-9.9-7.9h.8c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h6v-.9h-1c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.6.9-2.8 1.7-2.8.7 0 .9.5 1 1.5h1.8v-2.7c-.4-.2-1-.2-1.5-.2-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.7.2v1h.1zm-1.4 3.8v-.4c0-3.2-1.3-4.6-4.3-4.6-3.2 0-4.6 2.1-4.6 4.9 0 2.8 1.4 4.9 4.6 4.9 3.2 0 4.1-1.6 4.1-3.3h-1.9c0 1.4-.6 2.2-2 2.2-2.3 0-2.4-2.4-2.4-3.6l6.5-.1zm-6.4-1.1c0-1.6.5-2.9 2.1-2.9s2 1.3 2 2.9h-4.1zm-7-2.7h.8c.4 0 .5.1.5.2 0 .2 0 .3-.1.5l-2 5.6-1.8-5.3c-.1-.2-.2-.4-.2-.7 0-.2.2-.3.8-.3h.6v-.9h-4.7v.9h.2c.4 0 .5.1.8.7l2.9 7.6h2.2l2.9-7.7c.2-.5.4-.6.8-.6h.2v-.9h-4c.1 0 .1.9.1.9zm-10.6-4.2c0 .8.5 1.4 1.4 1.4.9 0 1.4-.6 1.4-1.4 0-.8-.5-1.4-1.4-1.4-.9 0-1.4.6-1.4 1.4zm-1.3 4.2h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.5v-.9h-.5c-1 0-1.1-.3-1.1-1.2v-7.3c-1.2.1-2.9.2-3.9.2l.1 1.1zm-12.7 0h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.3v-.9h-.3c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.8.9-2.8 2.3-2.8 1 0 1.7.6 1.7 2v3.9c0 .9-.1 1.2-1.1 1.2h-.3v.9h5.2v-.9h-.5c-1 0-1.1-.3-1.1-1.2V46c0-2-1.4-2.9-3.3-2.9-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.6.2l.2 1.1zm-4.6 8.2h3.6v-.9h-.5c-1 0-1.1-.3-1.1-1.2v-7.3c-1.2.1-2.9.2-3.9.2v1h.7c.8 0 .9.2.9 1.4v2.6c0 2-.7 3-2.3 3-1.1 0-1.7-.5-1.7-1.7v-6.6c-1.2.1-2.9.2-3.9.2v1h.7c.8 0 .9.2.9 1.4v4.4c0 1.8 1.1 2.6 3 2.6s3.1-.8 3.5-2.1v2h.1zM361.2 43.4L327.5 85h2.7l33.7-41.5-2.7-.1zm-62.3-8.1c-.2 0-.6.1-.8-.3-.2-.4.5-1 .7-1.2.3-.3-.1-.6-.3-.2-.1.1-.6.8-1 .8-.7 0-.6-.8-.6-.8s-.7-.5-.7-1.9c0-1.3.9-1.9.9-1.9s0-.7.6-.7 1 .8 1 .9c.3.4.7.1.4-.2-.6-.7-.7-1.3-.1-1.6.2-.6 1-.9 1.8-1 .8.1 1.5.5 1.8 1 .7.3.5.9-.1 1.6-.3.3.1.7.4.2 0-.1.4-.9 1-.9s.6.7.6.7.9.6.9 1.9c0 1.5-.7 1.9-.7 1.9s0 .8-.6.8c-.4 0-1-.8-1-.8-.2-.3-.6 0-.3.2.2.2.9.8.7 1.2-.2.4-.5.3-.8.3 0 0-.2.4-.6.4 1.7 1.3 4.4.5 4.7-.4 0 0-.5.1-.4-.4 0-.3.3-.4.7-.5-.1-.2-.1-.4-.1-.6 0-.7.5-1.2 1-1.2s.9.5.9 1.2c0 .3-.1.6-.3.9.4.1.7.3.6.6-.1.6-.7.5-.7.5-.1 1.4 2.1 1.7 2.6 1.3-.2-.8.1-1 .4-1.3.2-.2.7-.5.8-.5.2-.1.2-.3.1-.4-.1-.1-.3.1-.4.2-.1.2-.4.5-.8.4-.5-.1-.3-.7-.4-1-.5-1.9-.1-3.2 1.8-3.9 0 0 .7-.7 1.3-.4.6.3.2 1.3.2 1.3l.2.1c.7-1.2 1.7-2.1 3.1-2.2 1 0 1.5.6 1.5 1.4.1 1.8-1.7 1.1-1.6.5 0 0-.4 0-.7.4 0-.1 0-1.2-.9-.6-.3.2-.8 1-.8 1.1-.1.4.1.4-.1.8-.1.3-.3.3-.4.5-.1.2 0 .6-.1.8l-.5.6c-.1.2-1.4 3.6-1.4 3.6s.5.3.4.8c-.1.7-.6.5-.8 1-7.2-1.9-14.7-1.9-22.4 0-.2-.4-.6-.3-.8-.9-.1-.5.4-.8.4-.8s-1.3-3.4-1.4-3.6l-.5-.6c-.1-.2 0-.6-.1-.8-.1-.2-.3-.3-.4-.5-.2-.3 0-.4-.1-.8 0-.1-.5-.9-.8-1.1-1-.6-.9.5-.9.6-.2-.4-.7-.4-.7-.4.1.7-1.7 1.3-1.6-.5 0-.8.5-1.4 1.5-1.4 1.4 0 2.4.9 3.1 2.2l.2-.1s-.4-1 .2-1.3c.6-.3 1.3.4 1.3.4 1.9.8 2.3 2.1 1.8 3.9-.1.3.1.8-.4 1-.4.1-.6-.3-.8-.4-.1-.1-.3-.2-.4-.2-.1.1 0 .3.1.4.1 0 .6.4.8.5.2.2.6.5.4 1.3.5.4 2.7.1 2.6-1.3 0 0-.6.2-.7-.5 0-.2.2-.4.6-.6-.2-.2-.3-.5-.3-.9 0-.7.4-1.2.9-1.2s1 .6 1 1.2c0 .2 0 .5-.1.6.4.1.7.2.7.5 0 .5-.4.4-.4.4.4.9 3 1.6 4.7.4-.4-.1-.6-.5-.6-.5zm.6-3.4c0 .7.6 1.2 1.2 1.2.7 0 1.2-.6 1.2-1.2s-.6-1.2-1.2-1.2c-.6-.1-1.2.5-1.2 1.2zm6.9 5.4c.5 0 1.6.2 1.6.2s-.4-.5-.7-.8c0 0-.2.2-.4.3-.1 0-.5.3-.5.3zm-5.6-1.1c-.2.2-.6.6-1.1.8h2c-.3-.2-.7-.6-.9-.8zm-5.7 1.1l-.6-.3c-.1-.1-.4-.3-.4-.3-.2.3-.6.8-.6.8s1.1-.3 1.6-.2zm16.5 3.3c.3.1.8.4.7.9-.1.5-.7.6-1.1.5s-.8-.4-.7-.9c.2-.5.8-.6 1.1-.5zm-4.5-.1l-1.1.9-.9-1.1 1.1-.9.9 1.1zM290.4 42c-.3.1-.9 0-1.1-.5-.1-.5.4-.8.7-.9s.9 0 1.1.5c.1.5-.4.8-.7.9zm9.3-1.8c0-.4.5-.7 1.1-.7.6 0 1.1.3 1.1.7 0 .4-.5.7-1.1.7-.6 0-1.1-.3-1.1-.7zm-5.2.3l.9-1 1.1.9-.9 1.1-1.1-1zm-9 31.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4-.1-.3-.6zm2.2-2.3c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.5-.1-.3-.6zm2.1-2.4c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4 0-.3-.6zm11-21.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.1-.3-.7zm2.1 8c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.1-.3-.7zm2.5-2.6c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.2-.3-.7zm2.5-2.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.1-.3-.7zm2.5-2.6c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.2-.3-.7zm-26.3 17.8c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4 0-.3-.6zm5.8 14.2c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4 0-.3-.6zm2.5-2.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4 0-.3-.6zm2.5-2.6c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1 0-.4-.1-.3-.6zm2.5-2.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1 0-.4-.1-.3-.6zm10.9-11.5c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.4-.2-.3-.7zm2.2-2.4c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1-.1-.4-.2-.3-.7zm2.3-2.5c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.1-.3-.7zm2.2-2.4c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.4-.2-.3-.7zm-17.3 29.2c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.5 0-.3-.6zM315 61.1c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.4-.1-.3-.7zm-16.8 2c0-.1.1-.1.3-.1.2 0 .4-.1.4 0s-.2 0-.2.2V65h.3c0 .1-.2.1-.4.1h-.4l.1-.1v-1.7l-.1-.2zm-1.9.7s.1-.1.2-.1c.1-.1.2-.1.3 0 .1.1.6.7.6.7v-.9l-.2-.1c0-.1.1-.1.2-.1s.3-.2.3-.1l-.1.2v1.7c0 .1 0 .1-.1.1l-.9-1.1v1.2l.2.1c0 .1-.1.1-.3.1-.1 0-.3.1-.3.1l.2-.2v-1.5l-.1-.1zm-.7 1.1c0-.7-.5-.5-.5-.5v1.5c.1 0 .5 0 .5-1zm-1-.3c0-.1.2-.1.4-.2.3-.1 1.1-.6 1.1.5 0 1-.7 1.1-.9 1.2-.2.1-.5.2-.5.2 0-.1.1-.1.1-.3v-1.2c-.1-.3-.2-.1-.2-.2zm3-4.5s.2-.1.3-.1c.2 0 .3-.1.3 0 .1.1.4.6.4.6l.4-.6s0-.1.2-.1h.3c0 .1-.1 0-.1.2v1.6c0 .2.1.1.1.2s-.1 0-.4 0h-.4c0-.1.1 0 .1-.2v-1.1l-.4.6-.5-.7v1.3c0 .2.2.1.2.2 0 0-.2.1-.3.1-.1 0-.2.1-.3 0 0-.1.1 0 .1-.3v-1.5c.2-.2 0-.1 0-.2zm-.6.3c.1 0 .2-.1.3-.1 0 0-.1.1-.1.4 0 .1-.4 1.9-.5 1.9 0 0-.6-1.4-.7-1.5-.1-.2-.2-.1-.2-.1s.1-.1.3-.2c.1 0 .3-.2.3-.2.1.1-.1.1 0 .3l.4.9s.2-.8.2-1.1c.1-.3-.1-.1-.2-.2 0 0 .1-.1.2-.1zm-2.2 1.8v1s.5-.1.5-.7c0-.5-.5-.3-.5-.3zm0-.8v.6s.4-.1.4-.4c0-.4-.4-.2-.4-.2zm0-.2c.2-.1.8-.2.8.3 0 .3-.2.4-.2.4s.4.1.4.4c0 .4-.2.7-.4.8l-.8.4c-.1 0-.2.1-.2.1 0-.1.1-.1.1-.3v-1.6c0-.3-.2-.2-.2-.3 0 0 .3-.1.5-.2zm3.5-4.4v.8s.4 0 .4-.5-.4-.3-.4-.3zm1 1.8h.2s0 .3-.3.3c-.4 0-.4-.7-.5-.9-.1-.2-.3-.1-.3-.1v.7c0 .2.1.1.1.2l-.1.1-.4.1h-.2c0-.1.1 0 .1-.3v-1.5c0-.3-.2-.2-.2-.3 0 0 .1-.1.2-.1l.5-.2c.3-.1.7.1.7.4 0 .4-.2.5-.4.6.6.3.4.9.6 1zm-3-1.1c.2-.1.5-.2.9-.4 0 0 .2-.1.3 0 .1.1.1.3.1.3-.1 0-.1 0-.2-.1-.1 0-.2-.1-.3-.1l-.2.1v.6s.2 0 .2-.1.1-.2.1-.2v.7c-.1 0-.1-.1-.1-.2s-.2 0-.2 0v.9l.2-.1c.1-.1.3-.3.3-.4.1-.1.1-.2.2-.2v.4s0 .2-.1.2l-.9.4c-.1.1-.3.2-.3.1s.1 0 .1-.3v-1.5c0 .2 0 .1-.1-.1-.1.1-.2.1 0 0zm-1.7.7c.1 0 .4-.2.4-.1s-.1.1-.1.2c.1.2.4.9.4.9l.3-1.1c.1-.2-.1-.2-.2-.2 0 0 .1-.1.2-.1s.3-.1.3-.1c0 .1-.1.1-.1.3-.1.3-.5 2-.6 2.1-.1 0-.7-1.5-.7-1.6 0-.1-.2-.1-.2-.1 0-.1.2-.1.3-.2zm8 4.9h.2c.1 0 .2.1.3.2l.7 1.3v-1c0-.1-.1-.1-.1-.2s.1 0 .2 0 .2 0 .2.1c0 0-.1 0-.1.1v1.9h-.1c0-.1-1-1.7-1-1.7V65c0 .1.1.1.1.2s-.1 0-.2 0-.2 0-.2-.1.1 0 .1-.1v-1.6c0-.2-.1-.2-.1-.3zm.9-2.9c0-.1.3.1.6.1.2.1.7.1.7.3v.4l-.2-.3c-.1-.1-.4-.2-.4-.2v.6s.2.1.2 0l.2-.2v.7s-.1-.2-.2-.3c-.1-.1-.2-.1-.2-.1v1s.1.1.4.1l.5-.2s0 .1-.1.3c-.1.2-.2.3-.3.3l-.6-.2c-.2-.1-.5-.2-.5-.2 0-.1.2.1.2-.1v-1.7l-.3-.3zm-.4-.3c.1 0 .1.3.1.4 0 .2.1.4 0 .4s-.2-.3-.4-.5c-.1-.1-.7-.4-.7.7 0 1 .4.9.6.9.2-.1.3-.2.3-.2s-.2.5-.6.5c-.5.1-.9-.4-.9-1.1s.4-1.2.8-1.2.5.2.6.2l.2-.1zm1.2-2.6c0-.1.2 0 .4.1.3.1.5.2.4.2 0 0-.2 0-.2.1s.3 1.1.3 1.1l.4-.8c0-.1-.1-.1-.1-.2 0 0 .1 0 .2.1s.2.1.2.1c0 .1-.1-.1-.2 0l-.7 1.6-.7-2.2v-.1zm-1.6-.6s.1 0 0 0l.7.2s.1 0 .1.1c0 0-.2-.1-.2.1v1.7s0 .1.2 0 .5-.3.5-.3.1-.1.1 0l-.2.4s0 .1-.2.1-.6-.2-.7-.2l-.4-.1-.1-.1s.2 0 .2-.2V57c.1-.2 0-.2 0-.3zm2.4 6.1c0-.1.2 0 .2-.1V61c0-.2-.1-.2-.1-.3 0-.1.2 0 .2.1l.6.3s.6.2.6.8c0 .4-.3.3-.3.3s.3.2.3.5l.1.6s.1.2.2 0c0 0 0 .3-.4.2-.2-.1-.3-.3-.3-.5s-.1-.9-.4-.9v.8c0 .2.1.1.1.3 0 .1-.2 0-.3-.1-.4-.2-.5-.2-.5-.3zm.6-1.7v.8s.4.3.4-.2-.4-.6-.4-.6zm-.9 2.9c0-.1-.1-.2-.1-.2s.2 0 .3.1.2.1.3.2l.6 2 .1.2s-.2 0-.4-.2c-.2-.1-.4-.1-.4-.2s.2.1.2-.1l-.1-.4-.7-.2-.1.3c0 .2.1.1.1.2 0 0-.1 0-.2-.1l-.2-.1c0-.1.1 0 .1-.1.1 0 .5-1.3.5-1.4zm.1.2l-.2.7.5.2-.3-.9zm13.3-20.7v22c.2 13.1-10.5 17.8-17.6 17.8-7.1 0-17.8-4.7-17.6-17.8v-22h6.6c0-.4.1-.7.1-.7 9-1.8 13.3-1.9 22.2 0 .2.2.2.5.2.7h6.1zm-31.9 31.8l6.9-7.3v-2.1h-.8s-.5-.1-.4-.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.1 0 .2-.1.2-.1v-1.4l-8.6 9.1c.5 1.3 1.1 2.5 1.8 3.5zm8.5-18.6l.3-.1c.3-.2.9-.5 1.6-.8.6-.3 1.4-.5 2-.5.6 0 1.1.2 1.4.4.2.1.3.2.4.2v-.1l.3-.3c.3-.2.7-.3 1.4-.3s1.5.3 2.2.6l.1.1 11-11.7h-5l-9.7 10.3v-5l5-5.4h-22.3v21.3c0 .8 0 1.6.1 2.3l4.8-5.1h4.6v-4.1c-.1.1-.2.1-.2.1s.1-.4-.2-.4h-.1c-.2 0-.3.1-.4.2-.2.1-.7.7-.8.8-.1-.1-.6-.7-.8-.8-.1-.1-.2-.2-.4-.2h-.1c-.3.1-.2.4-.2.4s-.3 0-.3-.4c0-.3.2-.5.5-.6.3-.1.7-.1.7-.7v-.1s-.1.2-.4.3c-.3.2-1.3.2-1.2.7 0 .2.2.2.2.2s0 .1-.2.1h-.1c-.2 0-.3-.3-.3-.5s-.1-.4-.3-.4h-.1c-.2.1-.1.3-.1.3s-.2-.1-.2-.3c0-.2.2-.3.3-.4h.5s-.1-.2 0-.4c0-.2.1-.3.3-.4.4-.1.4.2.4.3 0 0-.1-.1-.2-.1l-.1.1c-.1.1.1.3.1.3.1.1.3.2.6.1s.5-.3.6-.5c.1-.1.1-.2.1-.2l.2-1.9s.1-.5-.3-.5h-.1c-.3 0-.6.4-.5.9.1.4-.1.6-.3.7-.2.1-.4 0-.4-.2.4 0 .4-.3.2-.5-.1 0-.1-.1-.2 0-.4.1-.9.6-1 .9-.1.3.1.2.2.4s-.1.3-.1.3v.2c0 .2-.1.2-.2.2h-.1c.1 0 .1-.1.1-.2v-.1s-.1 0-.2-.1l-.1-.4c-.1-.2-.5-.4-.7-.4H286.8l-.3-.1c-.1 0-.1.1-.1.2-.1-.1-.1-.2-.1-.3 0-.3.2-.5.3-.5.2 0 .3.1.3.1.1-.5-.2-.3-.4-.5-.1-.2-.1-.2-.1-.3 0-.1-.1-.1-.2-.1h-.1s0-.2.3-.3h.3c.1 0 .2 0 .3.1v.3c0 .3.2.3.2.3-.2-.4 0-.6.1-.6 0-.1 0-.2-.1-.2 0 0 .4 0 .5.3 0 0 .2.1.2.3 0 .3-.1.3-.2.4 0 .3.2.3.4.3s.3-.1.3-.1c.3-.1.8-.5.7-.7-.1-.1-.2-.2-.3-.2l-.2.1c-.2.2-.1.4-.1.4-.2.1-.4-.4-.2-.5.1-.1.2-.2.4-.2l.5-.1c.2 0 .4-.2.5-.4.1-.2.1-.4 0-.6-.1-.2-.3-.5-.6-.5-.1.5-.3.8-.6 1.1-.1.1-.2.1-.2.1h-.1c.4-.5.3-1 .3-1 0 .1-.4.6-.9.9h-.2c-.3 0-.6-.1-.5-.1.2 0 1-.5.8-1.5 0 .1-.4.7-.8 1-.2.1-.4.2-.6.2-.4.1-.6 0-.6-.1 0 0 1-.5 1-.9 0 0-.3.2-.6.3h-.1c-.8 0-.8-.6-.8-.6.1 0 .8.1 1.5-1.3 0 0-.4.1-.9.2-.3 0-.4-.1-.4-.1h.2c.2 0 .4-.1.7-.3-.1 0-1.1-.5-.7-1.2 0 0 .3.2.6.3.3 0 .7 0 .8-.3 0 0-.5 0-1.1-.4-.3-.2-.4-.7-.3-.5.1.1.2.2.4.2h.2s-.8-.7-.3-1.3c0 0 .3.7.9.7 0 0-.3-.3-.4-.7v-.5l.1.3c.1.1.3.3.4.5 0 0-.1-.4 0-.7 0-.1.2-.3.2-.3v.3c0 .2.1.6.6 1 .6.6 1.2.6 1.2 1 0 .5-.6.4-.9.4-.1 0-.1.2 0 .3.3.4 1.6.5 2-.2.1-.2.2-.5.1-.8-.1-.3-.4-.4-.9-.5-.4-.1-.3-.2-.2-.2 0 0 .1.1.2.1.3 0 .1-.4.1-.3-.1 0-.4.1-.6.2-.3 0-.7-.1-.7-.3 0-.3.3-.3.3-.3s-.2.4.4.4h.6c0-.1-.2-.2-.3-.2h-.4c-.1-.2.1-.3.2-.4.1-.1.2 0 .3-.1.1 0 .1-.2.5-.3.2 0 .5.1.7.1.1 0 .4-.1.4 0 0 0-.1.2-.1.3 0 .3.5 1.5 1 1.6.5-.1 1-1.3 1-1.6 0-.1-.1-.3-.1-.3h.4c.1 0 .4-.1.7-.1.4 0 .4.2.5.3.1 0 .1 0 .3.1s.3.2.2.4h-.4c-.1 0-.3.1-.3.2h.6c.6 0 .4-.3.4-.4 0-.1.3 0 .3.3 0 .2-.4.4-.7.3-.3 0-.6-.1-.6-.2 0 0-.2.4.1.3.1 0 .2-.1.2-.1.1 0 .2.2-.2.2-.5.1-.8.1-.9.5-.1.3-.1.5.1.8.4.7 1.7.6 2 .2.1-.1.1-.3 0-.3-.4 0-.9.1-.9-.4 0-.4.7-.4 1.2-1 .5-.5.6-.8.6-1v-.3c0-.1.2.2.2.3.1.4 0 .7 0 .7.1-.1.3-.3.4-.5l.1-.3c0-.1.1.2 0 .5-.1.4-.4.7-.4.7.6 0 .9-.7.9-.7.5.6-.3 1.3-.3 1.3h.2c.2 0 .3-.1.4-.2.1-.1 0 .3-.3.5-.5.3-1.1.4-1.1.4.1.3.5.3.8.3.3 0 .6-.3.6-.3.4.7-.6 1.1-.7 1.2.3.2.5.3.7.3h.2s-.1.2-.4.1c-.5-.1-.9-.2-.9-.2.6 1.3 1.4 1.3 1.5 1.3 0 0 0 .6-.8.6h-.1c-.3 0-.6-.2-.6-.3 0 .4 1 .9 1 .9.1 0-.2.1-.6.1-.2 0-.4-.1-.6-.2-.4-.3-.8-.9-.8-1-.2 1 .6 1.5.8 1.5.1 0-.2.2-.5.1h-.2c-.6-.3-.9-.8-.9-.9 0 0-.1.6.3 1h-.1c-.1 0-.2 0-.2-.1-.3-.2-.6-.6-.6-1.1-.3 0-.5.3-.6.5-.1.2-.1.4 0 .6.1.3.3.4.5.4l.5.1c.1 0 .3.1.4.2.2.2 0 .6-.2.5 0 0 .1-.2-.1-.4l-.2-.1c-.1 0-.2 0-.3.2-.2.3.4.6.7.7 0 0 .1.1.3.1.2 0 .3 0 .4-.3-.1-.1-.2-.1-.2-.4 0-.2.2-.3.2-.3.1-.3.5-.3.5-.3-.1 0-.1.1-.1.2s.2.2.1.6c0 0 .2 0 .2-.3v-.3c0-.1.1-.1.3-.1.1 0 .2-.1.3 0 .2 0 .3.2.3.2h-.1c-.1 0-.2 0-.2.1s.1.1-.1.3c-.2.2-.5.1-.4.5 0 0 .1-.1.3-.1.2 0 .3.2.3.5 0 .1 0 .2-.1.3 0-.1 0-.2-.1-.2l-.3.1H296.1c-.3 0-.6.2-.7.4l-.1.4c-.1.1-.2.1-.2.1l-.3.6zm-.7.2c.2 0 .4-.1.5-.2l-.1-.1v-.2s-.2-.1-.1-.3c.1-.2.3-.2.2-.4-.1-.3-.7-.8-1-.9h-.2c-.1.1-.1.4.2.5-.1.2-.2.2-.4.2s-.4-.3-.3-.7c.1-.5-.2-.8-.5-.9h-.1c-.3.1-.3.5-.3.5l.2 1.9c0 .1 0 .1.1.2.1.2.3.4.6.5.3 0 .5 0 .6-.1 0 0 .1-.2.1-.3l-.1-.1c-.1 0-.2.1-.2.1-.1-.1 0-.4.4-.3.2 0 .3.2.3.4v.4l.1-.2zm-1 .7v-.2c-.3-.1-.5-.1-.7-.2-.3-.1-.4-.3-.4-.3v.1c.1.6.4.6.7.7.1 0 .3.1.4.3v-.4zM305 68.2c-.1.1 0 .3 0 .4.3.4 1.4.5 1.9 0-.6-.1-1.2-.2-1.9-.4zm3.1-1c.2.2.3.4.5.4.5-.1 1-1.3 1-1.6 0-.1-.1-.3-.1-.3h.4c.1 0 .4-.1.7-.1.4 0 .4.2.5.3.1 0 .1 0 .3.1.1.1.3.2.2.4h-.4c-.1 0-.3.1-.3.2h.6c.6 0 .4-.3.4-.4 0-.1.3 0 .3.3 0 .2-.4.4-.7.3-.3 0-.6-.1-.6-.2 0 0-.2.4.1.3.1 0 .2-.1.2-.1.1 0 .2.2-.2.2-.5.1-.8.1-.9.5-.1.3-.1.5.1.8.4.7 1.7.6 2 .2.1-.1.1-.3 0-.3-.4 0-.9.1-.9-.4 0-.4.7-.4 1.2-1 .5-.5.6-.8.6-1v-.3c0-.1.2.2.2.3.1.4 0 .7 0 .7.1-.1.3-.3.4-.5l.1-.3c0-.1.1.2 0 .5-.1.4-.4.7-.4.7.6 0 .9-.7.9-.7.5.6-.3 1.3-.3 1.3h.2c.2 0 .3-.1.4-.2.1-.1 0 .3-.3.5-.5.3-1.1.4-1.1.4.1.3.5.3.8.3.3 0 .6-.3.6-.3.4.7-.6 1.1-.7 1.2.3.2.5.3.7.3h.2s-.1.2-.4.1c-.5-.1-.9-.2-.9-.2.6 1.3 1.4 1.3 1.5 1.3 0 0 0 .6-.8.6h-.1c-.3 0-.6-.2-.6-.3 0 .4 1 .9 1 .9s-.2.1-.6.1c-.2 0-.4-.1-.6-.2-.4-.3-.8-.9-.8-1-.2 1 .6 1.5.8 1.5.1 0-.2.2-.5.1h-.2c-.6-.3-.9-.8-.9-.9 0 0-.1.6.3 1h-.1c-.1 0-.2 0-.2-.1-.3-.2-.6-.6-.6-1.1-.3.1-.5.3-.6.5-.1.2-.1.4 0 .6.1.3.3.4.5.4l.5.1c.1 0 .3.1.4.2.2.2 0 .6-.2.5 0 0 .1-.2-.1-.4l-.2-.1c-.1 0-.2 0-.3.2-.2.3.4.6.7.7 0 0 .1.1.3.1.2 0 .3 0 .4-.3-.1-.1-.2-.1-.2-.4 0-.2.2-.3.2-.3.1-.3.5-.3.5-.3-.1 0-.1.1-.1.2s.2.2.1.6c0 0 .2 0 .2-.3v-.3c0-.1.2-.1.3-.1.1 0 .2-.1.3 0 .2 0 .3.2.3.2h-.1c-.1 0-.2 0-.2.1s.1.1-.1.3c-.2.2-.5.1-.4.5 0 0 .1-.1.3-.1.2 0 .3.2.3.5 0 .1 0 .2-.1.3 0-.1 0-.2-.1-.2l-.3.1H313.1c-.3 0-.6.2-.7.4l-.1.4c-.1.1-.2.1-.2.1v.1c0 .1 0 .2.1.2h-.1c-.1 0-.2-.1-.2-.2v-.2s-.2-.1-.1-.3c.1-.2.3-.2.2-.4-.1-.3-.7-.8-1-.9h-.2c-.1.1-.1.4.2.5-.1.2-.2.2-.4.2s-.4-.3-.3-.7c.1-.5-.2-.8-.5-.9h-.1c-.3.1-.3.5-.3.5l.2 1.9c0 .1 0 .1.1.2.1.2.3.4.6.5.3.1.5 0 .6-.1 0 0 .1-.2.1-.3l-.1-.1c-.1 0-.2.1-.2.1-.1-.1 0-.4.4-.3.2 0 .3.2.3.4v.4s.2-.1.4 0h.1c.2.1.3.2.3.4s-.2.3-.2.3.1-.2-.1-.3h-.1c-.2 0-.4.2-.3.4 0 .3-.1.5-.3.5h-.1c-.2 0-.2-.1-.2-.1s.2 0 .2-.2c0-.5-.9-.5-1.2-.7-.3-.1-.4-.3-.4-.3v.1c.1.6.4.6.7.7.2.1.5.2.5.6 0 .4-.3.4-.3.4s.1-.4-.2-.4h-.1c-.2 0-.3.1-.4.2-.2.1-.7.7-.8.8-.1-.1-.6-.7-.8-.8-.1-.1-.2-.2-.4-.2h-.1c-.3.1-.2.4-.2.4s-.3 0-.3-.4c0-.3.2-.5.5-.6.3-.1.7-.1.7-.7v-.1s-.1.2-.4.3c-.3.2-1.3.2-1.2.7 0 .2.2.2.2.2s0 .1-.2.1h-.1c-.2 0-.3-.3-.3-.5s-.1-.4-.3-.4h-.1c-.2.1-.1.3-.1.3s-.2-.1-.2-.3c0-.2.2-.3.3-.4h.5s-.1-.2 0-.4c0-.2.1-.3.3-.4.3-.1.4.2.4.3 0 0-.1-.1-.2-.1l-.1.1c-.1.1.1.3.1.3.1.1.3.2.6.1s.5-.3.6-.5c.1-.1.1-.2.1-.2L308 74s.1-.5-.3-.5h-.1c-.3 0-.6.4-.5.9.1.4-.1.6-.3.7-.2.1-.4 0-.4-.2.4 0 .4-.3.2-.5-.1 0-.1-.1-.2 0-.4.1-.9.6-1 .9-.1.3.1.2.2.4s-.1.3-.1.3v.2c0 .2-.1.2-.2.2h-.1c.1 0 .1-.1.1-.2v-.1s-.1 0-.2-.1l-.1-.4c-.1-.2-.5-.4-.7-.4H304l-.3-.1c-.1 0-.1.1-.1.2-.1-.1-.1-.2-.1-.3 0-.3.2-.5.3-.5.2 0 .3.1.3.1.1-.5-.2-.3-.4-.5-.1-.2-.1-.2-.1-.3 0-.1-.1-.1-.2-.1h-.1s0-.2.3-.3h.3c.1 0 .2 0 .3.1v.3c0 .3.2.3.2.3-.2-.4 0-.6.1-.6 0-.1 0-.2-.1-.2 0 0 .4 0 .5.3 0 0 .2.1.2.3 0 .3-.1.3-.2.4 0 .3.2.3.4.3s.3-.1.3-.1c.3-.1.8-.5.7-.7-.1-.1-.2-.2-.3-.2l-.2.1c-.2.2-.1.4-.1.4-.2.1-.4-.4-.2-.5.1-.1.2-.2.4-.2l.5-.1c.2 0 .4-.2.5-.4.1-.2.1-.4 0-.6-.1-.2-.3-.5-.6-.5-.1.5-.3.8-.6 1.1-.1.1-.2.1-.2.1h-.1c.4-.5.3-1 .3-1 0 .1-.3.6-.9.9h-.2c-.3 0-.6-.1-.5-.1.2 0 1-.5.8-1.5 0 .1-.4.7-.8 1-.2.1-.4.2-.6.2-.3.1-.6 0-.6-.1 0 0 1-.5 1-.9 0 0-.3.2-.6.3h-.1c-.8 0-.8-.6-.8-.6.1 0 .8.1 1.5-1.3 0 0-.4.1-.9.2-.3 0-.4-.1-.4-.1h.2c.2 0 .4-.1.7-.3-.1 0-1.1-.5-.7-1.2 0 0 .3.2.6.3.3 0 .7 0 .8-.3 0 0-.5 0-1.1-.4h-.8c-.2.7-.7 1.2-1.4 1.2s-1.2-.5-1.4-1.2c-.4-.1-.8-.1-1.3-.1l-9.7 10c.9.9 1.9 1.6 3 2.2l8.8-9.4v5l-5.6 5.9c2 .7 4.1 1 5.9 1 6.9 0 17.2-4.5 17-17.1v-8.1l-4.4 4.7h-4.7l9.1-9.7V47L308 57.2l.1.1v9.9zm-1.1 3.1h3.1V69H307v1.3zm1.6 2.4c1.4 0 1.5-1.3 1.5-1.3H307c.1 0 .2 1.3 1.6 1.3zm-18.7-21.9h3.1v-1.3h-3.1v1.3zm1.6 2.4c1.4 0 1.5-1.3 1.5-1.3h-3.1s.2 1.3 1.6 1.3zm8.4 14.5c0 .4.3.7.7.7.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7-.4.1-.7.4-.7.7zm-6.3-10.1v10.3s.1.1.8-.1c.8-.2 1.8-1.2 3.2-1.5 1-.2 2.4.1 2.8.3V56.3s-.6-.6-1.7-.6c-1 0-2.7.9-3.4 1.2-.6.3-1.2.5-1.6.5-.1.1-.1.2-.1.2zm9 8.7c1.8 0 2.7 1.1 3.3 1.4 1.4.6 1.7.3 1.7.3V57.5c0-.1-.1-.1-.1-.1s-1.4-.2-1.9-.5-2.1-1.3-3.4-1.3c-1.2 0-1.5.5-1.5.5v10.5c.1.1.7-.3 1.9-.3z"/></svg>
+          </div>
+          <div class="conf-badge">Global Sustainability Conference 2027</div>
+        </div>
+
+        <h1 class="poster-title">Groningen Sustainability Conference 2027</h1>
+        <p class="poster-subtitle">Lessons from the SDGs for the Post-2030 Agenda</p>
+
+        <div class="poster-meta-bar">
+          <div class="meta-item">
+            <span>📅</span>
+            <span><strong>Dates:</strong> April 05 – 10, 2027</span>
+          </div>
+          <div class="meta-item">
+            <span>📍</span>
+            <span><strong>Venue:</strong> Zernike Campus, Groningen, The Netherlands</span>
+          </div>
+          <div class="meta-item">
+            <span>🏛️</span>
+            <span><strong>Host:</strong> University of Groningen (Rijksuniversiteit Groningen)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architectural Illustration Banner -->
+      <section class="skyline-strip">
+        <img src="visuals/groningen_skyline_pure.png" alt="University of Groningen Architectural Landmarks" class="skyline-img">
+        <p class="skyline-caption">“ SDGs have shown us what is possible; now we need to design what comes next. ” — Groningen Academiegebouw • Forum • Martinitoren • Energy Academy Europe</p>
+      </section>
+
+      <!-- HERO STAT: 73 NATIONS -->
+      <section class="hero-nations">
+        <div class="hero-stat">
+          <div class="hero-num">72</div>
+          <div class="hero-label">Nations</div>
+          <div class="hero-sublabel">Represented Worldwide</div>
+        </div>
+        <div>
+          <p class="hero-desc">
+            A truly global gathering uniting leading researchers, international policymakers, and community leaders across <strong>6 continents</strong> to co-design the future of sustainability.
+          </p>
+          <div class="continent-pills">
+            <div class="continent-pill">
+              <span class="pill-dot" style="background:#BA1C24;"></span>
+              <span>Europe: <strong>20 Nations</strong></span>
+            </div>
+            <div class="continent-pill">
+              <span class="pill-dot" style="background:#D97706;"></span>
+              <span>Asia: <strong>16 Nations</strong></span>
+            </div>
+            <div class="continent-pill">
+              <span class="pill-dot" style="background:#0D9488;"></span>
+              <span>Africa: <strong>16 Nations</strong></span>
+            </div>
+            <div class="continent-pill">
+              <span class="pill-dot" style="background:#2563EB;"></span>
+              <span>Americas: <strong>6 Nations</strong></span>
+            </div>
+            <div class="continent-pill">
+              <span class="pill-dot" style="background:#0284C7;"></span>
+              <span>Oceania: <strong>2 Nations</strong></span>
+            </div>
+            <div class="continent-pill">
+              <span class="pill-dot" style="background:#7C3AED;"></span>
+              <span>Middle East & West Asia: <strong>10 Nations</strong></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAP SECTION -->
+      <section class="map-section">
+        <h2 class="section-title">Worldwide Participating Nations</h2>
+        <p class="section-desc">Global geographical footprint of submitting countries across North America, Latin America, Europe, Africa, Middle East, Asia, and Oceania.</p>
+        <div class="map-wrapper">
+          <img src="visuals/poster_regional_world_map.png" alt="World Map of Participating Nations">
+        </div>
+      </section>
+
+      <!-- THEMATIC PILLARS -->
+      <section class="themes-section">
+        <h2 class="section-title">Global Thematic Pillars & Nation Engagement</h2>
+        <p class="section-desc">Discover how 73 nations are channeling their research focus into the 5 core conference themes.</p>
+
+        <div class="themes-grid">
+
+          <div class="theme-card" style="--theme-color:#0D9488; --theme-bg:#F0FDFA; --theme-border:#99F6E4;" onclick="filterByTheme(1)">
+            <div>
+              <span class="theme-badge" style="background:#0D9488;">Theme 01</span>
+              <h3 class="theme-title">SDGs Beyond 2030</h3>
+              <p class="theme-tagline">Evaluating 15 years of SDG implementation & architecting post-2030 global governance</p>
+              <div class="theme-focus-list">
+                <span class="focus-tag">National & Local SDG Delivery</span><span class="focus-tag">Multi-Level Governance & Synergies</span><span class="focus-tag">Beyond-GDP Metrics</span><span class="focus-tag">Global Development Finance</span>
+              </div>
+              <p class="sample-countries">
+                <strong>Leading Participating Nations:</strong> Netherlands, India, China, Germany, Indonesia, South Africa, Brazil, United Kingdom, Switzerland...
+              </p>
+            </div>
+            <div class="theme-stat-box">
+              <div class="theme-count">40</div>
+              <div class="theme-count-label">Nations Engaged</div>
+            </div>
+          </div>
+    
+          <div class="theme-card" style="--theme-color:#0284C7; --theme-bg:#F0F9FF; --theme-border:#BAE6FD;" onclick="filterByTheme(2)">
+            <div>
+              <span class="theme-badge" style="background:#0284C7;">Theme 02</span>
+              <h3 class="theme-title">Resilience Across Systems</h3>
+              <p class="theme-tagline">Integrating food, water, energy and ecological thresholds for systemic transformation</p>
+              <div class="theme-focus-list">
+                <span class="focus-tag">Food-Water-Energy Nexus</span><span class="focus-tag">Nature-Based Solutions & Biodiversity</span><span class="focus-tag">Circular Bioeconomy</span><span class="focus-tag">Socio-Ecological Transitions</span>
+              </div>
+              <p class="sample-countries">
+                <strong>Leading Participating Nations:</strong> China, Netherlands, Germany, India, Egypt, France, Kenya, Singapore, United States...
+              </p>
+            </div>
+            <div class="theme-stat-box">
+              <div class="theme-count">32</div>
+              <div class="theme-count-label">Nations Engaged</div>
+            </div>
+          </div>
+    
+          <div class="theme-card" style="--theme-color:#BA1C24; --theme-bg:#FEF2F2; --theme-border:#FECACA;" onclick="filterByTheme(3)">
+            <div>
+              <span class="theme-badge" style="background:#BA1C24;">Theme 03</span>
+              <h3 class="theme-title">Climate–Development Nexus</h3>
+              <p class="theme-tagline">Centering equity, climate justice, adaptation finance, and vulnerable communities</p>
+              <div class="theme-focus-list">
+                <span class="focus-tag">Just Transitions & Decarbonization</span><span class="focus-tag">Loss & Damage Mechanisms</span><span class="focus-tag">Adaptation in Global South</span><span class="focus-tag">Climate-Resilient Infrastructure</span>
+              </div>
+              <p class="sample-countries">
+                <strong>Leading Participating Nations:</strong> India, Netherlands, Germany, Ghana, Indonesia, Canada, Nigeria, Sweden, New Zealand...
+              </p>
+            </div>
+            <div class="theme-stat-box">
+              <div class="theme-count">32</div>
+              <div class="theme-count-label">Nations Engaged</div>
+            </div>
+          </div>
+    
+          <div class="theme-card" style="--theme-color:#7C3AED; --theme-bg:#FAF5FF; --theme-border:#E9D5FF;" onclick="filterByTheme(4)">
+            <div>
+              <span class="theme-badge" style="background:#7C3AED;">Theme 04</span>
+              <h3 class="theme-title">Health & Well-being Foundations</h3>
+              <p class="theme-tagline">Planetary health, health equity, well-being economics, and thriving communities</p>
+              <div class="theme-focus-list">
+                <span class="focus-tag">Planetary Health Frameworks</span><span class="focus-tag">Health Equity & Social Determinants</span><span class="focus-tag">Well-being Economy Models</span><span class="focus-tag">Resilient Healthcare Infrastructure</span>
+              </div>
+              <p class="sample-countries">
+                <strong>Leading Participating Nations:</strong> India, Netherlands, China, Germany, Indonesia, Japan, Malaysia, Morocco, Spain...
+              </p>
+            </div>
+            <div class="theme-stat-box">
+              <div class="theme-count">21</div>
+              <div class="theme-count-label">Nations Engaged</div>
+            </div>
+          </div>
+    
+          <div class="theme-card" style="--theme-color:#D97706; --theme-bg:#FFFBEB; --theme-border:#FDE68A;" onclick="filterByTheme(5)">
+            <div>
+              <span class="theme-badge" style="background:#D97706;">Theme 05</span>
+              <h3 class="theme-title">AI, Big Data & Digitalization</h3>
+              <p class="theme-tagline">Harnessing frontier technology, digital public infrastructure, and ethical data science</p>
+              <div class="theme-focus-list">
+                <span class="focus-tag">AI for Sustainability & Earth Observation</span><span class="focus-tag">Digital Public Infrastructure</span><span class="focus-tag">Algorithmic Equity & Ethics</span><span class="focus-tag">Smart Clean Energy Grids</span>
+              </div>
+              <p class="sample-countries">
+                <strong>Leading Participating Nations:</strong> Netherlands, China, Germany, India, Indonesia, Australia, UAE, Mexico, United Kingdom...
+              </p>
+            </div>
+            <div class="theme-stat-box">
+              <div class="theme-count">26</div>
+              <div class="theme-count-label">Nations Engaged</div>
+            </div>
+          </div>
+    
+        </div>
+      </section>
+
+      <!-- 73 NATIONS HONOR ROLL -->
+      <section class="honor-roll-section">
+        <h2 class="section-title">Roll of Participating Nations (72 Countries)</h2>
+        <p class="section-desc">Every participating nation brings crucial local and regional perspectives to the global post-2030 sustainability agenda.</p>
+        
+        <div class="search-filter-bar">
+          <input type="text" id="countrySearch" class="search-input" placeholder="🔍 Search country name (e.g., India, Netherlands, Ghana, Brazil)..." oninput="filterCountries()">
+          <button class="filter-btn active" onclick="setContinentFilter('all', this)">All Continents</button>
+          <button class="filter-btn" onclick="setContinentFilter('Europe', this)">Europe</button>
+          <button class="filter-btn" onclick="setContinentFilter('Asia', this)">Asia</button>
+          <button class="filter-btn" onclick="setContinentFilter('Africa', this)">Africa</button>
+          <button class="filter-btn" onclick="setContinentFilter('Americas', this)">Americas</button>
+          <button class="filter-btn" onclick="setContinentFilter('Oceania', this)">Oceania</button>
+        </div>
+
+        <div class="country-cloud" id="countryCloud">
+
+          <div class="country-pill" data-country="afghanistan" data-region="Asia / Middle East" data-themes="1,5">
+            <span>Afghanistan</span>
+            <span class="country-tag-region">Asia / Middle East</span>
+          </div>
+    
+          <div class="country-pill" data-country="argentina" data-region="Other" data-themes="1">
+            <span>Argentina</span>
+            <span class="country-tag-region">Other</span>
+          </div>
+    
+          <div class="country-pill" data-country="australia" data-region="Oceania" data-themes="1,2,5">
+            <span>Australia</span>
+            <span class="country-tag-region">Oceania</span>
+          </div>
+    
+          <div class="country-pill" data-country="austria" data-region="Europe" data-themes="1,3">
+            <span>Austria</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="azerbaijan" data-region="Europe" data-themes="1">
+            <span>Azerbaijan</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="bangladesh" data-region="Asia" data-themes="2,3,4">
+            <span>Bangladesh</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="belgium" data-region="Europe" data-themes="1,2,3,4">
+            <span>Belgium</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="benin" data-region="Africa" data-themes="1,4,5">
+            <span>Benin</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="brazil" data-region="Americas" data-themes="1">
+            <span>Brazil</span>
+            <span class="country-tag-region">Americas</span>
+          </div>
+    
+          <div class="country-pill" data-country="burkina faso" data-region="Africa" data-themes="2">
+            <span>Burkina Faso</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="cameroon" data-region="Africa" data-themes="3">
+            <span>Cameroon</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="canada" data-region="Americas" data-themes="3">
+            <span>Canada</span>
+            <span class="country-tag-region">Americas</span>
+          </div>
+    
+          <div class="country-pill" data-country="china" data-region="Asia" data-themes="1,2,3,4,5">
+            <span>China</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="cyprus" data-region="Europe" data-themes="5">
+            <span>Cyprus</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="czech republic" data-region="Europe" data-themes="2,3">
+            <span>Czech Republic</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="dr congo" data-region="Africa" data-themes="1">
+            <span>DR Congo</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="denmark" data-region="Europe" data-themes="2">
+            <span>Denmark</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="ecuador" data-region="Americas" data-themes="1">
+            <span>Ecuador</span>
+            <span class="country-tag-region">Americas</span>
+          </div>
+    
+          <div class="country-pill" data-country="egypt" data-region="Africa" data-themes="2,3">
+            <span>Egypt</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="estonia" data-region="Other" data-themes="1">
+            <span>Estonia</span>
+            <span class="country-tag-region">Other</span>
+          </div>
+    
+          <div class="country-pill" data-country="ethiopia" data-region="Other" data-themes="1">
+            <span>Ethiopia</span>
+            <span class="country-tag-region">Other</span>
+          </div>
+    
+          <div class="country-pill" data-country="finland" data-region="Europe" data-themes="1,3">
+            <span>Finland</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="france" data-region="Europe" data-themes="1,2">
+            <span>France</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="germany" data-region="Europe" data-themes="1,2,3,4,5">
+            <span>Germany</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="ghana" data-region="Africa" data-themes="1,2,3,4,5">
+            <span>Ghana</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="india" data-region="Asia" data-themes="1,2,3,4,5">
+            <span>India</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="indonesia" data-region="Asia" data-themes="1,2,3,4,5">
+            <span>Indonesia</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="iran" data-region="Asia" data-themes="3">
+            <span>Iran</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="ireland" data-region="Europe" data-themes="3">
+            <span>Ireland</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="israel" data-region="Asia / Middle East" data-themes="2,5">
+            <span>Israel</span>
+            <span class="country-tag-region">Asia / Middle East</span>
+          </div>
+    
+          <div class="country-pill" data-country="italy" data-region="Europe" data-themes="1,2,3">
+            <span>Italy</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="japan" data-region="Asia" data-themes="4">
+            <span>Japan</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="kenya" data-region="Africa" data-themes="2,3,5">
+            <span>Kenya</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="kuwait" data-region="Asia / Middle East" data-themes="2">
+            <span>Kuwait</span>
+            <span class="country-tag-region">Asia / Middle East</span>
+          </div>
+    
+          <div class="country-pill" data-country="lebanon" data-region="Asia" data-themes="2">
+            <span>Lebanon</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="malawi" data-region="Africa" data-themes="1,3">
+            <span>Malawi</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="malaysia" data-region="Asia" data-themes="4,5">
+            <span>Malaysia</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="mexico" data-region="Americas" data-themes="5">
+            <span>Mexico</span>
+            <span class="country-tag-region">Americas</span>
+          </div>
+    
+          <div class="country-pill" data-country="morocco" data-region="Africa" data-themes="1,2,4,5">
+            <span>Morocco</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="mozambique" data-region="Africa" data-themes="1,3">
+            <span>Mozambique</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="nepal" data-region="Asia" data-themes="1,2,3,4">
+            <span>Nepal</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="netherlands" data-region="Europe" data-themes="1,2,3,4,5">
+            <span>Netherlands</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="new zealand" data-region="Oceania" data-themes="3">
+            <span>New Zealand</span>
+            <span class="country-tag-region">Oceania</span>
+          </div>
+    
+          <div class="country-pill" data-country="nigeria" data-region="Africa" data-themes="3,4,5">
+            <span>Nigeria</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="oman" data-region="Asia / Middle East" data-themes="1">
+            <span>Oman</span>
+            <span class="country-tag-region">Asia / Middle East</span>
+          </div>
+    
+          <div class="country-pill" data-country="pakistan" data-region="Asia" data-themes="1,2,3,4">
+            <span>Pakistan</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="philippines" data-region="Asia" data-themes="2,4">
+            <span>Philippines</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="poland" data-region="Europe" data-themes="3">
+            <span>Poland</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="portugal" data-region="Europe" data-themes="2">
+            <span>Portugal</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="romania" data-region="Europe" data-themes="1">
+            <span>Romania</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="saudi arabia" data-region="Asia / Middle East" data-themes="1">
+            <span>Saudi Arabia</span>
+            <span class="country-tag-region">Asia / Middle East</span>
+          </div>
+    
+          <div class="country-pill" data-country="singapore" data-region="Other" data-themes="2">
+            <span>Singapore</span>
+            <span class="country-tag-region">Other</span>
+          </div>
+    
+          <div class="country-pill" data-country="south africa" data-region="Africa" data-themes="1,2,3,5">
+            <span>South Africa</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="spain" data-region="Europe" data-themes="1,4">
+            <span>Spain</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="sri lanka" data-region="Asia" data-themes="2">
+            <span>Sri Lanka</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="sudan" data-region="Other" data-themes="5">
+            <span>Sudan</span>
+            <span class="country-tag-region">Other</span>
+          </div>
+    
+          <div class="country-pill" data-country="sweden" data-region="Europe" data-themes="3">
+            <span>Sweden</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="switzerland" data-region="Europe" data-themes="1">
+            <span>Switzerland</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="taiwan" data-region="Other" data-themes="5">
+            <span>Taiwan</span>
+            <span class="country-tag-region">Other</span>
+          </div>
+    
+          <div class="country-pill" data-country="tanzania" data-region="Africa" data-themes="3,5">
+            <span>Tanzania</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="thailand" data-region="Asia" data-themes="1,2,3,4">
+            <span>Thailand</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="the gambia" data-region="Africa" data-themes="1">
+            <span>The Gambia</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="turkey" data-region="Europe" data-themes="1,2,5">
+            <span>Turkey</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="uganda" data-region="Africa" data-themes="2,3,4">
+            <span>Uganda</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+          <div class="country-pill" data-country="united arab emirates" data-region="Asia" data-themes="5">
+            <span>United Arab Emirates</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="united kingdom" data-region="Europe" data-themes="1,2,3,5">
+            <span>United Kingdom</span>
+            <span class="country-tag-region">Europe</span>
+          </div>
+    
+          <div class="country-pill" data-country="united states" data-region="Americas" data-themes="1,2,3,4,5">
+            <span>United States</span>
+            <span class="country-tag-region">Americas</span>
+          </div>
+    
+          <div class="country-pill" data-country="uruguay" data-region="Other" data-themes="5">
+            <span>Uruguay</span>
+            <span class="country-tag-region">Other</span>
+          </div>
+    
+          <div class="country-pill" data-country="venezuela" data-region="Americas" data-themes="1">
+            <span>Venezuela</span>
+            <span class="country-tag-region">Americas</span>
+          </div>
+    
+          <div class="country-pill" data-country="vietnam" data-region="Asia" data-themes="1">
+            <span>Vietnam</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="yemen" data-region="Asia" data-themes="5">
+            <span>Yemen</span>
+            <span class="country-tag-region">Asia</span>
+          </div>
+    
+          <div class="country-pill" data-country="zimbabwe" data-region="Africa" data-themes="1,4">
+            <span>Zimbabwe</span>
+            <span class="country-tag-region">Africa</span>
+          </div>
+    
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="poster-footer">
+        <div>
+          <p class="footer-quote">“ SDGs have shown us what is possible; now we need to design what comes next. ”</p>
+          <p style="font-size:12px; color:#64748B; margin-top:6px;">Groningen Sustainability Conference 2027 • University of Groningen</p>
+        </div>
+        <div class="footer-host">
+          <p><strong>Host:</strong> Rijksuniversiteit Groningen</p>
+          <p>Zernike Campus, Groningen, The Netherlands</p>
+          <p><a href="https://www.rug.nl" target="_blank" style="color:#38BDF8; text-decoration:none;">www.rug.nl</a></p>
+        </div>
+      </footer>
+
+    </article>
+
+    <!-- PAMPHLET / TRI-FOLD BROCHURE VIEW -->
+    <article class="poster-sheet" id="pamphletView" style="display:none;">
+      
+      <div class="pamphlet-grid" style="display:grid;">
+        
+        <!-- PANEL 1: INVITATION & GLOBAL FOOTPRINT -->
+        <div class="pamphlet-panel">
+          <div>
+            <div class="rug-logo-container" style="margin-bottom:16px;">
+              <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 639.5 294" width="2500" height="1149"><style>.st0{fill:none}.st1{fill:#c00}.st2{fill:#fff}</style><path class="st1" d="M237.8 0L0 294h401.6L639.5 0H237.8z"/><path class="st2" d="M457.6 63.5h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.3v-.9h-.3c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.8.9-2.8 2.3-2.8 1 0 1.7.6 1.7 2v3.9c0 .9-.1 1.2-1.1 1.2h-.3v.9h5.2v-.9h-.5c-1 0-1.1-.3-1.1-1.2V65c0-2-1.4-2.9-3.3-2.9-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.6.2l.2 1.1zm-1.5 3.8v-.4c0-3.2-1.3-4.6-4.3-4.6-3.2 0-4.6 2.1-4.6 4.9s1.4 4.9 4.6 4.9c3.2 0 4.1-1.6 4.1-3.3H454c0 1.4-.6 2.2-2 2.2-2.3 0-2.4-2.4-2.4-3.6l6.5-.1zm-6.4-1.1c0-1.6.5-2.9 2.1-2.9s2 1.3 2 2.9h-4.1zm-7.2-.7c0 1.6-.5 2.4-1.5 2.4s-1.6-.7-1.6-2.4c0-1.6.6-2.3 1.6-2.3.9.1 1.5.6 1.5 2.3zm.8 7.8c0 .9-.6 1.8-2.4 1.8-1.6 0-2.2-.8-2.2-1.7 0-1 .6-1.8 2.3-1.8 1.6-.1 2.3.7 2.3 1.7zm2.7-10.9l-2.8.2c-.5-.2-1.4-.4-2.2-.4-2.5 0-4.1 1.4-4.1 3.3 0 1.7 1.1 2.6 2.5 3-1.3.1-1.9.6-1.9 1.2s.4 1 1.7 1.2c-1.3.1-2.9.8-2.9 2.4 0 1.5 1.3 2.7 4.3 2.7 3.2 0 4.9-1 4.9-2.8 0-2.2-1.8-2.5-3.6-2.6-2.1-.2-2.4-.3-2.4-.9 0-.6.9-.7 1.5-.8l.5-.1c2.7-.4 3.5-1.9 3.5-3.4 0-.8-.4-1.6-.8-1.9h1.8v-1.1zm-22.4 1.1h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.3v-.9h-.3c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.8.9-2.8 2.3-2.8 1 0 1.7.6 1.7 2v3.9c0 .9-.1 1.2-1.1 1.2h-.3v.9h5.2v-.9h-.5c-1 0-1.1-.3-1.1-1.2V65c0-2-1.4-2.9-3.3-2.9-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.6.2l.2 1.1zm-5.1-4.2c0 .8.5 1.4 1.4 1.4.9 0 1.4-.6 1.4-1.4 0-.8-.5-1.4-1.4-1.4-.9 0-1.4.6-1.4 1.4zm-1.3 4.2h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.5v-.9h-.5c-1 0-1.1-.3-1.1-1.2v-7.3c-1.2.1-2.9.2-3.9.2l.1 1.1zm-12.8 0h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.3v-.9h-.3c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.8.9-2.8 2.3-2.8 1 0 1.7.6 1.7 2v3.9c0 .9-.1 1.2-1.1 1.2h-.1v.9h5.2v-.9h-.5c-1 0-1.1-.3-1.1-1.2V65c0-2-1.4-2.9-3.3-2.9-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.6.2v1.1zm-10.3 3.6c0 2.8 1.4 4.9 4.6 4.9 3.2 0 4.6-2.1 4.6-4.9s-1.4-4.9-4.6-4.9c-3.3 0-4.6 2.1-4.6 4.9zm2.4 0c0-2.6.6-3.8 2.1-3.8 1.6 0 2.1 1.2 2.1 3.8s-.6 3.8-2.1 3.8-2.1-1.2-2.1-3.8zm-11.8-3.6h.8c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h6v-.9h-1c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.6.9-2.8 1.7-2.8.7 0 .9.5 1 1.5h1.8v-2.7c-.4-.2-1-.2-1.5-.2-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.7.2l.1 1zm-4.4 2c0 1.6-.5 2.4-1.5 2.4s-1.6-.7-1.6-2.4c0-1.6.6-2.3 1.6-2.3.8.1 1.5.6 1.5 2.3zm.8 7.8c0 .9-.6 1.8-2.4 1.8-1.6 0-2.2-.8-2.2-1.7 0-1 .6-1.8 2.3-1.8 1.6-.1 2.3.7 2.3 1.7zm2.7-10.9l-2.8.2c-.5-.2-1.4-.4-2.2-.4-2.5 0-4.1 1.4-4.1 3.3 0 1.7 1.1 2.6 2.5 3-1.3.1-1.9.6-1.9 1.2s.4 1 1.7 1.2c-1.3.1-2.9.8-2.9 2.4 0 1.5 1.3 2.7 4.3 2.7 3.2 0 4.9-1 4.9-2.8 0-2.2-1.8-2.5-3.6-2.6-2.1-.2-2.4-.3-2.4-.9 0-.6.9-.7 1.5-.8l.5-.1c2.7-.4 3.5-1.9 3.5-3.4 0-.8-.4-1.6-.8-1.9h1.8v-1.1zm100-17.7h1.7v6c0 .9-.1 1.2-1.1 1.2h-.6v.9h6v-.9h-1c-1 0-1.1-.3-1.1-1.2v-6h2.5v-1.1h-2.5v-1.9c0-1.1.5-1.7 1.2-1.7s.9.4.9 1.7h1.6v-2.5c-.8-.2-1.6-.3-2.5-.3-3.5 0-3.6 2.1-3.6 4.7h-1.7l.2 1.1zm-10.2 3.4c0 2.8 1.4 4.9 4.6 4.9s4.6-2.1 4.6-4.9c0-2.8-1.4-4.9-4.6-4.9-3.3.1-4.6 2.1-4.6 4.9zm2.4 0c0-2.6.6-3.8 2.1-3.8 1.6 0 2.1 1.2 2.1 3.8 0 2.6-.6 3.8-2.1 3.8s-2.1-1.2-2.1-3.8zm-11.7 4.4l-.9 2.3c-.2.7-.5 1.1-1.2 1.1h-.9v.9h5.1v-.9h-.6c-.7 0-.9-.2-.9-.6 0-.3.2-.7.3-1l3.7-8.9c.3-.6.4-.9.8-.9h.4v-.9h-4v.9h.8c.3 0 .5.1.5.3 0 .2-.1.4-.2.7l-1.7 4.4-1.6-4.2c-.1-.3-.2-.6-.2-.9 0-.3.2-.3.5-.3h.7v-.9h-4.7v.9h.3c.5 0 .7.3 1.1 1.2l2.7 6.8zm-12.7-7.8h1.7v5.4c0 2.4 1.1 3 3 3 1.8 0 2.9-.9 2.9-2.9v-.4h-1.6v1c0 .8-.3 1.2-1 1.2s-1-.4-1-1.2v-6h3v-1.1h-3V41H454c-.2 1.9-.6 2.5-2.3 2.7l-.1 1zm-5.1-4.4c0 .8.5 1.4 1.4 1.4.9 0 1.4-.6 1.4-1.4 0-.8-.5-1.4-1.4-1.4-.9 0-1.4.6-1.4 1.4zm-1.2 4.2h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.5v-.9h-.5c-1 0-1.1-.3-1.1-1.2v-7.3c-1.2.1-2.9.2-3.9.2l.1 1.1zm-9.1 7.9c.5.2 1.9.6 3.5.6 2 0 4.1-.9 4.1-3.1 0-1.4-.7-2-2.4-2.5l-1.6-.5c-.9-.3-1.4-.8-1.4-1.5 0-.8.5-1.1 1.4-1.1 1.4 0 1.7.6 1.7 2.1h1.6v-2.6c-.6-.2-1.8-.5-3.3-.5-2.2 0-3.8 1-3.8 2.8 0 1.5 1.1 2.3 3.3 2.9 1.7.5 2 .9 2 1.6 0 .9-.8 1.4-2 1.4-1.3 0-1.7-.9-1.7-2.2H436l.2 2.6zm-9.9-7.9h.8c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h6v-.9h-1c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.6.9-2.8 1.7-2.8.7 0 .9.5 1 1.5h1.8v-2.7c-.4-.2-1-.2-1.5-.2-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.7.2v1h.1zm-1.4 3.8v-.4c0-3.2-1.3-4.6-4.3-4.6-3.2 0-4.6 2.1-4.6 4.9 0 2.8 1.4 4.9 4.6 4.9 3.2 0 4.1-1.6 4.1-3.3h-1.9c0 1.4-.6 2.2-2 2.2-2.3 0-2.4-2.4-2.4-3.6l6.5-.1zm-6.4-1.1c0-1.6.5-2.9 2.1-2.9s2 1.3 2 2.9h-4.1zm-7-2.7h.8c.4 0 .5.1.5.2 0 .2 0 .3-.1.5l-2 5.6-1.8-5.3c-.1-.2-.2-.4-.2-.7 0-.2.2-.3.8-.3h.6v-.9h-4.7v.9h.2c.4 0 .5.1.8.7l2.9 7.6h2.2l2.9-7.7c.2-.5.4-.6.8-.6h.2v-.9h-4c.1 0 .1.9.1.9zm-10.6-4.2c0 .8.5 1.4 1.4 1.4.9 0 1.4-.6 1.4-1.4 0-.8-.5-1.4-1.4-1.4-.9 0-1.4.6-1.4 1.4zm-1.3 4.2h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.5v-.9h-.5c-1 0-1.1-.3-1.1-1.2v-7.3c-1.2.1-2.9.2-3.9.2l.1 1.1zm-12.7 0h.7c.8 0 .9.2.9 1.4v4.6c0 .9-.1 1.2-1.1 1.2h-.6v.9h5.3v-.9h-.3c-1 0-1.1-.3-1.1-1.2v-3.1c0-1.8.9-2.8 2.3-2.8 1 0 1.7.6 1.7 2v3.9c0 .9-.1 1.2-1.1 1.2h-.3v.9h5.2v-.9h-.5c-1 0-1.1-.3-1.1-1.2V46c0-2-1.4-2.9-3.3-2.9-1.5 0-2.6.6-3.3 2.2v-2.1c-.9.1-2.6.2-3.6.2l.2 1.1zm-4.6 8.2h3.6v-.9h-.5c-1 0-1.1-.3-1.1-1.2v-7.3c-1.2.1-2.9.2-3.9.2v1h.7c.8 0 .9.2.9 1.4v2.6c0 2-.7 3-2.3 3-1.1 0-1.7-.5-1.7-1.7v-6.6c-1.2.1-2.9.2-3.9.2v1h.7c.8 0 .9.2.9 1.4v4.4c0 1.8 1.1 2.6 3 2.6s3.1-.8 3.5-2.1v2h.1zM361.2 43.4L327.5 85h2.7l33.7-41.5-2.7-.1zm-62.3-8.1c-.2 0-.6.1-.8-.3-.2-.4.5-1 .7-1.2.3-.3-.1-.6-.3-.2-.1.1-.6.8-1 .8-.7 0-.6-.8-.6-.8s-.7-.5-.7-1.9c0-1.3.9-1.9.9-1.9s0-.7.6-.7 1 .8 1 .9c.3.4.7.1.4-.2-.6-.7-.7-1.3-.1-1.6.2-.6 1-.9 1.8-1 .8.1 1.5.5 1.8 1 .7.3.5.9-.1 1.6-.3.3.1.7.4.2 0-.1.4-.9 1-.9s.6.7.6.7.9.6.9 1.9c0 1.5-.7 1.9-.7 1.9s0 .8-.6.8c-.4 0-1-.8-1-.8-.2-.3-.6 0-.3.2.2.2.9.8.7 1.2-.2.4-.5.3-.8.3 0 0-.2.4-.6.4 1.7 1.3 4.4.5 4.7-.4 0 0-.5.1-.4-.4 0-.3.3-.4.7-.5-.1-.2-.1-.4-.1-.6 0-.7.5-1.2 1-1.2s.9.5.9 1.2c0 .3-.1.6-.3.9.4.1.7.3.6.6-.1.6-.7.5-.7.5-.1 1.4 2.1 1.7 2.6 1.3-.2-.8.1-1 .4-1.3.2-.2.7-.5.8-.5.2-.1.2-.3.1-.4-.1-.1-.3.1-.4.2-.1.2-.4.5-.8.4-.5-.1-.3-.7-.4-1-.5-1.9-.1-3.2 1.8-3.9 0 0 .7-.7 1.3-.4.6.3.2 1.3.2 1.3l.2.1c.7-1.2 1.7-2.1 3.1-2.2 1 0 1.5.6 1.5 1.4.1 1.8-1.7 1.1-1.6.5 0 0-.4 0-.7.4 0-.1 0-1.2-.9-.6-.3.2-.8 1-.8 1.1-.1.4.1.4-.1.8-.1.3-.3.3-.4.5-.1.2 0 .6-.1.8l-.5.6c-.1.2-1.4 3.6-1.4 3.6s.5.3.4.8c-.1.7-.6.5-.8 1-7.2-1.9-14.7-1.9-22.4 0-.2-.4-.6-.3-.8-.9-.1-.5.4-.8.4-.8s-1.3-3.4-1.4-3.6l-.5-.6c-.1-.2 0-.6-.1-.8-.1-.2-.3-.3-.4-.5-.2-.3 0-.4-.1-.8 0-.1-.5-.9-.8-1.1-1-.6-.9.5-.9.6-.2-.4-.7-.4-.7-.4.1.7-1.7 1.3-1.6-.5 0-.8.5-1.4 1.5-1.4 1.4 0 2.4.9 3.1 2.2l.2-.1s-.4-1 .2-1.3c.6-.3 1.3.4 1.3.4 1.9.8 2.3 2.1 1.8 3.9-.1.3.1.8-.4 1-.4.1-.6-.3-.8-.4-.1-.1-.3-.2-.4-.2-.1.1 0 .3.1.4.1 0 .6.4.8.5.2.2.6.5.4 1.3.5.4 2.7.1 2.6-1.3 0 0-.6.2-.7-.5 0-.2.2-.4.6-.6-.2-.2-.3-.5-.3-.9 0-.7.4-1.2.9-1.2s1 .6 1 1.2c0 .2 0 .5-.1.6.4.1.7.2.7.5 0 .5-.4.4-.4.4.4.9 3 1.6 4.7.4-.4-.1-.6-.5-.6-.5zm.6-3.4c0 .7.6 1.2 1.2 1.2.7 0 1.2-.6 1.2-1.2s-.6-1.2-1.2-1.2c-.6-.1-1.2.5-1.2 1.2zm6.9 5.4c.5 0 1.6.2 1.6.2s-.4-.5-.7-.8c0 0-.2.2-.4.3-.1 0-.5.3-.5.3zm-5.6-1.1c-.2.2-.6.6-1.1.8h2c-.3-.2-.7-.6-.9-.8zm-5.7 1.1l-.6-.3c-.1-.1-.4-.3-.4-.3-.2.3-.6.8-.6.8s1.1-.3 1.6-.2zm16.5 3.3c.3.1.8.4.7.9-.1.5-.7.6-1.1.5s-.8-.4-.7-.9c.2-.5.8-.6 1.1-.5zm-4.5-.1l-1.1.9-.9-1.1 1.1-.9.9 1.1zM290.4 42c-.3.1-.9 0-1.1-.5-.1-.5.4-.8.7-.9s.9 0 1.1.5c.1.5-.4.8-.7.9zm9.3-1.8c0-.4.5-.7 1.1-.7.6 0 1.1.3 1.1.7 0 .4-.5.7-1.1.7-.6 0-1.1-.3-1.1-.7zm-5.2.3l.9-1 1.1.9-.9 1.1-1.1-1zm-9 31.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4-.1-.3-.6zm2.2-2.3c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.5-.1-.3-.6zm2.1-2.4c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4 0-.3-.6zm11-21.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.1-.3-.7zm2.1 8c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.1-.3-.7zm2.5-2.6c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.2-.3-.7zm2.5-2.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.1-.3-.7zm2.5-2.6c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.2-.3-.7zm-26.3 17.8c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4 0-.3-.6zm5.8 14.2c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4 0-.3-.6zm2.5-2.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.4 0-.3-.6zm2.5-2.6c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1 0-.4-.1-.3-.6zm2.5-2.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1 0-.4-.1-.3-.6zm10.9-11.5c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.4-.2-.3-.7zm2.2-2.4c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1-.1-.4-.2-.3-.7zm2.3-2.5c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.5-.1-.3-.7zm2.2-2.4c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.4-.2-.3-.7zm-17.3 29.2c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4-1.5-.1c.1.1-.5 0-.3-.6zM315 61.1c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.5-.2.7.3.7.3l.2 1.4h-1.5c.1 0-.4-.1-.3-.7zm-16.8 2c0-.1.1-.1.3-.1.2 0 .4-.1.4 0s-.2 0-.2.2V65h.3c0 .1-.2.1-.4.1h-.4l.1-.1v-1.7l-.1-.2zm-1.9.7s.1-.1.2-.1c.1-.1.2-.1.3 0 .1.1.6.7.6.7v-.9l-.2-.1c0-.1.1-.1.2-.1s.3-.2.3-.1l-.1.2v1.7c0 .1 0 .1-.1.1l-.9-1.1v1.2l.2.1c0 .1-.1.1-.3.1-.1 0-.3.1-.3.1l.2-.2v-1.5l-.1-.1zm-.7 1.1c0-.7-.5-.5-.5-.5v1.5c.1 0 .5 0 .5-1zm-1-.3c0-.1.2-.1.4-.2.3-.1 1.1-.6 1.1.5 0 1-.7 1.1-.9 1.2-.2.1-.5.2-.5.2 0-.1.1-.1.1-.3v-1.2c-.1-.3-.2-.1-.2-.2zm3-4.5s.2-.1.3-.1c.2 0 .3-.1.3 0 .1.1.4.6.4.6l.4-.6s0-.1.2-.1h.3c0 .1-.1 0-.1.2v1.6c0 .2.1.1.1.2s-.1 0-.4 0h-.4c0-.1.1 0 .1-.2v-1.1l-.4.6-.5-.7v1.3c0 .2.2.1.2.2 0 0-.2.1-.3.1-.1 0-.2.1-.3 0 0-.1.1 0 .1-.3v-1.5c.2-.2 0-.1 0-.2zm-.6.3c.1 0 .2-.1.3-.1 0 0-.1.1-.1.4 0 .1-.4 1.9-.5 1.9 0 0-.6-1.4-.7-1.5-.1-.2-.2-.1-.2-.1s.1-.1.3-.2c.1 0 .3-.2.3-.2.1.1-.1.1 0 .3l.4.9s.2-.8.2-1.1c.1-.3-.1-.1-.2-.2 0 0 .1-.1.2-.1zm-2.2 1.8v1s.5-.1.5-.7c0-.5-.5-.3-.5-.3zm0-.8v.6s.4-.1.4-.4c0-.4-.4-.2-.4-.2zm0-.2c.2-.1.8-.2.8.3 0 .3-.2.4-.2.4s.4.1.4.4c0 .4-.2.7-.4.8l-.8.4c-.1 0-.2.1-.2.1 0-.1.1-.1.1-.3v-1.6c0-.3-.2-.2-.2-.3 0 0 .3-.1.5-.2zm3.5-4.4v.8s.4 0 .4-.5-.4-.3-.4-.3zm1 1.8h.2s0 .3-.3.3c-.4 0-.4-.7-.5-.9-.1-.2-.3-.1-.3-.1v.7c0 .2.1.1.1.2l-.1.1-.4.1h-.2c0-.1.1 0 .1-.3v-1.5c0-.3-.2-.2-.2-.3 0 0 .1-.1.2-.1l.5-.2c.3-.1.7.1.7.4 0 .4-.2.5-.4.6.6.3.4.9.6 1zm-3-1.1c.2-.1.5-.2.9-.4 0 0 .2-.1.3 0 .1.1.1.3.1.3-.1 0-.1 0-.2-.1-.1 0-.2-.1-.3-.1l-.2.1v.6s.2 0 .2-.1.1-.2.1-.2v.7c-.1 0-.1-.1-.1-.2s-.2 0-.2 0v.9l.2-.1c.1-.1.3-.3.3-.4.1-.1.1-.2.2-.2v.4s0 .2-.1.2l-.9.4c-.1.1-.3.2-.3.1s.1 0 .1-.3v-1.5c0 .2 0 .1-.1-.1-.1.1-.2.1 0 0zm-1.7.7c.1 0 .4-.2.4-.1s-.1.1-.1.2c.1.2.4.9.4.9l.3-1.1c.1-.2-.1-.2-.2-.2 0 0 .1-.1.2-.1s.3-.1.3-.1c0 .1-.1.1-.1.3-.1.3-.5 2-.6 2.1-.1 0-.7-1.5-.7-1.6 0-.1-.2-.1-.2-.1 0-.1.2-.1.3-.2zm8 4.9h.2c.1 0 .2.1.3.2l.7 1.3v-1c0-.1-.1-.1-.1-.2s.1 0 .2 0 .2 0 .2.1c0 0-.1 0-.1.1v1.9h-.1c0-.1-1-1.7-1-1.7V65c0 .1.1.1.1.2s-.1 0-.2 0-.2 0-.2-.1.1 0 .1-.1v-1.6c0-.2-.1-.2-.1-.3zm.9-2.9c0-.1.3.1.6.1.2.1.7.1.7.3v.4l-.2-.3c-.1-.1-.4-.2-.4-.2v.6s.2.1.2 0l.2-.2v.7s-.1-.2-.2-.3c-.1-.1-.2-.1-.2-.1v1s.1.1.4.1l.5-.2s0 .1-.1.3c-.1.2-.2.3-.3.3l-.6-.2c-.2-.1-.5-.2-.5-.2 0-.1.2.1.2-.1v-1.7l-.3-.3zm-.4-.3c.1 0 .1.3.1.4 0 .2.1.4 0 .4s-.2-.3-.4-.5c-.1-.1-.7-.4-.7.7 0 1 .4.9.6.9.2-.1.3-.2.3-.2s-.2.5-.6.5c-.5.1-.9-.4-.9-1.1s.4-1.2.8-1.2.5.2.6.2l.2-.1zm1.2-2.6c0-.1.2 0 .4.1.3.1.5.2.4.2 0 0-.2 0-.2.1s.3 1.1.3 1.1l.4-.8c0-.1-.1-.1-.1-.2 0 0 .1 0 .2.1s.2.1.2.1c0 .1-.1-.1-.2 0l-.7 1.6-.7-2.2v-.1zm-1.6-.6s.1 0 0 0l.7.2s.1 0 .1.1c0 0-.2-.1-.2.1v1.7s0 .1.2 0 .5-.3.5-.3.1-.1.1 0l-.2.4s0 .1-.2.1-.6-.2-.7-.2l-.4-.1-.1-.1s.2 0 .2-.2V57c.1-.2 0-.2 0-.3zm2.4 6.1c0-.1.2 0 .2-.1V61c0-.2-.1-.2-.1-.3 0-.1.2 0 .2.1l.6.3s.6.2.6.8c0 .4-.3.3-.3.3s.3.2.3.5l.1.6s.1.2.2 0c0 0 0 .3-.4.2-.2-.1-.3-.3-.3-.5s-.1-.9-.4-.9v.8c0 .2.1.1.1.3 0 .1-.2 0-.3-.1-.4-.2-.5-.2-.5-.3zm.6-1.7v.8s.4.3.4-.2-.4-.6-.4-.6zm-.9 2.9c0-.1-.1-.2-.1-.2s.2 0 .3.1.2.1.3.2l.6 2 .1.2s-.2 0-.4-.2c-.2-.1-.4-.1-.4-.2s.2.1.2-.1l-.1-.4-.7-.2-.1.3c0 .2.1.1.1.2 0 0-.1 0-.2-.1l-.2-.1c0-.1.1 0 .1-.1.1 0 .5-1.3.5-1.4zm.1.2l-.2.7.5.2-.3-.9zm13.3-20.7v22c.2 13.1-10.5 17.8-17.6 17.8-7.1 0-17.8-4.7-17.6-17.8v-22h6.6c0-.4.1-.7.1-.7 9-1.8 13.3-1.9 22.2 0 .2.2.2.5.2.7h6.1zm-31.9 31.8l6.9-7.3v-2.1h-.8s-.5-.1-.4-.7c.1-.5.6-.4.6-.4s-.1-.4.3-.6c.1 0 .2-.1.2-.1v-1.4l-8.6 9.1c.5 1.3 1.1 2.5 1.8 3.5zm8.5-18.6l.3-.1c.3-.2.9-.5 1.6-.8.6-.3 1.4-.5 2-.5.6 0 1.1.2 1.4.4.2.1.3.2.4.2v-.1l.3-.3c.3-.2.7-.3 1.4-.3s1.5.3 2.2.6l.1.1 11-11.7h-5l-9.7 10.3v-5l5-5.4h-22.3v21.3c0 .8 0 1.6.1 2.3l4.8-5.1h4.6v-4.1c-.1.1-.2.1-.2.1s.1-.4-.2-.4h-.1c-.2 0-.3.1-.4.2-.2.1-.7.7-.8.8-.1-.1-.6-.7-.8-.8-.1-.1-.2-.2-.4-.2h-.1c-.3.1-.2.4-.2.4s-.3 0-.3-.4c0-.3.2-.5.5-.6.3-.1.7-.1.7-.7v-.1s-.1.2-.4.3c-.3.2-1.3.2-1.2.7 0 .2.2.2.2.2s0 .1-.2.1h-.1c-.2 0-.3-.3-.3-.5s-.1-.4-.3-.4h-.1c-.2.1-.1.3-.1.3s-.2-.1-.2-.3c0-.2.2-.3.3-.4h.5s-.1-.2 0-.4c0-.2.1-.3.3-.4.4-.1.4.2.4.3 0 0-.1-.1-.2-.1l-.1.1c-.1.1.1.3.1.3.1.1.3.2.6.1s.5-.3.6-.5c.1-.1.1-.2.1-.2l.2-1.9s.1-.5-.3-.5h-.1c-.3 0-.6.4-.5.9.1.4-.1.6-.3.7-.2.1-.4 0-.4-.2.4 0 .4-.3.2-.5-.1 0-.1-.1-.2 0-.4.1-.9.6-1 .9-.1.3.1.2.2.4s-.1.3-.1.3v.2c0 .2-.1.2-.2.2h-.1c.1 0 .1-.1.1-.2v-.1s-.1 0-.2-.1l-.1-.4c-.1-.2-.5-.4-.7-.4H286.8l-.3-.1c-.1 0-.1.1-.1.2-.1-.1-.1-.2-.1-.3 0-.3.2-.5.3-.5.2 0 .3.1.3.1.1-.5-.2-.3-.4-.5-.1-.2-.1-.2-.1-.3 0-.1-.1-.1-.2-.1h-.1s0-.2.3-.3h.3c.1 0 .2 0 .3.1v.3c0 .3.2.3.2.3-.2-.4 0-.6.1-.6 0-.1 0-.2-.1-.2 0 0 .4 0 .5.3 0 0 .2.1.2.3 0 .3-.1.3-.2.4 0 .3.2.3.4.3s.3-.1.3-.1c.3-.1.8-.5.7-.7-.1-.1-.2-.2-.3-.2l-.2.1c-.2.2-.1.4-.1.4-.2.1-.4-.4-.2-.5.1-.1.2-.2.4-.2l.5-.1c.2 0 .4-.2.5-.4.1-.2.1-.4 0-.6-.1-.2-.3-.5-.6-.5-.1.5-.3.8-.6 1.1-.1.1-.2.1-.2.1h-.1c.4-.5.3-1 .3-1 0 .1-.4.6-.9.9h-.2c-.3 0-.6-.1-.5-.1.2 0 1-.5.8-1.5 0 .1-.4.7-.8 1-.2.1-.4.2-.6.2-.4.1-.6 0-.6-.1 0 0 1-.5 1-.9 0 0-.3.2-.6.3h-.1c-.8 0-.8-.6-.8-.6.1 0 .8.1 1.5-1.3 0 0-.4.1-.9.2-.3 0-.4-.1-.4-.1h.2c.2 0 .4-.1.7-.3-.1 0-1.1-.5-.7-1.2 0 0 .3.2.6.3.3 0 .7 0 .8-.3 0 0-.5 0-1.1-.4-.3-.2-.4-.7-.3-.5.1.1.2.2.4.2h.2s-.8-.7-.3-1.3c0 0 .3.7.9.7 0 0-.3-.3-.4-.7v-.5l.1.3c.1.1.3.3.4.5 0 0-.1-.4 0-.7 0-.1.2-.3.2-.3v.3c0 .2.1.6.6 1 .6.6 1.2.6 1.2 1 0 .5-.6.4-.9.4-.1 0-.1.2 0 .3.3.4 1.6.5 2-.2.1-.2.2-.5.1-.8-.1-.3-.4-.4-.9-.5-.4-.1-.3-.2-.2-.2 0 0 .1.1.2.1.3 0 .1-.4.1-.3-.1 0-.4.1-.6.2-.3 0-.7-.1-.7-.3 0-.3.3-.3.3-.3s-.2.4.4.4h.6c0-.1-.2-.2-.3-.2h-.4c-.1-.2.1-.3.2-.4.1-.1.2 0 .3-.1.1 0 .1-.2.5-.3.2 0 .5.1.7.1.1 0 .4-.1.4 0 0 0-.1.2-.1.3 0 .3.5 1.5 1 1.6.5-.1 1-1.3 1-1.6 0-.1-.1-.3-.1-.3h.4c.1 0 .4-.1.7-.1.4 0 .4.2.5.3.1 0 .1 0 .3.1s.3.2.2.4h-.4c-.1 0-.3.1-.3.2h.6c.6 0 .4-.3.4-.4 0-.1.3 0 .3.3 0 .2-.4.4-.7.3-.3 0-.6-.1-.6-.2 0 0-.2.4.1.3.1 0 .2-.1.2-.1.1 0 .2.2-.2.2-.5.1-.8.1-.9.5-.1.3-.1.5.1.8.4.7 1.7.6 2 .2.1-.1.1-.3 0-.3-.4 0-.9.1-.9-.4 0-.4.7-.4 1.2-1 .5-.5.6-.8.6-1v-.3c0-.1.2.2.2.3.1.4 0 .7 0 .7.1-.1.3-.3.4-.5l.1-.3c0-.1.1.2 0 .5-.1.4-.4.7-.4.7.6 0 .9-.7.9-.7.5.6-.3 1.3-.3 1.3h.2c.2 0 .3-.1.4-.2.1-.1 0 .3-.3.5-.5.3-1.1.4-1.1.4.1.3.5.3.8.3.3 0 .6-.3.6-.3.4.7-.6 1.1-.7 1.2.3.2.5.3.7.3h.2s-.1.2-.4.1c-.5-.1-.9-.2-.9-.2.6 1.3 1.4 1.3 1.5 1.3 0 0 0 .6-.8.6h-.1c-.3 0-.6-.2-.6-.3 0 .4 1 .9 1 .9.1 0-.2.1-.6.1-.2 0-.4-.1-.6-.2-.4-.3-.8-.9-.8-1-.2 1 .6 1.5.8 1.5.1 0-.2.2-.5.1h-.2c-.6-.3-.9-.8-.9-.9 0 0-.1.6.3 1h-.1c-.1 0-.2 0-.2-.1-.3-.2-.6-.6-.6-1.1-.3 0-.5.3-.6.5-.1.2-.1.4 0 .6.1.3.3.4.5.4l.5.1c.1 0 .3.1.4.2.2.2 0 .6-.2.5 0 0 .1-.2-.1-.4l-.2-.1c-.1 0-.2 0-.3.2-.2.3.4.6.7.7 0 0 .1.1.3.1.2 0 .3 0 .4-.3-.1-.1-.2-.1-.2-.4 0-.2.2-.3.2-.3.1-.3.5-.3.5-.3-.1 0-.1.1-.1.2s.2.2.1.6c0 0 .2 0 .2-.3v-.3c0-.1.1-.1.3-.1.1 0 .2-.1.3 0 .2 0 .3.2.3.2h-.1c-.1 0-.2 0-.2.1s.1.1-.1.3c-.2.2-.5.1-.4.5 0 0 .1-.1.3-.1.2 0 .3.2.3.5 0 .1 0 .2-.1.3 0-.1 0-.2-.1-.2l-.3.1H296.1c-.3 0-.6.2-.7.4l-.1.4c-.1.1-.2.1-.2.1l-.3.6zm-.7.2c.2 0 .4-.1.5-.2l-.1-.1v-.2s-.2-.1-.1-.3c.1-.2.3-.2.2-.4-.1-.3-.7-.8-1-.9h-.2c-.1.1-.1.4.2.5-.1.2-.2.2-.4.2s-.4-.3-.3-.7c.1-.5-.2-.8-.5-.9h-.1c-.3.1-.3.5-.3.5l.2 1.9c0 .1 0 .1.1.2.1.2.3.4.6.5.3 0 .5 0 .6-.1 0 0 .1-.2.1-.3l-.1-.1c-.1 0-.2.1-.2.1-.1-.1 0-.4.4-.3.2 0 .3.2.3.4v.4l.1-.2zm-1 .7v-.2c-.3-.1-.5-.1-.7-.2-.3-.1-.4-.3-.4-.3v.1c.1.6.4.6.7.7.1 0 .3.1.4.3v-.4zM305 68.2c-.1.1 0 .3 0 .4.3.4 1.4.5 1.9 0-.6-.1-1.2-.2-1.9-.4zm3.1-1c.2.2.3.4.5.4.5-.1 1-1.3 1-1.6 0-.1-.1-.3-.1-.3h.4c.1 0 .4-.1.7-.1.4 0 .4.2.5.3.1 0 .1 0 .3.1.1.1.3.2.2.4h-.4c-.1 0-.3.1-.3.2h.6c.6 0 .4-.3.4-.4 0-.1.3 0 .3.3 0 .2-.4.4-.7.3-.3 0-.6-.1-.6-.2 0 0-.2.4.1.3.1 0 .2-.1.2-.1.1 0 .2.2-.2.2-.5.1-.8.1-.9.5-.1.3-.1.5.1.8.4.7 1.7.6 2 .2.1-.1.1-.3 0-.3-.4 0-.9.1-.9-.4 0-.4.7-.4 1.2-1 .5-.5.6-.8.6-1v-.3c0-.1.2.2.2.3.1.4 0 .7 0 .7.1-.1.3-.3.4-.5l.1-.3c0-.1.1.2 0 .5-.1.4-.4.7-.4.7.6 0 .9-.7.9-.7.5.6-.3 1.3-.3 1.3h.2c.2 0 .3-.1.4-.2.1-.1 0 .3-.3.5-.5.3-1.1.4-1.1.4.1.3.5.3.8.3.3 0 .6-.3.6-.3.4.7-.6 1.1-.7 1.2.3.2.5.3.7.3h.2s-.1.2-.4.1c-.5-.1-.9-.2-.9-.2.6 1.3 1.4 1.3 1.5 1.3 0 0 0 .6-.8.6h-.1c-.3 0-.6-.2-.6-.3 0 .4 1 .9 1 .9s-.2.1-.6.1c-.2 0-.4-.1-.6-.2-.4-.3-.8-.9-.8-1-.2 1 .6 1.5.8 1.5.1 0-.2.2-.5.1h-.2c-.6-.3-.9-.8-.9-.9 0 0-.1.6.3 1h-.1c-.1 0-.2 0-.2-.1-.3-.2-.6-.6-.6-1.1-.3.1-.5.3-.6.5-.1.2-.1.4 0 .6.1.3.3.4.5.4l.5.1c.1 0 .3.1.4.2.2.2 0 .6-.2.5 0 0 .1-.2-.1-.4l-.2-.1c-.1 0-.2 0-.3.2-.2.3.4.6.7.7 0 0 .1.1.3.1.2 0 .3 0 .4-.3-.1-.1-.2-.1-.2-.4 0-.2.2-.3.2-.3.1-.3.5-.3.5-.3-.1 0-.1.1-.1.2s.2.2.1.6c0 0 .2 0 .2-.3v-.3c0-.1.2-.1.3-.1.1 0 .2-.1.3 0 .2 0 .3.2.3.2h-.1c-.1 0-.2 0-.2.1s.1.1-.1.3c-.2.2-.5.1-.4.5 0 0 .1-.1.3-.1.2 0 .3.2.3.5 0 .1 0 .2-.1.3 0-.1 0-.2-.1-.2l-.3.1H313.1c-.3 0-.6.2-.7.4l-.1.4c-.1.1-.2.1-.2.1v.1c0 .1 0 .2.1.2h-.1c-.1 0-.2-.1-.2-.2v-.2s-.2-.1-.1-.3c.1-.2.3-.2.2-.4-.1-.3-.7-.8-1-.9h-.2c-.1.1-.1.4.2.5-.1.2-.2.2-.4.2s-.4-.3-.3-.7c.1-.5-.2-.8-.5-.9h-.1c-.3.1-.3.5-.3.5l.2 1.9c0 .1 0 .1.1.2.1.2.3.4.6.5.3.1.5 0 .6-.1 0 0 .1-.2.1-.3l-.1-.1c-.1 0-.2.1-.2.1-.1-.1 0-.4.4-.3.2 0 .3.2.3.4v.4s.2-.1.4 0h.1c.2.1.3.2.3.4s-.2.3-.2.3.1-.2-.1-.3h-.1c-.2 0-.4.2-.3.4 0 .3-.1.5-.3.5h-.1c-.2 0-.2-.1-.2-.1s.2 0 .2-.2c0-.5-.9-.5-1.2-.7-.3-.1-.4-.3-.4-.3v.1c.1.6.4.6.7.7.2.1.5.2.5.6 0 .4-.3.4-.3.4s.1-.4-.2-.4h-.1c-.2 0-.3.1-.4.2-.2.1-.7.7-.8.8-.1-.1-.6-.7-.8-.8-.1-.1-.2-.2-.4-.2h-.1c-.3.1-.2.4-.2.4s-.3 0-.3-.4c0-.3.2-.5.5-.6.3-.1.7-.1.7-.7v-.1s-.1.2-.4.3c-.3.2-1.3.2-1.2.7 0 .2.2.2.2.2s0 .1-.2.1h-.1c-.2 0-.3-.3-.3-.5s-.1-.4-.3-.4h-.1c-.2.1-.1.3-.1.3s-.2-.1-.2-.3c0-.2.2-.3.3-.4h.5s-.1-.2 0-.4c0-.2.1-.3.3-.4.3-.1.4.2.4.3 0 0-.1-.1-.2-.1l-.1.1c-.1.1.1.3.1.3.1.1.3.2.6.1s.5-.3.6-.5c.1-.1.1-.2.1-.2L308 74s.1-.5-.3-.5h-.1c-.3 0-.6.4-.5.9.1.4-.1.6-.3.7-.2.1-.4 0-.4-.2.4 0 .4-.3.2-.5-.1 0-.1-.1-.2 0-.4.1-.9.6-1 .9-.1.3.1.2.2.4s-.1.3-.1.3v.2c0 .2-.1.2-.2.2h-.1c.1 0 .1-.1.1-.2v-.1s-.1 0-.2-.1l-.1-.4c-.1-.2-.5-.4-.7-.4H304l-.3-.1c-.1 0-.1.1-.1.2-.1-.1-.1-.2-.1-.3 0-.3.2-.5.3-.5.2 0 .3.1.3.1.1-.5-.2-.3-.4-.5-.1-.2-.1-.2-.1-.3 0-.1-.1-.1-.2-.1h-.1s0-.2.3-.3h.3c.1 0 .2 0 .3.1v.3c0 .3.2.3.2.3-.2-.4 0-.6.1-.6 0-.1 0-.2-.1-.2 0 0 .4 0 .5.3 0 0 .2.1.2.3 0 .3-.1.3-.2.4 0 .3.2.3.4.3s.3-.1.3-.1c.3-.1.8-.5.7-.7-.1-.1-.2-.2-.3-.2l-.2.1c-.2.2-.1.4-.1.4-.2.1-.4-.4-.2-.5.1-.1.2-.2.4-.2l.5-.1c.2 0 .4-.2.5-.4.1-.2.1-.4 0-.6-.1-.2-.3-.5-.6-.5-.1.5-.3.8-.6 1.1-.1.1-.2.1-.2.1h-.1c.4-.5.3-1 .3-1 0 .1-.3.6-.9.9h-.2c-.3 0-.6-.1-.5-.1.2 0 1-.5.8-1.5 0 .1-.4.7-.8 1-.2.1-.4.2-.6.2-.3.1-.6 0-.6-.1 0 0 1-.5 1-.9 0 0-.3.2-.6.3h-.1c-.8 0-.8-.6-.8-.6.1 0 .8.1 1.5-1.3 0 0-.4.1-.9.2-.3 0-.4-.1-.4-.1h.2c.2 0 .4-.1.7-.3-.1 0-1.1-.5-.7-1.2 0 0 .3.2.6.3.3 0 .7 0 .8-.3 0 0-.5 0-1.1-.4h-.8c-.2.7-.7 1.2-1.4 1.2s-1.2-.5-1.4-1.2c-.4-.1-.8-.1-1.3-.1l-9.7 10c.9.9 1.9 1.6 3 2.2l8.8-9.4v5l-5.6 5.9c2 .7 4.1 1 5.9 1 6.9 0 17.2-4.5 17-17.1v-8.1l-4.4 4.7h-4.7l9.1-9.7V47L308 57.2l.1.1v9.9zm-1.1 3.1h3.1V69H307v1.3zm1.6 2.4c1.4 0 1.5-1.3 1.5-1.3H307c.1 0 .2 1.3 1.6 1.3zm-18.7-21.9h3.1v-1.3h-3.1v1.3zm1.6 2.4c1.4 0 1.5-1.3 1.5-1.3h-3.1s.2 1.3 1.6 1.3zm8.4 14.5c0 .4.3.7.7.7.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7-.4.1-.7.4-.7.7zm-6.3-10.1v10.3s.1.1.8-.1c.8-.2 1.8-1.2 3.2-1.5 1-.2 2.4.1 2.8.3V56.3s-.6-.6-1.7-.6c-1 0-2.7.9-3.4 1.2-.6.3-1.2.5-1.6.5-.1.1-.1.2-.1.2zm9 8.7c1.8 0 2.7 1.1 3.3 1.4 1.4.6 1.7.3 1.7.3V57.5c0-.1-.1-.1-.1-.1s-1.4-.2-1.9-.5-2.1-1.3-3.4-1.3c-1.2 0-1.5.5-1.5.5v10.5c.1.1.7-.3 1.9-.3z"/></svg>
+            </div>
+            <div class="panel-header">
+              <div class="panel-num">Panel 01 • Invitation</div>
+              <h2 class="panel-title">A Truly Global Gathering</h2>
+            </div>
+            
+            <p style="font-size:14px; color:#334155; margin-bottom:16px;">
+              The University of Groningen cordially invites global scholars, policy leaders, and practitioners to the <strong>Groningen Sustainability Conference 2027 (GSC 2027)</strong>.
+            </p>
+
+            <div style="background:#F1F5F9; border-radius:12px; padding:20px; text-align:center; margin-bottom:20px; border-left:4px solid var(--rug-red);">
+              <div style="font-size:54px; font-weight:900; color:var(--rug-red); line-height:1; font-family:'Outfit';">72</div>
+              <div style="font-size:14px; font-weight:800; color:var(--navy-dark); text-transform:uppercase;">Nations Represented</div>
+              <div style="font-size:12px; color:var(--slate-muted);">Spanning 6 Continents</div>
+            </div>
+
+            <p style="font-size:13px; color:#475569; line-height:1.6; margin-bottom:16px;">
+              Over 70+ nations from Europe, Asia, Africa, the Americas, and Oceania have come together to critically evaluate the SDG framework and construct a sustainable post-2030 paradigm.
+            </p>
+
+            <ul style="font-size:12.5px; color:#334155; list-style:none; padding:0; display:grid; gap:8px;">
+              <li>🌍 <strong>18 Nations:</strong> Europe</li>
+              <li>🌏 <strong>27 Nations:</strong> Asia & Middle East</li>
+              <li>🌍 <strong>16 Nations:</strong> Africa</li>
+              <li>🌎 <strong>8 Nations:</strong> Americas</li>
+              <li>🌏 <strong>2 Nations:</strong> Oceania</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:24px; border-top:1px solid var(--slate-border); padding-top:16px; font-size:12px; color:var(--slate-muted);">
+            📍 <strong>Zernike Campus, Groningen</strong><br>
+            📅 <strong>April 05 – 10, 2027</strong>
+          </div>
+        </div>
+
+        <!-- PANEL 2: THE 5 THEMATIC PILLARS -->
+        <div class="pamphlet-panel" style="background:#F8FAFC;">
+          <div>
+            <div class="panel-header">
+              <div class="panel-num">Panel 02 • Core Themes</div>
+              <h2 class="panel-title">What Nations Are Exploring</h2>
+            </div>
+
+            <div style="display:grid; gap:12px;">
+              <div style="background:#FFFFFF; padding:12px; border-radius:8px; border-left:3px solid var(--t1-teal);">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="font-size:13.5px; color:var(--navy-dark);">Theme 1: SDGs Beyond 2030</strong>
+                  <span style="font-size:11px; font-weight:700; color:var(--t1-teal); background:#CCFBF1; padding:2px 6px; border-radius:4px;">41 Nations</span>
+                </div>
+                <p style="font-size:11.5px; color:#64748B; margin-top:4px;">Governance, beyond-GDP metrics, institutional resilience.</p>
+              </div>
+
+              <div style="background:#FFFFFF; padding:12px; border-radius:8px; border-left:3px solid var(--t2-blue);">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="font-size:13.5px; color:var(--navy-dark);">Theme 2: Resilience Across Systems</strong>
+                  <span style="font-size:11px; font-weight:700; color:var(--t2-blue); background:#E0F2FE; padding:2px 6px; border-radius:4px;">32 Nations</span>
+                </div>
+                <p style="font-size:11.5px; color:#64748B; margin-top:4px;">Food-water-energy nexus, biodiversity, ecological thresholds.</p>
+              </div>
+
+              <div style="background:#FFFFFF; padding:12px; border-radius:8px; border-left:3px solid var(--t3-red);">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="font-size:13.5px; color:var(--navy-dark);">Theme 3: Climate–Development Nexus</strong>
+                  <span style="font-size:11px; font-weight:700; color:var(--t3-red); background:#FEE2E2; padding:2px 6px; border-radius:4px;">33 Nations</span>
+                </div>
+                <p style="font-size:11.5px; color:#64748B; margin-top:4px;">Just transitions, climate finance, vulnerable communities.</p>
+              </div>
+
+              <div style="background:#FFFFFF; padding:12px; border-radius:8px; border-left:3px solid var(--t4-purple);">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="font-size:13.5px; color:var(--navy-dark);">Theme 4: Health & Well-being</strong>
+                  <span style="font-size:11px; font-weight:700; color:var(--t4-purple); background:#F3E8FF; padding:2px 6px; border-radius:4px;">21 Nations</span>
+                </div>
+                <p style="font-size:11.5px; color:#64748B; margin-top:4px;">Planetary health, healthcare equity, well-being economics.</p>
+              </div>
+
+              <div style="background:#FFFFFF; padding:12px; border-radius:8px; border-left:3px solid var(--t5-amber);">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="font-size:13.5px; color:var(--navy-dark);">Theme 5: AI & Digitalization</strong>
+                  <span style="font-size:11px; font-weight:700; color:var(--t5-amber); background:#FEF3C7; padding:2px 6px; border-radius:4px;">26 Nations</span>
+                </div>
+                <p style="font-size:11.5px; color:#64748B; margin-top:4px;">AI for environmental modeling, digital public infrastructure.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:20px; text-align:center;">
+            <img src="visuals/groningen_skyline_pure.png" style="max-width:100%; height:90px; object-fit:contain;" alt="Skyline">
+          </div>
+        </div>
+
+        <!-- PANEL 3: VENUE & CALL TO ACTION -->
+        <div class="pamphlet-panel">
+          <div>
+            <div class="panel-header">
+              <div class="panel-num">Panel 03 • Action</div>
+              <h2 class="panel-title">Join Us in Groningen</h2>
+            </div>
+
+            <p style="font-size:14px; color:#334155; margin-bottom:16px;">
+              Founded in 1614, the University of Groningen has a 400-year legacy of academic leadership. GSC 2027 convenes at the vanguard of European sustainability research.
+            </p>
+
+            <div style="background:var(--navy-dark); color:#FFFFFF; border-radius:12px; padding:18px; margin-bottom:20px;">
+              <h4 style="color:#38BDF8; font-size:14px; margin-bottom:6px;">Highlights of GSC 2027:</h4>
+              <ul style="font-size:12px; color:#E2E8F0; padding-left:16px; line-height:1.6;">
+                <li>High-level UN & Ministerial Roundtables</li>
+                <li>Living Labs at Energy Academy Europe</li>
+                <li>Cross-continental Research Consortia</li>
+                <li>Young Scholar & Global South Fellowships</li>
+              </ul>
+            </div>
+
+            <p style="font-size:13px; color:#475569; margin-bottom:12px;">
+              Be part of the global roadmap shaping the post-2030 agenda.
+            </p>
+          </div>
+
+          <div style="background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; padding:14px; text-align:center;">
+            <p style="font-weight:700; color:var(--rug-red); font-size:14px;">Registration & Panels Open</p>
+            <p style="font-size:12px; color:#475569; margin-top:2px;">Visit: <strong>www.rug.nl/gsc2027</strong></p>
+            <p style="font-size:11px; color:#64748B; margin-top:4px;">Rijksuniversiteit Groningen</p>
+          </div>
+        </div>
+
+      </div>
+
+    </article>
+
+  </main>
+
+  <script>
+    function switchView(mode) {
+      const poster = document.getElementById('posterView');
+      const pamphlet = document.getElementById('pamphletView');
+      const btns = document.querySelectorAll('.view-btn');
+
+      if (mode === 'poster') {
+        poster.style.display = 'block';
+        pamphlet.style.display = 'none';
+        btns[0].classList.add('active');
+        btns[1].classList.remove('active');
+        document.getElementById('mainContainer').style.maxWidth = '1200px';
+      } else {
+        poster.style.display = 'none';
+        pamphlet.style.display = 'block';
+        btns[0].classList.remove('active');
+        btns[1].classList.add('active');
+        document.getElementById('mainContainer').style.maxWidth = '1300px';
+      }
+    }
+
+    let currentContinent = 'all';
+    let currentThemeFilter = null;
+
+    function setContinentFilter(continent, btn) {
+      currentContinent = continent;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterCountries();
+    }
+
+    function filterByTheme(themeNum) {
+      currentThemeFilter = (currentThemeFilter === themeNum) ? null : themeNum;
+      
+      // Update theme cards visual highlight
+      document.querySelectorAll('.theme-card').forEach((card, idx) => {
+        if (currentThemeFilter === null) {
+          card.style.opacity = '1';
+        } else if (idx + 1 === currentThemeFilter) {
+          card.style.opacity = '1';
+          card.style.boxShadow = '0 0 0 3px var(--rug-red)';
+        } else {
+          card.style.opacity = '0.5';
+          card.style.boxShadow = 'none';
+        }
+      });
+
+      filterCountries();
+    }
+
+    function filterCountries() {
+      const query = document.getElementById('countrySearch').value.toLowerCase().trim();
+      const pills = document.querySelectorAll('.country-pill');
+
+      pills.forEach(pill => {
+        const cName = pill.getAttribute('data-country');
+        const cRegion = pill.getAttribute('data-region');
+        const cThemes = pill.getAttribute('data-themes').split(',');
+
+        let matchQuery = !query || cName.includes(query);
+        let matchContinent = currentContinent === 'all' || cRegion.includes(currentContinent);
+        let matchTheme = currentThemeFilter === null || cThemes.includes(String(currentThemeFilter));
+
+        if (matchQuery && matchContinent && matchTheme) {
+          pill.style.display = 'inline-flex';
+        } else {
+          pill.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
