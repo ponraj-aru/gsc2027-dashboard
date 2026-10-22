@@ -3,486 +3,1040 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GSC 2027 - Interactive Global Abstract Submissions Map</title>
+    <title>GSC 2027 - Abstract Submissions & Thematic Landscape Dashboard</title>
+    <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Sans / Plus Jakarta Sans Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0B132B;
-            color: #F8FAFC;
-            min-height: 100vh;
-            padding: 24px;
+            font-family: 'Google Sans', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #FFFFFF;
+            color: #0F172A;
+            line-height: 1.5;
+            padding: 24px 32px 48px;
         }
-        .header {
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        /* Top Navigation / Header */
+        header.dashboard-header {
+            border-bottom: 1px solid #E2E8F0;
+            padding-bottom: 20px;
+            margin-bottom: 24px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #1E293B;
-            margin-bottom: 24px;
+            align-items: flex-end;
             flex-wrap: wrap;
             gap: 16px;
         }
-        .header-title h1 {
-            font-size: 26px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #38BDF8, #818CF8, #C084FC);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 6px;
+        .header-titles h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F172A;
+            letter-spacing: -0.02em;
         }
-        .header-title p {
-            font-size: 14px;
-            color: #94A3B8;
-        }
-        .badge {
-            background: #1E293B;
-            color: #38BDF8;
-            padding: 6px 14px;
-            border-radius: 9999px;
-            font-size: 13px;
-            font-weight: 600;
-            border: 1px solid #334155;
-            display: inline-block;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        .stat-card {
-            background: #16203B;
-            border: 1px solid #233157;
-            border-radius: 14px;
-            padding: 18px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-2px);
-            border-color: #38BDF8;
-        }
-        .stat-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #94A3B8;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        .stat-value {
-            font-size: 30px;
-            font-weight: 800;
-            color: #FFFFFF;
-        }
-        .stat-sub {
-            font-size: 12px;
-            color: #38BDF8;
+        .header-titles p {
+            font-size: 13.5px;
+            color: #64748B;
             margin-top: 4px;
         }
-        .map-container {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        .header-meta {
+            font-size: 12.5px;
+            color: #334155;
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+            padding: 6px 14px;
+            font-weight: 600;
+        }
+
+        /* KPI Cards Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 14px;
             margin-bottom: 24px;
-            border: 1px solid #334155;
         }
-        .leaderboard {
-            background: #16203B;
-            border: 1px solid #233157;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 24px;
+        @media (max-width: 1150px) {
+            .kpi-grid { grid-template-columns: repeat(3, 1fr); }
         }
-        .leaderboard h2 {
-            font-size: 18px;
+        @media (max-width: 640px) {
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .kpi-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 14px 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .kpi-card:hover, .kpi-card.active {
+            border-color: #2563EB;
+            background-color: #F8FAFC;
+        }
+        .kpi-card.active {
+            border-left: 4px solid #2563EB;
+        }
+        .kpi-label {
+            font-size: 11px;
             font-weight: 700;
-            color: #F8FAFC;
-            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #64748B;
+            margin-bottom: 4px;
+        }
+        .kpi-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F172A;
+            line-height: 1.1;
+        }
+        .kpi-sub {
+            font-size: 11.5px;
+            color: #475569;
+            margin-top: 4px;
+        }
+
+        /* Section Headings */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0F172A;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .table-responsive {
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13.5px;
-            color: #CBD5E1;
-        }
-        th {
-            background: #0F172A;
-            text-align: left;
-            padding: 12px 14px;
-            font-weight: 600;
-            color: #94A3B8;
-            border-bottom: 2px solid #334155;
-        }
-        td {
-            padding: 12px 14px;
-            border-bottom: 1px solid #1E293B;
-        }
-        tr:hover td {
-            background: #1E293B;
-            color: #FFFFFF;
-        }
-        .pill {
-            padding: 3px 8px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 600;
-            display: inline-block;
-        }
-        .pill-theme3 { background: rgba(139, 92, 246, 0.2); color: #C4B5FD; }
-        .pill-theme2 { background: rgba(5, 150, 105, 0.2); color: #6EE7B7; }
-        .pill-theme1 { background: rgba(217, 119, 6, 0.2); color: #FCD34D; }
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 12px;
+        .section-subtitle {
+            font-size: 13px;
             color: #64748B;
         }
+
+        /* Filter Controls */
+        .theme-selector-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 6px;
+            margin-bottom: 18px;
+        }
+        .filter-btn {
+            background: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            padding: 7px 14px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+        .filter-btn:hover {
+            background: #F1F5F9;
+            color: #0F172A;
+            border-color: #94A3B8;
+        }
+        .filter-btn.active {
+            background: #2563EB;
+            color: #FFFFFF;
+            border-color: #2563EB;
+        }
+
+        /* Map Card */
+        .map-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+        #mapPlot {
+            width: 100%;
+            height: 560px;
+        }
+        .map-legend-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #F1F5F9;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #475569;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .legend-swatch {
+            width: 16px;
+            height: 12px;
+            border-radius: 2px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Three Column Charts Grid */
+        .charts-grid-3 {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        @media (max-width: 1100px) {
+            .charts-grid-3 { grid-template-columns: 1fr; }
+        }
+        .chart-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+        .chart-card h3 {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 4px;
+        }
+        .chart-card p.chart-sub {
+            font-size: 11.5px;
+            color: #64748B;
+            margin-bottom: 8px;
+        }
+
+        /* Word Clusters Section */
+        .cluster-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+        .word-cloud-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            min-height: 180px;
+            align-items: center;
+            justify-content: center;
+        }
+        .word-badge {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 5px;
+            padding: 5px 12px;
+            background: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            border-radius: 4px;
+            color: #1E293B;
+            transition: all 0.15s ease;
+            cursor: default;
+        }
+        .word-badge:hover {
+            background: #EFF6FF;
+            border-color: #2563EB;
+            color: #1D4ED8;
+        }
+        .word-badge span.count {
+            font-size: 11px;
+            color: #64748B;
+            font-weight: 600;
+        }
+        .subtopics-box {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .subtopics-box h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 6px;
+        }
+        .subtopics-box p.kw-help {
+            font-size: 11.5px;
+            color: #64748B;
+            margin-bottom: 12px;
+        }
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .kw-tag {
+            font-size: 12.5px;
+            background: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: #1E293B;
+        }
+        .kw-tag b {
+            color: #0F172A;
+        }
+
+        /* Table Card & Sorting */
+        .table-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            margin-bottom: 30px;
+        }
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .search-box {
+            padding: 7px 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            font-size: 13px;
+            width: 280px;
+            color: #1E293B;
+            outline: none;
+            font-family: inherit;
+        }
+        .search-box:focus {
+            border-color: #2563EB;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+        }
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+        table.data-table th {
+            background-color: #F8FAFC;
+            color: #334155;
+            font-weight: 700;
+            padding: 10px 12px;
+            border-bottom: 1px solid #CBD5E1;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+        table.data-table th:hover {
+            background-color: #F1F5F9;
+            color: #0F172A;
+        }
+        table.data-table th .sort-icon {
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 10px;
+            color: #94A3B8;
+        }
+        table.data-table th.sorted .sort-icon {
+            color: #2563EB;
+        }
+        table.data-table td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #F1F5F9;
+            color: #334155;
+            white-space: nowrap;
+        }
+        table.data-table tr:hover td {
+            background-color: #F8FAFC;
+        }
+        table.data-table td.num {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+        table.data-table th.num {
+            text-align: right;
+        }
+        table.data-table td.total-col {
+            font-weight: 700;
+            color: #0F172A;
+        }
+        .theme-col-header {
+            border-left: 1px solid #E2E8F0;
+        }
+        td.theme-cell {
+            border-left: 1px solid #F1F5F9;
+        }
+        .table-footer-info {
+            font-size: 12px;
+            color: #64748B;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer */
+        footer.dashboard-footer {
+            border-top: 1px solid #E2E8F0;
+            padding-top: 16px;
+            font-size: 12px;
+            color: #94A3B8;
+            text-align: center;
+        }
+    
+        .update-badge { display:inline-flex; align-items:center; gap:8px; margin-top:8px; padding:6px 12px;
+            border-radius:999px; background:#ECFDF5; border:1px solid #A7F3D0; color:#065F46; font-size:13px; }
+        .update-dot { width:8px; height:8px; border-radius:50%; background:#10B981;
+            box-shadow:0 0 0 0 rgba(16,185,129,.6); animation:pulseDot 2s infinite; }
+        @keyframes pulseDot { 0%{box-shadow:0 0 0 0 rgba(16,185,129,.6)} 70%{box-shadow:0 0 0 8px rgba(16,185,129,0)} 100%{box-shadow:0 0 0 0 rgba(16,185,129,0)} }
+        .header-meta { display:flex; flex-direction:column; align-items:flex-end; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-title">
+<div class="container">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-titles">
             <h1>Groningen Sustainability Conference 2027 (GSC 2027)</h1>
-            <p>Interactive Global Geographic & Thematic Landscape of Abstract Submissions</p>
+            <p>Abstract Submissions, Global Geographic Distribution & Thematic Analysis</p>
         </div>
-        <div class="badge">Official Analysis Dashboard • 301 Abstracts Processed</div>
+        <div class="header-meta">
+            Official Committee Dataset | 367 Submissions | 73 Primary Nations
+            <div class="update-badge" title="Source: ConfTool Submissions Dataset">
+                <span class="update-dot"></span>
+                Dashboard updated based on data of: <strong>22 October 2026, 09:25:03</strong>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top KPI Cards: Strictly Ordered -->
+    <div class="kpi-grid">
+        <div class="kpi-card active" onclick="selectThemeFilter(0)">
+            <div class="kpi-label">All Submissions</div>
+            <div class="kpi-value">367</div>
+            <div class="kpi-sub">73 Nations | 100%</div>
+        </div>
+        <div class="kpi-card" onclick="selectThemeFilter(1)">
+            <div class="kpi-label">Theme 1: SDGs Post-2030</div>
+            <div class="kpi-value">78</div>
+            <div class="kpi-sub">21.3% | 41 Nations</div>
+        </div>
+        <div class="kpi-card" onclick="selectThemeFilter(2)">
+            <div class="kpi-label">Theme 2: Resilience</div>
+            <div class="kpi-value">90</div>
+            <div class="kpi-sub">24.5% | 32 Nations</div>
+        </div>
+        <div class="kpi-card" onclick="selectThemeFilter(3)">
+            <div class="kpi-label">Theme 3: Climate Nexus</div>
+            <div class="kpi-value">94</div>
+            <div class="kpi-sub">25.6% | 33 Nations</div>
+        </div>
+        <div class="kpi-card" onclick="selectThemeFilter(4)">
+            <div class="kpi-label">Theme 4: Health & Society</div>
+            <div class="kpi-value">53</div>
+            <div class="kpi-sub">14.4% | 21 Nations</div>
+        </div>
+        <div class="kpi-card" onclick="selectThemeFilter(5)">
+            <div class="kpi-label">Theme 5: AI & Digital</div>
+            <div class="kpi-value">52</div>
+            <div class="kpi-sub">14.2% | 26 Nations</div>
+        </div>
     </div>
 
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-label">Total Submissions</div>
-            <div class="stat-value">301</div>
-            <div class="stat-sub">Across 5 Master Themes</div>
+    <!-- Thematic Filter Buttons (Strict 1 -> 5 Order) -->
+    <div class="section-header">
+        <div>
+            <div class="section-title">Geographic Distribution Map</div>
+            <div class="section-subtitle">Click a theme button to filter the global map, reactive charts, and word clusters</div>
         </div>
-        <div class="stat-card">
-            <div class="stat-label">Primary Countries</div>
-            <div class="stat-value">66</div>
-            <div class="stat-sub">75 Participating Nations</div>
-        </div>
-        <div class="stat-card" style="border-color: #8B5CF6;">
-            <div class="stat-label">Theme 3: Climate Nexus</div>
-            <div class="stat-value" style="color: #A78BFA;">75</div>
-            <div class="stat-sub">24.9% • 28 Contributing Nations</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Theme 2: Resilience</div>
-            <div class="stat-value" style="color: #34D399;">76</div>
-            <div class="stat-sub">25.2% • Largest Track</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Oral Presentations</div>
-            <div class="stat-value">246</div>
-            <div class="stat-sub">81.7% of Submissions</div>
+    </div>
+    
+    <div class="theme-selector-bar">
+        <button class="filter-btn active" id="btn-theme-0" onclick="selectThemeFilter(0)">All Themes (367)</button>
+        <button class="filter-btn" id="btn-theme-1" onclick="selectThemeFilter(1)">Theme 1: SDGs Beyond 2030 (78)</button>
+        <button class="filter-btn" id="btn-theme-2" onclick="selectThemeFilter(2)">Theme 2: Resilience Across Systems (90)</button>
+        <button class="filter-btn" id="btn-theme-3" onclick="selectThemeFilter(3)">Theme 3: Climate Change–Development Nexus (94)</button>
+        <button class="filter-btn" id="btn-theme-4" onclick="selectThemeFilter(4)">Theme 4: Health & Well-being (53)</button>
+        <button class="filter-btn" id="btn-theme-5" onclick="selectThemeFilter(5)">Theme 5: AI & Digitalization (52)</button>
+    </div>
+
+    <!-- Map Card -->
+    <div class="map-card">
+        <div id="mapPlot"></div>
+        <div class="map-legend-bar" id="mapDiscreteLegend">
+            <!-- Populated dynamically with discrete tiers -->
         </div>
     </div>
 
-    <div class="map-container">
-        <div id="plotlyMap" style="width: 100%; height: 680px;"></div>
+    <!-- Reactive Charts Section: 3-Column Layout -->
+    <div class="section-header">
+        <div>
+            <div class="section-title" id="chartsMainTitle">Thematic & Session Analytics</div>
+            <div class="section-subtitle">Dynamic subtopic breakdown, session presentation formats, and continental distribution</div>
+        </div>
     </div>
 
-    <div class="leaderboard">
-        <h2>🏆 Top Contributing Nations Leaderboard</h2>
-        <div class="table-responsive">
-            <table>
+    <div class="charts-grid-3">
+        <!-- Chart 1: Subtopics or Themes Breakdown Pie Chart -->
+        <div class="chart-card">
+            <h3 id="chart1Title">Thematic Proportions (Themes 1 to 5)</h3>
+            <p class="chart-sub" id="chart1Sub">Proportions across conference pillars</p>
+            <div id="subtopicPiePlot" style="height: 310px;"></div>
+        </div>
+        
+        <!-- Chart 2: Session Presentation Formats Pie Chart -->
+        <div class="chart-card">
+            <h3 id="chart2Title">Session Presentation Formats</h3>
+            <p class="chart-sub" id="chart2Sub">Oral | Poster | Innovative | Full Panel</p>
+            <div id="formatPiePlot" style="height: 310px;"></div>
+        </div>
+
+        <!-- Chart 3: Continental Regions Bar Plot -->
+        <div class="chart-card">
+            <h3 id="chart3Title">Submissions by Continental Region</h3>
+            <p class="chart-sub" id="chart3Sub">Regional origin of submitting authors</p>
+            <div id="regionBarPlot" style="height: 310px;"></div>
+        </div>
+    </div>
+
+    <!-- Word Clusters Section -->
+    <div class="section-header">
+        <div>
+            <div class="section-title">Abstract Word Clusters & Author Keywords</div>
+            <div class="section-subtitle">Lexical frequency tags extracted from abstract text and author-assigned keywords</div>
+        </div>
+    </div>
+
+    <div class="cluster-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <div style="font-size: 14px; font-weight: 700; color: #0F172A;" id="clusterThemeTitle">
+                Word Frequency Cluster | All Themes (367 Abstracts)
+            </div>
+            <div style="font-size: 12px; color: #64748B;">
+                Filter words: <input type="text" id="wordFilterInput" placeholder="Search term..." onkeyup="filterWordBadges()" style="padding: 4px 8px; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 12px; font-family: inherit;">
+            </div>
+        </div>
+
+        <!-- Word Tags Cloud -->
+        <div class="word-cloud-container" id="wordCloudBox">
+            <!-- Injected by JavaScript -->
+        </div>
+
+        <!-- Author Keywords Section -->
+        <div class="subtopics-box">
+            <h4>Top Author-Supplied Keywords</h4>
+            <p class="kw-help">Keywords explicitly assigned by authors during abstract submission to index their primary research topics</p>
+            <div class="keyword-list" id="authorKeywordsList">
+                <!-- Injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sortable Country Table -->
+    <div class="section-header">
+        <div>
+            <div class="section-title">Participating Countries Leaderboard</div>
+            <div class="section-subtitle">Click any column header to sort highest-to-lowest or lowest-to-highest</div>
+        </div>
+    </div>
+
+    <div class="table-card">
+        <div class="table-controls">
+            <input type="text" id="countrySearch" class="search-box" placeholder="Search country or region..." onkeyup="renderTable()">
+            <div style="font-size: 12.5px; color: #64748B;">
+                Showing <span id="visibleRowCount" style="font-weight: 700; color: #0F172A;">66</span> countries | Click header to toggle sort direction
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="data-table" id="countriesTable">
                 <thead>
                     <tr>
-                        <th>Rank</th>
-                        <th>Country</th>
-                        <th>Region</th>
-                        <th>Total Papers</th>
-                        <th>Theme 3 (Climate)</th>
-                        <th>Theme 2 (Resilience)</th>
-                        <th>Theme 1 (SDGs)</th>
-                        <th>Theme 4 (Health)</th>
-                        <th>Theme 5 (AI)</th>
-                        <th>Oral / Poster</th>
+                        <th onclick="sortTable('rank')" id="th-rank">Rank <span class="sort-icon">▼</span></th>
+                        <th onclick="sortTable('country')" id="th-country">Country <span class="sort-icon"></span></th>
+                        <th onclick="sortTable('region')" id="th-region">Region <span class="sort-icon"></span></th>
+                        <th onclick="sortTable('total')" id="th-total" class="num sorted">Total Papers <span class="sort-icon">▼</span></th>
+                        <th onclick="sortTable('t1')" id="th-t1" class="num theme-col-header">Theme 1 <span class="sort-icon"></span></th>
+                        <th onclick="sortTable('t2')" id="th-t2" class="num theme-col-header">Theme 2 <span class="sort-icon"></span></th>
+                        <th onclick="sortTable('t3')" id="th-t3" class="num theme-col-header">Theme 3 <span class="sort-icon"></span></th>
+                        <th onclick="sortTable('t4')" id="th-t4" class="num theme-col-header">Theme 4 <span class="sort-icon"></span></th>
+                        <th onclick="sortTable('t5')" id="th-t5" class="num theme-col-header">Theme 5 <span class="sort-icon"></span></th>
+                        <th onclick="sortTable('oral')" id="th-oral" class="num">Oral <span class="sort-icon"></span></th>
+                        <th onclick="sortTable('poster')" id="th-poster" class="num">Poster <span class="sort-icon"></span></th>
+                        <th onclick="sortTable('special')" id="th-special" class="num">Panels <span class="sort-icon"></span></th>
                     </tr>
                 </thead>
-                <tbody>
-
-                    <tr>
-                        <td><b>#1</b></td>
-                        <td><b>Netherlands</b></td>
-                        <td>Europe</td>
-                        <td><b style="color:#38BDF8;">38</b></td>
-                        <td><span class="pill pill-theme3">11</span></td>
-                        <td><span class="pill pill-theme2">8</span></td>
-                        <td><span class="pill pill-theme1">11</span></td>
-                        <td>2</td>
-                        <td>6</td>
-                        <td>31 / 2</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#2</b></td>
-                        <td><b>India</b></td>
-                        <td>Asia</td>
-                        <td><b style="color:#38BDF8;">31</b></td>
-                        <td><span class="pill pill-theme3">12</span></td>
-                        <td><span class="pill pill-theme2">5</span></td>
-                        <td><span class="pill pill-theme1">7</span></td>
-                        <td>6</td>
-                        <td>1</td>
-                        <td>27 / 3</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#3</b></td>
-                        <td><b>China</b></td>
-                        <td>Asia</td>
-                        <td><b style="color:#38BDF8;">27</b></td>
-                        <td><span class="pill pill-theme3">5</span></td>
-                        <td><span class="pill pill-theme2">12</span></td>
-                        <td><span class="pill pill-theme1">4</span></td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>17 / 2</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#4</b></td>
-                        <td><b>Germany</b></td>
-                        <td>Europe</td>
-                        <td><b style="color:#38BDF8;">24</b></td>
-                        <td><span class="pill pill-theme3">7</span></td>
-                        <td><span class="pill pill-theme2">6</span></td>
-                        <td><span class="pill pill-theme1">2</span></td>
-                        <td>5</td>
-                        <td>4</td>
-                        <td>23 / 1</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#5</b></td>
-                        <td><b>Indonesia</b></td>
-                        <td>Asia</td>
-                        <td><b style="color:#38BDF8;">19</b></td>
-                        <td><span class="pill pill-theme3">2</span></td>
-                        <td><span class="pill pill-theme2">4</span></td>
-                        <td><span class="pill pill-theme1">2</span></td>
-                        <td>6</td>
-                        <td>5</td>
-                        <td>16 / 3</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#6</b></td>
-                        <td><b>United Kingdom</b></td>
-                        <td>Europe</td>
-                        <td><b style="color:#38BDF8;">18</b></td>
-                        <td><span class="pill pill-theme3">5</span></td>
-                        <td><span class="pill pill-theme2">3</span></td>
-                        <td><span class="pill pill-theme1">6</span></td>
-                        <td>0</td>
-                        <td>4</td>
-                        <td>15 / 3</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#7</b></td>
-                        <td><b>Ghana</b></td>
-                        <td>Africa</td>
-                        <td><b style="color:#38BDF8;">17</b></td>
-                        <td><span class="pill pill-theme3">4</span></td>
-                        <td><span class="pill pill-theme2">3</span></td>
-                        <td><span class="pill pill-theme1">1</span></td>
-                        <td>8</td>
-                        <td>1</td>
-                        <td>11 / 5</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#8</b></td>
-                        <td><b>South Africa</b></td>
-                        <td>Africa</td>
-                        <td><b style="color:#38BDF8;">17</b></td>
-                        <td><span class="pill pill-theme3">7</span></td>
-                        <td><span class="pill pill-theme2">4</span></td>
-                        <td><span class="pill pill-theme1">2</span></td>
-                        <td>0</td>
-                        <td>4</td>
-                        <td>14 / 3</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#9</b></td>
-                        <td><b>Nepal</b></td>
-                        <td>Asia</td>
-                        <td><b style="color:#38BDF8;">15</b></td>
-                        <td><span class="pill pill-theme3">5</span></td>
-                        <td><span class="pill pill-theme2">5</span></td>
-                        <td><span class="pill pill-theme1">3</span></td>
-                        <td>2</td>
-                        <td>0</td>
-                        <td>11 / 4</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#10</b></td>
-                        <td><b>United States</b></td>
-                        <td>Americas</td>
-                        <td><b style="color:#38BDF8;">12</b></td>
-                        <td><span class="pill pill-theme3">3</span></td>
-                        <td><span class="pill pill-theme2">5</span></td>
-                        <td><span class="pill pill-theme1">2</span></td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>9 / 3</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#11</b></td>
-                        <td><b>Nigeria</b></td>
-                        <td>Africa</td>
-                        <td><b style="color:#38BDF8;">9</b></td>
-                        <td><span class="pill pill-theme3">3</span></td>
-                        <td><span class="pill pill-theme2">0</span></td>
-                        <td><span class="pill pill-theme1">0</span></td>
-                        <td>5</td>
-                        <td>1</td>
-                        <td>9 / 0</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#12</b></td>
-                        <td><b>Belgium</b></td>
-                        <td>Europe</td>
-                        <td><b style="color:#38BDF8;">8</b></td>
-                        <td><span class="pill pill-theme3">1</span></td>
-                        <td><span class="pill pill-theme2">5</span></td>
-                        <td><span class="pill pill-theme1">1</span></td>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>6 / 2</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#13</b></td>
-                        <td><b>Pakistan</b></td>
-                        <td>Asia</td>
-                        <td><b style="color:#38BDF8;">7</b></td>
-                        <td><span class="pill pill-theme3">2</span></td>
-                        <td><span class="pill pill-theme2">2</span></td>
-                        <td><span class="pill pill-theme1">1</span></td>
-                        <td>2</td>
-                        <td>0</td>
-                        <td>6 / 1</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#14</b></td>
-                        <td><b>Bangladesh</b></td>
-                        <td>Asia</td>
-                        <td><b style="color:#38BDF8;">7</b></td>
-                        <td><span class="pill pill-theme3">5</span></td>
-                        <td><span class="pill pill-theme2">1</span></td>
-                        <td><span class="pill pill-theme1">0</span></td>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>4 / 3</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#15</b></td>
-                        <td><b>Morocco</b></td>
-                        <td>Africa</td>
-                        <td><b style="color:#38BDF8;">6</b></td>
-                        <td><span class="pill pill-theme3">0</span></td>
-                        <td><span class="pill pill-theme2">2</span></td>
-                        <td><span class="pill pill-theme1">1</span></td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>6 / 0</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#16</b></td>
-                        <td><b>Kenya</b></td>
-                        <td>Africa</td>
-                        <td><b style="color:#38BDF8;">6</b></td>
-                        <td><span class="pill pill-theme3">1</span></td>
-                        <td><span class="pill pill-theme2">1</span></td>
-                        <td><span class="pill pill-theme1">0</span></td>
-                        <td>0</td>
-                        <td>4</td>
-                        <td>5 / 1</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#17</b></td>
-                        <td><b>Thailand</b></td>
-                        <td>Asia</td>
-                        <td><b style="color:#38BDF8;">6</b></td>
-                        <td><span class="pill pill-theme3">2</span></td>
-                        <td><span class="pill pill-theme2">2</span></td>
-                        <td><span class="pill pill-theme1">1</span></td>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>5 / 1</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#18</b></td>
-                        <td><b>Italy</b></td>
-                        <td>Europe</td>
-                        <td><b style="color:#38BDF8;">6</b></td>
-                        <td><span class="pill pill-theme3">1</span></td>
-                        <td><span class="pill pill-theme2">3</span></td>
-                        <td><span class="pill pill-theme1">2</span></td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>3 / 2</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#19</b></td>
-                        <td><b>Turkey</b></td>
-                        <td>Europe/Asia</td>
-                        <td><b style="color:#38BDF8;">4</b></td>
-                        <td><span class="pill pill-theme3">0</span></td>
-                        <td><span class="pill pill-theme2">1</span></td>
-                        <td><span class="pill pill-theme1">2</span></td>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>3 / 1</td>
-                    </tr>
-    
-                    <tr>
-                        <td><b>#20</b></td>
-                        <td><b>Malaysia</b></td>
-                        <td>Asia</td>
-                        <td><b style="color:#38BDF8;">4</b></td>
-                        <td><span class="pill pill-theme3">0</span></td>
-                        <td><span class="pill pill-theme2">0</span></td>
-                        <td><span class="pill pill-theme1">0</span></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>4 / 0</td>
-                    </tr>
-    
+                <tbody id="tableBody">
+                    <!-- Populated by JavaScript -->
                 </tbody>
             </table>
         </div>
+        <div class="table-footer-info">
+            <span>Note: Theme columns are arranged in strict sequential order (Theme 1 through Theme 5).</span>
+            <span>Total Submissions: 367</span>
+        </div>
     </div>
 
-    <div class="footer">
-        Generated for Groningen Sustainability Conference 2027 (GSC 2027) • Data source: ConfTool Submissions Dataset
-    </div>
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        Groningen Sustainability Conference 2027 (GSC 2027) | University of Groningen, Netherlands | Data Source: ConfTool Submissions Dataset
+    </footer>
+</div>
 
-    <script>
-        var figData = {"data":[{"colorbar":{"len":0.6,"thickness":18,"title":{"side":"top","text":"\u003cb\u003eTotal Papers\u003c\u002fb\u003e"},"y":0.5},"colorscale":[[0.0,"rgb(209, 238, 234)"],[0.16666666666666666,"rgb(168, 219, 217)"],[0.3333333333333333,"rgb(133, 196, 201)"],[0.5,"rgb(104, 171, 184)"],[0.6666666666666666,"rgb(79, 144, 166)"],[0.8333333333333334,"rgb(59, 115, 143)"],[1.0,"rgb(42, 86, 116)"]],"customdata":[["Netherlands","Europe",31,2,5,11,8,11,2,6],["India","Asia",27,3,1,7,5,12,6,1],["China","Asia",17,2,8,4,12,5,3,3],["Germany","Europe",23,1,0,2,6,7,5,4],["Indonesia","Asia",16,3,0,2,4,2,6,5],["United Kingdom","Europe",15,3,0,6,3,5,0,4],["Ghana","Africa",11,5,1,1,3,4,8,1],["South Africa","Africa",14,3,0,2,4,7,0,4],["Nepal","Asia",11,4,0,3,5,5,2,0],["United States","Americas",9,3,0,2,5,3,1,1],["Nigeria","Africa",9,0,0,0,0,3,5,1],["Belgium","Europe",6,2,0,1,5,1,1,0],["Pakistan","Asia",6,1,0,1,2,2,2,0],["Bangladesh","Asia",4,3,0,0,1,5,1,0],["Morocco","Africa",6,0,0,1,2,0,1,2],["Kenya","Africa",5,1,0,0,1,1,0,4],["Thailand","Asia",5,1,0,1,2,2,1,0],["Italy","Europe",3,2,1,2,3,1,0,0],["Turkey","Europe\u002fAsia",3,1,0,2,1,0,0,1],["Malaysia","Asia",4,0,0,0,0,0,2,2],["Spain","Europe",4,0,0,3,0,0,1,0],["Australia","Oceania",3,1,0,1,2,0,0,1],["Philippines","Asia",3,0,0,0,1,0,2,0],["Austria","Europe",3,0,0,2,0,1,0,0],["Uganda","Africa",2,1,0,0,1,1,1,0],["Benin","Africa",2,1,0,1,0,0,1,1],["Denmark","Europe",3,0,0,0,3,0,0,0],["Finland","Europe",3,0,0,1,0,2,0,0],["Afghanistan","Other",2,0,0,1,0,0,0,1],["Israel","Other",2,0,0,0,1,0,0,1],["Burkina Faso","Other",2,0,0,0,2,0,0,0],["Brazil","Americas",1,1,0,2,0,0,0,0],["Czech Republic","Europe",2,0,0,0,1,1,0,0],["Malawi","Africa",1,1,0,1,0,1,0,0],["Cyprus","Other",2,0,0,0,0,0,0,2],["Tanzania","Africa",2,0,0,0,0,1,0,1],["Unknown","Other",2,0,0,1,0,1,0,0],["Zimbabwe","Africa",2,0,0,1,0,0,1,0],["Saudi Arabia","Other",2,0,0,2,0,0,0,0],["France","Europe",1,1,0,1,1,0,0,0],["Egypt","Africa",2,0,0,0,1,1,0,0],["Mozambique","Africa",2,0,0,1,0,1,0,0],["Canada","Americas",2,0,0,0,0,2,0,0],["Singapore","Other",0,1,0,0,1,0,0,0],["Vietnam","Asia",1,0,0,1,0,0,0,0],["Portugal","Europe",1,0,0,0,1,0,0,0],["Oman","Other",1,0,0,1,0,0,0,0],["Taiwan","Other",0,1,0,0,0,0,0,1],["United Arab Emirates","Asia",0,1,0,0,0,0,0,1],["Iran","Asia",1,0,0,0,0,1,0,0],["Sweden","Europe",1,0,0,0,0,1,0,0],["Estonia","Other",0,1,0,1,0,0,0,0],["Romania","Europe",1,0,0,1,0,0,0,0],["Kuwait","Other",1,0,0,0,1,0,0,0],["Uruguay","Other",0,1,0,0,0,0,0,1],["Japan","Asia",0,1,0,0,0,0,1,0],["Switzerland","Europe",1,0,0,1,0,0,0,0],["Sri Lanka","Asia",1,0,0,0,1,0,0,0],["Azerbaijan","Other",1,0,0,1,0,0,0,0],["DR Congo","Africa",0,1,0,1,0,0,0,0],["New Zealand","Oceania",1,0,0,0,0,1,0,0],["Mexico","Americas",1,0,0,0,0,0,0,1],["Lebanon","Asia",1,0,0,0,1,0,0,0],["The Gambia","Africa",1,0,0,1,0,0,0,0],["Ireland","Europe",1,0,0,0,0,1,0,0],["Venezuela","Americas",0,1,0,1,0,0,0,0],["Ecuador","Americas",1,0,0,1,0,0,0,0],["Poland","Europe",0,0,1,0,0,1,0,0],["Yemen","Asia",1,0,0,0,0,0,0,1],["Cameroon","Africa",0,1,0,0,0,1,0,0],["Sudan","Other",0,1,0,0,0,0,0,1],["Argentina","Other",1,0,0,1,0,0,0,0],["Ethiopia","Other",1,0,0,1,0,0,0,0]],"hovertemplate":"\u003cb\u003e%{customdata[0]}\u003c\u002fb\u003e (%{customdata[1]})\u003cbr\u003e\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u003cbr\u003e\u003cb\u003eTotal Submissions: %{z}\u003c\u002fb\u003e\u003cbr\u003eOral: %{customdata[2]} | Poster: %{customdata[3]} | Panels: %{customdata[4]}\u003cbr\u003e\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Thematic Breakdown \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u003cbr\u003eT1 (SDGs): %{customdata[5]} | T2 (Resilience): %{customdata[6]}\u003cbr\u003eT3 (Climate): %{customdata[7]} | T4 (Health): %{customdata[8]}\u003cbr\u003eT5 (AI & Digital): %{customdata[9]}\u003cbr\u003e\u003cextra\u003e\u003c\u002fextra\u003e","locationmode":"country names","locations":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"name":"All Themes","text":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"visible":true,"z":{"dtype":"i1","bdata":"Jh8bGBMSEREPDAkIBwcGBgYGBAQEBAMDAwMDAwICAgICAgICAgICAgICAgEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ=="},"type":"choropleth"},{"colorbar":{"len":0.6,"thickness":18,"title":{"side":"top","text":"\u003cb\u003eTheme 3 Papers\u003c\u002fb\u003e"},"y":0.5},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"customdata":[["Netherlands","Europe",31,2,5,11,8,11,2,6],["India","Asia",27,3,1,7,5,12,6,1],["China","Asia",17,2,8,4,12,5,3,3],["Germany","Europe",23,1,0,2,6,7,5,4],["Indonesia","Asia",16,3,0,2,4,2,6,5],["United Kingdom","Europe",15,3,0,6,3,5,0,4],["Ghana","Africa",11,5,1,1,3,4,8,1],["South Africa","Africa",14,3,0,2,4,7,0,4],["Nepal","Asia",11,4,0,3,5,5,2,0],["United States","Americas",9,3,0,2,5,3,1,1],["Nigeria","Africa",9,0,0,0,0,3,5,1],["Belgium","Europe",6,2,0,1,5,1,1,0],["Pakistan","Asia",6,1,0,1,2,2,2,0],["Bangladesh","Asia",4,3,0,0,1,5,1,0],["Morocco","Africa",6,0,0,1,2,0,1,2],["Kenya","Africa",5,1,0,0,1,1,0,4],["Thailand","Asia",5,1,0,1,2,2,1,0],["Italy","Europe",3,2,1,2,3,1,0,0],["Turkey","Europe\u002fAsia",3,1,0,2,1,0,0,1],["Malaysia","Asia",4,0,0,0,0,0,2,2],["Spain","Europe",4,0,0,3,0,0,1,0],["Australia","Oceania",3,1,0,1,2,0,0,1],["Philippines","Asia",3,0,0,0,1,0,2,0],["Austria","Europe",3,0,0,2,0,1,0,0],["Uganda","Africa",2,1,0,0,1,1,1,0],["Benin","Africa",2,1,0,1,0,0,1,1],["Denmark","Europe",3,0,0,0,3,0,0,0],["Finland","Europe",3,0,0,1,0,2,0,0],["Afghanistan","Other",2,0,0,1,0,0,0,1],["Israel","Other",2,0,0,0,1,0,0,1],["Burkina Faso","Other",2,0,0,0,2,0,0,0],["Brazil","Americas",1,1,0,2,0,0,0,0],["Czech Republic","Europe",2,0,0,0,1,1,0,0],["Malawi","Africa",1,1,0,1,0,1,0,0],["Cyprus","Other",2,0,0,0,0,0,0,2],["Tanzania","Africa",2,0,0,0,0,1,0,1],["Unknown","Other",2,0,0,1,0,1,0,0],["Zimbabwe","Africa",2,0,0,1,0,0,1,0],["Saudi Arabia","Other",2,0,0,2,0,0,0,0],["France","Europe",1,1,0,1,1,0,0,0],["Egypt","Africa",2,0,0,0,1,1,0,0],["Mozambique","Africa",2,0,0,1,0,1,0,0],["Canada","Americas",2,0,0,0,0,2,0,0],["Singapore","Other",0,1,0,0,1,0,0,0],["Vietnam","Asia",1,0,0,1,0,0,0,0],["Portugal","Europe",1,0,0,0,1,0,0,0],["Oman","Other",1,0,0,1,0,0,0,0],["Taiwan","Other",0,1,0,0,0,0,0,1],["United Arab Emirates","Asia",0,1,0,0,0,0,0,1],["Iran","Asia",1,0,0,0,0,1,0,0],["Sweden","Europe",1,0,0,0,0,1,0,0],["Estonia","Other",0,1,0,1,0,0,0,0],["Romania","Europe",1,0,0,1,0,0,0,0],["Kuwait","Other",1,0,0,0,1,0,0,0],["Uruguay","Other",0,1,0,0,0,0,0,1],["Japan","Asia",0,1,0,0,0,0,1,0],["Switzerland","Europe",1,0,0,1,0,0,0,0],["Sri Lanka","Asia",1,0,0,0,1,0,0,0],["Azerbaijan","Other",1,0,0,1,0,0,0,0],["DR Congo","Africa",0,1,0,1,0,0,0,0],["New Zealand","Oceania",1,0,0,0,0,1,0,0],["Mexico","Americas",1,0,0,0,0,0,0,1],["Lebanon","Asia",1,0,0,0,1,0,0,0],["The Gambia","Africa",1,0,0,1,0,0,0,0],["Ireland","Europe",1,0,0,0,0,1,0,0],["Venezuela","Americas",0,1,0,1,0,0,0,0],["Ecuador","Americas",1,0,0,1,0,0,0,0],["Poland","Europe",0,0,1,0,0,1,0,0],["Yemen","Asia",1,0,0,0,0,0,0,1],["Cameroon","Africa",0,1,0,0,0,1,0,0],["Sudan","Other",0,1,0,0,0,0,0,1],["Argentina","Other",1,0,0,1,0,0,0,0],["Ethiopia","Other",1,0,0,1,0,0,0,0]],"hovertemplate":"\u003cb\u003e%{customdata[0]}\u003c\u002fb\u003e (%{customdata[1]})\u003cbr\u003e\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u003cbr\u003e\u003cb\u003eTheme 3 Submissions: %{z}\u003c\u002fb\u003e\u003cbr\u003eOral: %{customdata[2]} | Poster: %{customdata[3]} | Panels: %{customdata[4]}\u003cbr\u003e\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Thematic Breakdown \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u003cbr\u003eT1 (SDGs): %{customdata[5]} | T2 (Resilience): %{customdata[6]}\u003cbr\u003eT3 (Climate): %{customdata[7]} | T4 (Health): %{customdata[8]}\u003cbr\u003eT5 (AI & Digital): %{customdata[9]}\u003cbr\u003e\u003cextra\u003e\u003c\u002fextra\u003e","locationmode":"country names","locations":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"name":"Theme 3: Climate Nexus","text":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"visible":false,"z":{"dtype":"i1","bdata":"CwwFBwIFBAcFAwMBAgUAAQIBAAAAAAABAQAAAgAAAAABAQABAQAAAAEBAgAAAAAAAAEBAAAAAAAAAAAAAQAAAAEAAAEAAQAAAA=="},"type":"choropleth"},{"colorbar":{"len":0.6,"thickness":18,"title":{"side":"top","text":"\u003cb\u003eTheme 1 Papers\u003c\u002fb\u003e"},"y":0.5},"colorscale":[[0.0,"rgb(255,255,204)"],[0.125,"rgb(255,237,160)"],[0.25,"rgb(254,217,118)"],[0.375,"rgb(254,178,76)"],[0.5,"rgb(253,141,60)"],[0.625,"rgb(252,78,42)"],[0.75,"rgb(227,26,28)"],[0.875,"rgb(189,0,38)"],[1.0,"rgb(128,0,38)"]],"customdata":[["Netherlands","Europe",31,2,5,11,8,11,2,6],["India","Asia",27,3,1,7,5,12,6,1],["China","Asia",17,2,8,4,12,5,3,3],["Germany","Europe",23,1,0,2,6,7,5,4],["Indonesia","Asia",16,3,0,2,4,2,6,5],["United Kingdom","Europe",15,3,0,6,3,5,0,4],["Ghana","Africa",11,5,1,1,3,4,8,1],["South Africa","Africa",14,3,0,2,4,7,0,4],["Nepal","Asia",11,4,0,3,5,5,2,0],["United States","Americas",9,3,0,2,5,3,1,1],["Nigeria","Africa",9,0,0,0,0,3,5,1],["Belgium","Europe",6,2,0,1,5,1,1,0],["Pakistan","Asia",6,1,0,1,2,2,2,0],["Bangladesh","Asia",4,3,0,0,1,5,1,0],["Morocco","Africa",6,0,0,1,2,0,1,2],["Kenya","Africa",5,1,0,0,1,1,0,4],["Thailand","Asia",5,1,0,1,2,2,1,0],["Italy","Europe",3,2,1,2,3,1,0,0],["Turkey","Europe\u002fAsia",3,1,0,2,1,0,0,1],["Malaysia","Asia",4,0,0,0,0,0,2,2],["Spain","Europe",4,0,0,3,0,0,1,0],["Australia","Oceania",3,1,0,1,2,0,0,1],["Philippines","Asia",3,0,0,0,1,0,2,0],["Austria","Europe",3,0,0,2,0,1,0,0],["Uganda","Africa",2,1,0,0,1,1,1,0],["Benin","Africa",2,1,0,1,0,0,1,1],["Denmark","Europe",3,0,0,0,3,0,0,0],["Finland","Europe",3,0,0,1,0,2,0,0],["Afghanistan","Other",2,0,0,1,0,0,0,1],["Israel","Other",2,0,0,0,1,0,0,1],["Burkina Faso","Other",2,0,0,0,2,0,0,0],["Brazil","Americas",1,1,0,2,0,0,0,0],["Czech Republic","Europe",2,0,0,0,1,1,0,0],["Malawi","Africa",1,1,0,1,0,1,0,0],["Cyprus","Other",2,0,0,0,0,0,0,2],["Tanzania","Africa",2,0,0,0,0,1,0,1],["Unknown","Other",2,0,0,1,0,1,0,0],["Zimbabwe","Africa",2,0,0,1,0,0,1,0],["Saudi Arabia","Other",2,0,0,2,0,0,0,0],["France","Europe",1,1,0,1,1,0,0,0],["Egypt","Africa",2,0,0,0,1,1,0,0],["Mozambique","Africa",2,0,0,1,0,1,0,0],["Canada","Americas",2,0,0,0,0,2,0,0],["Singapore","Other",0,1,0,0,1,0,0,0],["Vietnam","Asia",1,0,0,1,0,0,0,0],["Portugal","Europe",1,0,0,0,1,0,0,0],["Oman","Other",1,0,0,1,0,0,0,0],["Taiwan","Other",0,1,0,0,0,0,0,1],["United Arab Emirates","Asia",0,1,0,0,0,0,0,1],["Iran","Asia",1,0,0,0,0,1,0,0],["Sweden","Europe",1,0,0,0,0,1,0,0],["Estonia","Other",0,1,0,1,0,0,0,0],["Romania","Europe",1,0,0,1,0,0,0,0],["Kuwait","Other",1,0,0,0,1,0,0,0],["Uruguay","Other",0,1,0,0,0,0,0,1],["Japan","Asia",0,1,0,0,0,0,1,0],["Switzerland","Europe",1,0,0,1,0,0,0,0],["Sri Lanka","Asia",1,0,0,0,1,0,0,0],["Azerbaijan","Other",1,0,0,1,0,0,0,0],["DR Congo","Africa",0,1,0,1,0,0,0,0],["New Zealand","Oceania",1,0,0,0,0,1,0,0],["Mexico","Americas",1,0,0,0,0,0,0,1],["Lebanon","Asia",1,0,0,0,1,0,0,0],["The Gambia","Africa",1,0,0,1,0,0,0,0],["Ireland","Europe",1,0,0,0,0,1,0,0],["Venezuela","Americas",0,1,0,1,0,0,0,0],["Ecuador","Americas",1,0,0,1,0,0,0,0],["Poland","Europe",0,0,1,0,0,1,0,0],["Yemen","Asia",1,0,0,0,0,0,0,1],["Cameroon","Africa",0,1,0,0,0,1,0,0],["Sudan","Other",0,1,0,0,0,0,0,1],["Argentina","Other",1,0,0,1,0,0,0,0],["Ethiopia","Other",1,0,0,1,0,0,0,0]],"hovertemplate":"\u003cb\u003e%{customdata[0]}\u003c\u002fb\u003e (%{customdata[1]})\u003cbr\u003e\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u003cbr\u003e\u003cb\u003eTheme 1 Submissions: %{z}\u003c\u002fb\u003e\u003cbr\u003eOral: %{customdata[2]} | Poster: %{customdata[3]} | Panels: %{customdata[4]}\u003cbr\u003e\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Thematic Breakdown \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u003cbr\u003eT1 (SDGs): %{customdata[5]} | T2 (Resilience): %{customdata[6]}\u003cbr\u003eT3 (Climate): %{customdata[7]} | T4 (Health): %{customdata[8]}\u003cbr\u003eT5 (AI & Digital): %{customdata[9]}\u003cbr\u003e\u003cextra\u003e\u003c\u002fextra\u003e","locationmode":"country names","locations":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"name":"Theme 1: SDGs Beyond 2030","text":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"visible":false,"z":{"dtype":"i1","bdata":"CwcEAgIGAQIDAgABAQABAAECAgADAQACAAEAAQEAAAIAAQAAAQECAQABAAABAAEAAAAAAQEAAAABAAEBAAAAAQABAQAAAAABAQ=="},"type":"choropleth"},{"colorbar":{"len":0.6,"thickness":18,"title":{"side":"top","text":"\u003cb\u003eTheme 2 Papers\u003c\u002fb\u003e"},"y":0.5},"colorscale":[[0.0,"rgb(247,252,245)"],[0.125,"rgb(229,245,224)"],[0.25,"rgb(199,233,192)"],[0.375,"rgb(161,217,155)"],[0.5,"rgb(116,196,118)"],[0.625,"rgb(65,171,93)"],[0.75,"rgb(35,139,69)"],[0.875,"rgb(0,109,44)"],[1.0,"rgb(0,68,27)"]],"customdata":[["Netherlands","Europe",31,2,5,11,8,11,2,6],["India","Asia",27,3,1,7,5,12,6,1],["China","Asia",17,2,8,4,12,5,3,3],["Germany","Europe",23,1,0,2,6,7,5,4],["Indonesia","Asia",16,3,0,2,4,2,6,5],["United Kingdom","Europe",15,3,0,6,3,5,0,4],["Ghana","Africa",11,5,1,1,3,4,8,1],["South Africa","Africa",14,3,0,2,4,7,0,4],["Nepal","Asia",11,4,0,3,5,5,2,0],["United States","Americas",9,3,0,2,5,3,1,1],["Nigeria","Africa",9,0,0,0,0,3,5,1],["Belgium","Europe",6,2,0,1,5,1,1,0],["Pakistan","Asia",6,1,0,1,2,2,2,0],["Bangladesh","Asia",4,3,0,0,1,5,1,0],["Morocco","Africa",6,0,0,1,2,0,1,2],["Kenya","Africa",5,1,0,0,1,1,0,4],["Thailand","Asia",5,1,0,1,2,2,1,0],["Italy","Europe",3,2,1,2,3,1,0,0],["Turkey","Europe\u002fAsia",3,1,0,2,1,0,0,1],["Malaysia","Asia",4,0,0,0,0,0,2,2],["Spain","Europe",4,0,0,3,0,0,1,0],["Australia","Oceania",3,1,0,1,2,0,0,1],["Philippines","Asia",3,0,0,0,1,0,2,0],["Austria","Europe",3,0,0,2,0,1,0,0],["Uganda","Africa",2,1,0,0,1,1,1,0],["Benin","Africa",2,1,0,1,0,0,1,1],["Denmark","Europe",3,0,0,0,3,0,0,0],["Finland","Europe",3,0,0,1,0,2,0,0],["Afghanistan","Other",2,0,0,1,0,0,0,1],["Israel","Other",2,0,0,0,1,0,0,1],["Burkina Faso","Other",2,0,0,0,2,0,0,0],["Brazil","Americas",1,1,0,2,0,0,0,0],["Czech Republic","Europe",2,0,0,0,1,1,0,0],["Malawi","Africa",1,1,0,1,0,1,0,0],["Cyprus","Other",2,0,0,0,0,0,0,2],["Tanzania","Africa",2,0,0,0,0,1,0,1],["Unknown","Other",2,0,0,1,0,1,0,0],["Zimbabwe","Africa",2,0,0,1,0,0,1,0],["Saudi Arabia","Other",2,0,0,2,0,0,0,0],["France","Europe",1,1,0,1,1,0,0,0],["Egypt","Africa",2,0,0,0,1,1,0,0],["Mozambique","Africa",2,0,0,1,0,1,0,0],["Canada","Americas",2,0,0,0,0,2,0,0],["Singapore","Other",0,1,0,0,1,0,0,0],["Vietnam","Asia",1,0,0,1,0,0,0,0],["Portugal","Europe",1,0,0,0,1,0,0,0],["Oman","Other",1,0,0,1,0,0,0,0],["Taiwan","Other",0,1,0,0,0,0,0,1],["United Arab Emirates","Asia",0,1,0,0,0,0,0,1],["Iran","Asia",1,0,0,0,0,1,0,0],["Sweden","Europe",1,0,0,0,0,1,0,0],["Estonia","Other",0,1,0,1,0,0,0,0],["Romania","Europe",1,0,0,1,0,0,0,0],["Kuwait","Other",1,0,0,0,1,0,0,0],["Uruguay","Other",0,1,0,0,0,0,0,1],["Japan","Asia",0,1,0,0,0,0,1,0],["Switzerland","Europe",1,0,0,1,0,0,0,0],["Sri Lanka","Asia",1,0,0,0,1,0,0,0],["Azerbaijan","Other",1,0,0,1,0,0,0,0],["DR Congo","Africa",0,1,0,1,0,0,0,0],["New Zealand","Oceania",1,0,0,0,0,1,0,0],["Mexico","Americas",1,0,0,0,0,0,0,1],["Lebanon","Asia",1,0,0,0,1,0,0,0],["The Gambia","Africa",1,0,0,1,0,0,0,0],["Ireland","Europe",1,0,0,0,0,1,0,0],["Venezuela","Americas",0,1,0,1,0,0,0,0],["Ecuador","Americas",1,0,0,1,0,0,0,0],["Poland","Europe",0,0,1,0,0,1,0,0],["Yemen","Asia",1,0,0,0,0,0,0,1],["Cameroon","Africa",0,1,0,0,0,1,0,0],["Sudan","Other",0,1,0,0,0,0,0,1],["Argentina","Other",1,0,0,1,0,0,0,0],["Ethiopia","Other",1,0,0,1,0,0,0,0]],"hovertemplate":"\u003cb\u003e%{customdata[0]}\u003c\u002fb\u003e (%{customdata[1]})\u003cbr\u003e\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u003cbr\u003e\u003cb\u003eTheme 2 Submissions: %{z}\u003c\u002fb\u003e\u003cbr\u003eOral: %{customdata[2]} | Poster: %{customdata[3]} | Panels: %{customdata[4]}\u003cbr\u003e\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Thematic Breakdown \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u003cbr\u003eT1 (SDGs): %{customdata[5]} | T2 (Resilience): %{customdata[6]}\u003cbr\u003eT3 (Climate): %{customdata[7]} | T4 (Health): %{customdata[8]}\u003cbr\u003eT5 (AI & Digital): %{customdata[9]}\u003cbr\u003e\u003cextra\u003e\u003c\u002fextra\u003e","locationmode":"country names","locations":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"name":"Theme 2: Resilience & WEF Nexus","text":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"visible":false,"z":{"dtype":"i1","bdata":"CAUMBgQDAwQFBQAFAgECAQIDAQAAAgEAAQADAAABAgABAAAAAAAAAQEAAAEAAQAAAAAAAAABAAAAAQAAAAABAAAAAAAAAAAAAA=="},"type":"choropleth"},{"colorbar":{"len":0.6,"thickness":18,"title":{"side":"top","text":"\u003cb\u003eTheme 4 Papers\u003c\u002fb\u003e"},"y":0.5},"colorscale":[[0.0,"rgb(252,251,253)"],[0.125,"rgb(239,237,245)"],[0.25,"rgb(218,218,235)"],[0.375,"rgb(188,189,220)"],[0.5,"rgb(158,154,200)"],[0.625,"rgb(128,125,186)"],[0.75,"rgb(106,81,163)"],[0.875,"rgb(84,39,143)"],[1.0,"rgb(63,0,125)"]],"customdata":[["Netherlands","Europe",31,2,5,11,8,11,2,6],["India","Asia",27,3,1,7,5,12,6,1],["China","Asia",17,2,8,4,12,5,3,3],["Germany","Europe",23,1,0,2,6,7,5,4],["Indonesia","Asia",16,3,0,2,4,2,6,5],["United Kingdom","Europe",15,3,0,6,3,5,0,4],["Ghana","Africa",11,5,1,1,3,4,8,1],["South Africa","Africa",14,3,0,2,4,7,0,4],["Nepal","Asia",11,4,0,3,5,5,2,0],["United States","Americas",9,3,0,2,5,3,1,1],["Nigeria","Africa",9,0,0,0,0,3,5,1],["Belgium","Europe",6,2,0,1,5,1,1,0],["Pakistan","Asia",6,1,0,1,2,2,2,0],["Bangladesh","Asia",4,3,0,0,1,5,1,0],["Morocco","Africa",6,0,0,1,2,0,1,2],["Kenya","Africa",5,1,0,0,1,1,0,4],["Thailand","Asia",5,1,0,1,2,2,1,0],["Italy","Europe",3,2,1,2,3,1,0,0],["Turkey","Europe\u002fAsia",3,1,0,2,1,0,0,1],["Malaysia","Asia",4,0,0,0,0,0,2,2],["Spain","Europe",4,0,0,3,0,0,1,0],["Australia","Oceania",3,1,0,1,2,0,0,1],["Philippines","Asia",3,0,0,0,1,0,2,0],["Austria","Europe",3,0,0,2,0,1,0,0],["Uganda","Africa",2,1,0,0,1,1,1,0],["Benin","Africa",2,1,0,1,0,0,1,1],["Denmark","Europe",3,0,0,0,3,0,0,0],["Finland","Europe",3,0,0,1,0,2,0,0],["Afghanistan","Other",2,0,0,1,0,0,0,1],["Israel","Other",2,0,0,0,1,0,0,1],["Burkina Faso","Other",2,0,0,0,2,0,0,0],["Brazil","Americas",1,1,0,2,0,0,0,0],["Czech Republic","Europe",2,0,0,0,1,1,0,0],["Malawi","Africa",1,1,0,1,0,1,0,0],["Cyprus","Other",2,0,0,0,0,0,0,2],["Tanzania","Africa",2,0,0,0,0,1,0,1],["Unknown","Other",2,0,0,1,0,1,0,0],["Zimbabwe","Africa",2,0,0,1,0,0,1,0],["Saudi Arabia","Other",2,0,0,2,0,0,0,0],["France","Europe",1,1,0,1,1,0,0,0],["Egypt","Africa",2,0,0,0,1,1,0,0],["Mozambique","Africa",2,0,0,1,0,1,0,0],["Canada","Americas",2,0,0,0,0,2,0,0],["Singapore","Other",0,1,0,0,1,0,0,0],["Vietnam","Asia",1,0,0,1,0,0,0,0],["Portugal","Europe",1,0,0,0,1,0,0,0],["Oman","Other",1,0,0,1,0,0,0,0],["Taiwan","Other",0,1,0,0,0,0,0,1],["United Arab Emirates","Asia",0,1,0,0,0,0,0,1],["Iran","Asia",1,0,0,0,0,1,0,0],["Sweden","Europe",1,0,0,0,0,1,0,0],["Estonia","Other",0,1,0,1,0,0,0,0],["Romania","Europe",1,0,0,1,0,0,0,0],["Kuwait","Other",1,0,0,0,1,0,0,0],["Uruguay","Other",0,1,0,0,0,0,0,1],["Japan","Asia",0,1,0,0,0,0,1,0],["Switzerland","Europe",1,0,0,1,0,0,0,0],["Sri Lanka","Asia",1,0,0,0,1,0,0,0],["Azerbaijan","Other",1,0,0,1,0,0,0,0],["DR Congo","Africa",0,1,0,1,0,0,0,0],["New Zealand","Oceania",1,0,0,0,0,1,0,0],["Mexico","Americas",1,0,0,0,0,0,0,1],["Lebanon","Asia",1,0,0,0,1,0,0,0],["The Gambia","Africa",1,0,0,1,0,0,0,0],["Ireland","Europe",1,0,0,0,0,1,0,0],["Venezuela","Americas",0,1,0,1,0,0,0,0],["Ecuador","Americas",1,0,0,1,0,0,0,0],["Poland","Europe",0,0,1,0,0,1,0,0],["Yemen","Asia",1,0,0,0,0,0,0,1],["Cameroon","Africa",0,1,0,0,0,1,0,0],["Sudan","Other",0,1,0,0,0,0,0,1],["Argentina","Other",1,0,0,1,0,0,0,0],["Ethiopia","Other",1,0,0,1,0,0,0,0]],"hovertemplate":"\u003cb\u003e%{customdata[0]}\u003c\u002fb\u003e (%{customdata[1]})\u003cbr\u003e\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u003cbr\u003e\u003cb\u003eTheme 4 Submissions: %{z}\u003c\u002fb\u003e\u003cbr\u003eOral: %{customdata[2]} | Poster: %{customdata[3]} | Panels: %{customdata[4]}\u003cbr\u003e\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Thematic Breakdown \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u003cbr\u003eT1 (SDGs): %{customdata[5]} | T2 (Resilience): %{customdata[6]}\u003cbr\u003eT3 (Climate): %{customdata[7]} | T4 (Health): %{customdata[8]}\u003cbr\u003eT5 (AI & Digital): %{customdata[9]}\u003cbr\u003e\u003cextra\u003e\u003c\u002fextra\u003e","locationmode":"country names","locations":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"name":"Theme 4: Health & Well-being","text":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"visible":false,"z":{"dtype":"i1","bdata":"AgYDBQYACAACAQUBAgEBAAEAAAIBAAIAAQEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=="},"type":"choropleth"},{"colorbar":{"len":0.6,"thickness":18,"title":{"side":"top","text":"\u003cb\u003eTheme 5 Papers\u003c\u002fb\u003e"},"y":0.5},"colorscale":[[0.0,"rgb(247,251,255)"],[0.125,"rgb(222,235,247)"],[0.25,"rgb(198,219,239)"],[0.375,"rgb(158,202,225)"],[0.5,"rgb(107,174,214)"],[0.625,"rgb(66,146,198)"],[0.75,"rgb(33,113,181)"],[0.875,"rgb(8,81,156)"],[1.0,"rgb(8,48,107)"]],"customdata":[["Netherlands","Europe",31,2,5,11,8,11,2,6],["India","Asia",27,3,1,7,5,12,6,1],["China","Asia",17,2,8,4,12,5,3,3],["Germany","Europe",23,1,0,2,6,7,5,4],["Indonesia","Asia",16,3,0,2,4,2,6,5],["United Kingdom","Europe",15,3,0,6,3,5,0,4],["Ghana","Africa",11,5,1,1,3,4,8,1],["South Africa","Africa",14,3,0,2,4,7,0,4],["Nepal","Asia",11,4,0,3,5,5,2,0],["United States","Americas",9,3,0,2,5,3,1,1],["Nigeria","Africa",9,0,0,0,0,3,5,1],["Belgium","Europe",6,2,0,1,5,1,1,0],["Pakistan","Asia",6,1,0,1,2,2,2,0],["Bangladesh","Asia",4,3,0,0,1,5,1,0],["Morocco","Africa",6,0,0,1,2,0,1,2],["Kenya","Africa",5,1,0,0,1,1,0,4],["Thailand","Asia",5,1,0,1,2,2,1,0],["Italy","Europe",3,2,1,2,3,1,0,0],["Turkey","Europe\u002fAsia",3,1,0,2,1,0,0,1],["Malaysia","Asia",4,0,0,0,0,0,2,2],["Spain","Europe",4,0,0,3,0,0,1,0],["Australia","Oceania",3,1,0,1,2,0,0,1],["Philippines","Asia",3,0,0,0,1,0,2,0],["Austria","Europe",3,0,0,2,0,1,0,0],["Uganda","Africa",2,1,0,0,1,1,1,0],["Benin","Africa",2,1,0,1,0,0,1,1],["Denmark","Europe",3,0,0,0,3,0,0,0],["Finland","Europe",3,0,0,1,0,2,0,0],["Afghanistan","Other",2,0,0,1,0,0,0,1],["Israel","Other",2,0,0,0,1,0,0,1],["Burkina Faso","Other",2,0,0,0,2,0,0,0],["Brazil","Americas",1,1,0,2,0,0,0,0],["Czech Republic","Europe",2,0,0,0,1,1,0,0],["Malawi","Africa",1,1,0,1,0,1,0,0],["Cyprus","Other",2,0,0,0,0,0,0,2],["Tanzania","Africa",2,0,0,0,0,1,0,1],["Unknown","Other",2,0,0,1,0,1,0,0],["Zimbabwe","Africa",2,0,0,1,0,0,1,0],["Saudi Arabia","Other",2,0,0,2,0,0,0,0],["France","Europe",1,1,0,1,1,0,0,0],["Egypt","Africa",2,0,0,0,1,1,0,0],["Mozambique","Africa",2,0,0,1,0,1,0,0],["Canada","Americas",2,0,0,0,0,2,0,0],["Singapore","Other",0,1,0,0,1,0,0,0],["Vietnam","Asia",1,0,0,1,0,0,0,0],["Portugal","Europe",1,0,0,0,1,0,0,0],["Oman","Other",1,0,0,1,0,0,0,0],["Taiwan","Other",0,1,0,0,0,0,0,1],["United Arab Emirates","Asia",0,1,0,0,0,0,0,1],["Iran","Asia",1,0,0,0,0,1,0,0],["Sweden","Europe",1,0,0,0,0,1,0,0],["Estonia","Other",0,1,0,1,0,0,0,0],["Romania","Europe",1,0,0,1,0,0,0,0],["Kuwait","Other",1,0,0,0,1,0,0,0],["Uruguay","Other",0,1,0,0,0,0,0,1],["Japan","Asia",0,1,0,0,0,0,1,0],["Switzerland","Europe",1,0,0,1,0,0,0,0],["Sri Lanka","Asia",1,0,0,0,1,0,0,0],["Azerbaijan","Other",1,0,0,1,0,0,0,0],["DR Congo","Africa",0,1,0,1,0,0,0,0],["New Zealand","Oceania",1,0,0,0,0,1,0,0],["Mexico","Americas",1,0,0,0,0,0,0,1],["Lebanon","Asia",1,0,0,0,1,0,0,0],["The Gambia","Africa",1,0,0,1,0,0,0,0],["Ireland","Europe",1,0,0,0,0,1,0,0],["Venezuela","Americas",0,1,0,1,0,0,0,0],["Ecuador","Americas",1,0,0,1,0,0,0,0],["Poland","Europe",0,0,1,0,0,1,0,0],["Yemen","Asia",1,0,0,0,0,0,0,1],["Cameroon","Africa",0,1,0,0,0,1,0,0],["Sudan","Other",0,1,0,0,0,0,0,1],["Argentina","Other",1,0,0,1,0,0,0,0],["Ethiopia","Other",1,0,0,1,0,0,0,0]],"hovertemplate":"\u003cb\u003e%{customdata[0]}\u003c\u002fb\u003e (%{customdata[1]})\u003cbr\u003e\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u003cbr\u003e\u003cb\u003eTheme 5 Submissions: %{z}\u003c\u002fb\u003e\u003cbr\u003eOral: %{customdata[2]} | Poster: %{customdata[3]} | Panels: %{customdata[4]}\u003cbr\u003e\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Thematic Breakdown \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u003cbr\u003eT1 (SDGs): %{customdata[5]} | T2 (Resilience): %{customdata[6]}\u003cbr\u003eT3 (Climate): %{customdata[7]} | T4 (Health): %{customdata[8]}\u003cbr\u003eT5 (AI & Digital): %{customdata[9]}\u003cbr\u003e\u003cextra\u003e\u003c\u002fextra\u003e","locationmode":"country names","locations":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"name":"Theme 5: AI & Digitalization","text":["Netherlands","India","China","Germany","Indonesia","United Kingdom","Ghana","South Africa","Nepal","United States","Nigeria","Belgium","Pakistan","Bangladesh","Morocco","Kenya","Thailand","Italy","Turkey","Malaysia","Spain","Australia","Philippines","Austria","Uganda","Benin","Denmark","Finland","Afghanistan","Israel","Burkina Faso","Brazil","Czech Republic","Malawi","Cyprus","Tanzania","Unknown","Zimbabwe","Saudi Arabia","France","Egypt","Mozambique","Canada","Singapore","Vietnam","Portugal","Oman","Taiwan","United Arab Emirates","Iran","Sweden","Estonia","Romania","Kuwait","Uruguay","Japan","Switzerland","Sri Lanka","Azerbaijan","DR Congo","New Zealand","Mexico","Lebanon","The Gambia","Ireland","Venezuela","Ecuador","Poland","Yemen","Cameroon","Sudan","Argentina","Ethiopia"],"visible":false,"z":{"dtype":"i1","bdata":"BgEDBAUEAQQAAQEAAAACBAAAAQIAAQAAAAEAAAEBAAAAAAIBAAAAAAAAAAAAAAABAQAAAAAAAQAAAAAAAAEAAAAAAAABAAEAAA=="},"type":"choropleth"}],"layout":{"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05}}},"title":{"font":{"size":18,"family":"Arial, sans-serif","color":"#0F172A"},"text":"\u003cb\u003eGSC 2027 Global Abstract Submissions (All 301 Papers)\u003c\u002fb\u003e\u003cbr\u003e\u003csup\u003e66 Primary Countries Represented Across 5 Themes\u003c\u002fsup\u003e","x":0.03,"y":0.96},"geo":{"projection":{"type":"natural earth"},"showframe":false,"showcoastlines":true,"coastlinecolor":"#94A3B8","showcountries":true,"countrycolor":"#CBD5E1","landcolor":"#F8FAFC","lakecolor":"#E0F2FE","bgcolor":"#F8FAFC"},"margin":{"l":20,"r":20,"t":110,"b":20},"font":{"family":"Arial, sans-serif"},"updatemenus":[{"bgcolor":"#F1F5F9","bordercolor":"#CBD5E1","borderwidth":1,"buttons":[{"args":[{"visible":[true,false,false,false,false,false]},{"title":"\u003cb\u003eGSC 2027 Global Abstract Submissions (All 367 Papers)\u003c\u002fb\u003e\u003cbr\u003e\u003csup\u003e73 Primary Countries Represented Across 5 Themes\u003c\u002fsup\u003e"}],"label":"\ud83c\udf0d All Themes (367 Abstracts)","method":"update"},{"args":[{"visible":[false,true,false,false,false,false]},{"title":"\u003cb\u003eTheme 3: Climate Change\u2013Development Nexus (75 Papers across 28 Countries)\u003c\u002fb\u003e\u003cbr\u003e\u003csup\u003eTop: India (9), Netherlands (7), Germany (7), Nepal (5), UK (5), Bangladesh (5), South Africa (5)\u003c\u002fsup\u003e"}],"label":"\ud83d\udd25 Theme 3: Climate Change\u2013Development Nexus (75 Abstracts)","method":"update"},{"args":[{"visible":[false,false,false,true,false,false]},{"title":"\u003cb\u003eTheme 2: Resilience Across Natural and Human Systems (76 Papers)\u003c\u002fb\u003e\u003cbr\u003e\u003csup\u003eLargest Theme (25.2%) \u2014 High concentration on Food-Water-Energy Nexus & Circularity\u003c\u002fsup\u003e"}],"label":"\ud83c\udf31 Theme 2: Building Resilience across Systems (76 Abstracts)","method":"update"},{"args":[{"visible":[false,false,true,false,false,false]},{"title":"\u003cb\u003eTheme 1: Lessons from the SDGs Beyond 2030 (60 Papers)\u003c\u002fb\u003e\u003cbr\u003e\u003csup\u003eSDG Localization, Governance, Policy Reforms & Post-2030 Agendas\u003c\u002fsup\u003e"}],"label":"\ud83c\udfaf Theme 1: Lessons from SDGs Beyond 2030 (60 Abstracts)","method":"update"},{"args":[{"visible":[false,false,false,false,true,false]},{"title":"\u003cb\u003eTheme 4: Health, Well-being & Societal Foundations (45 Papers)\u003c\u002fb\u003e\u003cbr\u003e\u003csup\u003eHealth Equity, Environmental Exposure, One Health & Societal Drivers\u003c\u002fsup\u003e"}],"label":"\ud83c\udfe5 Theme 4: Health & Well-being Foundations (45 Abstracts)","method":"update"},{"args":[{"visible":[false,false,false,false,false,true]},{"title":"\u003cb\u003eTheme 5: AI, Big Data & Digitalization for Sustainability (45 Papers)\u003c\u002fb\u003e\u003cbr\u003e\u003csup\u003eTwin Transition, AI Governance, Earth Observation & Big Data Analytics\u003c\u002fsup\u003e"}],"label":"\ud83e\udd16 Theme 5: AI, Big Data & Digitalization (45 Abstracts)","method":"update"}],"direction":"right","font":{"color":"#0F172A","family":"Arial, sans-serif","size":11.5},"type":"buttons","x":0.5,"xanchor":"center","y":1.15,"yanchor":"top"}],"paper_bgcolor":"#FFFFFF"}};
-        Plotly.newPlot('plotlyMap', figData.data, figData.layout, {responsive: true, displayModeBar: true});
-    </script>
+<script>
+// Raw data injected from python
+const countryData = [{"country": "Netherlands", "region": "Europe", "total": 38, "t1": 11, "t2": 8, "t3": 11, "t4": 2, "t5": 6, "oral": 31, "poster": 2, "special": 5, "titles": ["Rising Sustainability Ambitions, Evolving Policy Mixes? China’s Industrial Parks in Transition", "Reconstructing Urban Air Pollution and its Mortality Burdens: Historical Health Inequalities in Maastricht 1864-1950.", "Commercialization of vehicle-to-grid technology across passenger vehicles requires localized policies", "Shifting Northern Hemisphere snowfall extremes and their physical drivers", "Artificial intelligence for urban sustainability synergies and spillovers across cities"], "rank": 1}, {"country": "India", "region": "Asia", "total": 31, "t1": 7, "t2": 5, "t3": 12, "t4": 6, "t5": 1, "oral": 27, "poster": 3, "special": 1, "titles": ["Firm-Level Marginal Abatement Cost Heterogeneity in Indian Manufacturing: A Convex Quantile Approach", "Digital Twins for Climate-Resilient Development: Integrating SEEA Energy Accounting with AI to Unlock Green Climate Finance in Developing Economies", "Reimagining Water Governance in the Age of Climate Change: Positioning Johads as Indigenous Pathways to Urban Water Resilience in North Delhi", "asugetme@gmail.com", "“INDIAN CLIMATIC SCENARIOS ALIGNED TO GREEN GROWTH AND ENVIRONMENTAL LAW AMID GLOBAL HEADWIND"], "rank": 2}, {"country": "China", "region": "Asia", "total": 27, "t1": 4, "t2": 12, "t3": 5, "t4": 3, "t5": 3, "oral": 17, "poster": 2, "special": 8, "titles": ["Scaling Information Access: Evidence from a Nationwide Digital Policy in China", "When Symbolic Responses Become Consequential: Digital Impression Management and Corporate Sustainability", "Street-scape visual features, sustainable mobility, and low-carbon urban transformation: Evidence from urban park visits in Shenzhen, China", "Solutions for mitigating soil loss from a human-nature coupled perspective", "Parametric consequential life cycle assessment and global sensitivity analysis for sustainable food production systems"], "rank": 3}, {"country": "Germany", "region": "Europe", "total": 24, "t1": 2, "t2": 6, "t3": 7, "t4": 5, "t5": 4, "oral": 23, "poster": 1, "special": 0, "titles": ["Clean air in the Anthropocene", "Recommend or Simplify? Digital Information Design with Cross-Category Spillovers", "Socio-Technical Characterization of Urban Quarters for Municipal Heat Planning: A Spatial Cluster Analysis of Energy and Socio-Demographic Milieus in Bremen, Germany", "Digital Regional: Innovative Tools to Increase Local Food Choices in Online Grocery Retail", "Energy Storage as Shared Resilience Infrastructure under Climate-Driven Power Outages"], "rank": 4}, {"country": "Indonesia", "region": "Asia", "total": 19, "t1": 2, "t2": 4, "t3": 2, "t4": 6, "t5": 5, "oral": 16, "poster": 3, "special": 0, "titles": ["Strengthening the Role of National Human Rights Institutions in Advancing the Sustainable Development Goals: The Experience of Komnas HAM Indonesia", "From Monopsonistic Traps to Decoupled Value Chains: An Extractive-Agrarian Framework for Post-Mining Resilience in Indonesian Nickel Frontiers", "WOMEN'S ROLES AND FAMILY GENDER DYNAMICS IN REDUCING STUNTING AT YOGYAKARTA CITY: A SCOPING REVIEW", "AI, Big Data and Digital Taxation: Indonesia’s Emerging Framework for Sustainable Fiscal Capacity", "Governing the food–water–energy nexus: Community resilience in Bali and lessons for European water policy"], "rank": 5}, {"country": "United Kingdom", "region": "Europe", "total": 18, "t1": 6, "t2": 3, "t3": 5, "t4": 0, "t5": 4, "oral": 15, "poster": 3, "special": 0, "titles": ["The Invisible Plateau: Experience Curves, Artificial Intelligence, and the Terminal Cost of the Green Transition", "Manufactured Doubt and Climate Governance Failure", "Sustainable Pathways for Recycled Fibre-Reinforced Concrete: A Life Cycle Assessment Perspective", "A Comprehensive Assessment Framework for Biofuels Integrating Sustainability and Circularity Dimensions", "Geoinformation Technologies and UAVs as Cross-Domain Enablers of the SDGs: Evidence, Gaps, and Governance Implications"], "rank": 6}, {"country": "South Africa", "region": "Africa", "total": 17, "t1": 2, "t2": 4, "t3": 7, "t4": 0, "t5": 4, "oral": 14, "poster": 3, "special": 0, "titles": ["Towards a climate-adaptive governance framework for interconnected transboundary water infrastructure: the Lesotho Highlands Water Project and Integrated Vaal River System", "When liabilities depend on information: Conceptualising and analysing the EU CBAM information “wedge”", "Bridging the Implementation Gap in South Africa’s Land Policy: Lessons for Sustainable Development Beyond 2030", "Policy Uncertainty and Market Resilience in Carbon and Clean Energy Markets: A Regime-Switching Perspective", "From technology adoption to development outcomes: A systematic review of artificial intelligence’s contribution to sustainable development in Africa"], "rank": 7}, {"country": "Ghana", "region": "Africa", "total": 17, "t1": 1, "t2": 3, "t3": 4, "t4": 8, "t5": 1, "oral": 11, "poster": 5, "special": 1, "titles": ["An intersectional analysis of gender equality and climate change vulnerabilities capacities and policy gaps in sub-Saharan Africa", "Climate-Sensitive and Environmental Threats to Male Reproductive Health in Low- and Middle-Income Countries: Implications for Sustainable and Climate-Resilient Health Systems", "Urban-Rural Healthcare Disparities in Ghana: Strategies for Promoting Sustainable Rural Healthcare.", "Comparative Analysis of Data Balancing Techniques for Small Deep Learning Models on Low-Powered Devices Using the YawDD Dataset for Driver Drowsiness Detection.", "Empowering Children as Environmental Stewards: Lessons from a Community Based Environmental Education Approach to Water Pollution and Environmental Sustainability in Ghana"], "rank": 8}, {"country": "Nepal", "region": "Asia", "total": 15, "t1": 3, "t2": 5, "t3": 5, "t4": 2, "t5": 0, "oral": 11, "poster": 4, "special": 0, "titles": ["Exploration of Climate Smart Organic Farming in Nepal: Impact of Cover Crops on Rice Growth, Yield and Soil Health in Organic Management System", "Securing Nepal’s Vulture Future: From Policy Success to Action", "Climate-informed resilience: Integrating rainfall variability, geospatial analysis, and data-driven evidence for sustainable development in Nepal", "Renewable Energy for MSME Transformation in Nepal: Turning Energy Challenges into Opportunities for Sustainable and Inclusive Growth", "Navigating the Climate-Development Nexus: Frameworks for Equitable Infrastructure and Just Energy Transitions"], "rank": 9}, {"country": "United States", "region": "Americas", "total": 12, "t1": 2, "t2": 5, "t3": 3, "t4": 1, "t5": 1, "oral": 9, "poster": 3, "special": 0, "titles": ["From Digital Access to Digital Justice: Rethinking SDG 4 through the Experience of South Asian Higher Education", "Generative AI and Educational Inequality in the Global South: Who Gains from the AI Revolution?", "From Digital Divide to AI Divide: Emerging Inequalities in the Intelligent University", "Kumayam: Reviving Traditional Shell-Lime Mortar for Coastal Ecosystem Resilience and Sustainable Landscapes along India’s Malabar Coast", "Kumayam: Reviving Traditional Shell-Lime Mortar for Coastal Ecosystem Resilience and Sustainable Landscapes along India’s Malabar Coast"], "rank": 10}, {"country": "Nigeria", "region": "Africa", "total": 9, "t1": 0, "t2": 0, "t3": 3, "t4": 5, "t5": 1, "oral": 9, "poster": 0, "special": 0, "titles": ["Central and West African Child Health Outcomes: Why Efficient Spending and Strong Institutional Quality Matter", "Climate Change, Climate Action, and Human Security in Nigeria: A Comparative Analysis of Rural and Urban Vulnerability", "Yahoo Plus, Ritual Anxiety, and Reproductive Health in the Era of Climate Change, Evidence from a Selected Community in Southwestern Nigeria", "Quest for a Sustainable African Renaissance: Sectoral Determinants and Synergies for Climate-Resilient Development", "Towards Decolonizing Medicine and Healthcare: The Place of African Health and Healing Traditions"], "rank": 11}, {"country": "Belgium", "region": "Europe", "total": 8, "t1": 1, "t2": 5, "t3": 1, "t4": 1, "t5": 0, "oral": 6, "poster": 2, "special": 0, "titles": ["Justice as a Foundation for Resilience: Transitional Justice, Equity, and Sustainable Transformation in The Gambia", "Indigenous Peoples and local communities; Community resilience; Social equity", "From River Burial to Daylighting in Brussels: Renewed Human-River Interactions for Just Urban Adaptation", "From environmental pressures to economic damages in European food trade", "Beyond conventional farm performance: integrating True Cost Accounting and business-model heterogeneity in farming systems"], "rank": 12}, {"country": "Bangladesh", "region": "Asia", "total": 7, "t1": 0, "t2": 1, "t3": 5, "t4": 1, "t5": 0, "oral": 4, "poster": 3, "special": 0, "titles": ["\"A Solar–Biogas Hybrid Mini-Grid for Off-Grid Coastal Bangladesh: Technical, Economic, and Socio-Environmental Feasibility — A Case Study of Galachipa Upazila\"", "Prioritizing Climate-Induced Hazards in a Vulnerable Coastal Delta: Evidence from Galachipa Upazila, Southern Bangladesh", "Integrated Social Capital and Functional Community Contracts: Introducing Growth Cooperatives as Societal Foundations for Collective Well-Being and Resilience in Climate-Vulnerable Bangladesh", "Social Inequalities and Multidimensional Exclusion Undermine the Sustainability of Local Communities in Developing and Underdeveloped Countries", "Climate Displacement and Legal Protection in Vulnerable States: Lessons from Bangladesh for the Post-2030 Agenda"], "rank": 13}, {"country": "Pakistan", "region": "Asia", "total": 7, "t1": 1, "t2": 2, "t3": 2, "t4": 2, "t5": 0, "oral": 6, "poster": 1, "special": 0, "titles": ["Drivers, barriers, and outcomes of eco-innovation: a qualitative investigation of manufacturing industries in Pakistan", "Digitalising Public Investment Appraisal, Monitoring, Reporting and Verification (MRV) for Climate Resilience: Lessons from Pakistan", "Ambient Temperature and Emergency Department Visits: Association and Short-Term Prediction", "Bio-Composite Retrofit Panels: Upcycling Agricultural Residues with Mycelium for Climate-Resilient Building Insulation", "Science is Essential to Address Global Humanity Questions"], "rank": 14}, {"country": "Thailand", "region": "Asia", "total": 6, "t1": 1, "t2": 2, "t3": 2, "t4": 1, "t5": 0, "oral": 5, "poster": 1, "special": 0, "titles": ["Understanding Climate Change and Climate Action for Human Security", "Financing Local Development Beyond 2030: Native Philanthropy and Sustainable Financing Pathways for Local NGOs in Bangladesh", "HPV Vaccine Communication on Social Media: A Systematic Review of Platforms, Messages and Outcomes", "Does Carbon Emission Disclosure Influence the Profitability of Listed Firms in Thailand?", "Comparative Evaluation of APSIM and AquaCrop for Multiplier Onion Yield Simulation and Irrigation Strategy Assessment under Climate Variability in Ilocos Norte, Philippines"], "rank": 15}, {"country": "Morocco", "region": "Africa", "total": 6, "t1": 1, "t2": 2, "t3": 0, "t4": 1, "t5": 2, "oral": 6, "poster": 0, "special": 0, "titles": ["Where, when, and how should EV charging infrastructure be deployed in the Netherlands to reduce transportation emissions and optimize electricity-system integration?", "Navigating Sustainable Performance through the Lens of Green Shared Vision", "Whose priorities count? Local participation in protected areas of Morocco’s Intercontinental Biosphere Reserve", "Cultural Heritage as a Tool for Sustainable Transformation: The Cultural and Creative Industries in Support of Climate Resilience in Morocco", "Digitalizing Dryland Conservation: A Machine and Deep Learning Framework for High-Precision LULC Mapping of the Moroccan Argan Forest"], "rank": 16}, {"country": "Kenya", "region": "Africa", "total": 6, "t1": 0, "t2": 1, "t3": 1, "t4": 0, "t5": 4, "oral": 5, "poster": 1, "special": 0, "titles": ["Verifying floods before the water arrives: artificial intelligence for early warning and rumour control in Nairobi's informal settlements", "Artificial Intelligence for Sustainable Development: Bridging the Green and Digital Transitions", "Digital farmer registration and e-vouchers for sustainable agriculture: Lessons from Kenya for post-2030 development goals", "MicroBIS A novel AI/ML based platform for bacterial and antimicrobial resistance identification and prediction", "Driving Sustainable Development from Africa: Scaling Carbon Dioxide Removal (CDR) Start-ups in sub-Saharan Africa"], "rank": 17}, {"country": "Italy", "region": "Europe", "total": 6, "t1": 2, "t2": 3, "t3": 1, "t4": 0, "t5": 0, "oral": 3, "poster": 2, "special": 1, "titles": ["Sustainable Governance: Exploring the Integration of Corporate Governance Practices with Sustainable Development Goals", "Evaluating the Efficacy of Ascophyllum nodosum-Mediated Priming of Tomato Seedlings Under Waterlogging: Physiological, Biochemical, and Metabolic Responses", "Does stress timing matter? Biochemical and metabolomic insights into stage-dependent tomato responses to waterlogging, salinity and their combination", "Designing Post-2030 Agrifood Governance: Predictive ESG Standards and Shock Insulation Under Global Polycrises", "Perspectives on circular and regenerative supply chains"], "rank": 18}, {"country": "Malaysia", "region": "Asia", "total": 4, "t1": 0, "t2": 0, "t3": 0, "t4": 2, "t5": 2, "oral": 4, "poster": 0, "special": 0, "titles": ["Beyond the SDGs: Hybrid Development Goals for an Age of Natural and Artificial Intelligence.", "Political Economy of Care and Unequal Childhoods: Institutional Pathways to Family Well-being in Malaysia", "AI and Big Data for Decision-Making and Sustainable Governance: A Decision-Support Framework", "A Waqf Framework for Financing Recurrent Costs of Primary Healthcare During Donor Transition in Nigeria"], "rank": 19}, {"country": "Spain", "region": "Europe", "total": 4, "t1": 3, "t2": 0, "t3": 0, "t4": 1, "t5": 0, "oral": 4, "poster": 0, "special": 0, "titles": ["Institutional mission as a missing link in sustainability beyond 2030: lessons from catholic universities", "Can the Sustainable Development Goals monitor environmental sustainability? Lessons from strong sustainability for the post-2030 monitoring framework", "What does it take to ensure well-being for all? Eliminating subjective well-being poverty in the EU using WILIAM", "Can sustainability afford to overlook culture? Evidence for the post-2030 agenda"], "rank": 20}, {"country": "Turkey", "region": "Europe/Asia", "total": 4, "t1": 2, "t2": 1, "t3": 0, "t4": 0, "t5": 1, "oral": 3, "poster": 1, "special": 0, "titles": ["Localizing the Sustainable Development Goals without naming them: lessons from 4,875 municipal Instagram posts in Türkiye", "Connecting the missing links: how business model innovation integrates capabilities, legitimacy, and adaptation for post-2030 corporate sustainability", "Skills for the Green and Digital Transition: A Comparison of Major Labour Markets", "Digital Sustainability Communication in the Fashion Industry: Brand Strategies and Consumer Perceptions in the Context of SDG 12"], "rank": 21}, {"country": "Australia", "region": "Oceania", "total": 4, "t1": 1, "t2": 2, "t3": 0, "t4": 0, "t5": 1, "oral": 3, "poster": 1, "special": 0, "titles": ["Resilience for Growth: Policy Narratives of Climate Adaptation in Indonesia's Industrial Development", "Diagnosing the Gap Between Urban Rail Investment and Sustainable Mobility Outcomes: Spatial Evidence from Palembang, Indonesia", "Optimising SDG progress in Australia through the combination of System Dynamics modelling and Reinforcement Learning algorithms", "The Next Global Prosperity Priorities"], "rank": 22}, {"country": "Finland", "region": "Europe", "total": 3, "t1": 1, "t2": 0, "t3": 2, "t4": 0, "t5": 0, "oral": 3, "poster": 0, "special": 0, "titles": ["Rescaling and Reconfiguring Environmental Crisis Deadlocks: Pathways Toward Security–Sustainability Transformations in India–Pakistan Relations", "From decolonisation to decarbonisation: self-interest and material incentives as drivers of global competitive cooperation for a fairer climate future", "Evolving Path of Global Sustainable Development Governance"], "rank": 23}, {"country": "Uganda", "region": "Africa", "total": 3, "t1": 0, "t2": 1, "t3": 1, "t4": 1, "t5": 0, "oral": 2, "poster": 1, "special": 0, "titles": ["Strengthening Climate-health Governance and Societal Engagement for Resilient Sustainable Development in Africa", "Reimagining Climate Resilience through Community Learning: Indigenous Knowledge and Climate Change Education among Smallholder Farmers in Eastern Uganda", "Socio-economic factors and policy incentives for household biogas adoption in Gulu City, Uganda"], "rank": 24}, {"country": "Benin", "region": "Africa", "total": 3, "t1": 1, "t2": 0, "t3": 0, "t4": 1, "t5": 1, "oral": 2, "poster": 1, "special": 0, "titles": ["Agroecological Transition and Food Security in Benin: Lessons for Sustainable Agricultural Transformation beyond 2030", "Agroecology, Food Safety and Well-being: Rethinking Sustainable Food Systems for Healthier Communities in Benin", "Digital Agriculture and Food System Resilience: Opportunities and Challenges for Smallholder Farmers in West Africa"], "rank": 25}, {"country": "Philippines", "region": "Asia", "total": 3, "t1": 0, "t2": 1, "t3": 0, "t4": 2, "t5": 0, "oral": 3, "poster": 0, "special": 0, "titles": ["INTEGRATED AGRICULTURE-AQUACULTURE SYSTEM AS AN ALTERNATIVE TECHNOLOGY TO IMPROVING SMALL-SCALE FOOD PRODUCTION IN LEYTE SAB-A BASIN PEATLAND, EASTERN VISAYAS, PHILIPPINES", "Sensory Characteristics of Cookies Formulated with Fish Protein Concentrate Powder Produced from Nile Tilapia (Oreochromis niloticus Linnaeus, 1758)", "“Navigating the Intersection of Gender Identity in the Informal Economy: Exploring the Case of Gay Men Providing Home-based Beauty Services"], "rank": 26}, {"country": "Austria", "region": "Europe", "total": 3, "t1": 2, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 3, "poster": 0, "special": 0, "titles": ["More genuine participation, less robust evidence? Testing a decision matrix for citizen science in sustainability research", "Mediating participation: The Role of Local Organizations in Sustainability-Oriented Citizen Science", "Resist, accept and direct in protected areas: Forest climate change adaptation choices in Natura 2000 areas in Lower Austria"], "rank": 27}, {"country": "Denmark", "region": "Europe", "total": 3, "t1": 0, "t2": 3, "t3": 0, "t4": 0, "t5": 0, "oral": 3, "poster": 0, "special": 0, "titles": ["Strengthening the Water-Energy-Food-Ecosystem Nexus through Participatory Planning of Renewable Energy Systems in Rural Communities.", "Power to the people, or power for the state? Energy communities and the geopolitics of the energy transition in the EMMENA region", "Same Dilemma, Different Reasoning: Making Hidden Assumptions Visible in Sustainability Decisions"], "rank": 28}, {"country": "Mozambique", "region": "Africa", "total": 2, "t1": 1, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 2, "poster": 0, "special": 0, "titles": ["Beyond Goals to Financing: Lessons from Mozambique for the Post 2030 Sustainable Development Architecture", "Beyond Climate Finance Commitments: Financing a Just and Equitable Transition in South Africa"], "rank": 29}, {"country": "France", "region": "Europe", "total": 2, "t1": 1, "t2": 1, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 1, "special": 0, "titles": ["From urban land assessment to food-producing potential: a field-based approach for resilient urban transformation", "Assessment of the sustainability of coastal lagoons, a case study in favor of the Coastal Daiseas."], "rank": 30}, {"country": "Malawi", "region": "Africa", "total": 2, "t1": 1, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 1, "poster": 1, "special": 0, "titles": ["Accelerating Just Transitions through SDG 2 and 13 investments in LDCs: Can Loss and Damage finance be a catalyst", "Field Study of Development and Agronomic Evaluation of a Fortified Blended Organic Fertilizer from Municipal Waste Resources for Maize Production in Malaw"], "rank": 31}, {"country": "Burkina Faso", "region": "Other", "total": 2, "t1": 0, "t2": 2, "t3": 0, "t4": 0, "t5": 0, "oral": 2, "poster": 0, "special": 0, "titles": ["Effect of Green Industrialization on Inclusive Growth in Sub Saharan Africa", "Green industrialisation and sustainable development in sub-Saharan Africa: role of institutions"], "rank": 32}, {"country": "Israel", "region": "Other", "total": 2, "t1": 0, "t2": 1, "t3": 0, "t4": 0, "t5": 1, "oral": 2, "poster": 0, "special": 0, "titles": ["A roadmap for target-oriented urban forest management models in warming cities", "Advancing Sustainable Development and Inclusion Using AI in Low-Resource Language Contexts"], "rank": 33}, {"country": "Canada", "region": "Americas", "total": 2, "t1": 0, "t2": 0, "t3": 2, "t4": 0, "t5": 0, "oral": 2, "poster": 0, "special": 0, "titles": ["Layered, Relational Vulnerability in Coastal Khulna’s Water Crises: A Conceptual Synthesis Toward a Politicized Climate-Development-Health Nexus", "Climate Change and Cropland Distribution: Scenario-based shifts in agro-ecological suitability and potential food-production capacity"], "rank": 34}, {"country": "Afghanistan", "region": "Other", "total": 2, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 1, "oral": 2, "poster": 0, "special": 0, "titles": ["Beyond 2030: From Sustainable Development Goals to Individual Development Goals through Local Action and Regional Cooperation", "AI-Enabled SDG Intelligence: From Global Indicators to Micro-Level Monitoring, Local Action and Regional Data Cooperation"], "rank": 35}, {"country": "Tanzania", "region": "Africa", "total": 2, "t1": 0, "t2": 0, "t3": 1, "t4": 0, "t5": 1, "oral": 2, "poster": 0, "special": 0, "titles": ["Wavelet-Coupled Boosting Algorithms for Daily Multi-Reservoir Outflow Simulation in the Rufiji River Basin, Tanzania", "From mercury pathways to just transitions: closing the execution gap in African artisanal gold mining"], "rank": 36}, {"country": "Zimbabwe", "region": "Africa", "total": 2, "t1": 1, "t2": 0, "t3": 0, "t4": 1, "t5": 0, "oral": 2, "poster": 0, "special": 0, "titles": ["The Contemporary Socio-Behavioural Dynamics of Health and Well-being in Enhancing Women's Climate Change Adaptation and Resilience in Zimbabwe", "Strengthening Climate Resilience Through Domestic Law: Assessing Zimbabwe's Path Toward Paris Agreement Alignment and SDG 13."], "rank": 37}, {"country": "Saudi Arabia", "region": "Other", "total": 2, "t1": 2, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 2, "poster": 0, "special": 0, "titles": ["Does board sustainability expertise make governance work? Environmental, social, and governance disclosure in Saudi Arabia's energy sector", "Does ESG Disclosure Really Pay Off? Unpacking Within-Firm Dynamics and Between-Firm Heterogeneity in Saudi Arabia"], "rank": 38}, {"country": "Brazil", "region": "Americas", "total": 2, "t1": 2, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 1, "special": 0, "titles": ["RegionsAdapt: a global initiative supporting subnational governments in adapting to climate change", "Beyond 2030: What Can the Global Ethical Stocktake Teach Us About Our Common Future?"], "rank": 39}, {"country": "Egypt", "region": "Africa", "total": 2, "t1": 0, "t2": 1, "t3": 1, "t4": 0, "t5": 0, "oral": 2, "poster": 0, "special": 0, "titles": ["Financial Development, Transition Risk and Decarbonization Policy in Oil and Gas Producing Economies: Evidence from Egypt", "Mapping Cascading Risks in Egypt’s Energy Transition: A Bayesian Network and Energy Transition Risk Index"], "rank": 40}, {"country": "Czech Republic", "region": "Europe", "total": 2, "t1": 0, "t2": 1, "t3": 1, "t4": 0, "t5": 0, "oral": 2, "poster": 0, "special": 0, "titles": ["Mapping Food Security Drivers through Resilience Capacities: An Integrated Resilience Framework for European Food Systems", "A spatial framework for quantifying hail impacts on crop production in Germany"], "rank": 41}, {"country": "Cyprus", "region": "Other", "total": 2, "t1": 0, "t2": 0, "t3": 0, "t4": 0, "t5": 2, "oral": 2, "poster": 0, "special": 0, "titles": ["The role of digitalisation in supporting farmers and strategic policies for food security and sustainability in Europe", "Operational ensemble forecasting of electricity demand and post-curtailment photovoltaic generation in Cyprus"], "rank": 42}, {"country": "Unknown", "region": "Other", "total": 2, "t1": 1, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 2, "poster": 0, "special": 0, "titles": ["When Fewer Children Mean Unequal Opportunities: Demographic Decline and the Sustainability of Rural Education in Moldova", "Gendered Effects of Climate Change in Zimbabwe: Experiences of Smallholder Rural Women Farmers in Chiredzi District."], "rank": 43}, {"country": "Ecuador", "region": "Americas", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Agroecological Practices for Soil Restoration in Ecuador and Colombia: Systematized Lessons and Directions for Post-2030 Sustainability Agendas"], "rank": 44}, {"country": "Sri Lanka", "region": "Asia", "total": 1, "t1": 0, "t2": 1, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Traditional water management knowledge for sustainable climate change adaptation for dry zone of Sri Lanka"], "rank": 45}, {"country": "Lebanon", "region": "Asia", "total": 1, "t1": 0, "t2": 1, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["From Relief to Resilience: Sustainable Water and Energy Support in Conflict-Affected Lebanon"], "rank": 46}, {"country": "Azerbaijan", "region": "Other", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Green Infrastructure as Climate Adaptation: A Cost-Benefit Analysis of Nature-Based Solutions in Vulnerable Cities"], "rank": 47}, {"country": "DR Congo", "region": "Africa", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 0, "poster": 1, "special": 0, "titles": ["Localizing the Post-2030 Agenda in Fragile Cities: Lessons from Community-Led Infrastructure, Circular Economy, and Youth Innovation in Bukavu (DR Congo)"], "rank": 48}, {"country": "New Zealand", "region": "Oceania", "total": 1, "t1": 0, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["One key does not open all doors: Sustainability committee gender diversity and environmental performance under regulatory stringency"], "rank": 49}, {"country": "Mexico", "region": "Americas", "total": 1, "t1": 0, "t2": 0, "t3": 0, "t4": 0, "t5": 1, "oral": 1, "poster": 0, "special": 0, "titles": ["From Sustainability Data to Accountable Investment Decisions: An AI-Assisted Governance Framework for Rural Finance in Mexico."], "rank": 50}, {"country": "The Gambia", "region": "Africa", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Localizing the Sustainable Development Goals through Voluntary Local Reviews in The Gambia"], "rank": 51}, {"country": "Ethiopia", "region": "Other", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Lessons from the Sustainable Development Goals for Sustainable WASH Development Beyond 2030: Gaps, Challenges, and Opportunities in Rural Ethiopia"], "rank": 52}, {"country": "Ireland", "region": "Europe", "total": 1, "t1": 0, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Demand-Side Decarbonisation and a Just Transition in Ireland: Regional and Gendered Employment Impacts"], "rank": 53}, {"country": "Poland", "region": "Europe", "total": 1, "t1": 0, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 0, "poster": 0, "special": 1, "titles": ["Whose Future? Innovative workshop for Co-Designing Desirable Decarbonised Futures"], "rank": 54}, {"country": "Yemen", "region": "Asia", "total": 1, "t1": 0, "t2": 0, "t3": 0, "t4": 0, "t5": 1, "oral": 1, "poster": 0, "special": 0, "titles": ["From Human Rights Evidence to Responsible AI for Sustainable Development: Lessons from Conflict-Affected Yemen for the Post-2030 Agenda"], "rank": 55}, {"country": "Cameroon", "region": "Africa", "total": 1, "t1": 0, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 0, "poster": 1, "special": 0, "titles": ["A Novel Framework for Codesigning Nature-based Solutions for Climate-resilient and Sustainable Communities across Africa"], "rank": 56}, {"country": "Japan", "region": "Asia", "total": 1, "t1": 0, "t2": 0, "t3": 0, "t4": 1, "t5": 0, "oral": 0, "poster": 1, "special": 0, "titles": ["Community Perceptions of Cultural Ecosystem Services in Restoring Degraded Urban Forests: Evidence from Aboabo Forest, Ghana"], "rank": 57}, {"country": "Sudan", "region": "Other", "total": 1, "t1": 0, "t2": 0, "t3": 0, "t4": 0, "t5": 1, "oral": 0, "poster": 1, "special": 0, "titles": ["AI enhanced geospatial assessment of climate, conflict, ecosystem resilience and sustainability in the Blue Nile Region"], "rank": 58}, {"country": "Argentina", "region": "Other", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Student Perspectives on Environmental Pollution and Sustainability Priorities: Lessons from an International Educational Initiative"], "rank": 59}, {"country": "Venezuela", "region": "Americas", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 0, "poster": 1, "special": 0, "titles": ["Beyond Outcome Indicators: A Capabilities-Based Approach to Measuring Sustainable Development for the Post-2030 Agenda."], "rank": 60}, {"country": "Switzerland", "region": "Europe", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["When sustainability meets existing organizational systems: Pathways to integration and disconnection"], "rank": 61}, {"country": "Uruguay", "region": "Other", "total": 1, "t1": 0, "t2": 0, "t3": 0, "t4": 0, "t5": 1, "oral": 0, "poster": 1, "special": 0, "titles": ["Cognitive autonomy and responsible artificial intelligence use in higher education: lessons from NeuroIA in Uruguay"], "rank": 62}, {"country": "Singapore", "region": "Other", "total": 1, "t1": 0, "t2": 1, "t3": 0, "t4": 0, "t5": 0, "oral": 0, "poster": 1, "special": 0, "titles": ["Data-driven process simulation and techno-economic evaluation of microalgae hydrothermal liquefaction"], "rank": 63}, {"country": "Portugal", "region": "Europe", "total": 1, "t1": 0, "t2": 1, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Climate-risk analytics for nature-based solutions: assessing resilience, risk reduction and adaptive management in Portugal's marine Natura 2000 network"], "rank": 64}, {"country": "Oman", "region": "Other", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["From Awareness to Action: Household Food Waste and the Behavioural Challenge of Circular Consumption in Oman"], "rank": 65}, {"country": "Taiwan", "region": "Other", "total": 1, "t1": 0, "t2": 0, "t3": 0, "t4": 0, "t5": 1, "oral": 0, "poster": 1, "special": 0, "titles": ["Application of AI and Knowledge Graphs to Environmental Complaint Management for Sustainable Urban Governance"], "rank": 66}, {"country": "Vietnam", "region": "Asia", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["COMMUNITY-BASED ECOTOURISM FOR THE SUSTAINABLE DEVELOPMENT GOALS: EVIDENCE FROM NINH BINH, VIETNAM"], "rank": 67}, {"country": "United Arab Emirates", "region": "Asia", "total": 1, "t1": 0, "t2": 0, "t3": 0, "t4": 0, "t5": 1, "oral": 0, "poster": 1, "special": 0, "titles": ["Establishing an EHS Wide Scope 3 Emissions Baseline: A Data-Driven Digital Platform for Healthcare Carbon Accounting"], "rank": 68}, {"country": "Iran", "region": "Asia", "total": 1, "t1": 0, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Climate vulnerability and sustainable adaptation of rural livelihoods: Evidence from wheat farmers in Kermanshah, Iran"], "rank": 69}, {"country": "Sweden", "region": "Europe", "total": 1, "t1": 0, "t2": 0, "t3": 1, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Climate adaptation in a polarized development context: Wildfire governance and community resilience after the 2021 Mediterranean fires"], "rank": 70}, {"country": "Estonia", "region": "Other", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 0, "poster": 1, "special": 0, "titles": ["From sustainability reporting to action: Integrating the Sustainable Development Goals into university governance"], "rank": 71}, {"country": "Romania", "region": "Europe", "total": 1, "t1": 1, "t2": 0, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Cross-cultural perspectives on sustainability strategies and reporting in the compressed-air industry: A comparative study of India, Italy, and Sweden"], "rank": 72}, {"country": "Kuwait", "region": "Other", "total": 1, "t1": 0, "t2": 1, "t3": 0, "t4": 0, "t5": 0, "oral": 1, "poster": 0, "special": 0, "titles": ["Water Security in Kuwait: Exploring a Water Citizenship Approach to Sustainable Water Futures"], "rank": 73}];
+const themeDetails = {"0": {"theme_num": 0, "total_papers": 367, "subtopics_title": "Overall Thematic Distribution (Themes 1 to 5)", "subtopics": [{"label": "Theme 1: SDGs Post-2030", "short": "Theme 1", "count": 60, "pct": 16.3}, {"label": "Theme 2: Resilience Across Systems", "short": "Theme 2", "count": 76, "pct": 20.7}, {"label": "Theme 3: Climate Nexus", "short": "Theme 3", "count": 75, "pct": 20.4}, {"label": "Theme 4: Health & Well-being", "short": "Theme 4", "count": 45, "pct": 12.3}, {"label": "Theme 5: AI & Digitalization", "short": "Theme 5", "count": 45, "pct": 12.3}], "formats": [{"label": "Oral Presentation", "short": "Oral", "count": 294, "pct": 80.1}, {"label": "Poster Presentation", "short": "Poster", "count": 56, "pct": 15.3}, {"label": "Innovative Session", "short": "Innovative", "count": 9, "pct": 2.5}, {"label": "Full Panel Session", "short": "Full Panel", "count": 8, "pct": 2.2}], "regions": [{"region": "Asia", "count": 126, "pct": 34.3}, {"region": "Europe", "count": 117, "pct": 31.9}, {"region": "Africa", "count": 74, "pct": 20.2}, {"region": "Americas", "count": 19, "pct": 5.2}, {"region": "Oceania", "count": 5, "pct": 1.4}]}, "1": {"theme_num": 1, "total_papers": 78, "subtopics_title": "Theme 1 Subtopics Distribution", "subtopics": [{"label": "1.1 National and local implementation of SDGs, including barriers and opportunities", "short": "Topic 1.1", "count": 31, "pct": 39.7}, {"label": "1.2 Lessons learned from SDG governance and multi-stakeholder partnerships", "short": "Topic 1.2", "count": 12, "pct": 15.4}, {"label": "1.3 Integrated sustainability assessment of progress made on the SDGs", "short": "Topic 1.3", "count": 9, "pct": 11.5}, {"label": "1.4 Missing links and reforms for a sustainable development agenda beyond 2030", "short": "Topic 1.4", "count": 12, "pct": 15.4}, {"label": "1.5 Methods and processes for a sustainable development agenda beyond 2030", "short": "Topic 1.5", "count": 14, "pct": 17.9}], "formats": [{"label": "Oral Presentation", "short": "Oral", "count": 60, "pct": 76.9}, {"label": "Poster Presentation", "short": "Poster", "count": 14, "pct": 17.9}, {"label": "Innovative Session", "short": "Innovative", "count": 4, "pct": 5.1}], "regions": [{"region": "Asia", "count": 19, "pct": 24.4}, {"region": "Europe", "count": 31, "pct": 39.7}, {"region": "Africa", "count": 10, "pct": 12.8}, {"region": "Americas", "count": 6, "pct": 7.7}, {"region": "Oceania", "count": 1, "pct": 1.3}]}, "2": {"theme_num": 2, "total_papers": 90, "subtopics_title": "Theme 2 Subtopics Distribution", "subtopics": [{"label": "2.1 Ensuring food, water, and energy security and understanding their nexus", "short": "Topic 2.1", "count": 33, "pct": 36.7}, {"label": "2.2 Sustainable landscape and seascape for nature's contribution to people", "short": "Topic 2.2", "count": 12, "pct": 13.3}, {"label": "2.3 Roles of equity & justice for sustainable transformation and resilience", "short": "Topic 2.3", "count": 18, "pct": 20.0}, {"label": "2.4 Measures for urban transformation, including sustainable mobility", "short": "Topic 2.4", "count": 10, "pct": 11.1}, {"label": "2.5 Economic approaches beyond GDP, including circularity and  bioeconomy", "short": "Topic 2.5", "count": 17, "pct": 18.9}], "formats": [{"label": "Oral Presentation", "short": "Oral", "count": 77, "pct": 85.6}, {"label": "Poster Presentation", "short": "Poster", "count": 8, "pct": 8.9}, {"label": "Innovative Session", "short": "Innovative", "count": 1, "pct": 1.1}, {"label": "Full Panel Session", "short": "Full Panel", "count": 4, "pct": 4.4}], "regions": [{"region": "Asia", "count": 34, "pct": 37.8}, {"region": "Europe", "count": 31, "pct": 34.4}, {"region": "Africa", "count": 12, "pct": 13.3}, {"region": "Americas", "count": 5, "pct": 5.6}, {"region": "Oceania", "count": 2, "pct": 2.2}]}, "3": {"theme_num": 3, "total_papers": 94, "subtopics_title": "Theme 3 Subtopics Distribution", "subtopics": [{"label": "3.1 Modeling Earth system interactions, including climate impacts on development", "short": "Topic 3.1", "count": 6, "pct": 6.4}, {"label": "3.2 Actions for climate change adaptation to build societal resilience", "short": "Topic 3.2", "count": 28, "pct": 29.8}, {"label": "3.3 Climate change mitigation and net-zero pathways for a just transition", "short": "Topic 3.3", "count": 21, "pct": 22.3}, {"label": "3.4 Understanding climate change and climate actions for human security", "short": "Topic 3.4", "count": 11, "pct": 11.7}, {"label": "3.5 Climate governance, finance, and negotiation for sustainable development", "short": "Topic 3.5", "count": 28, "pct": 29.8}], "formats": [{"label": "Oral Presentation", "short": "Oral", "count": 73, "pct": 77.7}, {"label": "Poster Presentation", "short": "Poster", "count": 16, "pct": 17.0}, {"label": "Innovative Session", "short": "Innovative", "count": 3, "pct": 3.2}, {"label": "Full Panel Session", "short": "Full Panel", "count": 2, "pct": 2.1}], "regions": [{"region": "Asia", "count": 34, "pct": 36.2}, {"region": "Europe", "count": 32, "pct": 34.0}, {"region": "Africa", "count": 21, "pct": 22.3}, {"region": "Americas", "count": 5, "pct": 5.3}, {"region": "Oceania", "count": 1, "pct": 1.1}]}, "4": {"theme_num": 4, "total_papers": 53, "subtopics_title": "Theme 4 Subtopics Distribution", "subtopics": [{"label": "4.1 System perspective for addressing one health nexus within ecological ceilings", "short": "Topic 4.1", "count": 3, "pct": 5.7}, {"label": "4.2 Environmental health and emerging pollutants, including regulatory and governance responses, and policy translation of exposure science", "short": "Topic 4.2", "count": 8, "pct": 15.1}, {"label": "4.3 Developing solutions and innovations for healthier societies", "short": "Topic 4.3", "count": 8, "pct": 15.1}, {"label": "4.4 Health equity, well-being, inner development, and societal foundations as societal outcomes", "short": "Topic 4.4", "count": 24, "pct": 45.3}, {"label": "4.5 Health as both an outcome and driver of sustainable development", "short": "Topic 4.5", "count": 10, "pct": 18.9}], "formats": [{"label": "Oral Presentation", "short": "Oral", "count": 43, "pct": 81.1}, {"label": "Poster Presentation", "short": "Poster", "count": 10, "pct": 18.9}], "regions": [{"region": "Asia", "count": 26, "pct": 49.1}, {"region": "Europe", "count": 9, "pct": 17.0}, {"region": "Africa", "count": 17, "pct": 32.1}, {"region": "Americas", "count": 1, "pct": 1.9}]}, "5": {"theme_num": 5, "total_papers": 52, "subtopics_title": "Theme 5 Subtopics Distribution", "subtopics": [{"label": "5.1 Advances in AI methods, big data, and digital technologies for sustainability analytics", "short": "Topic 5.1", "count": 6, "pct": 11.5}, {"label": "5.2 AI as an enabling technology for understanding sustainable development and twin transition", "short": "Topic 5.2", "count": 9, "pct": 17.3}, {"label": "5.3 AI and big data for decision-making and sustainable governance as a supporting decision tool", "short": "Topic 5.3", "count": 5, "pct": 9.6}, {"label": "5.4 Trustworthy AI, information integrity, data autonomy, and sustainability impacts of AI", "short": "Topic 5.4", "count": 6, "pct": 11.5}, {"label": "5.5 AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges", "short": "Topic 5.5", "count": 26, "pct": 50.0}], "formats": [{"label": "Oral Presentation", "short": "Oral", "count": 41, "pct": 78.8}, {"label": "Poster Presentation", "short": "Poster", "count": 8, "pct": 15.4}, {"label": "Innovative Session", "short": "Innovative", "count": 1, "pct": 1.9}, {"label": "Full Panel Session", "short": "Full Panel", "count": 2, "pct": 3.8}], "regions": [{"region": "Asia", "count": 13, "pct": 25.0}, {"region": "Europe", "count": 14, "pct": 26.9}, {"region": "Africa", "count": 14, "pct": 26.9}, {"region": "Americas", "count": 2, "pct": 3.8}, {"region": "Oceania", "count": 1, "pct": 1.9}]}};
+const wordClusters = {"0": {"theme_num": 0, "theme_title": "All Themes (367 Abstracts)", "papers_count": 367, "total_words": 60748, "top_words": [{"word": "development", "count": 532, "pct": 0.88}, {"word": "sustainable", "count": 481, "pct": 0.79}, {"word": "climate", "count": 474, "pct": 0.78}, {"word": "sustainability", "count": 373, "pct": 0.61}, {"word": "environmental", "count": 344, "pct": 0.57}, {"word": "governance", "count": 257, "pct": 0.42}, {"word": "framework", "count": 251, "pct": 0.41}, {"word": "energy", "count": 234, "pct": 0.39}, {"word": "policy", "count": 226, "pct": 0.37}, {"word": "social", "count": 219, "pct": 0.36}, {"word": "water", "count": 217, "pct": 0.36}, {"word": "health", "count": 211, "pct": 0.35}, {"word": "local", "count": 201, "pct": 0.33}, {"word": "beyond", "count": 197, "pct": 0.32}, {"word": "institutional", "count": 195, "pct": 0.32}, {"word": "global", "count": 187, "pct": 0.31}, {"word": "digital", "count": 187, "pct": 0.31}, {"word": "systems", "count": 184, "pct": 0.3}, {"word": "change", "count": 182, "pct": 0.3}, {"word": "economic", "count": 170, "pct": 0.28}, {"word": "urban", "count": 165, "pct": 0.27}, {"word": "food", "count": 153, "pct": 0.25}, {"word": "goals", "count": 146, "pct": 0.24}, {"word": "adaptation", "count": 146, "pct": 0.24}, {"word": "resilience", "count": 142, "pct": 0.23}, {"word": "support", "count": 141, "pct": 0.23}, {"word": "implementation", "count": 139, "pct": 0.23}, {"word": "conditions", "count": 139, "pct": 0.23}, {"word": "knowledge", "count": 134, "pct": 0.22}, {"word": "evidence", "count": 131, "pct": 0.22}, {"word": "public", "count": 129, "pct": 0.21}, {"word": "access", "count": 125, "pct": 0.21}, {"word": "national", "count": 125, "pct": 0.21}, {"word": "production", "count": 125, "pct": 0.21}, {"word": "management", "count": 121, "pct": 0.2}], "top_keywords": [{"keyword": "climate change", "count": 20}, {"keyword": "sustainable development", "count": 20}, {"keyword": "sustainable development goals", "count": 17}, {"keyword": "artificial intelligence", "count": 13}, {"keyword": "sustainability", "count": 12}, {"keyword": "sdgs", "count": 9}, {"keyword": "climate adaptation", "count": 9}, {"keyword": "community resilience", "count": 8}, {"keyword": "resilience", "count": 8}, {"keyword": "nature-based solutions", "count": 8}, {"keyword": "post-2030 agenda", "count": 8}, {"keyword": "climate finance", "count": 8}, {"keyword": "circular economy", "count": 7}, {"keyword": "sustainability assessment", "count": 7}, {"keyword": "indonesia", "count": 6}]}, "1": {"theme_num": 1, "theme_title": "Theme 1: Lessons from the SDGs beyond 2030", "papers_count": 78, "total_words": 11696, "top_words": [{"word": "development", "count": 190, "pct": 1.62}, {"word": "sustainable", "count": 164, "pct": 1.4}, {"word": "sustainability", "count": 157, "pct": 1.34}, {"word": "environmental", "count": 72, "pct": 0.62}, {"word": "governance", "count": 72, "pct": 0.62}, {"word": "sdgs", "count": 70, "pct": 0.6}, {"word": "institutional", "count": 68, "pct": 0.58}, {"word": "goals", "count": 66, "pct": 0.56}, {"word": "local", "count": 63, "pct": 0.54}, {"word": "climate", "count": 62, "pct": 0.53}, {"word": "policy", "count": 58, "pct": 0.5}, {"word": "global", "count": 56, "pct": 0.48}, {"word": "implementation", "count": 54, "pct": 0.46}, {"word": "beyond", "count": 53, "pct": 0.45}, {"word": "indicators", "count": 52, "pct": 0.44}, {"word": "energy", "count": 49, "pct": 0.42}, {"word": "framework", "count": 47, "pct": 0.4}, {"word": "national", "count": 47, "pct": 0.4}, {"word": "agenda", "count": 46, "pct": 0.39}, {"word": "participation", "count": 44, "pct": 0.38}, {"word": "systems", "count": 43, "pct": 0.37}, {"word": "progress", "count": 40, "pct": 0.34}, {"word": "social", "count": 39, "pct": 0.33}, {"word": "approaches", "count": 38, "pct": 0.32}, {"word": "priorities", "count": 38, "pct": 0.32}, {"word": "economic", "count": 37, "pct": 0.32}, {"word": "action", "count": 36, "pct": 0.31}, {"word": "post-", "count": 36, "pct": 0.31}, {"word": "challenges", "count": 34, "pct": 0.29}, {"word": "education", "count": 32, "pct": 0.27}, {"word": "monitoring", "count": 31, "pct": 0.27}, {"word": "practices", "count": 31, "pct": 0.27}, {"word": "commitments", "count": 29, "pct": 0.25}, {"word": "access", "count": 28, "pct": 0.24}, {"word": "outcomes", "count": 28, "pct": 0.24}], "top_keywords": [{"keyword": "sustainable development goals", "count": 16}, {"keyword": "post-2030 agenda", "count": 6}, {"keyword": "sdgs", "count": 5}, {"keyword": "sustainable development", "count": 5}, {"keyword": "sdg localization", "count": 4}, {"keyword": "sustainability reporting", "count": 4}, {"keyword": "higher education", "count": 3}, {"keyword": "sdg implementation", "count": 3}, {"keyword": "sustainability indicators", "count": 3}, {"keyword": "sustainability", "count": 3}, {"keyword": "sustainability assessment", "count": 3}, {"keyword": "msmes", "count": 2}, {"keyword": "nepal", "count": 2}, {"keyword": "governance", "count": 2}, {"keyword": "food security", "count": 2}]}, "2": {"theme_num": 2, "theme_title": "Theme 2: Building resilience across natural and human systems", "papers_count": 90, "total_words": 16652, "top_words": [{"word": "water", "count": 108, "pct": 0.65}, {"word": "environmental", "count": 102, "pct": 0.61}, {"word": "sustainable", "count": 102, "pct": 0.61}, {"word": "development", "count": 99, "pct": 0.59}, {"word": "food", "count": 99, "pct": 0.59}, {"word": "energy", "count": 95, "pct": 0.57}, {"word": "framework", "count": 82, "pct": 0.49}, {"word": "sustainability", "count": 77, "pct": 0.46}, {"word": "urban", "count": 77, "pct": 0.46}, {"word": "production", "count": 75, "pct": 0.45}, {"word": "climate", "count": 71, "pct": 0.43}, {"word": "local", "count": 68, "pct": 0.41}, {"word": "resilience", "count": 66, "pct": 0.4}, {"word": "global", "count": 62, "pct": 0.37}, {"word": "beyond", "count": 54, "pct": 0.32}, {"word": "governance", "count": 54, "pct": 0.32}, {"word": "systems", "count": 53, "pct": 0.32}, {"word": "knowledge", "count": 52, "pct": 0.31}, {"word": "management", "count": 47, "pct": 0.28}, {"word": "community", "count": 47, "pct": 0.28}, {"word": "economic", "count": 47, "pct": 0.28}, {"word": "demand", "count": 47, "pct": 0.28}, {"word": "social", "count": 46, "pct": 0.28}, {"word": "agricultural", "count": 46, "pct": 0.28}, {"word": "system", "count": 45, "pct": 0.27}, {"word": "model", "count": 45, "pct": 0.27}, {"word": "change", "count": 44, "pct": 0.26}, {"word": "policy", "count": 44, "pct": 0.26}, {"word": "ecological", "count": 42, "pct": 0.25}, {"word": "practices", "count": 41, "pct": 0.25}, {"word": "biodiversity", "count": 41, "pct": 0.25}, {"word": "conservation", "count": 41, "pct": 0.25}, {"word": "circular", "count": 41, "pct": 0.25}, {"word": "spatial", "count": 41, "pct": 0.25}, {"word": "regions", "count": 40, "pct": 0.24}], "top_keywords": [{"keyword": "community resilience", "count": 6}, {"keyword": "equity", "count": 5}, {"keyword": "food system transformation", "count": 5}, {"keyword": "business models", "count": 5}, {"keyword": "resilience", "count": 5}, {"keyword": "climate change", "count": 4}, {"keyword": "social equity", "count": 4}, {"keyword": "sustainable resource management", "count": 4}, {"keyword": "sustainable development", "count": 4}, {"keyword": "circular economy", "count": 4}, {"keyword": "biodiversity", "count": 4}, {"keyword": "nature-based solutions", "count": 4}, {"keyword": "water", "count": 3}, {"keyword": "sustainable transformation", "count": 3}, {"keyword": "indigenous knowledge", "count": 3}]}, "3": {"theme_num": 3, "theme_title": "Theme 3: Navigating the climate change–development nexus", "papers_count": 94, "total_words": 15060, "top_words": [{"word": "climate", "count": 259, "pct": 1.72}, {"word": "development", "count": 117, "pct": 0.78}, {"word": "change", "count": 81, "pct": 0.54}, {"word": "adaptation", "count": 80, "pct": 0.53}, {"word": "policy", "count": 73, "pct": 0.48}, {"word": "sustainable", "count": 73, "pct": 0.48}, {"word": "environmental", "count": 68, "pct": 0.45}, {"word": "social", "count": 63, "pct": 0.42}, {"word": "sustainability", "count": 61, "pct": 0.41}, {"word": "energy", "count": 58, "pct": 0.39}, {"word": "framework", "count": 57, "pct": 0.38}, {"word": "governance", "count": 57, "pct": 0.38}, {"word": "conditions", "count": 51, "pct": 0.34}, {"word": "carbon", "count": 49, "pct": 0.33}, {"word": "mitigation", "count": 46, "pct": 0.31}, {"word": "water", "count": 45, "pct": 0.3}, {"word": "resilience", "count": 45, "pct": 0.3}, {"word": "economic", "count": 45, "pct": 0.3}, {"word": "finance", "count": 45, "pct": 0.3}, {"word": "emissions", "count": 45, "pct": 0.3}, {"word": "institutional", "count": 43, "pct": 0.29}, {"word": "transition", "count": 41, "pct": 0.27}, {"word": "beyond", "count": 40, "pct": 0.27}, {"word": "support", "count": 39, "pct": 0.26}, {"word": "risk", "count": 39, "pct": 0.26}, {"word": "public", "count": 38, "pct": 0.25}, {"word": "pathways", "count": 37, "pct": 0.25}, {"word": "local", "count": 36, "pct": 0.24}, {"word": "global", "count": 35, "pct": 0.23}, {"word": "whether", "count": 34, "pct": 0.23}, {"word": "investment", "count": 32, "pct": 0.21}, {"word": "implementation", "count": 31, "pct": 0.21}, {"word": "evidence", "count": 31, "pct": 0.21}, {"word": "action", "count": 31, "pct": 0.21}, {"word": "land", "count": 31, "pct": 0.21}], "top_keywords": [{"keyword": "climate change", "count": 12}, {"keyword": "climate finance", "count": 7}, {"keyword": "just transition", "count": 6}, {"keyword": "climate adaptation", "count": 5}, {"keyword": "climate change adaptation", "count": 4}, {"keyword": "climate action", "count": 4}, {"keyword": "climate justice", "count": 4}, {"keyword": "climate resilience", "count": 3}, {"keyword": "climate-development nexus", "count": 3}, {"keyword": "global south", "count": 3}, {"keyword": "africa", "count": 3}, {"keyword": "nature-based solutions", "count": 3}, {"keyword": "equity and justice", "count": 3}, {"keyword": "mitigation", "count": 3}, {"keyword": "decarbonization", "count": 3}]}, "4": {"theme_num": 4, "theme_title": "Theme 4: Health, well-being, and societal foundations", "papers_count": 53, "total_words": 8455, "top_words": [{"word": "health", "count": 156, "pct": 1.85}, {"word": "environmental", "count": 60, "pct": 0.71}, {"word": "social", "count": 52, "pct": 0.62}, {"word": "sustainable", "count": 51, "pct": 0.6}, {"word": "well-being", "count": 49, "pct": 0.58}, {"word": "climate", "count": 42, "pct": 0.5}, {"word": "development", "count": 41, "pct": 0.48}, {"word": "urban", "count": 38, "pct": 0.45}, {"word": "healthcare", "count": 29, "pct": 0.34}, {"word": "exposure", "count": 28, "pct": 0.33}, {"word": "access", "count": 28, "pct": 0.33}, {"word": "care", "count": 28, "pct": 0.33}, {"word": "economic", "count": 25, "pct": 0.3}, {"word": "women", "count": 25, "pct": 0.3}, {"word": "community", "count": 25, "pct": 0.3}, {"word": "policy", "count": 24, "pct": 0.28}, {"word": "food", "count": 24, "pct": 0.28}, {"word": "ghana", "count": 24, "pct": 0.28}, {"word": "framework", "count": 23, "pct": 0.27}, {"word": "pollution", "count": 22, "pct": 0.26}, {"word": "education", "count": 22, "pct": 0.26}, {"word": "strategies", "count": 22, "pct": 0.26}, {"word": "associated", "count": 22, "pct": 0.26}, {"word": "evidence", "count": 21, "pct": 0.25}, {"word": "public", "count": 21, "pct": 0.25}, {"word": "institutional", "count": 21, "pct": 0.25}, {"word": "household", "count": 21, "pct": 0.25}, {"word": "production", "count": 21, "pct": 0.25}, {"word": "risks", "count": 21, "pct": 0.25}, {"word": "communities", "count": 20, "pct": 0.24}, {"word": "global", "count": 20, "pct": 0.24}, {"word": "model", "count": 20, "pct": 0.24}, {"word": "child", "count": 20, "pct": 0.24}, {"word": "governance", "count": 19, "pct": 0.22}, {"word": "water", "count": 18, "pct": 0.21}], "top_keywords": [{"keyword": "well-being", "count": 4}, {"keyword": "sustainable development", "count": 3}, {"keyword": "climate change", "count": 3}, {"keyword": "nigeria", "count": 3}, {"keyword": "sustainability", "count": 3}, {"keyword": "health equity", "count": 3}, {"keyword": "sdgs", "count": 2}, {"keyword": "air pollution", "count": 2}, {"keyword": "india", "count": 2}, {"keyword": "child health", "count": 2}, {"keyword": "sdg 3", "count": 2}, {"keyword": "sdg", "count": 2}, {"keyword": "china", "count": 2}, {"keyword": "maternal health", "count": 2}, {"keyword": "ambient temperature", "count": 2}]}, "5": {"theme_num": 5, "theme_title": "Theme 5: AI, big data, and digitalization as enablers", "papers_count": 52, "total_words": 8885, "top_words": [{"word": "digital", "count": 133, "pct": 1.5}, {"word": "sustainable", "count": 91, "pct": 1.02}, {"word": "development", "count": 85, "pct": 0.96}, {"word": "sustainability", "count": 66, "pct": 0.74}, {"word": "governance", "count": 55, "pct": 0.62}, {"word": "systems", "count": 43, "pct": 0.48}, {"word": "environmental", "count": 42, "pct": 0.47}, {"word": "framework", "count": 42, "pct": 0.47}, {"word": "climate", "count": 40, "pct": 0.45}, {"word": "evidence", "count": 39, "pct": 0.44}, {"word": "intelligence", "count": 36, "pct": 0.41}, {"word": "beyond", "count": 36, "pct": 0.41}, {"word": "artificial", "count": 33, "pct": 0.37}, {"word": "goals", "count": 32, "pct": 0.36}, {"word": "water", "count": 32, "pct": 0.36}, {"word": "information", "count": 31, "pct": 0.35}, {"word": "policy", "count": 27, "pct": 0.3}, {"word": "energy", "count": 26, "pct": 0.29}, {"word": "access", "count": 26, "pct": 0.29}, {"word": "sovereignty", "count": 26, "pct": 0.29}, {"word": "support", "count": 25, "pct": 0.28}, {"word": "green", "count": 24, "pct": 0.27}, {"word": "decisions", "count": 24, "pct": 0.27}, {"word": "conditions", "count": 24, "pct": 0.27}, {"word": "institutional", "count": 23, "pct": 0.26}, {"word": "knowledge", "count": 23, "pct": 0.26}, {"word": "national", "count": 22, "pct": 0.25}, {"word": "capacity", "count": 22, "pct": 0.25}, {"word": "transition", "count": 22, "pct": 0.25}, {"word": "public", "count": 22, "pct": 0.25}, {"word": "implementation", "count": 22, "pct": 0.25}, {"word": "technologies", "count": 21, "pct": 0.24}, {"word": "progress", "count": 20, "pct": 0.23}, {"word": "human", "count": 20, "pct": 0.23}, {"word": "assessment", "count": 19, "pct": 0.21}], "top_keywords": [{"keyword": "artificial intelligence", "count": 12}, {"keyword": "sustainable development", "count": 6}, {"keyword": "big data", "count": 5}, {"keyword": "digitalization", "count": 5}, {"keyword": "sustainability", "count": 4}, {"keyword": "responsible innovation", "count": 4}, {"keyword": "data governance", "count": 4}, {"keyword": "digital governance", "count": 3}, {"keyword": "emerging governance frameworks", "count": 3}, {"keyword": "climate policy", "count": 2}, {"keyword": "digital twins", "count": 2}, {"keyword": "twin transition", "count": 2}, {"keyword": "ai-assisted governance", "count": 2}, {"keyword": "risks", "count": 2}, {"keyword": "deep learning", "count": 2}]}};
+
+let currentTheme = 0; // 0 = All, 1 = T1, 2 = T2, 3 = T3, 4 = T4, 5 = T5
+let sortColumn = 'total';
+let sortDirection = 'desc'; // 'asc' or 'desc'
+
+// Discrete Color Palettes for the Map
+const DISCRETE_TIERS_ALL = [
+    { label: "21+ papers", min: 21, max: 999, color: "#1E3A8A" },
+    { label: "11 – 20 papers", min: 11, max: 20, color: "#2563EB" },
+    { label: "6 – 10 papers", min: 6, max: 10, color: "#60A5FA" },
+    { label: "3 – 5 papers", min: 3, max: 5, color: "#93C5FD" },
+    { label: "1 – 2 papers", min: 1, max: 2, color: "#DBEAFE" }
+];
+
+const DISCRETE_TIERS_THEME = [
+    { label: "6+ papers", min: 6, max: 999, color: "#1E3A8A" },
+    { label: "4 – 5 papers", min: 4, max: 5, color: "#2563EB" },
+    { label: "2 – 3 papers", min: 2, max: 3, color: "#60A5FA" },
+    { label: "1 paper", min: 1, max: 1, color: "#BFDBFE" }
+];
+
+// Initialize on Load
+document.addEventListener("DOMContentLoaded", function() {
+    renderMap();
+    renderReactiveCharts();
+    updateWordClusterSection();
+    renderTable();
+});
+
+// ----------------------------------------------------------------------------
+// 1. Theme Filter Handler
+// ----------------------------------------------------------------------------
+function selectThemeFilter(tNum) {
+    currentTheme = tNum;
+    
+    // Update Filter Buttons
+    for (let i = 0; i <= 5; i++) {
+        const btn = document.getElementById("btn-theme-" + i);
+        if (btn) {
+            if (i === tNum) btn.classList.add('active');
+            else btn.classList.remove('active');
+        }
+    }
+    
+    // Update KPI Card active borders
+    const kpiCards = document.querySelectorAll('.kpi-card');
+    kpiCards.forEach((c, idx) => {
+        if (idx === tNum) c.classList.add('active');
+        else c.classList.remove('active');
+    });
+
+    renderMap();
+    renderReactiveCharts();
+    updateWordClusterSection();
+    
+    // If a theme is selected, auto-sort table by that theme column descending
+    if (tNum > 0) {
+        sortColumn = "t" + tNum;
+        sortDirection = 'desc';
+    } else {
+        sortColumn = 'total';
+        sortDirection = 'desc';
+    }
+    renderTable();
+}
+
+// ----------------------------------------------------------------------------
+// 2. Interactive Map with Discrete Tiers & Standard Equirectangular Projection
+// ----------------------------------------------------------------------------
+function renderMap() {
+    const tiers = (currentTheme === 0) ? DISCRETE_TIERS_ALL : DISCRETE_TIERS_THEME;
+    const valueKey = (currentTheme === 0) ? 'total' : ("t" + currentTheme);
+    
+    // Group countries into discrete tiers
+    const traces = [];
+    
+    // Render from lowest tier to highest tier
+    tiers.slice().reverse().forEach(tier => {
+        const matchingCountries = countryData.filter(c => c[valueKey] >= tier.min && c[valueKey] <= tier.max);
+        
+        const locs = matchingCountries.map(c => c.country);
+        const zVals = matchingCountries.map(c => c[valueKey]);
+        const customdata = matchingCountries.map(c => [
+            c.country, c.region, c[valueKey], c.total, c.oral, c.poster, c.special,
+            c.t1, c.t2, c.t3, c.t4, c.t5
+        ]);
+
+        const themeName = (currentTheme === 0) ? "Total Submissions" : ("Theme " + currentTheme + " Submissions");
+
+        traces.push({
+            type: 'choropleth',
+            locations: locs,
+            locationmode: 'country names',
+            z: zVals,
+            name: tier.label,
+            colorscale: [[0, tier.color], [1, tier.color]],
+            showscale: false,
+            marker: {
+                line: { color: '#CBD5E1', width: 0.8 }
+            },
+            customdata: customdata,
+            hovertemplate: 
+                "<b>%{customdata[0]}</b> (%{customdata[1]})<br>" +
+                "━━━━━━━━━━━━━━━━━━━━━━━<br>" +
+                "<b>" + themeName + ": %{customdata[2]}</b><br>" +
+                "Total Conference Papers: %{customdata[3]}<br>" +
+                "Oral: %{customdata[4]} | Poster: %{customdata[5]} | Panels: %{customdata[6]}<br>" +
+                "──────── All Themes ────────<br>" +
+                "Theme 1: %{customdata[7]} | Theme 2: %{customdata[8]}<br>" +
+                "Theme 3: %{customdata[9]} | Theme 4: %{customdata[10]}<br>" +
+                "Theme 5: %{customdata[11]}<br>" +
+                "<extra></extra>"
+        });
+    });
+
+    const layout = {
+        title: false,
+        geo: {
+            showframe: false,
+            showcoastlines: true,
+            coastlinecolor: '#CBD5E1',
+            showcountries: true,
+            countrycolor: '#E2E8F0',
+            landcolor: '#F8FAFC',
+            lakecolor: '#FFFFFF',
+            bgcolor: '#FFFFFF',
+            projection: { type: 'equirectangular' }
+        },
+        margin: { l: 0, r: 0, t: 10, b: 0 },
+        paper_bgcolor: '#FFFFFF',
+        showlegend: false
+    };
+
+    Plotly.newPlot('mapPlot', traces, layout, { responsive: true, displayModeBar: false });
+
+    // Render Clean Discrete Legend HTML Below Map
+    const legendBox = document.getElementById('mapDiscreteLegend');
+    let legHtml = '<b>Discrete Submission Tiers:</b> ';
+    tiers.forEach(t => {
+        legHtml += '<div class="legend-item">' +
+            '<span class="legend-swatch" style="background-color: ' + t.color + ';"></span>' +
+            '<span>' + t.label + '</span>' +
+        '</div>';
+    });
+    legHtml += '<div class="legend-item">' +
+        '<span class="legend-swatch" style="background-color: #F8FAFC; border: 1px dashed #CBD5E1;"></span>' +
+        '<span>No submissions (0)</span>' +
+    '</div>';
+    legendBox.innerHTML = legHtml;
+}
+
+// ----------------------------------------------------------------------------
+// 3. Reactive Charts: Subtopics/Themes Pie, Formats Pie, Regions Bar
+// ----------------------------------------------------------------------------
+function renderReactiveCharts() {
+    const td = themeDetails[String(currentTheme)];
+    if (!td) return;
+
+    // Update Headings
+    const chart1Title = document.getElementById('chart1Title');
+    const chart1Sub = document.getElementById('chart1Sub');
+    if (currentTheme === 0) {
+        chart1Title.innerText = "Overall Thematic Shares (Themes 1 to 5)";
+        chart1Sub.innerText = "Proportions across conference pillars | Total: 367";
+    } else {
+        chart1Title.innerText = "Theme " + currentTheme + " Subtopics Distribution";
+        chart1Sub.innerText = "Subtopics breakdown under Theme " + currentTheme + " | Total: " + td.total_papers;
+    }
+
+    const chart2Title = document.getElementById('chart2Title');
+    const chart2Sub = document.getElementById('chart2Sub');
+    if (currentTheme === 0) {
+        chart2Title.innerText = "Overall Presentation Formats";
+        chart2Sub.innerText = "Oral | Poster | Innovative | Full Panel | Total: 367";
+    } else {
+        chart2Title.innerText = "Theme " + currentTheme + " Presentation Formats";
+        chart2Sub.innerText = "Oral vs. Poster vs. Panels | Total: " + td.total_papers;
+    }
+
+    const chart3Title = document.getElementById('chart3Title');
+    const chart3Sub = document.getElementById('chart3Sub');
+    if (currentTheme === 0) {
+        chart3Title.innerText = "Overall Submissions by Region";
+        chart3Sub.innerText = "Continental distribution across 66 nations";
+    } else {
+        chart3Title.innerText = "Theme " + currentTheme + " Submissions by Region";
+        chart3Sub.innerText = "Geographic origin for Theme " + currentTheme;
+    }
+
+    // --- Chart 1: Subtopics or Themes Pie Chart (Labels Outside!) ---
+    const subLabels = td.subtopics.map(s => s.short);
+    const subHoverLabels = td.subtopics.map(s => s.label);
+    const subValues = td.subtopics.map(s => s.count);
+    
+    const subColors = ['#2563EB', '#0D9488', '#4F46E5', '#0284C7', '#6366F1', '#3B82F6', '#10B981'];
+
+    const dataPie1 = [{
+        type: 'pie',
+        labels: subLabels,
+        values: subValues,
+        hole: 0.44,
+        sort: false, // Maintain numerical sequence!
+        marker: { colors: subColors, line: { color: '#FFFFFF', width: 2 } },
+        textposition: 'outside',
+        textinfo: 'label+percent',
+        automargin: true,
+        textfont: { color: '#0F172A', size: 12, weight: 600, family: "'Google Sans', 'Plus Jakarta Sans', sans-serif" },
+        customdata: subHoverLabels,
+        hovertemplate: "<b>%{customdata}</b><br>Submissions: %{value}<br>Share: %{percent}<extra></extra>"
+    }];
+
+    const layoutPie1 = {
+        showlegend: false,
+        margin: { l: 30, r: 30, t: 30, b: 30 },
+        paper_bgcolor: '#FFFFFF',
+        font: { family: "'Google Sans', 'Plus Jakarta Sans', sans-serif" }
+    };
+
+    Plotly.newPlot('subtopicPiePlot', dataPie1, layoutPie1, { responsive: true, displayModeBar: false });
+
+    // --- Chart 2: Session Presentation Formats Pie Chart (Labels Outside!) ---
+    const fmtLabels = td.formats.map(f => f.short);
+    const fmtFullLabels = td.formats.map(f => f.label);
+    const fmtValues = td.formats.map(f => f.count);
+    const fmtColors = ['#2563EB', '#10B981', '#F59E0B', '#8B5CF6'];
+
+    const dataPie2 = [{
+        type: 'pie',
+        labels: fmtLabels,
+        values: fmtValues,
+        hole: 0.44,
+        sort: false,
+        marker: { colors: fmtColors, line: { color: '#FFFFFF', width: 2 } },
+        textposition: 'outside',
+        textinfo: 'label+percent',
+        automargin: true,
+        textfont: { color: '#0F172A', size: 12, weight: 600, family: "'Google Sans', 'Plus Jakarta Sans', sans-serif" },
+        customdata: fmtFullLabels,
+        hovertemplate: "<b>%{customdata}</b><br>Submissions: %{value}<br>Proportion: %{percent}<extra></extra>"
+    }];
+
+    const layoutPie2 = {
+        showlegend: false,
+        margin: { l: 30, r: 30, t: 30, b: 30 },
+        paper_bgcolor: '#FFFFFF',
+        font: { family: "'Google Sans', 'Plus Jakarta Sans', sans-serif" }
+    };
+
+    Plotly.newPlot('formatPiePlot', dataPie2, layoutPie2, { responsive: true, displayModeBar: false });
+
+    // --- Chart 3: Regional Distribution Bar Chart ---
+    const regNames = td.regions.map(r => r.region);
+    const regCounts = td.regions.map(r => r.count);
+    const regPcts = td.regions.map(r => r.pct);
+
+    const dataBar3 = [{
+        type: 'bar',
+        x: regNames,
+        y: regCounts,
+        text: regCounts.map((c, i) => c + " (" + regPcts[i] + "%)"),
+        textposition: 'auto',
+        textfont: { size: 11.5, weight: 600, color: '#0F172A', family: "'Google Sans', 'Plus Jakarta Sans', sans-serif" },
+        marker: {
+            color: '#3B82F6',
+            line: { color: '#1D4ED8', width: 1 }
+        },
+        hovertemplate: "<b>%{x}</b><br>Submissions: %{y}<extra></extra>"
+    }];
+
+    const layoutBar3 = {
+        margin: { l: 40, r: 20, t: 25, b: 35 },
+        paper_bgcolor: '#FFFFFF',
+        plot_bgcolor: '#FFFFFF',
+        yaxis: {
+            gridcolor: '#F1F5F9',
+            title: false,
+            zeroline: false
+        },
+        xaxis: {
+            gridcolor: 'transparent',
+            tickfont: { size: 12, weight: 600, color: '#334155', family: "'Google Sans', 'Plus Jakarta Sans', sans-serif" }
+        },
+        font: { family: "'Google Sans', 'Plus Jakarta Sans', sans-serif" }
+    };
+
+    Plotly.newPlot('regionBarPlot', dataBar3, layoutBar3, { responsive: true, displayModeBar: false });
+}
+
+// ----------------------------------------------------------------------------
+// 4. Word Clusters & Author Keywords
+// ----------------------------------------------------------------------------
+function updateWordClusterSection() {
+    const clusterObj = wordClusters[String(currentTheme)];
+    if (!clusterObj) return;
+
+    // Title update (Using '|' separator)
+    const titleBox = document.getElementById('clusterThemeTitle');
+    titleBox.innerText = "Word Frequency Cluster | " + clusterObj.theme_title + " | " + clusterObj.papers_count + " Abstracts | " + clusterObj.total_words + " Words Analyzed";
+
+    // Render Word Badges (Font size scaled to frequency)
+    const box = document.getElementById('wordCloudBox');
+    const words = clusterObj.top_words;
+    const maxCount = words.length > 0 ? words[0].count : 1;
+    const minCount = words.length > 0 ? words[words.length - 1].count : 1;
+
+    let badgesHtml = '';
+    words.forEach(w => {
+        // Scale font size between 12px and 22px
+        const ratio = (w.count - minCount) / Math.max(1, (maxCount - minCount));
+        const fSize = 12 + Math.round(ratio * 10);
+        const fWeight = ratio > 0.4 ? '700' : '500';
+        const color = ratio > 0.5 ? '#1E40AF' : '#1E293B';
+        
+        badgesHtml += '<span class="word-badge" style="font-size: ' + fSize + 'px; font-weight: ' + fWeight + '; color: ' + color + ';">' +
+            w.word + ' <span class="count">(' + w.count + ')</span>' +
+        '</span>';
+    });
+    box.innerHTML = badgesHtml;
+
+    // Render Author Keywords List
+    const kwBox = document.getElementById('authorKeywordsList');
+    let kwHtml = '';
+    clusterObj.top_keywords.forEach(k => {
+        kwHtml += '<span class="kw-tag"><b>' + k.keyword + '</b> (' + k.count + ')</span> ';
+    });
+    kwBox.innerHTML = kwHtml || '<span style="color:#94A3B8; font-size:12px;">No keywords listed</span>';
+}
+
+function filterWordBadges() {
+    const query = document.getElementById('wordFilterInput').value.toLowerCase().trim();
+    const badges = document.querySelectorAll('#wordCloudBox .word-badge');
+    badges.forEach(b => {
+        const txt = b.innerText.toLowerCase();
+        if (!query || txt.includes(query)) {
+            b.style.display = 'inline-flex';
+        } else {
+            b.style.display = 'none';
+        }
+    });
+}
+
+// ----------------------------------------------------------------------------
+// 5. Sortable Interactive Table
+// ----------------------------------------------------------------------------
+function sortTable(column) {
+    if (sortColumn === column) {
+        // Toggle direction
+        sortDirection = (sortDirection === 'asc') ? 'desc' : 'asc';
+    } else {
+        sortColumn = column;
+        sortDirection = (column === 'country' || column === 'region') ? 'asc' : 'desc';
+    }
+    
+    // Update headers UI
+    const allTh = document.querySelectorAll('table.data-table th');
+    allTh.forEach(th => {
+        th.classList.remove('sorted');
+        const icon = th.querySelector('.sort-icon');
+        if (icon) icon.innerText = '';
+    });
+
+    const activeTh = document.getElementById("th-" + column);
+    if (activeTh) {
+        activeTh.classList.add('sorted');
+        const icon = activeTh.querySelector('.sort-icon');
+        if (icon) icon.innerText = (sortDirection === 'asc') ? '▲' : '▼';
+    }
+
+    renderTable();
+}
+
+function renderTable() {
+    const query = document.getElementById('countrySearch').value.toLowerCase().trim();
+    
+    // Filter
+    let filtered = countryData.filter(c => {
+        if (!query) return true;
+        return c.country.toLowerCase().includes(query) || c.region.toLowerCase().includes(query);
+    });
+
+    // Sort
+    filtered.sort((a, b) => {
+        let valA = a[sortColumn];
+        let valB = b[sortColumn];
+
+        if (typeof valA === 'string') {
+            valA = valA.toLowerCase();
+            valB = valB.toLowerCase();
+            if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
+            if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
+            return 0;
+        } else {
+            return sortDirection === 'asc' ? (valA - valB) : (valB - valA);
+        }
+    });
+
+    document.getElementById('visibleRowCount').innerText = filtered.length;
+
+    const tbody = document.getElementById('tableBody');
+    let html = '';
+
+    filtered.forEach(row => {
+        html += '<tr>' +
+            '<td style="color:#64748B; font-weight:600;">#' + row.rank + '</td>' +
+            '<td><b>' + row.country + '</b></td>' +
+            '<td>' + row.region + '</td>' +
+            '<td class="num total-col">' + row.total + '</td>' +
+            '<td class="num theme-cell">' + (row.t1 || '-') + '</td>' +
+            '<td class="num theme-cell">' + (row.t2 || '-') + '</td>' +
+            '<td class="num theme-cell">' + (row.t3 || '-') + '</td>' +
+            '<td class="num theme-cell">' + (row.t4 || '-') + '</td>' +
+            '<td class="num theme-cell">' + (row.t5 || '-') + '</td>' +
+            '<td class="num">' + row.oral + '</td>' +
+            '<td class="num">' + row.poster + '</td>' +
+            '<td class="num">' + row.special + '</td>' +
+        '</tr>';
+    });
+
+    tbody.innerHTML = html;
+}
+</script>
 </body>
 </html>
