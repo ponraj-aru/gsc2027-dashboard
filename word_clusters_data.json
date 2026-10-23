@@ -1,0 +1,1472 @@
+{
+  "0": {
+    "theme_num": 0,
+    "theme_title": "All Themes (301 Abstracts)",
+    "papers_count": 301,
+    "total_words": 50185,
+    "top_words": [
+      {
+        "word": "development",
+        "count": 445,
+        "pct": 0.89
+      },
+      {
+        "word": "climate",
+        "count": 414,
+        "pct": 0.82
+      },
+      {
+        "word": "sustainable",
+        "count": 392,
+        "pct": 0.78
+      },
+      {
+        "word": "environmental",
+        "count": 286,
+        "pct": 0.57
+      },
+      {
+        "word": "sustainability",
+        "count": 267,
+        "pct": 0.53
+      },
+      {
+        "word": "governance",
+        "count": 208,
+        "pct": 0.41
+      },
+      {
+        "word": "framework",
+        "count": 204,
+        "pct": 0.41
+      },
+      {
+        "word": "energy",
+        "count": 200,
+        "pct": 0.4
+      },
+      {
+        "word": "policy",
+        "count": 197,
+        "pct": 0.39
+      },
+      {
+        "word": "water",
+        "count": 196,
+        "pct": 0.39
+      },
+      {
+        "word": "health",
+        "count": 180,
+        "pct": 0.36
+      },
+      {
+        "word": "institutional",
+        "count": 173,
+        "pct": 0.34
+      },
+      {
+        "word": "local",
+        "count": 173,
+        "pct": 0.34
+      },
+      {
+        "word": "social",
+        "count": 170,
+        "pct": 0.34
+      },
+      {
+        "word": "beyond",
+        "count": 169,
+        "pct": 0.34
+      },
+      {
+        "word": "systems",
+        "count": 155,
+        "pct": 0.31
+      },
+      {
+        "word": "change",
+        "count": 152,
+        "pct": 0.3
+      },
+      {
+        "word": "global",
+        "count": 147,
+        "pct": 0.29
+      },
+      {
+        "word": "food",
+        "count": 142,
+        "pct": 0.28
+      },
+      {
+        "word": "digital",
+        "count": 142,
+        "pct": 0.28
+      },
+      {
+        "word": "resilience",
+        "count": 135,
+        "pct": 0.27
+      },
+      {
+        "word": "economic",
+        "count": 134,
+        "pct": 0.27
+      },
+      {
+        "word": "urban",
+        "count": 132,
+        "pct": 0.26
+      },
+      {
+        "word": "knowledge",
+        "count": 127,
+        "pct": 0.25
+      },
+      {
+        "word": "support",
+        "count": 119,
+        "pct": 0.24
+      },
+      {
+        "word": "access",
+        "count": 116,
+        "pct": 0.23
+      },
+      {
+        "word": "conditions",
+        "count": 116,
+        "pct": 0.23
+      },
+      {
+        "word": "goals",
+        "count": 114,
+        "pct": 0.23
+      },
+      {
+        "word": "implementation",
+        "count": 112,
+        "pct": 0.22
+      },
+      {
+        "word": "management",
+        "count": 112,
+        "pct": 0.22
+      },
+      {
+        "word": "adaptation",
+        "count": 112,
+        "pct": 0.22
+      },
+      {
+        "word": "community",
+        "count": 108,
+        "pct": 0.22
+      },
+      {
+        "word": "model",
+        "count": 106,
+        "pct": 0.21
+      },
+      {
+        "word": "evidence",
+        "count": 105,
+        "pct": 0.21
+      },
+      {
+        "word": "public",
+        "count": 103,
+        "pct": 0.21
+      }
+    ],
+    "top_keywords": [
+      {
+        "keyword": "sustainable development",
+        "count": 18
+      },
+      {
+        "keyword": "climate change",
+        "count": 16
+      },
+      {
+        "keyword": "sustainable development goals",
+        "count": 12
+      },
+      {
+        "keyword": "artificial intelligence",
+        "count": 10
+      },
+      {
+        "keyword": "sustainability",
+        "count": 9
+      },
+      {
+        "keyword": "sdgs",
+        "count": 7
+      },
+      {
+        "keyword": "community resilience",
+        "count": 7
+      },
+      {
+        "keyword": "resilience",
+        "count": 7
+      },
+      {
+        "keyword": "nature-based solutions",
+        "count": 7
+      },
+      {
+        "keyword": "post-2030 agenda",
+        "count": 7
+      },
+      {
+        "keyword": "indonesia",
+        "count": 6
+      },
+      {
+        "keyword": "circular economy",
+        "count": 6
+      },
+      {
+        "keyword": "climate resilience",
+        "count": 5
+      },
+      {
+        "keyword": "energy transition",
+        "count": 5
+      },
+      {
+        "keyword": "nepal",
+        "count": 5
+      }
+    ]
+  },
+  "1": {
+    "theme_num": 1,
+    "theme_title": "Theme 1: Lessons from the SDGs beyond 2030",
+    "papers_count": 60,
+    "total_words": 9120,
+    "top_words": [
+      {
+        "word": "development",
+        "count": 152,
+        "pct": 1.67
+      },
+      {
+        "word": "sustainable",
+        "count": 124,
+        "pct": 1.36
+      },
+      {
+        "word": "sustainability",
+        "count": 91,
+        "pct": 1.0
+      },
+      {
+        "word": "environmental",
+        "count": 61,
+        "pct": 0.67
+      },
+      {
+        "word": "local",
+        "count": 59,
+        "pct": 0.65
+      },
+      {
+        "word": "climate",
+        "count": 58,
+        "pct": 0.64
+      },
+      {
+        "word": "institutional",
+        "count": 55,
+        "pct": 0.6
+      },
+      {
+        "word": "sdgs",
+        "count": 53,
+        "pct": 0.58
+      },
+      {
+        "word": "policy",
+        "count": 51,
+        "pct": 0.56
+      },
+      {
+        "word": "goals",
+        "count": 50,
+        "pct": 0.55
+      },
+      {
+        "word": "governance",
+        "count": 49,
+        "pct": 0.54
+      },
+      {
+        "word": "implementation",
+        "count": 47,
+        "pct": 0.52
+      },
+      {
+        "word": "energy",
+        "count": 45,
+        "pct": 0.49
+      },
+      {
+        "word": "indicators",
+        "count": 42,
+        "pct": 0.46
+      },
+      {
+        "word": "participation",
+        "count": 42,
+        "pct": 0.46
+      },
+      {
+        "word": "beyond",
+        "count": 41,
+        "pct": 0.45
+      },
+      {
+        "word": "global",
+        "count": 41,
+        "pct": 0.45
+      },
+      {
+        "word": "agenda",
+        "count": 39,
+        "pct": 0.43
+      },
+      {
+        "word": "systems",
+        "count": 35,
+        "pct": 0.38
+      },
+      {
+        "word": "framework",
+        "count": 34,
+        "pct": 0.37
+      },
+      {
+        "word": "national",
+        "count": 32,
+        "pct": 0.35
+      },
+      {
+        "word": "progress",
+        "count": 30,
+        "pct": 0.33
+      },
+      {
+        "word": "post-",
+        "count": 30,
+        "pct": 0.33
+      },
+      {
+        "word": "priorities",
+        "count": 29,
+        "pct": 0.32
+      },
+      {
+        "word": "social",
+        "count": 27,
+        "pct": 0.3
+      },
+      {
+        "word": "action",
+        "count": 26,
+        "pct": 0.29
+      },
+      {
+        "word": "access",
+        "count": 26,
+        "pct": 0.29
+      },
+      {
+        "word": "education",
+        "count": 25,
+        "pct": 0.27
+      },
+      {
+        "word": "financing",
+        "count": 25,
+        "pct": 0.27
+      },
+      {
+        "word": "challenges",
+        "count": 24,
+        "pct": 0.26
+      },
+      {
+        "word": "approaches",
+        "count": 24,
+        "pct": 0.26
+      },
+      {
+        "word": "management",
+        "count": 23,
+        "pct": 0.25
+      },
+      {
+        "word": "economic",
+        "count": 23,
+        "pct": 0.25
+      },
+      {
+        "word": "public",
+        "count": 23,
+        "pct": 0.25
+      },
+      {
+        "word": "urban",
+        "count": 23,
+        "pct": 0.25
+      }
+    ],
+    "top_keywords": [
+      {
+        "keyword": "sustainable development goals",
+        "count": 11
+      },
+      {
+        "keyword": "sdgs",
+        "count": 5
+      },
+      {
+        "keyword": "post-2030 agenda",
+        "count": 5
+      },
+      {
+        "keyword": "sustainable development",
+        "count": 4
+      },
+      {
+        "keyword": "sdg localization",
+        "count": 4
+      },
+      {
+        "keyword": "sdg implementation",
+        "count": 3
+      },
+      {
+        "keyword": "msmes",
+        "count": 2
+      },
+      {
+        "keyword": "nepal",
+        "count": 2
+      },
+      {
+        "keyword": "higher education",
+        "count": 2
+      },
+      {
+        "keyword": "governance",
+        "count": 2
+      },
+      {
+        "keyword": "food security",
+        "count": 2
+      },
+      {
+        "keyword": "monitoring progress",
+        "count": 2
+      },
+      {
+        "keyword": "implementation gaps",
+        "count": 2
+      },
+      {
+        "keyword": "circular economy",
+        "count": 2
+      },
+      {
+        "keyword": "sustainability indicators",
+        "count": 2
+      }
+    ]
+  },
+  "2": {
+    "theme_num": 2,
+    "theme_title": "Theme 2: Building resilience across natural and human systems",
+    "papers_count": 76,
+    "total_words": 14573,
+    "top_words": [
+      {
+        "word": "water",
+        "count": 95,
+        "pct": 0.65
+      },
+      {
+        "word": "environmental",
+        "count": 92,
+        "pct": 0.63
+      },
+      {
+        "word": "food",
+        "count": 91,
+        "pct": 0.62
+      },
+      {
+        "word": "sustainable",
+        "count": 91,
+        "pct": 0.62
+      },
+      {
+        "word": "energy",
+        "count": 89,
+        "pct": 0.61
+      },
+      {
+        "word": "development",
+        "count": 82,
+        "pct": 0.56
+      },
+      {
+        "word": "sustainability",
+        "count": 75,
+        "pct": 0.51
+      },
+      {
+        "word": "production",
+        "count": 68,
+        "pct": 0.47
+      },
+      {
+        "word": "framework",
+        "count": 64,
+        "pct": 0.44
+      },
+      {
+        "word": "resilience",
+        "count": 63,
+        "pct": 0.43
+      },
+      {
+        "word": "local",
+        "count": 62,
+        "pct": 0.43
+      },
+      {
+        "word": "climate",
+        "count": 61,
+        "pct": 0.42
+      },
+      {
+        "word": "urban",
+        "count": 53,
+        "pct": 0.36
+      },
+      {
+        "word": "global",
+        "count": 52,
+        "pct": 0.36
+      },
+      {
+        "word": "knowledge",
+        "count": 51,
+        "pct": 0.35
+      },
+      {
+        "word": "beyond",
+        "count": 51,
+        "pct": 0.35
+      },
+      {
+        "word": "management",
+        "count": 45,
+        "pct": 0.31
+      },
+      {
+        "word": "community",
+        "count": 45,
+        "pct": 0.31
+      },
+      {
+        "word": "governance",
+        "count": 45,
+        "pct": 0.31
+      },
+      {
+        "word": "agricultural",
+        "count": 44,
+        "pct": 0.3
+      },
+      {
+        "word": "model",
+        "count": 44,
+        "pct": 0.3
+      },
+      {
+        "word": "economic",
+        "count": 42,
+        "pct": 0.29
+      },
+      {
+        "word": "systems",
+        "count": 41,
+        "pct": 0.28
+      },
+      {
+        "word": "system",
+        "count": 41,
+        "pct": 0.28
+      },
+      {
+        "word": "circular",
+        "count": 41,
+        "pct": 0.28
+      },
+      {
+        "word": "regions",
+        "count": 38,
+        "pct": 0.26
+      },
+      {
+        "word": "practices",
+        "count": 38,
+        "pct": 0.26
+      },
+      {
+        "word": "biodiversity",
+        "count": 38,
+        "pct": 0.26
+      },
+      {
+        "word": "conservation",
+        "count": 38,
+        "pct": 0.26
+      },
+      {
+        "word": "security",
+        "count": 37,
+        "pct": 0.25
+      },
+      {
+        "word": "institutional",
+        "count": 37,
+        "pct": 0.25
+      },
+      {
+        "word": "strategies",
+        "count": 37,
+        "pct": 0.25
+      },
+      {
+        "word": "resource",
+        "count": 37,
+        "pct": 0.25
+      },
+      {
+        "word": "value",
+        "count": 37,
+        "pct": 0.25
+      },
+      {
+        "word": "policy",
+        "count": 36,
+        "pct": 0.25
+      }
+    ],
+    "top_keywords": [
+      {
+        "keyword": "community resilience",
+        "count": 6
+      },
+      {
+        "keyword": "food system transformation",
+        "count": 5
+      },
+      {
+        "keyword": "equity",
+        "count": 4
+      },
+      {
+        "keyword": "social equity",
+        "count": 4
+      },
+      {
+        "keyword": "sustainable resource management",
+        "count": 4
+      },
+      {
+        "keyword": "business models",
+        "count": 4
+      },
+      {
+        "keyword": "sustainable development",
+        "count": 4
+      },
+      {
+        "keyword": "biodiversity",
+        "count": 4
+      },
+      {
+        "keyword": "resilience",
+        "count": 4
+      },
+      {
+        "keyword": "water",
+        "count": 3
+      },
+      {
+        "keyword": "climate change",
+        "count": 3
+      },
+      {
+        "keyword": "sustainable transformation",
+        "count": 3
+      },
+      {
+        "keyword": "indigenous knowledge",
+        "count": 3
+      },
+      {
+        "keyword": "value chains",
+        "count": 3
+      },
+      {
+        "keyword": "ecosystem services",
+        "count": 3
+      }
+    ]
+  },
+  "3": {
+    "theme_num": 3,
+    "theme_title": "Theme 3: Navigating the climate change–development nexus",
+    "papers_count": 75,
+    "total_words": 12233,
+    "top_words": [
+      {
+        "word": "climate",
+        "count": 219,
+        "pct": 1.79
+      },
+      {
+        "word": "development",
+        "count": 102,
+        "pct": 0.83
+      },
+      {
+        "word": "change",
+        "count": 69,
+        "pct": 0.56
+      },
+      {
+        "word": "policy",
+        "count": 65,
+        "pct": 0.53
+      },
+      {
+        "word": "sustainable",
+        "count": 64,
+        "pct": 0.52
+      },
+      {
+        "word": "adaptation",
+        "count": 57,
+        "pct": 0.47
+      },
+      {
+        "word": "environmental",
+        "count": 56,
+        "pct": 0.46
+      },
+      {
+        "word": "social",
+        "count": 54,
+        "pct": 0.44
+      },
+      {
+        "word": "sustainability",
+        "count": 52,
+        "pct": 0.43
+      },
+      {
+        "word": "framework",
+        "count": 48,
+        "pct": 0.39
+      },
+      {
+        "word": "governance",
+        "count": 48,
+        "pct": 0.39
+      },
+      {
+        "word": "water",
+        "count": 43,
+        "pct": 0.35
+      },
+      {
+        "word": "carbon",
+        "count": 43,
+        "pct": 0.35
+      },
+      {
+        "word": "resilience",
+        "count": 41,
+        "pct": 0.34
+      },
+      {
+        "word": "conditions",
+        "count": 39,
+        "pct": 0.32
+      },
+      {
+        "word": "institutional",
+        "count": 39,
+        "pct": 0.32
+      },
+      {
+        "word": "energy",
+        "count": 36,
+        "pct": 0.29
+      },
+      {
+        "word": "beyond",
+        "count": 34,
+        "pct": 0.28
+      },
+      {
+        "word": "risk",
+        "count": 33,
+        "pct": 0.27
+      },
+      {
+        "word": "finance",
+        "count": 33,
+        "pct": 0.27
+      },
+      {
+        "word": "transition",
+        "count": 32,
+        "pct": 0.26
+      },
+      {
+        "word": "support",
+        "count": 31,
+        "pct": 0.25
+      },
+      {
+        "word": "mitigation",
+        "count": 31,
+        "pct": 0.25
+      },
+      {
+        "word": "economic",
+        "count": 30,
+        "pct": 0.25
+      },
+      {
+        "word": "emissions",
+        "count": 30,
+        "pct": 0.25
+      },
+      {
+        "word": "implementation",
+        "count": 29,
+        "pct": 0.24
+      },
+      {
+        "word": "whether",
+        "count": 29,
+        "pct": 0.24
+      },
+      {
+        "word": "knowledge",
+        "count": 29,
+        "pct": 0.24
+      },
+      {
+        "word": "project",
+        "count": 28,
+        "pct": 0.23
+      },
+      {
+        "word": "public",
+        "count": 27,
+        "pct": 0.22
+      },
+      {
+        "word": "local",
+        "count": 26,
+        "pct": 0.21
+      },
+      {
+        "word": "global",
+        "count": 26,
+        "pct": 0.21
+      },
+      {
+        "word": "challenges",
+        "count": 26,
+        "pct": 0.21
+      },
+      {
+        "word": "land",
+        "count": 26,
+        "pct": 0.21
+      },
+      {
+        "word": "human",
+        "count": 25,
+        "pct": 0.2
+      }
+    ],
+    "top_keywords": [
+      {
+        "keyword": "climate change",
+        "count": 9
+      },
+      {
+        "keyword": "just transition",
+        "count": 5
+      },
+      {
+        "keyword": "climate action",
+        "count": 4
+      },
+      {
+        "keyword": "climate justice",
+        "count": 4
+      },
+      {
+        "keyword": "climate resilience",
+        "count": 3
+      },
+      {
+        "keyword": "climate finance",
+        "count": 3
+      },
+      {
+        "keyword": "nature-based solutions",
+        "count": 3
+      },
+      {
+        "keyword": "equity and justice",
+        "count": 3
+      },
+      {
+        "keyword": "climate governance",
+        "count": 2
+      },
+      {
+        "keyword": "sustainability transitions",
+        "count": 2
+      },
+      {
+        "keyword": "climate change adaptation",
+        "count": 2
+      },
+      {
+        "keyword": "climate-development nexus",
+        "count": 2
+      },
+      {
+        "keyword": "human security",
+        "count": 2
+      },
+      {
+        "keyword": "eu cbam",
+        "count": 2
+      },
+      {
+        "keyword": "drought",
+        "count": 2
+      }
+    ]
+  },
+  "4": {
+    "theme_num": 4,
+    "theme_title": "Theme 4: Health, well-being, and societal foundations",
+    "papers_count": 45,
+    "total_words": 7248,
+    "top_words": [
+      {
+        "word": "health",
+        "count": 133,
+        "pct": 1.83
+      },
+      {
+        "word": "well-being",
+        "count": 47,
+        "pct": 0.65
+      },
+      {
+        "word": "sustainable",
+        "count": 46,
+        "pct": 0.63
+      },
+      {
+        "word": "social",
+        "count": 41,
+        "pct": 0.57
+      },
+      {
+        "word": "environmental",
+        "count": 39,
+        "pct": 0.54
+      },
+      {
+        "word": "climate",
+        "count": 36,
+        "pct": 0.5
+      },
+      {
+        "word": "development",
+        "count": 35,
+        "pct": 0.48
+      },
+      {
+        "word": "urban",
+        "count": 34,
+        "pct": 0.47
+      },
+      {
+        "word": "exposure",
+        "count": 27,
+        "pct": 0.37
+      },
+      {
+        "word": "access",
+        "count": 26,
+        "pct": 0.36
+      },
+      {
+        "word": "healthcare",
+        "count": 25,
+        "pct": 0.34
+      },
+      {
+        "word": "economic",
+        "count": 24,
+        "pct": 0.33
+      },
+      {
+        "word": "food",
+        "count": 24,
+        "pct": 0.33
+      },
+      {
+        "word": "policy",
+        "count": 22,
+        "pct": 0.3
+      },
+      {
+        "word": "women",
+        "count": 22,
+        "pct": 0.3
+      },
+      {
+        "word": "framework",
+        "count": 21,
+        "pct": 0.29
+      },
+      {
+        "word": "institutional",
+        "count": 21,
+        "pct": 0.29
+      },
+      {
+        "word": "community",
+        "count": 21,
+        "pct": 0.29
+      },
+      {
+        "word": "evidence",
+        "count": 20,
+        "pct": 0.28
+      },
+      {
+        "word": "model",
+        "count": 20,
+        "pct": 0.28
+      },
+      {
+        "word": "child",
+        "count": 20,
+        "pct": 0.28
+      },
+      {
+        "word": "care",
+        "count": 20,
+        "pct": 0.28
+      },
+      {
+        "word": "pollution",
+        "count": 19,
+        "pct": 0.26
+      },
+      {
+        "word": "governance",
+        "count": 19,
+        "pct": 0.26
+      },
+      {
+        "word": "public",
+        "count": 19,
+        "pct": 0.26
+      },
+      {
+        "word": "strategies",
+        "count": 19,
+        "pct": 0.26
+      },
+      {
+        "word": "household",
+        "count": 19,
+        "pct": 0.26
+      },
+      {
+        "word": "associated",
+        "count": 19,
+        "pct": 0.26
+      },
+      {
+        "word": "africa",
+        "count": 18,
+        "pct": 0.25
+      },
+      {
+        "word": "reproductive",
+        "count": 18,
+        "pct": 0.25
+      },
+      {
+        "word": "production",
+        "count": 18,
+        "pct": 0.25
+      },
+      {
+        "word": "global",
+        "count": 17,
+        "pct": 0.23
+      },
+      {
+        "word": "education",
+        "count": 17,
+        "pct": 0.23
+      },
+      {
+        "word": "population",
+        "count": 16,
+        "pct": 0.22
+      },
+      {
+        "word": "particularly",
+        "count": 16,
+        "pct": 0.22
+      }
+    ],
+    "top_keywords": [
+      {
+        "keyword": "sustainable development",
+        "count": 3
+      },
+      {
+        "keyword": "well-being",
+        "count": 3
+      },
+      {
+        "keyword": "climate change",
+        "count": 3
+      },
+      {
+        "keyword": "nigeria",
+        "count": 3
+      },
+      {
+        "keyword": "air pollution",
+        "count": 2
+      },
+      {
+        "keyword": "india",
+        "count": 2
+      },
+      {
+        "keyword": "child health",
+        "count": 2
+      },
+      {
+        "keyword": "sdg 3",
+        "count": 2
+      },
+      {
+        "keyword": "sdg",
+        "count": 2
+      },
+      {
+        "keyword": "sustainability",
+        "count": 2
+      },
+      {
+        "keyword": "ambient temperature",
+        "count": 2
+      },
+      {
+        "keyword": "meteorological exposure",
+        "count": 2
+      },
+      {
+        "keyword": "distributed lag non-linear model",
+        "count": 2
+      },
+      {
+        "keyword": "time-series forecasting",
+        "count": 2
+      },
+      {
+        "keyword": "health equity",
+        "count": 2
+      }
+    ]
+  },
+  "5": {
+    "theme_num": 5,
+    "theme_title": "Theme 5: AI, big data, and digitalization as enablers",
+    "papers_count": 45,
+    "total_words": 7011,
+    "top_words": [
+      {
+        "word": "digital",
+        "count": 94,
+        "pct": 1.34
+      },
+      {
+        "word": "development",
+        "count": 74,
+        "pct": 1.06
+      },
+      {
+        "word": "sustainable",
+        "count": 67,
+        "pct": 0.96
+      },
+      {
+        "word": "governance",
+        "count": 47,
+        "pct": 0.67
+      },
+      {
+        "word": "systems",
+        "count": 41,
+        "pct": 0.58
+      },
+      {
+        "word": "climate",
+        "count": 40,
+        "pct": 0.57
+      },
+      {
+        "word": "sustainability",
+        "count": 39,
+        "pct": 0.56
+      },
+      {
+        "word": "environmental",
+        "count": 38,
+        "pct": 0.54
+      },
+      {
+        "word": "framework",
+        "count": 37,
+        "pct": 0.53
+      },
+      {
+        "word": "evidence",
+        "count": 35,
+        "pct": 0.5
+      },
+      {
+        "word": "intelligence",
+        "count": 33,
+        "pct": 0.47
+      },
+      {
+        "word": "water",
+        "count": 32,
+        "pct": 0.46
+      },
+      {
+        "word": "artificial",
+        "count": 30,
+        "pct": 0.43
+      },
+      {
+        "word": "beyond",
+        "count": 30,
+        "pct": 0.43
+      },
+      {
+        "word": "information",
+        "count": 30,
+        "pct": 0.43
+      },
+      {
+        "word": "energy",
+        "count": 26,
+        "pct": 0.37
+      },
+      {
+        "word": "access",
+        "count": 25,
+        "pct": 0.36
+      },
+      {
+        "word": "decisions",
+        "count": 23,
+        "pct": 0.33
+      },
+      {
+        "word": "policy",
+        "count": 23,
+        "pct": 0.33
+      },
+      {
+        "word": "goals",
+        "count": 21,
+        "pct": 0.3
+      },
+      {
+        "word": "institutional",
+        "count": 21,
+        "pct": 0.3
+      },
+      {
+        "word": "capacity",
+        "count": 21,
+        "pct": 0.3
+      },
+      {
+        "word": "knowledge",
+        "count": 21,
+        "pct": 0.3
+      },
+      {
+        "word": "support",
+        "count": 20,
+        "pct": 0.29
+      },
+      {
+        "word": "human",
+        "count": 20,
+        "pct": 0.29
+      },
+      {
+        "word": "resource",
+        "count": 18,
+        "pct": 0.26
+      },
+      {
+        "word": "identify",
+        "count": 18,
+        "pct": 0.26
+      },
+      {
+        "word": "technologies",
+        "count": 17,
+        "pct": 0.24
+      },
+      {
+        "word": "monitoring",
+        "count": 17,
+        "pct": 0.24
+      },
+      {
+        "word": "services",
+        "count": 17,
+        "pct": 0.24
+      },
+      {
+        "word": "management",
+        "count": 17,
+        "pct": 0.24
+      },
+      {
+        "word": "conditions",
+        "count": 17,
+        "pct": 0.24
+      },
+      {
+        "word": "tools",
+        "count": 16,
+        "pct": 0.23
+      },
+      {
+        "word": "model",
+        "count": 16,
+        "pct": 0.23
+      },
+      {
+        "word": "security",
+        "count": 16,
+        "pct": 0.23
+      }
+    ],
+    "top_keywords": [
+      {
+        "keyword": "artificial intelligence",
+        "count": 9
+      },
+      {
+        "keyword": "sustainable development",
+        "count": 6
+      },
+      {
+        "keyword": "digitalization",
+        "count": 5
+      },
+      {
+        "keyword": "big data",
+        "count": 4
+      },
+      {
+        "keyword": "responsible innovation",
+        "count": 4
+      },
+      {
+        "keyword": "sustainability",
+        "count": 3
+      },
+      {
+        "keyword": "emerging governance frameworks",
+        "count": 3
+      },
+      {
+        "keyword": "data governance",
+        "count": 3
+      },
+      {
+        "keyword": "climate policy",
+        "count": 2
+      },
+      {
+        "keyword": "digital twins",
+        "count": 2
+      },
+      {
+        "keyword": "twin transition",
+        "count": 2
+      },
+      {
+        "keyword": "ai-assisted governance",
+        "count": 2
+      },
+      {
+        "keyword": "digital governance",
+        "count": 2
+      },
+      {
+        "keyword": "risks",
+        "count": 2
+      },
+      {
+        "keyword": "deep learning",
+        "count": 2
+      }
+    ]
+  }
+}
