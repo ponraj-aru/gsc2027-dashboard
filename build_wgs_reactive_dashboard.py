@@ -1,13 +1,34 @@
 import json
+import glob
+from collections import Counter
 
-with open('advanced_dashboard_data.json', 'r', encoding='utf-8') as f:
-    data = json.load(f)
+def build_dashboard():
+    with open('advanced_dashboard_data.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
 
-countries_json = json.dumps(data['countries'], ensure_ascii=False)
-theme_details_json = json.dumps(data['theme_details'], ensure_ascii=False)
-word_clusters_json = json.dumps(data['word_clusters'], ensure_ascii=False)
+    with open('parsed_dataset.json', 'r', encoding='utf-8') as f:
+        dataset = json.load(f)
 
-html_code = """<!DOCTYPE html>
+    doc_files = sorted(glob.glob('adminPapersBrowse_*.doc'))
+    latest_doc_name = doc_files[-1] if doc_files else 'ConfTool Database Export'
+
+    total_submissions = len(dataset)
+    countries_list = data['countries']
+    total_nations = len(countries_list)
+
+    theme_counts = Counter([d['theme_num'] for d in dataset])
+    theme_nations = {}
+    for t in range(1, 6):
+        nations_set = set(d['primary_country'] for d in dataset if d['theme_num'] == t)
+        theme_nations[t] = len(nations_set)
+
+    kpi_t_pct = {t: f"{round(theme_counts[t] / total_submissions * 100, 1)}%" if total_submissions > 0 else "0%" for t in range(1, 6)}
+
+    countries_json = json.dumps(data['countries'], ensure_ascii=False)
+    theme_details_json = json.dumps(data['theme_details'], ensure_ascii=False)
+    word_clusters_json = json.dumps(data['word_clusters'], ensure_ascii=False)
+
+    template = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -139,57 +160,52 @@ html_code = """<!DOCTYPE html>
         /* Filter Controls */
         .theme-selector-bar {
             display: flex;
-            flex-wrap: wrap;
             gap: 8px;
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            padding: 6px;
-            margin-bottom: 18px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
         .filter-btn {
             background: #FFFFFF;
             border: 1px solid #CBD5E1;
             border-radius: 6px;
-            padding: 7px 14px;
+            padding: 8px 14px;
             font-size: 12.5px;
             font-weight: 600;
             color: #334155;
             cursor: pointer;
             transition: all 0.15s ease;
             font-family: inherit;
-        }
+        }}
         .filter-btn:hover {
-            background: #F1F5F9;
-            color: #0F172A;
+            background-color: #F8FAFC;
             border-color: #94A3B8;
         }
         .filter-btn.active {
-            background: #2563EB;
+            background-color: #1E293B;
             color: #FFFFFF;
-            border-color: #2563EB;
+            border-color: #1E293B;
         }
 
-        /* Map Card */
+        /* Map Section Card */
         .map-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 28px;
+            border-radius: 10px;
+            padding: 16px 20px 20px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            margin-bottom: 28px;
         }
         #mapPlot {
             width: 100%;
-            height: 560px;
+            height: 520px;
         }
         .map-legend-bar {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 18px;
-            margin-top: 10px;
-            padding-top: 10px;
+            gap: 20px;
+            margin-top: 14px;
+            padding-top: 12px;
             border-top: 1px solid #F1F5F9;
             flex-wrap: wrap;
             font-size: 12px;
@@ -204,14 +220,15 @@ html_code = """<!DOCTYPE html>
             width: 16px;
             height: 12px;
             border-radius: 2px;
+            display: inline-block;
             border: 1px solid rgba(0,0,0,0.1);
         }
 
-        /* Three Column Charts Grid */
+        /* 3-Column Charts Grid */
         .charts-grid-3 {
             display: grid;
-            grid-template-columns: 1.25fr 1fr 1fr;
-            gap: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin-bottom: 28px;
         }
         @media (max-width: 1100px) {
@@ -220,131 +237,131 @@ html_code = """<!DOCTYPE html>
         .chart-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            padding: 16px;
+            border-radius: 10px;
+            padding: 18px 20px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
         }
         .chart-card h3 {
-            font-size: 13.5px;
+            font-size: 14.5px;
             font-weight: 700;
             color: #0F172A;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
-        .chart-card p.chart-sub {
-            font-size: 11.5px;
+        .chart-card .chart-sub {
+            font-size: 12px;
             color: #64748B;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         /* Word Clusters Section */
         .cluster-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 28px;
+            border-radius: 10px;
+            padding: 20px 24px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            margin-bottom: 28px;
         }
         .word-cloud-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            padding: 20px;
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            border-radius: 6px;
-            margin-bottom: 18px;
-            min-height: 180px;
+            gap: 8px;
             align-items: center;
-            justify-content: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #F1F5F9;
         }
         .word-badge {
             display: inline-flex;
-            align-items: baseline;
-            gap: 5px;
-            padding: 5px 12px;
-            background: #FFFFFF;
-            border: 1px solid #CBD5E1;
-            border-radius: 4px;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
             color: #1E293B;
+            font-weight: 500;
             transition: all 0.15s ease;
-            cursor: default;
+            user-select: none;
         }
         .word-badge:hover {
-            background: #EFF6FF;
-            border-color: #2563EB;
+            background-color: #EFF6FF;
+            border-color: #BFDBFE;
             color: #1D4ED8;
+            transform: translateY(-1px);
         }
-        .word-badge span.count {
+        .word-badge .count {
             font-size: 11px;
             color: #64748B;
             font-weight: 600;
         }
         .subtopics-box {
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            border-radius: 6px;
-            padding: 16px;
+            margin-top: 16px;
         }
         .subtopics-box h4 {
             font-size: 13px;
             font-weight: 700;
-            color: #0F172A;
-            margin-bottom: 6px;
+            color: #334155;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
-        .subtopics-box p.kw-help {
-            font-size: 11.5px;
+        .subtopics-box .kw-help {
+            font-size: 12px;
             color: #64748B;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .keyword-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
         .kw-tag {
-            font-size: 12.5px;
-            background: #FFFFFF;
-            border: 1px solid #CBD5E1;
-            padding: 5px 10px;
+            font-size: 12px;
+            background-color: #F1F5F9;
+            color: #334155;
+            padding: 3px 8px;
             border-radius: 4px;
-            color: #1E293B;
-        }
-        .kw-tag b {
-            color: #0F172A;
+            border: 1px solid #E2E8F0;
         }
 
-        /* Table Card & Sorting */
+        /* Table Card & Search */
         .table-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 20px 24px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
         .table-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             flex-wrap: wrap;
             gap: 12px;
         }
         .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .search-box input {
             padding: 7px 12px;
             border: 1px solid #CBD5E1;
             border-radius: 6px;
             font-size: 13px;
-            width: 280px;
-            color: #1E293B;
-            outline: none;
+            width: 260px;
             font-family: inherit;
         }
-        .search-box:focus {
+        .search-box input:focus {
+            outline: none;
             border-color: #2563EB;
+            box-shadow: 0 0 0 2px rgba(37,99,235,0.1);
         }
-        .table-wrapper {
+        .table-wrap {
             overflow-x: auto;
             border: 1px solid #E2E8F0;
             border-radius: 6px;
@@ -357,26 +374,21 @@ html_code = """<!DOCTYPE html>
         }
         table.data-table th {
             background-color: #F8FAFC;
-            color: #334155;
+            color: #475569;
             font-weight: 700;
             padding: 10px 12px;
-            border-bottom: 1px solid #CBD5E1;
+            border-bottom: 1px solid #E2E8F0;
             cursor: pointer;
             user-select: none;
             white-space: nowrap;
+            transition: background-color 0.1s ease;
         }
         table.data-table th:hover {
             background-color: #F1F5F9;
-            color: #0F172A;
         }
-        table.data-table th .sort-icon {
-            display: inline-block;
-            margin-left: 4px;
-            font-size: 10px;
-            color: #94A3B8;
-        }
-        table.data-table th.sorted .sort-icon {
-            color: #2563EB;
+        table.data-table th.sorted {
+            color: #1E293B;
+            border-bottom: 2px solid #2563EB;
         }
         table.data-table td {
             padding: 9px 12px;
@@ -432,7 +444,7 @@ html_code = """<!DOCTYPE html>
             <p>Abstract Submissions, Global Geographic Distribution & Thematic Analysis</p>
         </div>
         <div class="header-meta">
-            Official Committee Dataset | 301 Submissions | 66 Primary Nations
+            Official Committee Dataset | __TOTAL_SUBMISSIONS__ Submissions | __TOTAL_NATIONS__ Primary Nations
         </div>
     </header>
 
@@ -440,33 +452,33 @@ html_code = """<!DOCTYPE html>
     <div class="kpi-grid">
         <div class="kpi-card active" onclick="selectThemeFilter(0)">
             <div class="kpi-label">All Submissions</div>
-            <div class="kpi-value">301</div>
-            <div class="kpi-sub">66 Nations | 100%</div>
+            <div class="kpi-value">__TOTAL_SUBMISSIONS__</div>
+            <div class="kpi-sub">__TOTAL_NATIONS__ Nations | 100%</div>
         </div>
         <div class="kpi-card" onclick="selectThemeFilter(1)">
             <div class="kpi-label">Theme 1: SDGs Post-2030</div>
-            <div class="kpi-value">60</div>
-            <div class="kpi-sub">19.9% | 20 Nations</div>
+            <div class="kpi-value">__THEME_1_COUNT__</div>
+            <div class="kpi-sub">__THEME_1_PCT__ | __THEME_1_NATIONS__ Nations</div>
         </div>
         <div class="kpi-card" onclick="selectThemeFilter(2)">
             <div class="kpi-label">Theme 2: Resilience</div>
-            <div class="kpi-value">76</div>
-            <div class="kpi-sub">25.2% | 22 Nations</div>
+            <div class="kpi-value">__THEME_2_COUNT__</div>
+            <div class="kpi-sub">__THEME_2_PCT__ | __THEME_2_NATIONS__ Nations</div>
         </div>
         <div class="kpi-card" onclick="selectThemeFilter(3)">
             <div class="kpi-label">Theme 3: Climate Nexus</div>
-            <div class="kpi-value">75</div>
-            <div class="kpi-sub">24.9% | 28 Nations</div>
+            <div class="kpi-value">__THEME_3_COUNT__</div>
+            <div class="kpi-sub">__THEME_3_PCT__ | __THEME_3_NATIONS__ Nations</div>
         </div>
         <div class="kpi-card" onclick="selectThemeFilter(4)">
             <div class="kpi-label">Theme 4: Health & Society</div>
-            <div class="kpi-value">45</div>
-            <div class="kpi-sub">15.0% | 18 Nations</div>
+            <div class="kpi-value">__THEME_4_COUNT__</div>
+            <div class="kpi-sub">__THEME_4_PCT__ | __THEME_4_NATIONS__ Nations</div>
         </div>
         <div class="kpi-card" onclick="selectThemeFilter(5)">
             <div class="kpi-label">Theme 5: AI & Digital</div>
-            <div class="kpi-value">45</div>
-            <div class="kpi-sub">15.0% | 19 Nations</div>
+            <div class="kpi-value">__THEME_5_COUNT__</div>
+            <div class="kpi-sub">__THEME_5_PCT__ | __THEME_5_NATIONS__ Nations</div>
         </div>
     </div>
 
@@ -479,12 +491,12 @@ html_code = """<!DOCTYPE html>
     </div>
     
     <div class="theme-selector-bar">
-        <button class="filter-btn active" id="btn-theme-0" onclick="selectThemeFilter(0)">All Themes (301)</button>
-        <button class="filter-btn" id="btn-theme-1" onclick="selectThemeFilter(1)">Theme 1: SDGs Beyond 2030 (60)</button>
-        <button class="filter-btn" id="btn-theme-2" onclick="selectThemeFilter(2)">Theme 2: Resilience Across Systems (76)</button>
-        <button class="filter-btn" id="btn-theme-3" onclick="selectThemeFilter(3)">Theme 3: Climate Change–Development Nexus (75)</button>
-        <button class="filter-btn" id="btn-theme-4" onclick="selectThemeFilter(4)">Theme 4: Health & Well-being (45)</button>
-        <button class="filter-btn" id="btn-theme-5" onclick="selectThemeFilter(5)">Theme 5: AI & Digitalization (45)</button>
+        <button class="filter-btn active" id="btn-theme-0" onclick="selectThemeFilter(0)">All Themes (__TOTAL_SUBMISSIONS__)</button>
+        <button class="filter-btn" id="btn-theme-1" onclick="selectThemeFilter(1)">Theme 1: SDGs Beyond 2030 (__THEME_1_COUNT__)</button>
+        <button class="filter-btn" id="btn-theme-2" onclick="selectThemeFilter(2)">Theme 2: Resilience Across Systems (__THEME_2_COUNT__)</button>
+        <button class="filter-btn" id="btn-theme-3" onclick="selectThemeFilter(3)">Theme 3: Climate Change–Development Nexus (__THEME_3_COUNT__)</button>
+        <button class="filter-btn" id="btn-theme-4" onclick="selectThemeFilter(4)">Theme 4: Health & Well-being (__THEME_4_COUNT__)</button>
+        <button class="filter-btn" id="btn-theme-5" onclick="selectThemeFilter(5)">Theme 5: AI & Digitalization (__THEME_5_COUNT__)</button>
     </div>
 
     <!-- Map Card -->
@@ -537,7 +549,7 @@ html_code = """<!DOCTYPE html>
     <div class="cluster-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
             <div style="font-size: 14px; font-weight: 700; color: #0F172A;" id="clusterThemeTitle">
-                Word Frequency Cluster | All Themes (301 Abstracts)
+                Word Frequency Cluster | All Themes (__TOTAL_SUBMISSIONS__ Abstracts)
             </div>
             <div style="font-size: 12px; color: #64748B;">
                 Filter words: <input type="text" id="wordFilterInput" placeholder="Search term..." onkeyup="filterWordBadges()" style="padding: 4px 8px; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 12px; font-family: inherit;">
@@ -569,14 +581,17 @@ html_code = """<!DOCTYPE html>
 
     <div class="table-card">
         <div class="table-controls">
-            <input type="text" id="countrySearch" class="search-box" placeholder="Search country or region..." onkeyup="renderTable()">
-            <div style="font-size: 12.5px; color: #64748B;">
-                Showing <span id="visibleRowCount" style="font-weight: 700; color: #0F172A;">66</span> countries | Click header to toggle sort direction
+            <div class="search-box">
+                <span style="font-size: 13px; font-weight: 600; color: #475569;">Search Country / Region:</span>
+                <input type="text" id="countrySearch" placeholder="Filter by nation or continent..." onkeyup="renderTable()">
+            </div>
+            <div style="font-size: 12px; color: #64748B;">
+                Showing <span id="visibleRowCount" style="font-weight: 700; color: #0F172A;">__TOTAL_NATIONS__</span> participating nations
             </div>
         </div>
 
-        <div class="table-wrapper">
-            <table class="data-table" id="countriesTable">
+        <div class="table-wrap">
+            <table class="data-table">
                 <thead>
                     <tr>
                         <th onclick="sortTable('rank')" id="th-rank">Rank <span class="sort-icon">▼</span></th>
@@ -600,21 +615,21 @@ html_code = """<!DOCTYPE html>
         </div>
         <div class="table-footer-info">
             <span>Note: Theme columns are arranged in strict sequential order (Theme 1 through Theme 5).</span>
-            <span>Total Submissions: 301</span>
+            <span>Total Submissions: __TOTAL_SUBMISSIONS__</span>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="dashboard-footer">
-        Groningen Sustainability Conference 2027 (GSC 2027) | University of Groningen, Netherlands | Data Source: adminPapersBrowse_2026-10-19_09-37-14.doc
+        Groningen Sustainability Conference 2027 (GSC 2027) | University of Groningen, Netherlands | Data Source: __LATEST_DOC_NAME__
     </footer>
 </div>
 
 <script>
 // Raw data injected from python
-const countryData = """ + countries_json + """;
-const themeDetails = """ + theme_details_json + """;
-const wordClusters = """ + word_clusters_json + """;
+const countryData = __COUNTRIES_JSON__;
+const themeDetails = __THEME_DETAILS_JSON__;
+const wordClusters = __WORD_CLUSTERS_JSON__;
 
 let currentTheme = 0; // 0 = All, 1 = T1, 2 = T2, 3 = T3, 4 = T4, 5 = T5
 let sortColumn = 'total';
@@ -622,9 +637,9 @@ let sortDirection = 'desc'; // 'asc' or 'desc'
 
 // Discrete Color Palettes for the Map
 const DISCRETE_TIERS_ALL = [
-    { label: "21+ papers", min: 21, max: 999, color: "#1E3A8A" },
-    { label: "11 – 20 papers", min: 11, max: 20, color: "#2563EB" },
-    { label: "6 – 10 papers", min: 6, max: 10, color: "#60A5FA" },
+    { label: "25+ papers", min: 25, max: 999, color: "#1E3A8A" },
+    { label: "15 – 24 papers", min: 15, max: 24, color: "#2563EB" },
+    { label: "6 – 14 papers", min: 6, max: 14, color: "#60A5FA" },
     { label: "3 – 5 papers", min: 3, max: 5, color: "#93C5FD" },
     { label: "1 – 2 papers", min: 1, max: 2, color: "#DBEAFE" }
 ];
@@ -773,12 +788,14 @@ function renderReactiveCharts() {
     const td = themeDetails[String(currentTheme)];
     if (!td) return;
 
+    const totalSubmissions = themeDetails["0"] ? themeDetails["0"].total_papers : 0;
+
     // Update Headings
     const chart1Title = document.getElementById('chart1Title');
     const chart1Sub = document.getElementById('chart1Sub');
     if (currentTheme === 0) {
         chart1Title.innerText = "Overall Thematic Shares (Themes 1 to 5)";
-        chart1Sub.innerText = "Proportions across conference pillars | Total: 301";
+        chart1Sub.innerText = "Proportions across conference pillars | Total: " + totalSubmissions;
     } else {
         chart1Title.innerText = "Theme " + currentTheme + " Subtopics Distribution";
         chart1Sub.innerText = "Subtopics breakdown under Theme " + currentTheme + " | Total: " + td.total_papers;
@@ -788,7 +805,7 @@ function renderReactiveCharts() {
     const chart2Sub = document.getElementById('chart2Sub');
     if (currentTheme === 0) {
         chart2Title.innerText = "Overall Presentation Formats";
-        chart2Sub.innerText = "Oral | Poster | Innovative | Full Panel | Total: 301";
+        chart2Sub.innerText = "Oral | Poster | Innovative | Full Panel | Total: " + totalSubmissions;
     } else {
         chart2Title.innerText = "Theme " + currentTheme + " Presentation Formats";
         chart2Sub.innerText = "Oral vs. Poster vs. Panels | Total: " + td.total_papers;
@@ -798,7 +815,7 @@ function renderReactiveCharts() {
     const chart3Sub = document.getElementById('chart3Sub');
     if (currentTheme === 0) {
         chart3Title.innerText = "Overall Submissions by Region";
-        chart3Sub.innerText = "Continental distribution across 66 nations";
+        chart3Sub.innerText = "Continental distribution across " + countryData.length + " nations";
     } else {
         chart3Title.innerText = "Theme " + currentTheme + " Submissions by Region";
         chart3Sub.innerText = "Geographic origin for Theme " + currentTheme;
@@ -1040,7 +1057,38 @@ function renderTable() {
 </html>
 """
 
-with open('gsc2027_interactive_world_map.html', 'w', encoding='utf-8') as f:
-    f.write(html_code)
+    # Replace placeholders
+    replacements = {
+        '__TOTAL_SUBMISSIONS__': str(total_submissions),
+        '__TOTAL_NATIONS__': str(total_nations),
+        '__THEME_1_COUNT__': str(theme_counts[1]),
+        '__THEME_1_PCT__': kpi_t_pct[1],
+        '__THEME_1_NATIONS__': str(theme_nations[1]),
+        '__THEME_2_COUNT__': str(theme_counts[2]),
+        '__THEME_2_PCT__': kpi_t_pct[2],
+        '__THEME_2_NATIONS__': str(theme_nations[2]),
+        '__THEME_3_COUNT__': str(theme_counts[3]),
+        '__THEME_3_PCT__': kpi_t_pct[3],
+        '__THEME_3_NATIONS__': str(theme_nations[3]),
+        '__THEME_4_COUNT__': str(theme_counts[4]),
+        '__THEME_4_PCT__': kpi_t_pct[4],
+        '__THEME_4_NATIONS__': str(theme_nations[4]),
+        '__THEME_5_COUNT__': str(theme_counts[5]),
+        '__THEME_5_PCT__': kpi_t_pct[5],
+        '__THEME_5_NATIONS__': str(theme_nations[5]),
+        '__LATEST_DOC_NAME__': latest_doc_name,
+        '__COUNTRIES_JSON__': countries_json,
+        '__THEME_DETAILS_JSON__': theme_details_json,
+        '__WORD_CLUSTERS_JSON__': word_clusters_json
+    }
 
-print("gsc2027_interactive_world_map.html successfully updated!")
+    for placeholder, val in replacements.items():
+        template = template.replace(placeholder, val)
+
+    with open('gsc2027_interactive_world_map.html', 'w', encoding='utf-8') as f:
+        f.write(template)
+
+    print(f"gsc2027_interactive_world_map.html successfully generated with {total_submissions} submissions across {total_nations} nations!")
+
+if __name__ == '__main__':
+    build_dashboard()

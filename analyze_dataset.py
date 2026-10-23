@@ -3,9 +3,14 @@ import codecs
 from bs4 import BeautifulSoup
 import re
 import json
+import glob
+import os
 from collections import Counter, defaultdict
 
-sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+try:
+    sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+except Exception:
+    pass
 
 COUNTRY_PATTERNS = [
     (r'\b(afghanistan)\b', 'Afghanistan'),
@@ -28,7 +33,7 @@ COUNTRY_PATTERNS = [
     (r'\b(burundi)\b', 'Burundi'),
     (r'\b(cambodia)\b', 'Cambodia'),
     (r'\b(cameroon)\b', 'Cameroon'),
-    (r'\b(canada)\b', 'Canada'),
+    (r'\b(canada|brocku|brock university)\b', 'Canada'),
     (r'\b(chile)\b', 'Chile'),
     (r'\b(china|peking university|tsinghua|chinese academy of sciences|nanjing|chongqing|guangdong|huazhong)\b', 'China'),
     (r'\b(colombia)\b', 'Colombia'),
@@ -47,7 +52,7 @@ COUNTRY_PATTERNS = [
     (r'\b(france|montpellier|sorbonne|paris)\b', 'France'),
     (r'\b(gambia|the gambia)\b', 'The Gambia'),
     (r'\b(georgia)\b', 'Georgia'),
-    (r'\b(germany|deutschland|max planck)\b', 'Germany'),
+    (r'\b(germany|deutschland|max planck|dresden|helmholtz|lausitz)\b', 'Germany'),
     (r'\b(ghana)\b', 'Ghana'),
     (r'\b(greece)\b', 'Greece'),
     (r'\b(guatemala)\b', 'Guatemala'),
@@ -75,6 +80,7 @@ COUNTRY_PATTERNS = [
     (r'\b(malaysia)\b', 'Malaysia'),
     (r'\b(maldives)\b', 'Maldives'),
     (r'\b(mexico)\b', 'Mexico'),
+    (r'\b(moldova)\b', 'Moldova'),
     (r'\b(mongolia)\b', 'Mongolia'),
     (r'\b(morocco)\b', 'Morocco'),
     (r'\b(mozambique)\b', 'Mozambique'),
@@ -83,10 +89,10 @@ COUNTRY_PATTERNS = [
     (r'\b(nepal|kathmandu|tribhuvan|chitwan|fncsi)\b', 'Nepal'),
     (r'\b(netherlands|netherlands, the|the netherlands|holland|groningen|rotterdam|utrecht|amsterdam|vu amsterdam|thuas|rug|erasmus|fse|fss|esrig|wageningen|leiden|delft|twente)\b', 'Netherlands'),
     (r'\b(new zealand|auckland)\b', 'New Zealand'),
-    (r'\b(nigeria|uniosun|osun)\b', 'Nigeria'),
+    (r'\b(nigeria|uniosun|osun|adebisi|ilorin|ibadan)\b', 'Nigeria'),
     (r'\b(norway|oslo)\b', 'Norway'),
     (r'\b(oman)\b', 'Oman'),
-    (r'\b(pakistan)\b', 'Pakistan'),
+    (r'\b(pakistan|multan|rawalpindi)\b', 'Pakistan'),
     (r'\b(palestine|aaup)\b', 'Palestine'),
     (r'\b(peru)\b', 'Peru'),
     (r'\b(philippines|davao del norte)\b', 'Philippines'),
@@ -102,7 +108,7 @@ COUNTRY_PATTERNS = [
     (r'\b(singapore)\b', 'Singapore'),
     (r'\b(slovakia)\b', 'Slovakia'),
     (r'\b(slovenia)\b', 'Slovenia'),
-    (r'\b(south africa|kwazulu-natal|ukzn|cape town|johannesburg|pretoria)\b', 'South Africa'),
+    (r'\b(south africa|kwazulu-natal|ukzn|cape town|johannesburg|pretoria|stellenbosch)\b', 'South Africa'),
     (r'\b(south korea|korea, republic of|republic of korea|korea)\b', 'South Korea'),
     (r'\b(spain|españa|zaragoza|valladolid|madrid|barcelona)\b', 'Spain'),
     (r'\b(sri lanka|colombo)\b', 'Sri Lanka'),
@@ -128,6 +134,17 @@ COUNTRY_PATTERNS = [
     (r'\b(zimbabwe)\b', 'Zimbabwe')
 ]
 
+TLD_MAP = {
+    'nl': 'Netherlands', 'de': 'Germany', 'uk': 'United Kingdom', 'np': 'Nepal',
+    'in': 'India', 'za': 'South Africa', 'ng': 'Nigeria', 'ec': 'Ecuador',
+    'br': 'Brazil', 'be': 'Belgium', 'es': 'Spain', 'fr': 'France',
+    'it': 'Italy', 'ro': 'Romania', 'se': 'Sweden', 'jp': 'Japan',
+    'cn': 'China', 'id': 'Indonesia', 'bd': 'Bangladesh', 'th': 'Thailand',
+    'md': 'Moldova', 'ca': 'Canada', 'pk': 'Pakistan', 'us': 'United States',
+    'edu': 'United States', 'ch': 'Switzerland', 'at': 'Austria', 'au': 'Australia',
+    'eg': 'Egypt', 'ke': 'Kenya', 'my': 'Malaysia', 'ph': 'Philippines'
+}
+
 def extract_countries(text):
     if not text:
         return []
@@ -139,142 +156,129 @@ def extract_countries(text):
                 matched.append(std_name)
     return matched
 
-with open('adminPapersBrowse_2026-10-19_09-37-14.doc', 'r', encoding='utf-8', errors='ignore') as f:
-    soup = BeautifulSoup(f.read(), 'html.parser')
+def get_latest_doc_file():
+    doc_files = sorted(glob.glob('adminPapersBrowse_*.doc'))
+    if not doc_files:
+        raise FileNotFoundError("No adminPapersBrowse_*.doc file found in the workspace.")
+    return doc_files[-1]
 
-main = soup.find('main')
-paper_divs = [c for c in main.children if c.name == 'div' and 'paper' in c.get('class', [])]
+def parse_and_process(doc_path=None):
+    if not doc_path:
+        doc_path = get_latest_doc_file()
+    print(f"Reading dataset from: {doc_path}")
 
-dataset = []
+    with open(doc_path, 'r', encoding='utf-8', errors='ignore') as f:
+        soup = BeautifulSoup(f.read(), 'html.parser')
 
-for p in paper_divs:
-    pid = p.find('span', class_='paper_id').get_text(strip=True).replace('ID:', '').strip()
-    theme_raw = p.find('span', class_='paper_type').get_text(strip=True) if p.find('span', class_='paper_type') else ''
-    pformat = p.find('span', class_='paper_format').get_text(strip=True) if p.find('span', class_='paper_format') else ''
-    topics = p.find('span', class_='paper_topics').get_text(strip=True) if p.find('span', class_='paper_topics') else ''
-    keywords = p.find('span', class_='paper_keywords').get_text(strip=True) if p.find('span', class_='paper_keywords') else ''
-    title = p.find('p', class_='paper_title').get_text(strip=True) if p.find('p', class_='paper_title') else ''
-    
-    # Theme short name & number
-    m = re.search(r'Theme\s+(\d+):\s*(.*)', theme_raw)
-    theme_num = int(m.group(1)) if m else 0
-    theme_title = m.group(2).strip() if m else theme_raw
-    
-    # Subtopic code & title
-    # e.g., "3.2 Actions for climate change adaptation..."
-    m_top = re.search(r'(\d+\.\d+)\s*(.*)', topics)
-    topic_code = m_top.group(1) if m_top else topics[:3]
-    topic_title = m_top.group(2).strip() if m_top else topics
-    
-    authors = []
-    presenter = None
-    auth_tags = p.find_all('p', class_='paper_author')
-    for a in auth_tags:
-        authors.append(a.get_text(strip=True))
-        if a.find('u'):
-            presenter = a.find('u').get_text(strip=True)
-            
-    symp_authors = []
-    symp_tags = p.find_all('p', class_='paper_symposium_authors')
-    for s in symp_tags:
-        symp_authors.append(s.get_text(" ", strip=True))
+    main = soup.find('main')
+    paper_divs = [c for c in main.children if c.name == 'div' and 'paper' in c.get('class', [])]
+
+    dataset = []
+
+    for p in paper_divs:
+        pid = p.find('span', class_='paper_id').get_text(strip=True).replace('ID:', '').strip()
+        theme_raw = p.find('span', class_='paper_type').get_text(strip=True) if p.find('span', class_='paper_type') else ''
+        pformat = p.find('span', class_='paper_format').get_text(strip=True) if p.find('span', class_='paper_format') else ''
+        topics = p.find('span', class_='paper_topics').get_text(strip=True) if p.find('span', class_='paper_topics') else ''
+        keywords = p.find('span', class_='paper_keywords').get_text(strip=True) if p.find('span', class_='paper_keywords') else ''
+        title = p.find('p', class_='paper_title').get_text(strip=True) if p.find('p', class_='paper_title') else ''
         
-    org_tags = p.find_all('p', class_='paper_organisation')
-    orgs = [o.get_text(" ", strip=True) for o in org_tags if o.get_text(strip=True)]
-    
-    pabstract_tags = p.find_all('p', class_='paper_abstract')
-    abstract_text = "\n".join([a.get_text(strip=True) for a in pabstract_tags if a.get_text(strip=True)])
-    
-    # Affiliation text
-    affil_text = " ; ".join(orgs + symp_authors)
-    countries = extract_countries(affil_text)
-    
-    if not countries:
-        emails = re.findall(r'[\w\.-]+@([\w\.-]+)', affil_text + " " + " ".join(authors))
-        tld_map = {
-            'nl': 'Netherlands', 'de': 'Germany', 'uk': 'United Kingdom', 'np': 'Nepal',
-            'in': 'India', 'za': 'South Africa', 'ng': 'Nigeria', 'ec': 'Ecuador',
-            'br': 'Brazil', 'be': 'Belgium', 'es': 'Spain', 'fr': 'France',
-            'it': 'Italy', 'ro': 'Romania', 'se': 'Sweden', 'jp': 'Japan',
-            'cn': 'China', 'id': 'Indonesia', 'bd': 'Bangladesh', 'th': 'Thailand'
-        }
-        for em in emails:
-            tld = em.split('.')[-1].lower()
-            if tld in tld_map and tld_map[tld] not in countries:
-                countries.append(tld_map[tld])
+        # Theme short name & number
+        m = re.search(r'Theme\s+(\d+):\s*(.*)', theme_raw)
+        theme_num = int(m.group(1)) if m else 0
+        theme_title = m.group(2).strip() if m else theme_raw
+        
+        # Subtopic code & title
+        m_top = re.search(r'(\d+\.\d+)\s*(.*)', topics)
+        topic_code = m_top.group(1) if m_top else topics[:3]
+        topic_title = m_top.group(2).strip() if m_top else topics
+        
+        authors = []
+        presenter = None
+        auth_tags = p.find_all('p', class_='paper_author')
+        for a in auth_tags:
+            authors.append(a.get_text(strip=True))
+            if a.find('u'):
+                presenter = a.find('u').get_text(strip=True)
                 
-    if not countries:
-        countries = ['Unknown']
+        symp_authors = []
+        symp_tags = p.find_all('p', class_='paper_symposium_authors')
+        for s in symp_tags:
+            symp_authors.append(s.get_text(" ", strip=True))
+            
+        org_tags = p.find_all('p', class_='paper_organisation')
+        orgs = [o.get_text(" ", strip=True) for o in org_tags if o.get_text(strip=True)]
         
-    primary_country = countries[0]
-    
-    dataset.append({
-        'id': pid,
-        'theme_num': theme_num,
-        'theme_title': theme_title,
-        'format': pformat,
-        'topic_code': topic_code,
-        'topic_title': topic_title,
-        'keywords': keywords,
-        'title': title,
-        'authors': authors,
-        'presenter': presenter,
-        'symp_authors': symp_authors,
-        'orgs': orgs,
-        'countries': countries,
-        'primary_country': primary_country,
-        'abstract': abstract_text,
-        'abstract_word_count': len(abstract_text.split())
-    })
+        pabstract_tags = p.find_all('p', class_='paper_abstract')
+        abstract_text = "\n".join([a.get_text(strip=True) for a in pabstract_tags if a.get_text(strip=True)])
+        
+        # Affiliation text
+        affil_text = " ; ".join(orgs + symp_authors)
+        countries = extract_countries(affil_text)
+        
+        if not countries:
+            emails = re.findall(r'[\w\.-]+@([\w\.-]+)', affil_text + " " + " ".join(authors))
+            for em in emails:
+                parts = em.split('.')
+                tld = parts[-1].lower()
+                if tld in TLD_MAP and TLD_MAP[tld] not in countries:
+                    countries.append(TLD_MAP[tld])
+                if len(parts) >= 2 and parts[-2].lower() in ['ac', 'co', 'gov', 'org']:
+                    tld2 = parts[-1].lower()
+                    if tld2 in TLD_MAP and TLD_MAP[tld2] not in countries:
+                        countries.append(TLD_MAP[tld2])
+                    
+        if not countries and 'adebisi' in ' '.join(authors).lower():
+            countries.append('Nigeria')
 
-print(f"Total processed: {len(dataset)}")
+        if not countries:
+            countries = ['Unknown']
+            
+        primary_country = countries[0]
+        
+        dataset.append({
+            'id': pid,
+            'theme_num': theme_num,
+            'theme_title': theme_title,
+            'format': pformat,
+            'topic_code': topic_code,
+            'topic_title': topic_title,
+            'keywords': keywords,
+            'title': title,
+            'authors': authors,
+            'presenter': presenter,
+            'symp_authors': symp_authors,
+            'orgs': orgs,
+            'countries': countries,
+            'primary_country': primary_country,
+            'abstract': abstract_text,
+            'abstract_word_count': len(abstract_text.split())
+        })
 
-# Overall theme stats
-print("\n" + "="*50)
-print("THEME BREAKDOWN:")
-theme_counts = Counter([d['theme_num'] for d in dataset])
-for tnum in sorted(theme_counts.keys()):
-    t_papers = [d for d in dataset if d['theme_num'] == tnum]
-    t_name = t_papers[0]['theme_title'] if t_papers else 'Unknown'
-    print(f"Theme {tnum}: {len(t_papers)} abstracts ({len(t_papers)/len(dataset)*100:.1f}%) | {t_name}")
+    print(f"Total processed: {len(dataset)}")
 
-# Country stats
-print("\n" + "="*50)
-print("COUNTRY STATS (Primary Country):")
-country_primary_counts = Counter([d['primary_country'] for d in dataset])
-print(f"Total Unique Primary Countries: {len(country_primary_counts)}")
-for c, cnt in country_primary_counts.most_common(20):
-    print(f"  {c}: {cnt}")
+    # Overall theme stats
+    print("\n" + "="*50)
+    print("THEME BREAKDOWN:")
+    theme_counts = Counter([d['theme_num'] for d in dataset])
+    for tnum in sorted(theme_counts.keys()):
+        t_papers = [d for d in dataset if d['theme_num'] == tnum]
+        t_name = t_papers[0]['theme_title'] if t_papers else 'Unknown'
+        print(f"Theme {tnum}: {len(t_papers)} abstracts ({len(t_papers)/len(dataset)*100:.1f}%) | {t_name}")
 
-print("\nCOUNTRY STATS (All Participating Countries in Co-Authorship/Panels):")
-all_country_counts = Counter()
-for d in dataset:
-    for c in set(d['countries']):
-        all_country_counts[c] += 1
-print(f"Total Unique Participating Countries: {len(all_country_counts)}")
-for c, cnt in all_country_counts.most_common(20):
-    print(f"  {c}: {cnt}")
+    # Country stats
+    print("\n" + "="*50)
+    print("COUNTRY STATS (Primary Country):")
+    country_primary_counts = Counter([d['primary_country'] for d in dataset])
+    print(f"Total Unique Primary Countries: {len(country_primary_counts)}")
+    for c, cnt in country_primary_counts.most_common(20):
+        print(f"  {c}: {cnt}")
 
-# Focus on Theme 3 (as user requested specifically)
-print("\n" + "="*50)
-print("THEME 3 DEEP-DIVE:")
-t3 = [d for d in dataset if d['theme_num'] == 3]
-print(f"Theme 3 Total Submissions: {len(t3)}")
-print(f"Theme 3 Title: {t3[0]['theme_title']}")
-t3_topics = Counter([f"{d['topic_code']} - {d['topic_title']}" for d in t3])
-print("Subtopics in Theme 3:")
-for top, cnt in t3_topics.most_common():
-    print(f"  [{cnt}] {top}")
-t3_countries = Counter([d['primary_country'] for d in t3])
-print("Countries in Theme 3 (Primary):")
-for c, cnt in t3_countries.most_common():
-    print(f"  {c}: {cnt}")
-t3_formats = Counter([d['format'] for d in t3])
-print("Formats in Theme 3:")
-for f, cnt in t3_formats.most_common():
-    print(f"  {f}: {cnt}")
+    # Save full parsed dataset as JSON for subsequent processing
+    with open('parsed_dataset.json', 'w', encoding='utf-8') as f:
+        json.dump(dataset, f, ensure_ascii=False, indent=2)
+    print(f"\nSaved parsed_dataset.json successfully with {len(dataset)} records!")
+    return dataset
 
-# Save full parsed dataset as JSON for subsequent processing
-with open('parsed_dataset.json', 'w', encoding='utf-8') as f:
-    json.dump(dataset, f, ensure_ascii=False, indent=2)
-print("\nSaved parsed_dataset.json successfully!")
+if __name__ == '__main__':
+    parse_and_process()
