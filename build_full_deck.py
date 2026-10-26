@@ -1,4 +1,5 @@
 import os
+import deck_stats as S
 import pptx
 from pptx import Presentation
 from pptx.util import Inches, Pt
@@ -102,16 +103,16 @@ def build_presentation():
     p_sub.space_before = Pt(10)
 
     p_desc = tf1.add_paragraph()
-    p_desc.text = "Rigorous empirical analysis of 301 conference submissions across 66 primary nations • Sequential Thematic Deep-Dives (Themes 1 to 5) • Discrete Global Mapping & Abstract Lexical Clusters"
+    p_desc.text = f"Rigorous empirical analysis of {S.TOTAL} conference submissions across {S.nations()} primary nations • Data as of {S.UPDATED} • Sequential Thematic Deep-Dives (Themes 1 to 5) • Discrete Global Mapping & Abstract Lexical Clusters"
     p_desc.font.size = Pt(13)
     p_desc.font.color.rgb = TEXT_LIGHT
     p_desc.space_before = Pt(14)
 
     stat_items = [
-        ("301", "Total Abstracts", RGBColor(56, 189, 248)),
-        ("66", "Primary Nations", RGBColor(129, 140, 248)),
+        (str(S.TOTAL), "Total Abstracts", RGBColor(56, 189, 248)),
+        (str(S.nations()), "Primary Nations", RGBColor(129, 140, 248)),
         ("5", "Core Themes", RGBColor(52, 211, 153)),
-        ("246", "Oral Presentations", RGBColor(251, 191, 36))
+        (str(S.fmt(0, S.ORAL)), "Oral Presentations", RGBColor(251, 191, 36))
     ]
     card_w = Inches(2.7)
     card_gap = Inches(0.25)
@@ -144,7 +145,7 @@ def build_presentation():
     tb_foot.text_frame.word_wrap = True
     tb_foot.text_frame.margin_left = tb_foot.text_frame.margin_top = 0
     p_foot = tb_foot.text_frame.paragraphs[0]
-    p_foot.text = "University of Groningen, Netherlands • Data Source: ConfTool Pro Export (adminPapersBrowse) • October 2026"
+    p_foot.text = "University of Groningen, Netherlands • Data Source: " + S.SOURCE_DOC + " • Data as of " + S.UPDATED
     p_foot.font.size = Pt(10)
     p_foot.font.color.rgb = RGBColor(148, 163, 184)
 
@@ -156,11 +157,11 @@ def build_presentation():
     add_header(s2, "Executive Overview: Core Submission Metrics at a Glance", "EXECUTIVE DASHBOARD")
 
     kpi_cards = [
-        ("301", "Total Submissions", "100% processed dataset", BLUE_ACCENT),
-        ("66", "Primary Countries", "75 participating in total", TEAL_ACCENT),
+        (str(S.TOTAL), "Total Submissions", "100% processed dataset", BLUE_ACCENT),
+        (str(S.nations()), "Primary Countries", f"{S.all_nations()} participating in total", TEAL_ACCENT),
         ("5", "Core Themes", "Sequential 1 to 5 tracks", AMBER_ACCENT),
         ("25", "Subtopics Covered", "Extensive interdisciplinary range", PURPLE_ACCENT),
-        ("81.7%", "Oral Presentations", "246 individual talks requested", GREEN_ACCENT)
+        (S.fmt_pct(0, S.ORAL), "Oral Presentations", f"{S.fmt(0, S.ORAL)} individual talks requested", GREEN_ACCENT)
     ]
     k_width = Inches(2.2)
     k_gap = Inches(0.18)
@@ -193,20 +194,20 @@ def build_presentation():
 
     pillars = [
         ("Geographic Breadth & Inclusivity", [
-            ("Unprecedented Global Reach: ", "Submissions received from 66 primary countries across all 6 inhabited continents."),
+            ("Unprecedented Global Reach: ", f"Submissions received from {S.nations()} primary countries across all 6 inhabited continents."),
             ("Global South Leadership: ", "Over 58% of all abstracts originate from Asia and Africa, led by India, China, Indonesia, Nepal, Ghana, and South Africa."),
-            ("Strong European Anchor: ", "The host country Netherlands (26), Germany (20), UK (14), and Belgium (7) represent major scholarly leadership.")
+            ("Strong European Anchor: ", f"Leading European contributors: {S.top_countries(0, 4, 'Europe')} represent major scholarly leadership.")
         ], TEAL_ACCENT),
         ("Sequential Thematic Balance", [
-            ("Theme 1 (SDGs Beyond 2030): ", "60 abstracts (19.9%), focused heavily on SDG localization, multi-stakeholder governance, and post-2030 indicator systems."),
-            ("Theme 2 (Resilience Across Systems): ", "76 abstracts (25.2%), the largest track in the conference, anchored by the Food-Water-Energy nexus and circular economy."),
-            ("Theme 3 (Climate Nexus): ", "75 abstracts (24.9%), highlighting climate adaptation, governance, finance, and equitable net-zero transitions."),
-            ("Theme 4 (Health) & Theme 5 (AI): ", "45 abstracts each (15.0% each), providing human health foundations and digital enablement tools.")
+            ("Theme 1 (SDGs Beyond 2030): ", f"{S.n(1)} abstracts ({S.pct(1)}), the {S.ORDINAL[S.theme_rank(1)]} track, focused heavily on SDG localization, multi-stakeholder governance, and post-2030 indicator systems."),
+            ("Theme 2 (Resilience Across Systems): ", f"{S.n(2)} abstracts ({S.pct(2)}), the {S.ORDINAL[S.theme_rank(2)]} track, anchored by the Food-Water-Energy nexus and circular economy."),
+            ("Theme 3 (Climate Nexus): ", f"{S.n(3)} abstracts ({S.pct(3)}), the {S.ORDINAL[S.theme_rank(3)]} track, highlighting climate adaptation, governance, finance, and equitable net-zero transitions."),
+            ("Theme 4 (Health) & Theme 5 (AI): ", f"{S.n(4)} ({S.pct(4)}) and {S.n(5)} ({S.pct(5)}) abstracts respectively, providing human health foundations and digital enablement tools.")
         ], BLUE_ACCENT),
         ("Session Architecture & Planning", [
-            ("Massive Oral Demand: ", "246 abstracts (81.7%) request Oral Presentations, requiring robust multi-parallel track scheduling (4-5 concurrent tracks)."),
-            ("Targeted Poster Track: ", "40 submissions (13.3%) designated for Poster Presentations across interactive exhibition areas."),
-            ("High-Impact Panels: ", "15 curated sessions (8 Innovative Sessions and 7 Full Panel Sessions) proposed by premier research networks and consortia.")
+            ("Massive Oral Demand: ", f"{S.fmt(0, S.ORAL)} abstracts ({S.fmt_pct(0, S.ORAL)}) request Oral Presentations, requiring robust multi-parallel track scheduling (4-5 concurrent tracks)."),
+            ("Targeted Poster Track: ", f"{S.fmt(0, S.POSTER)} submissions ({S.fmt_pct(0, S.POSTER)}) designated for Poster Presentations across interactive exhibition areas."),
+            ("High-Impact Panels: ", f"{S.fmt(0, S.INNOV) + S.fmt(0, S.PANEL)} curated sessions ({S.fmt(0, S.INNOV)} Innovative Sessions and {S.fmt(0, S.PANEL)} Full Panel Sessions) proposed by premier research networks and consortia.")
         ], PURPLE_ACCENT)
     ]
 
@@ -260,7 +261,7 @@ def build_presentation():
     # =========================================================================
     s3 = prs.slides.add_slide(blank_layout)
     set_bg(s3, OFF_WHITE)
-    add_header(s3, "Global Geographic Footprint: 66 Primary Submitting Nations", "GEOGRAPHIC REACH")
+    add_header(s3, f"Global Geographic Footprint: {S.nations()} Primary Submitting Nations", "GEOGRAPHIC REACH")
 
     if os.path.exists('visuals/map_global.png'):
         s3.shapes.add_picture('visuals/map_global.png', Inches(0.8), Inches(1.5), Inches(8.3), Inches(4.7))
@@ -280,9 +281,9 @@ def build_presentation():
     
     geo_points = [
         ("Host Nation Leading: ", "Netherlands leads with 26 submissions (43 including international co-authorships)."),
-        ("Global South Strength: ", "India (26), China (23), Indonesia (16), Nepal (15), Ghana (13), and South Africa (12) demonstrate high research activity."),
+        ("Global South Strength: ", f"{S.top_countries(0, 4, 'Asia')} and {S.top_countries(0, 2, 'Africa')} demonstrate high research activity."),
         ("Broad African Engagement: ", "15 African countries submitted abstracts, reflecting intense interest in climate resilience and just transitions."),
-        ("Multi-Country Consortia: ", "Over 75 countries participate when including international co-authors and panel speakers."),
+        ("Multi-Country Consortia: ", f"{S.all_nations()} countries participate when including international co-authors and panel speakers."),
         ("Discrete HTML Map: ", "Interactive browser map includes discrete binned legends and dynamic theme filters.")
     ]
     
@@ -308,7 +309,7 @@ def build_presentation():
     tb_c.text_frame.word_wrap = True
     tb_c.text_frame.margin_left = tb_c.text_frame.margin_top = 0
     p_c = tb_c.text_frame.paragraphs[0]
-    p_c.text = "Distribution of 301 abstracts across 66 primary submitting countries. Natural Earth projection."
+    p_c.text = f"Distribution of {S.TOTAL} abstracts across {S.nations()} primary submitting countries. Natural Earth projection."
     p_c.font.size = Pt(9.5)
     p_c.font.color.rgb = TEXT_MUTED
 
@@ -326,9 +327,9 @@ def build_presentation():
         s4.shapes.add_picture('visuals/chart_regional.png', Inches(7.0), Inches(1.5), Inches(5.5), Inches(4.3))
 
     reg_cards = [
-        ("Asia: 107 Submissions (35.5%)", "India (26), China (23), Indonesia (16), Nepal (15), Bangladesh (7), Pakistan (7). Strong focus on agrarian adaptation, WEF nexus, and twin transition.", TEAL_ACCENT),
-        ("Europe: 88 Submissions (29.2%)", "Netherlands (26), Germany (20), UK (14), Belgium (7), Italy (5), Spain (4). Centered on post-2030 governance, circular economy modeling, and planetary boundaries.", BLUE_ACCENT),
-        ("Africa: 69 Submissions (22.9%)", "Ghana (13), South Africa (12), Nigeria (9), Morocco (6), Kenya (4). Critical focus on climate justice, Loss & Damage, health equity, and rural resilience.", AMBER_ACCENT)
+        (f"Asia: {S.region('Asia')[0]} Submissions ({S.region('Asia')[1]})", f"{S.top_countries(0, 6, 'Asia')}. Strong focus on agrarian adaptation, WEF nexus, and twin transition.", TEAL_ACCENT),
+        (f"Europe: {S.region('Europe')[0]} Submissions ({S.region('Europe')[1]})", f"{S.top_countries(0, 6, 'Europe')}. Centered on post-2030 governance, circular economy modeling, and planetary boundaries.", BLUE_ACCENT),
+        (f"Africa: {S.region('Africa')[0]} Submissions ({S.region('Africa')[1]})", f"{S.top_countries(0, 6, 'Africa')}. Critical focus on climate justice, Loss & Damage, health equity, and rural resilience.", AMBER_ACCENT)
     ]
     rc_w = Inches(3.78)
     rc_gap = Inches(0.18)
@@ -383,11 +384,11 @@ def build_presentation():
         p.alignment = PP_ALIGN.LEFT if col_idx < 2 else PP_ALIGN.RIGHT
 
     theme_rows_ordered = [
-        ("Theme 1", "Lessons from SDGs Beyond 2030", "60", "19.9%"),
-        ("Theme 2", "Building Resilience Across Systems", "76", "25.2%"),
-        ("Theme 3", "Climate Change–Development Nexus", "75", "24.9%"),
-        ("Theme 4", "Health, Well-being & Social Foundations", "45", "15.0%"),
-        ("Theme 5", "AI, Big Data & Digitalization", "45", "15.0%")
+        ("Theme 1", "Lessons from SDGs Beyond 2030", str(S.n(1)), S.pct(1)),
+        ("Theme 2", "Building Resilience Across Systems", str(S.n(2)), S.pct(2)),
+        ("Theme 3", "Climate Change–Development Nexus", str(S.n(3)), S.pct(3)),
+        ("Theme 4", "Health, Well-being & Social Foundations", str(S.n(4)), S.pct(4)),
+        ("Theme 5", "AI, Big Data & Digitalization", str(S.n(5)), S.pct(5))
     ]
 
     for row_idx, rdata in enumerate(theme_rows_ordered, start=1):
@@ -414,7 +415,7 @@ def build_presentation():
     p.font.color.rgb = BLUE_ACCENT
     
     p2 = tf_bot.add_paragraph()
-    p2.text = "• Themes 1 through 5 provide an integrated systemic continuum from post-2030 governance (Theme 1), natural-human resilience (Theme 2), and climate justice (Theme 3) to health equity (Theme 4) and digital enablers (Theme 5).\n• Themes 2 and 3 represent 50.1% of all submissions, highlighting immense research interest in resource resilience and climate action."
+    p2.text = f"• Themes 1 through 5 provide an integrated systemic continuum from post-2030 governance (Theme 1), natural-human resilience (Theme 2), and climate justice (Theme 3) to health equity (Theme 4) and digital enablers (Theme 5).\n• Themes 2 and 3 represent {S._pct(S.n(2) + S.n(3), S.TOTAL)} of all submissions, highlighting immense research interest in resource resilience and climate action."
     p2.font.size = Pt(9)
     p2.font.color.rgb = TEXT_MUTED
     p2.space_before = Pt(3)
@@ -430,10 +431,10 @@ def build_presentation():
         s6.shapes.add_picture('visuals/chart_formats.png', Inches(0.8), Inches(1.5), Inches(5.8), Inches(4.3))
 
     fmt_details = [
-        ("Oral Presentations", "246 Submissions (81.7%)", "Requires approximately 40 to 45 standard oral sessions (5-6 papers per 90-minute session). Suggest scheduling across 4 parallel thematic tracks over 3 full conference days.", BLUE_ACCENT),
-        ("Poster Presentations", "40 Submissions (13.3%)", "Ideal for two dedicated interactive poster reception slots. Posters cluster around empirical fieldwork in Themes 1, 2, and 3, plus pilot models in AI and health analytics.", GREEN_ACCENT),
-        ("Innovative Sessions", "8 Submissions (2.7%)", "Interactive workshops, co-design labs, and policy dialogues (e.g. decarbonization co-design, nature relationship index, participatory stakeholder modeling). High engagement value.", AMBER_ACCENT),
-        ("Full Panel Sessions", "7 Submissions (2.3%)", "Curated multi-institutional expert panels (e.g. EU-China modeling consortium, water-energy-food governance, open data for SDG 6, regenerative supply chains). Prime plenary candidates.", PURPLE_ACCENT)
+        ("Oral Presentations", f"{S.fmt(0, S.ORAL)} Submissions ({S.fmt_pct(0, S.ORAL)})", "Requires approximately 40 to 45 standard oral sessions (5-6 papers per 90-minute session). Suggest scheduling across 4 parallel thematic tracks over 3 full conference days.", BLUE_ACCENT),
+        ("Poster Presentations", f"{S.fmt(0, S.POSTER)} Submissions ({S.fmt_pct(0, S.POSTER)})", "Ideal for two dedicated interactive poster reception slots. Posters cluster around empirical fieldwork in Themes 1, 2, and 3, plus pilot models in AI and health analytics.", GREEN_ACCENT),
+        ("Innovative Sessions", f"{S.fmt(0, S.INNOV)} Submissions ({S.fmt_pct(0, S.INNOV)})", "Interactive workshops, co-design labs, and policy dialogues (e.g. decarbonization co-design, nature relationship index, participatory stakeholder modeling). High engagement value.", AMBER_ACCENT),
+        ("Full Panel Sessions", f"{S.fmt(0, S.PANEL)} Submissions ({S.fmt_pct(0, S.PANEL)})", "Curated multi-institutional expert panels (e.g. EU-China modeling consortium, water-energy-food governance, open data for SDG 6, regenerative supply chains). Prime plenary candidates.", PURPLE_ACCENT)
     ]
 
     card_y = Inches(1.5)
@@ -511,12 +512,12 @@ def build_presentation():
     p.font.color.rgb = AMBER_ACCENT
     
     t1_details = [
-        ("Volume & Representation: ", "60 Submissions (19.9% of conference). 46 Oral, 11 Posters, 3 Innovative Sessions. Contributing countries led by Netherlands (9), India (5), UK (4), Nepal (3), Spain (3)."),
-        ("1.1 National & Local SDG Implementation (25 papers, 41.7%): ", "The heaviest subtopic, analyzing institutional barriers, municipal Voluntary Local Reviews (VLRs), and grassroots community alignment."),
-        ("1.5 Methods & Processes for Post-2030 (11 papers, 18.3%): ", "Proposals for next-generation indicator frameworks, dynamic targets, and participatory foresight methodologies beyond the 2030 horizon."),
-        ("1.2 SDG Governance & Partnerships (9 papers, 15.0%): ", "Multi-stakeholder partnerships, public-private pacts, and accountability structures."),
-        ("1.4 Missing Links & Post-2030 Reforms (9 papers, 15.0%): ", "Critiques of current SDG gaps: planetary boundaries, indigenous sovereignty, and degrowth."),
-        ("1.3 Integrated SDG Progress Assessment (6 papers, 10.0%): ", "Cross-goal trade-offs, spillover indices, and quantitative evaluation tools.")
+        ("Volume & Representation: ", f"{S.n(1)} Submissions ({S.pct(1)} of conference, {S.ORDINAL[S.theme_rank(1)]} theme). {S.format_line(1)}. Contributing countries led by {S.top_countries(1, 5)}."),
+        ("1.1 National & Local SDG Implementation (" + f"{S.sub('1.1')[0]} papers, {S.sub('1.1')[1]}): ", "Analyzing institutional barriers, municipal Voluntary Local Reviews (VLRs), and grassroots community alignment."),
+        ("1.5 Methods & Processes for Post-2030 (" + f"{S.sub('1.5')[0]} papers, {S.sub('1.5')[1]}): ", "Proposals for next-generation indicator frameworks, dynamic targets, and participatory foresight methodologies beyond the 2030 horizon."),
+        ("1.2 SDG Governance & Partnerships (" + f"{S.sub('1.2')[0]} papers, {S.sub('1.2')[1]}): ", "Multi-stakeholder partnerships, public-private pacts, and accountability structures."),
+        ("1.4 Missing Links & Post-2030 Reforms (" + f"{S.sub('1.4')[0]} papers, {S.sub('1.4')[1]}): ", "Critiques of current SDG gaps: planetary boundaries, indigenous sovereignty, and degrowth."),
+        ("1.3 Integrated SDG Progress Assessment (" + f"{S.sub('1.3')[0]} papers, {S.sub('1.3')[1]}): ", "Cross-goal trade-offs, spillover indices, and quantitative evaluation tools.")
     ]
     
     for lead, text in t1_details:
@@ -549,7 +550,7 @@ def build_presentation():
     p.font.color.rgb = AMBER_ACCENT
     
     p2 = tf_bot.add_paragraph()
-    p2.text = "• Top Abstract Words: development (152), sustainable (124), sustainability (91), environmental (61), local (59), institutional (55), sdgs (53), policy (51), goals (50), governance (49), implementation (47).\n• Key Author Keywords: sustainable development goals (11), sdgs (5), post-2030 agenda (5), sdg localization (4), sdg implementation (3), msmes (2)."
+    p2.text = f"• Top Abstract Words: {S.words(1, 11)}.\n• Key Author Keywords: {S.keywords(1, 7)}."
     p2.font.size = Pt(9)
     p2.font.color.rgb = TEXT_MUTED
     p2.space_before = Pt(3)
@@ -577,12 +578,12 @@ def build_presentation():
     p.font.color.rgb = GREEN_ACCENT
     
     t2_details = [
-        ("Volume & Dominance: ", "76 Submissions (25.2% of entire conference) — the LARGEST single theme! 68 Oral, 3 Posters, 4 Panels, 1 Innovative Session. Top countries: China (12), Belgium (5), Nepal (5), India (5), Germany (5)."),
-        ("2.1 Food-Water-Energy Nexus (31 papers, 40.8%): ", "The largest single subtopic across the conference! Focuses on agricultural food systems, watershed governance, clean energy access, and resource interdependencies."),
-        ("2.5 Beyond GDP & Circularity (15 papers, 19.7%): ", "Circular economy models, regenerative supply chains, industrial symbiosis, and bioeconomy innovations."),
-        ("2.3 Roles of Equity & Justice (14 papers, 18.4%): ", "Environmental justice, indigenous land stewardship, social vulnerability, and community resilience."),
-        ("2.2 Landscapes & Seascapes (10 papers, 13.2%): ", "Ecosystem service valuations, coastal mangrove restoration, marine biodiversity conservation."),
-        ("2.4 Urban Transformation & Mobility (6 papers, 7.9%): ", "Low-carbon urban transit, resilient urban planning, and infrastructure retrofitting.")
+        ("Volume & Dominance: ", f"{S.n(2)} Submissions ({S.pct(2)} of conference, {S.ORDINAL[S.theme_rank(2)]} theme). {S.format_line(2)}. Top countries: {S.top_countries(2, 5)}."),
+        ("2.1 Food-Water-Energy Nexus (" + f"{S.sub('2.1')[0]} papers, {S.sub('2.1')[1]}): ", "Focuses on agricultural food systems, watershed governance, clean energy access, and resource interdependencies."),
+        ("2.5 Beyond GDP & Circularity (" + f"{S.sub('2.5')[0]} papers, {S.sub('2.5')[1]}): ", "Circular economy models, regenerative supply chains, industrial symbiosis, and bioeconomy innovations."),
+        ("2.3 Roles of Equity & Justice (" + f"{S.sub('2.3')[0]} papers, {S.sub('2.3')[1]}): ", "Environmental justice, indigenous land stewardship, social vulnerability, and community resilience."),
+        ("2.2 Landscapes & Seascapes (" + f"{S.sub('2.2')[0]} papers, {S.sub('2.2')[1]}): ", "Ecosystem service valuations, coastal mangrove restoration, marine biodiversity conservation."),
+        ("2.4 Urban Transformation & Mobility (" + f"{S.sub('2.4')[0]} papers, {S.sub('2.4')[1]}): ", "Low-carbon urban transit, resilient urban planning, and infrastructure retrofitting.")
     ]
     
     for lead, text in t2_details:
@@ -615,7 +616,7 @@ def build_presentation():
     p.font.color.rgb = GREEN_ACCENT
     
     p2 = tf_bot.add_paragraph()
-    p2.text = "• Top Abstract Words: water (95), environmental (92), food (91), energy (89), sustainable (91), resilience (63), local (62), climate (61), circular (54), agricultural (52), ecosystem (49).\n• Key Author Keywords: community resilience (6), food system transformation (5), equity (4), social equity (4), sustainable resource management (4), business models (4), biodiversity (4)."
+    p2.text = f"• Top Abstract Words: {S.words(2, 11)}.\n• Key Author Keywords: {S.keywords(2, 7)}."
     p2.font.size = Pt(9)
     p2.font.color.rgb = TEXT_MUTED
     p2.space_before = Pt(3)
@@ -644,17 +645,17 @@ def build_presentation():
     p.font.color.rgb = PURPLE_ACCENT
     
     p_lead = tf.add_paragraph()
-    p_lead.text = "Theme 3 captures the intersection of climate action and equitable human progress. 75 abstracts make it the 2nd largest track, covering 5 distinct subtopics:"
+    p_lead.text = f"Theme 3 captures the intersection of climate action and equitable human progress. {S.n(3)} abstracts make it the {S.ORDINAL[S.theme_rank(3)]} track, covering 5 distinct subtopics:"
     p_lead.font.size = Pt(9.5)
     p_lead.font.color.rgb = TEXT_MUTED
     p_lead.space_before = Pt(3)
     
     t3_bullets = [
-        ("3.2 Actions for Climate Adaptation (23 papers, 30.7%): ", "Focuses on building societal resilience, grassroots agricultural adaptations, and nature-based solutions."),
-        ("3.5 Climate Governance & Finance (22 papers, 29.3%): ", "Examines international negotiations, carbon pricing, Article 6, Loss & Damage funds, and multi-level climate policies."),
-        ("3.3 Mitigation & Net-Zero Pathways (16 papers, 21.3%): ", "Explores renewable transitions, industrial decarbonization, and socially just phase-out of fossil fuels."),
-        ("3.4 Climate Actions for Human Security (9 papers, 12.0%): ", "Addresses climate migration, conflict vulnerabilities, displacement, and livelihood security."),
-        ("3.1 Earth System Modeling & Impacts (5 papers, 6.7%): ", "Quantitative climate forecasting, tipping point analytics, and localized socio-ecological impact simulations.")
+        ("3.2 Actions for Climate Adaptation (" + f"{S.sub('3.2')[0]} papers, {S.sub('3.2')[1]}): ", "Focuses on building societal resilience, grassroots agricultural adaptations, and nature-based solutions."),
+        ("3.5 Climate Governance & Finance (" + f"{S.sub('3.5')[0]} papers, {S.sub('3.5')[1]}): ", "Examines international negotiations, carbon pricing, Article 6, Loss & Damage funds, and multi-level climate policies."),
+        ("3.3 Mitigation & Net-Zero Pathways (" + f"{S.sub('3.3')[0]} papers, {S.sub('3.3')[1]}): ", "Explores renewable transitions, industrial decarbonization, and socially just phase-out of fossil fuels."),
+        ("3.4 Climate Actions for Human Security (" + f"{S.sub('3.4')[0]} papers, {S.sub('3.4')[1]}): ", "Addresses climate migration, conflict vulnerabilities, displacement, and livelihood security."),
+        ("3.1 Earth System Modeling & Impacts (" + f"{S.sub('3.1')[0]} papers, {S.sub('3.1')[1]}): ", "Quantitative climate forecasting, tipping point analytics, and localized socio-ecological impact simulations.")
     ]
     
     for lead, text in t3_bullets:
@@ -676,11 +677,11 @@ def build_presentation():
         r2.font.color.rgb = TEXT_MUTED
 
     t3_kpis = [
-        ("75", "Submissions (24.9%)"),
-        ("28", "Contributing Nations"),
-        ("57", "Oral Presentations"),
-        ("13", "Poster Presentations"),
-        ("5", "Special Sessions (3 Inn, 2 Pan)")
+        (str(S.n(3)), f"Submissions ({S.pct(3)})"),
+        (str(S.nations(3)), "Contributing Nations"),
+        (str(S.fmt(3, S.ORAL)), "Oral Presentations"),
+        (str(S.fmt(3, S.POSTER)), "Poster Presentations"),
+        (str(S.fmt(3, S.INNOV) + S.fmt(3, S.PANEL)), f"Special Sessions ({S.fmt(3, S.INNOV)} Inn, {S.fmt(3, S.PANEL)} Pan)")
     ]
     tw = Inches(2.2)
     tg = Inches(0.18)
@@ -730,7 +731,7 @@ def build_presentation():
     p.font.color.rgb = PURPLE_ACCENT
     
     p2 = tf_bot.add_paragraph()
-    p2.text = "• Top Contributing Nations (28 total): India (9), Netherlands (7), Germany (7), Nepal (5), United Kingdom (5), Bangladesh (5), South Africa (5), Nigeria (3), Ghana (3), USA (3), China (3).\n• Top Abstract Words: climate (219), development (102), policy (65), sustainable (64), adaptation (57), governance (48), resilience (45), just transition (5), climate justice (4)."
+    p2.text = f"• Top Contributing Nations ({S.nations(3)} total): {S.top_countries(3, 10)}.\n• Top Abstract Words: {S.words(3, 9)}.\n• Key Author Keywords: {S.keywords(3, 5)}."
     p2.font.size = Pt(9)
     p2.font.color.rgb = TEXT_MUTED
     p2.space_before = Pt(3)
@@ -758,12 +759,12 @@ def build_presentation():
     p.font.color.rgb = RGBColor(124, 58, 237)
     
     t4_details = [
-        ("Volume & Geographic Diversity: ", "45 Submissions (15.0% of conference). 39 Oral, 6 Posters. High participation from Global South: India (6), Ghana (6), Indonesia (5), Nigeria (5), Germany (3)."),
-        ("4.4 Health Equity & Societal Outcomes (21 papers, 46.7%): ", "The core anchor of Theme 4! Evaluates inner development, mental health, gender disparities, social determinants, and community well-being."),
-        ("4.5 Health as Outcome & Driver of Sustainability (9 papers, 20.0%): ", "Economic productivity linkages, universal health coverage (UHC), and social foundation resilience."),
-        ("4.3 Solutions & Innovations for Healthier Societies (8 papers, 17.8%): ", "Community-based healthcare interventions, digital health tools, and indigenous medical practices."),
-        ("4.2 Environmental Health & Exposure Science (5 papers, 11.1%): ", "Air pollution exposure (e.g. Max Planck Mainz particulate analysis), microplastics, chemical toxins."),
-        ("4.1 One Health Nexus & Ecological Ceilings (2 papers, 4.4%): ", "Zoonotic disease emergence, animal-human-ecosystem health integration.")
+        ("Volume & Geographic Diversity: ", f"{S.n(4)} Submissions ({S.pct(4)} of conference, {S.ORDINAL[S.theme_rank(4)]} theme). {S.format_line(4)}. Top countries: {S.top_countries(4, 5)}."),
+        ("4.4 Health Equity & Societal Outcomes (" + f"{S.sub('4.4')[0]} papers, {S.sub('4.4')[1]}): ", "Evaluates inner development, mental health, gender disparities, social determinants, and community well-being."),
+        ("4.5 Health as Outcome & Driver of Sustainability (" + f"{S.sub('4.5')[0]} papers, {S.sub('4.5')[1]}): ", "Economic productivity linkages, universal health coverage (UHC), and social foundation resilience."),
+        ("4.3 Solutions & Innovations for Healthier Societies (" + f"{S.sub('4.3')[0]} papers, {S.sub('4.3')[1]}): ", "Community-based healthcare interventions, digital health tools, and indigenous medical practices."),
+        ("4.2 Environmental Health & Exposure Science (" + f"{S.sub('4.2')[0]} papers, {S.sub('4.2')[1]}): ", "Air pollution exposure (e.g. Max Planck Mainz particulate analysis), microplastics, chemical toxins."),
+        ("4.1 One Health Nexus & Ecological Ceilings (" + f"{S.sub('4.1')[0]} papers, {S.sub('4.1')[1]}): ", "Zoonotic disease emergence, animal-human-ecosystem health integration.")
     ]
     
     for lead, text in t4_details:
@@ -796,7 +797,7 @@ def build_presentation():
     p.font.color.rgb = RGBColor(124, 58, 237)
     
     p2 = tf_bot.add_paragraph()
-    p2.text = "• Top Abstract Words: health (133), well-being (47), social (41), environmental (39), climate (36), urban (34), exposure (27), access (26), healthcare (25), community (24), mental (21).\n• Key Author Keywords: sustainable development (3), well-being (3), climate change (3), nigeria (3), air pollution (2), india (2), child health (2), sdg 3 (2)."
+    p2.text = f"• Top Abstract Words: {S.words(4, 11)}.\n• Key Author Keywords: {S.keywords(4, 7)}."
     p2.font.size = Pt(9)
     p2.font.color.rgb = TEXT_MUTED
     p2.space_before = Pt(3)
@@ -824,12 +825,12 @@ def build_presentation():
     p.font.color.rgb = CYAN_ACCENT
     
     t5_details = [
-        ("Volume & Frontier Scope: ", "45 Submissions (15.0% of conference). 36 Oral, 7 Posters, 1 Panel, 1 Innovative Session. Top contributing nations: Netherlands (5), Germany (4), Kenya (4), Indonesia (3), China (3)."),
-        ("5.5 AI & Digitalization by/beyond 2030 (21 papers, 46.7%): ", "The flagship subtopic exploring macro-level digital transformation, sustainable smart cities, and AI in SDG achievement."),
+        ("Volume & Frontier Scope: ", f"{S.n(5)} Submissions ({S.pct(5)} of conference, {S.ORDINAL[S.theme_rank(5)]} theme). {S.format_line(5)}. Top contributing nations: {S.top_countries(5, 5)}."),
+        ("5.5 AI & Digitalization by/beyond 2030 (" + f"{S.sub('5.5')[0]} papers, {S.sub('5.5')[1]}): ", "Exploring macro-level digital transformation, sustainable smart cities, and AI in SDG achievement."),
         ("5.2 Twin Transition (Green + Digital) (9 papers, 20.0%): ", "Investigating how digitalization and green transition intersect, rebound effects, and energy consumption of data infrastructure."),
-        ("5.1 AI Methods & Analytics (6 papers, 13.3%): ", "Machine learning algorithms, remote sensing earth observation, and satellite data analytics for ecological monitoring."),
-        ("5.4 Trustworthy AI & Governance (5 papers, 11.1%): ", "Algorithmic bias in sustainability policy, digital public goods, data sovereignty, and ethical AI safeguards."),
-        ("5.3 AI Tools for Decision-Making (4 papers, 8.9%): ", "Decision-support systems for municipal resource allocation and disaster management.")
+        ("5.1 AI Methods & Analytics (" + f"{S.sub('5.1')[0]} papers, {S.sub('5.1')[1]}): ", "Machine learning algorithms, remote sensing earth observation, and satellite data analytics for ecological monitoring."),
+        ("5.4 Trustworthy AI & Governance (" + f"{S.sub('5.4')[0]} papers, {S.sub('5.4')[1]}): ", "Algorithmic bias in sustainability policy, digital public goods, data sovereignty, and ethical AI safeguards."),
+        ("5.3 AI Tools for Decision-Making (" + f"{S.sub('5.3')[0]} papers, {S.sub('5.3')[1]}): ", "Decision-support systems for municipal resource allocation and disaster management.")
     ]
     
     for lead, text in t5_details:
@@ -862,7 +863,7 @@ def build_presentation():
     p.font.color.rgb = CYAN_ACCENT
     
     p2 = tf_bot.add_paragraph()
-    p2.text = "• Top Abstract Words: digital (94), development (74), sustainable (67), governance (47), systems (41), climate (40), intelligence (33), analytics (31), technologies (30), earth observation (24).\n• Key Author Keywords: artificial intelligence (9), sustainable development (6), digitalization (5), big data (4), responsible innovation (4), data governance (3)."
+    p2.text = f"• Top Abstract Words: {S.words(5, 11)}.\n• Key Author Keywords: {S.keywords(5, 7)}."
     p2.font.size = Pt(9)
     p2.font.color.rgb = TEXT_MUTED
     p2.space_before = Pt(3)
@@ -895,11 +896,11 @@ def build_presentation():
         p.font.color.rgb = WHITE
 
     matrix_rows = [
-        ("Theme 1 (SDGs)", "60 (19.9%)", "20", "1.1 SDG Local Implementation (25)", "development, institutional, localization, governance", "Feeds governance frameworks into Themes 2 & 3"),
-        ("Theme 2 (Resilience)", "76 (25.2%)", "22", "2.1 Food-Water-Energy Nexus (31)", "water, food, energy, circular, biodiversity", "Supplies ecological baselines for Health (T4) & Climate (T3)"),
-        ("Theme 3 (Climate)", "75 (24.9%)", "28", "3.2 Climate Adaptation (23)", "climate, adaptation, policy, just transition", "Intersects with AI analytics (T5) & Human Security (T4)"),
-        ("Theme 4 (Health)", "45 (15.0%)", "18", "4.4 Health Equity & Well-being (21)", "health, well-being, exposure, urban, equity", "Bridges pollution data with climate extreme impacts"),
-        ("Theme 5 (AI/Digital)", "45 (15.0%)", "19", "5.5 AI by/beyond 2030 (21)", "digital, intelligence, systems, twin transition", "Enables data monitoring across ALL themes (1, 2, 3, 4)")
+        ("Theme 1 (SDGs)", f"{S.n(1)} ({S.pct(1)})", str(S.nations(1)), "1.1 SDG Local Implementation (" + str(S.sub('1.1')[0]) + ")", "development, institutional, localization, governance", "Feeds governance frameworks into Themes 2 & 3"),
+        ("Theme 2 (Resilience)", f"{S.n(2)} ({S.pct(2)})", str(S.nations(2)), "2.1 Food-Water-Energy Nexus (" + str(S.sub('2.1')[0]) + ")", "water, food, energy, circular, biodiversity", "Supplies ecological baselines for Health (T4) & Climate (T3)"),
+        ("Theme 3 (Climate)", f"{S.n(3)} ({S.pct(3)})", str(S.nations(3)), "3.2 Climate Adaptation (" + str(S.sub('3.2')[0]) + ")", "climate, adaptation, policy, just transition", "Intersects with AI analytics (T5) & Human Security (T4)"),
+        ("Theme 4 (Health)", f"{S.n(4)} ({S.pct(4)})", str(S.nations(4)), "4.4 Health Equity & Well-being (" + str(S.sub('4.4')[0]) + ")", "health, well-being, exposure, urban, equity", "Bridges pollution data with climate extreme impacts"),
+        ("Theme 5 (AI/Digital)", f"{S.n(5)} ({S.pct(5)})", str(S.nations(5)), "5.5 AI by/beyond 2030 (" + str(S.sub('5.5')[0]) + ")", "digital, intelligence, systems, twin transition", "Enables data monitoring across ALL themes (1, 2, 3, 4)")
     ]
 
     for r_i, rvals in enumerate(matrix_rows, start=1):
@@ -958,11 +959,11 @@ def build_presentation():
     recs = [
         ("Track Allocation & Parallel Rooms", [
             ("Establish 4 Dedicated Parallel Streams: ", "Stream A (Climate Nexus), Stream B (Natural-Human Systems), Stream C (SDGs & Governance), Stream D (AI & Health)."),
-            ("Room Sizing by Volume: ", "Allocate the largest auditorium facilities to Theme 2 (76 papers) and Theme 3 (75 papers) which will draw peak delegate interest."),
+            ("Room Sizing by Volume: ", f"Allocate the largest auditorium facilities to the two biggest themes: " + " and ".join(f"Theme {t} ({S.n(t)} papers)" for t in sorted(range(1, 6), key=lambda x: -S.n(x))[:2]) + ", which will draw peak delegate interest."),
             ("Session Granularity: ", "Plan approximately 45 oral sessions with 5-6 papers each (15 min presentation + Q&A).")
         ], BLUE_ACCENT),
         ("Poster Sessions & Exhibition", [
-            ("Thematic Clustering of 40 Posters: ", "Cluster posters into 4 thematic islands matching the main conference pillars."),
+            (f"Thematic Clustering of {S.fmt(0, S.POSTER)} Posters: ", "Cluster posters into 4 thematic islands matching the main conference pillars."),
             ("Two Dedicated Unopposed Poster Slots: ", "Schedule two 60-minute reception slots (e.g., late afternoon Day 1 and Day 2) with refreshments to guarantee high delegate interaction."),
             ("Rapid Poster Pitch Competition: ", "Provide 60-second lightning pitches for early-career scholars prior to the poster session.")
         ], GREEN_ACCENT),
@@ -1026,7 +1027,7 @@ def build_presentation():
     deliv_items = [
         ("PowerPoint Report (PPTX)", "GSC2027_Abstract_Submissions_Analysis_Report.pptx", "15 comprehensive widescreen slides featuring discrete maps, sequential thematic deep-dives (Themes 1 to 5), and scheduling recommendations.", RGBColor(56, 189, 248)),
         ("Interactive World Map Dashboard (HTML)", "gsc2027_interactive_world_map.html", "Clean white academic dashboard with discrete binned map tiers, dynamic theme selector (Strict 1 to 5), pie charts, word clusters, and sortable table.", RGBColor(129, 140, 248)),
-        ("Master Submissions Database (Excel & CSV)", "GSC2027_Abstract_Submissions_Master.xlsx / .csv", "Complete cleaned dataset of all 301 abstracts with ID, title, author lists, organizations, verified country, subtopic codes, keywords, and text.", RGBColor(52, 211, 153)),
+        ("Master Submissions Database (Excel & CSV)", "GSC2027_Abstract_Submissions_Master.xlsx / .csv", f"Complete cleaned dataset of all {S.TOTAL} abstracts with ID, title, author lists, organizations, verified country, subtopic codes, keywords, and text.", RGBColor(52, 211, 153)),
         ("High-Res Visual Assets Suite", "visuals/ directory (13 High-DPI Assets)", "Includes global and Theme 3 choropleth maps, theme distribution charts, subtopic bars, format breakdowns, and 6 specialized NLP word clouds.", RGBColor(251, 191, 36))
     ]
 

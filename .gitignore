@@ -1,10 +1,14 @@
+# Ignore sensitive ConfTool exports and raw data files
+*.doc
+*.doc*
+*.docx
+*.csv
+*.xlsx
+*.xls
+*.json
+*.ppt
+*.pptx
+*.pdf
 .venv/
 __pycache__/
-*.py[cod]
-*$py.class
-.ipynb_checkpoints/
-.DS_Store
-Thumbs.db
-
-# Cloud-only placeholder files
-adminPapersBrowse_2026-10-21_09-08-42.doc
+*-ponraj_ws*

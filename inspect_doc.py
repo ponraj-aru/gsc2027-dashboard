@@ -1,8 +1,9 @@
+from source_config import SOURCE_DOC
 import os
 from bs4 import BeautifulSoup
 import re
 
-doc_path = r'adminPapersBrowse_2026-10-19_09-37-14.doc'
+doc_path = SOURCE_DOC
 
 with open(doc_path, 'r', encoding='utf-8', errors='ignore') as f:
     soup = BeautifulSoup(f.read(), 'html.parser')

@@ -1,9 +1,15 @@
+from source_config import SOURCE_DOC
 import json
 import pandas as pd
 from collections import Counter, defaultdict
 import plotly.express as px
 import plotly.graph_objects as go
 import os
+import json as _j
+_DS = _j.load(open('parsed_dataset.json', encoding='utf-8'))
+TOTAL_N = len(_DS)
+NATIONS_N = len({d['primary_country'] for d in _DS if d.get('primary_country')})
+
 
 with open('parsed_dataset.json', 'r', encoding='utf-8') as f:
     dataset = json.load(f)
@@ -89,7 +95,7 @@ fig_global = px.choropleth(
     color='Total_Submissions',
     color_continuous_scale=[[0, '#E0F2FE'], [0.15, '#7DD3FC'], [0.35, '#0284C7'], [0.7, '#0369A1'], [1.0, '#0C4A6E']],
     range_color=(1, 28),
-    title='<b>GSC 2027: Global Distribution of Abstract Submissions</b><br><sup>Total: 301 Submissions across 66 Primary Countries</sup>',
+    title=f'<b>GSC 2027: Global Distribution of Abstract Submissions</b><br><sup>Total: {TOTAL_N} Submissions across {NATIONS_N} Primary Countries</sup>',
     projection='natural earth'
 )
 
@@ -179,13 +185,13 @@ r_colors = ['#0D9488', '#2563EB', '#D97706', '#7C3AED', '#EC4899']
 
 bars = ax.bar(r_labels, r_vals, color=r_colors, width=0.55)
 ax.set_ylabel('Number of Submissions', fontsize=12, fontweight='bold', color='#1E293B')
-ax.set_title('Submissions by Continental Region (Total: 301)', fontsize=13, fontweight='bold', color='#0F172A', pad=15)
+ax.set_title(f'Submissions by Continental Region (Total: {TOTAL_N})', fontsize=13, fontweight='bold', color='#0F172A', pad=15)
 ax.grid(axis='y', linestyle='--', alpha=0.5, color='#CBD5E1')
 ax.grid(axis='x', visible=False)
 
 for bar in bars:
     h = bar.get_height()
-    pct = h / 301 * 100
+    pct = h / TOTAL_N * 100
     ax.text(bar.get_x() + bar.get_width()/2, h + 2, f'{int(h)}\n({pct:.1f}%)', 
             ha='center', va='bottom', fontsize=10.5, fontweight='bold', color='#1E293B')
 
@@ -312,9 +318,9 @@ fig_interactive.add_trace(go.Choropleth(
 
 # Dropdown buttons
 buttons = [
-    dict(label="🌍 All Themes (301 Abstracts)", method="update",
+    dict(label=f"🌍 All Themes ({TOTAL_N} Abstracts)", method="update",
          args=[{"visible": [True, False, False, False, False, False]},
-               {"title": "<b>GSC 2027 Global Abstract Submissions (All 301 Papers)</b><br><sup>66 Primary Countries Represented Across 5 Themes</sup>"}]),
+               {"title": f"<b>GSC 2027 Global Abstract Submissions (All {TOTAL_N} Papers)</b><br><sup>{NATIONS_N} Primary Countries Represented Across 5 Themes</sup>"}]),
     dict(label="🔥 Theme 3: Climate Change–Development Nexus (75 Abstracts)", method="update",
          args=[{"visible": [False, True, False, False, False, False]},
                {"title": "<b>Theme 3: Climate Change–Development Nexus (75 Papers across 28 Countries)</b><br><sup>Top: India (9), Netherlands (7), Germany (7), Nepal (5), UK (5), Bangladesh (5), South Africa (5)</sup>"}]),
@@ -606,7 +612,7 @@ html_content += f"""
     </div>
 
     <div class="footer">
-        Generated for Groningen Sustainability Conference 2027 (GSC 2027) • Data source: adminPapersBrowse_2026-10-19_09-37-14.doc
+        Generated for Groningen Sustainability Conference 2027 (GSC 2027) • Data source: ConfTool Submissions Dataset
     </div>
 
     <script>

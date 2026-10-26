@@ -9,6 +9,11 @@ import os
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
+import json as _j
+_DS = _j.load(open('parsed_dataset.json', encoding='utf-8'))
+TOTAL_N = len(_DS)
+NATIONS_N = len({d['primary_country'] for d in _DS if d.get('primary_country')})
+
 
 # Load dataset
 with open('parsed_dataset.json', 'r', encoding='utf-8') as f:
@@ -99,13 +104,13 @@ colors = [x[2] for x in themes_data]
 
 bars = ax.barh(labels[::-1], counts[::-1], color=colors[::-1], height=0.6, edgecolor='none')
 ax.set_xlabel('Number of Abstract Submissions', fontsize=12, fontweight='bold', color='#1E293B', labelpad=10)
-ax.set_title('Abstract Submissions by Theme (Total: 301 Submissions)', fontsize=14, fontweight='bold', color='#0F172A', pad=15)
+ax.set_title(f'Abstract Submissions by Theme (Total: {TOTAL_N} Submissions)', fontsize=14, fontweight='bold', color='#0F172A', pad=15)
 ax.grid(axis='x', linestyle='--', alpha=0.5, color='#CBD5E1')
 ax.grid(axis='y', visible=False)
 
 for bar in bars:
     w = bar.get_width()
-    pct = w / 301 * 100
+    pct = w / TOTAL_N * 100
     ax.text(w + 1.2, bar.get_y() + bar.get_height()/2, f'{int(w)} ({pct:.1f}%)', 
             va='center', ha='left', fontsize=11, fontweight='bold', color='#1E293B')
 
@@ -214,9 +219,9 @@ wedges, texts, autotexts = ax.pie(
     wedgeprops=dict(width=0.45, edgecolor='white', linewidth=2)
 )
 
-legend_labels = [f"{l}: {v} ({v/301*100:.1f}%)" for l, v in zip(f_labels, f_vals)]
+legend_labels = [f"{l}: {v} ({v/TOTAL_N*100:.1f}%)" for l, v in zip(f_labels, f_vals)]
 ax.legend(wedges, legend_labels, title="Session Format", loc="center left", bbox_to_anchor=(0.95, 0.5), frameon=False, fontsize=10.5)
-ax.set_title("Abstracts by Presentation Format (Total: 301)", fontsize=13, fontweight='bold', color='#0F172A', pad=10)
+ax.set_title(f"Abstracts by Presentation Format (Total: {TOTAL_N})", fontsize=13, fontweight='bold', color='#0F172A', pad=10)
 plt.tight_layout()
 plt.savefig('visuals/chart_formats.png', facecolor='#FFFFFF', dpi=200)
 plt.close()

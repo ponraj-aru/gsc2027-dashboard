@@ -1,3 +1,4 @@
+from source_config import SOURCE_DOC
 import sys
 import codecs
 from bs4 import BeautifulSoup
@@ -138,7 +139,7 @@ def extract_countries_from_text(text):
                 matched.append(std_name)
     return matched
 
-with open('adminPapersBrowse_2026-10-19_09-37-14.doc', 'r', encoding='utf-8', errors='ignore') as f:
+with open(SOURCE_DOC, 'r', encoding='utf-8', errors='ignore') as f:
     soup = BeautifulSoup(f.read(), 'html.parser')
 
 main = soup.find('main')

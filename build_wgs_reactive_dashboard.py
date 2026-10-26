@@ -1087,6 +1087,8 @@ function renderTable() {
 
     with open('gsc2027_interactive_world_map.html', 'w', encoding='utf-8') as f:
         f.write(template)
+    with open('index.html', 'w', encoding='utf-8') as f:
+        f.write(template)
 
     print(f"gsc2027_interactive_world_map.html successfully generated with {total_submissions} submissions across {total_nations} nations!")
 

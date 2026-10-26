@@ -1,3 +1,4 @@
+from source_config import SOURCE_DOC
 import json
 
 with open('dashboard_data.json', 'r', encoding='utf-8') as f:
@@ -593,7 +594,7 @@ html_content = """<!DOCTYPE html>
 
     <!-- Footer -->
     <footer class="dashboard-footer">
-        Groningen Sustainability Conference 2027 (GSC 2027) • University of Groningen, Netherlands • Data Source: adminPapersBrowse_2026-10-19_09-37-14.doc
+        Groningen Sustainability Conference 2027 (GSC 2027) • University of Groningen, Netherlands • Data Source: ConfTool Submissions Dataset
     </footer>
 </div>
 
