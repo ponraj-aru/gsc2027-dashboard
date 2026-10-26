@@ -9,8 +9,21 @@ def build_dashboard():
     with open('parsed_dataset.json', 'r', encoding='utf-8') as f:
         dataset = json.load(f)
 
-    doc_files = sorted(glob.glob('adminPapersBrowse_*.doc'))
-    latest_doc_name = doc_files[-1] if doc_files else 'ConfTool Database Export'
+    import re
+    from datetime import datetime
+    try:
+        from source_config import SOURCE_DOC
+        latest_doc_name = SOURCE_DOC
+    except Exception:
+        doc_files = sorted(glob.glob('adminPapersBrowse_*.doc'))
+        latest_doc_name = doc_files[-1] if doc_files else 'ConfTool Database Export'
+
+    _m = re.search(r"(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})", latest_doc_name)
+    if _m:
+        source_dt = datetime.strptime(f"{_m.group(1)} {_m.group(2)}:{_m.group(3)}:{_m.group(4)}", "%Y-%m-%d %H:%M:%S")
+        updated_label = source_dt.strftime("%d %B %Y, %H:%M:%S")
+    else:
+        updated_label = datetime.now().strftime("%d %B %Y, %H:%M:%S")
 
     total_submissions = len(dataset)
     countries_list = data['countries']
@@ -444,7 +457,13 @@ def build_dashboard():
             <p>Abstract Submissions, Global Geographic Distribution & Thematic Analysis</p>
         </div>
         <div class="header-meta">
-            Official Committee Dataset | __TOTAL_SUBMISSIONS__ Submissions | __TOTAL_NATIONS__ Primary Nations
+            <div class="meta-stats">
+                Official Committee Dataset | __TOTAL_SUBMISSIONS__ Submissions | __TOTAL_NATIONS__ Primary Nations
+            </div>
+            <div class="update-badge" title="Source: ConfTool Submissions Dataset">
+                <span class="update-dot"></span>
+                Dashboard updated based on data of: <strong>__UPDATED_LABEL__</strong>
+            </div>
         </div>
     </header>
 
@@ -621,7 +640,7 @@ def build_dashboard():
 
     <!-- Footer -->
     <footer class="dashboard-footer">
-        Groningen Sustainability Conference 2027 (GSC 2027) | University of Groningen, Netherlands | Data Source: __LATEST_DOC_NAME__
+        Groningen Sustainability Conference 2027 (GSC 2027) | University of Groningen, Netherlands | Data Source: __LATEST_DOC_NAME__ | Last Updated: __UPDATED_LABEL__
     </footer>
 </div>
 
@@ -1077,6 +1096,7 @@ function renderTable() {
         '__THEME_5_PCT__': kpi_t_pct[5],
         '__THEME_5_NATIONS__': str(theme_nations[5]),
         '__LATEST_DOC_NAME__': latest_doc_name,
+        '__UPDATED_LABEL__': updated_label,
         '__COUNTRIES_JSON__': countries_json,
         '__THEME_DETAILS_JSON__': theme_details_json,
         '__WORD_CLUSTERS_JSON__': word_clusters_json
