@@ -5,7 +5,7 @@ Generates poster.html and docs/poster.html.
 import os
 import json
 import base64
-from generate_maps import REGION_MAP
+from prepare_advanced_dashboard_data import REGION_MAP
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 
