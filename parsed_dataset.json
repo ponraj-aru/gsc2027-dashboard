@@ -10556,32 +10556,6 @@
     "abstract_word_count": 293
   },
   {
-    "id": "512",
-    "theme_num": 3,
-    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
-    "format": "Oral Presentation",
-    "topic_code": "3.3",
-    "topic_title": "Climate change mitigation and net-zero pathways for a just transition",
-    "keywords": "sustainable development pathways, system dynamics modelling, stakeholder co-creation, climate mitigation",
-    "title": "Climate Mitigation, Inequality, and Economic Growth: Modelling a Stakeholder-Co-Created Sustainable Development Pathway for Austria",
-    "authors": [
-      "Wretschitsch, Eva",
-      "Kirchner, Mathias",
-      "Spittler, Nathalie"
-    ],
-    "presenter": "Wretschitsch, Eva",
-    "symp_authors": [],
-    "orgs": [
-      "BOKU University"
-    ],
-    "countries": [
-      "Austria"
-    ],
-    "primary_country": "Austria",
-    "abstract": "The Paris Agreement and the Sustainable Development Goals (SDGs) aim for long-term sustainability transformations that require ambitious policies and profound system changes. This research examines future sustainable development pathways for Austria applying an integrated systems perspective informed by stakeholder knowledge, focusing on interactions between climate action (SDG 13), poverty and inequality (SDGs 1 and 10), and economic growth (SDG 8). Using the quantitative iSD-AT model, we combine system-dynamics modelling with participatory scenario co-creation, translating stakeholder visions and policy measures into a quantitative framework to assess their implications for the SDGs.\nApplying a systems perspective to national pathways, this research complements global analyses of SDG synergies and trade-offs. The modelling results highlight the long-term persistence of stocks, such as vehicles and buildings, underscoring the need for early and stringent action. They also show that policy interactions can change or intensify over time, e.g. in the context of energy poverty. Policy design must therefore anticipate these interactions to ensure feasibility and public support. The participatory approach further demonstrates the value of stakeholder knowledge in highlighting perspectives beyond the scope of quantitative models and exposing their blind spots.\nThe co-created pathway results in little to no growth in real GDP per capita while social and environmental indicators improve. However, simulations of individual policy measures reveal persistent trade-offs between socioeconomic and environmental objectives. Given GDP’s central role in propagating effects across the model but evidence on absolute decoupling of growth from environmental pressures remaining limited, future research should examine growth-independent pathways that achieve both climate and social objectives. Finally, the macro-level focus on system structures and interactions currently seems to limit the model’s representation of inequality and distributional dynamics within climate mitigation and sustainable development pathways. Future work should therefore strengthen the integration of such dynamics into macroeconomic models such as iSD-AT.",
-    "abstract_word_count": 298
-  },
-  {
     "id": "513",
     "theme_num": 2,
     "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
@@ -12448,7 +12422,7 @@
     "topic_code": "4.2",
     "topic_title": "Environmental health and emerging pollutants, including regulatory and governance responses, and policy translation of exposure science",
     "keywords": "",
-    "title": "Interventions in primary care to reduce the environmental impact of medicines: a scoping review as part of the PREWAPHARM project",
+    "title": "Reducing the environmental impact of medication: a scoping review on interventions in the primary care setting as part of the PREWAPHARM project",
     "authors": [
       "Kleefman, Kimberly",
       "Tuinhof, Jesse",
@@ -12762,7 +12736,7 @@
     "topic_code": "1.1",
     "topic_title": "National and local implementation of SDGs, including barriers and opportunities",
     "keywords": "",
-    "title": "Does Behavioral Spillover Follow Policy Changes?A Longitudinal Perspective on Changing Plastic Regulation",
+    "title": "Does Behavioral Spillover Follow Policy Changes? A Longitudinal Perspective on Changing Plastic Regulation",
     "authors": [
       "Ye, Mengfei",
       "van Doorn, Jenny",
@@ -16929,7 +16903,9 @@
     "keywords": "",
     "title": "When participants control their data: privacy rights, attacks and machine-learned trust in citizen air-quality sensing",
     "authors": [
-      "OGUTI, ANN MOVE"
+      "OGUTI, ANN MOVE",
+      "MUGUMYA, ANTHONY",
+      "EKODE, ABEL"
     ],
     "presenter": "OGUTI, ANN MOVE",
     "symp_authors": [],
@@ -17224,7 +17200,7 @@
     "topic_code": "5.5",
     "topic_title": "AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges",
     "keywords": "",
-    "title": "Responsible modelling for a sustainable and resilient future in the age of AI",
+    "title": "Responsible modelling for a post 2030 agenda in the age of AI",
     "authors": [
       "Spittler, Nathalie"
     ],
@@ -17392,5 +17368,469 @@
     "primary_country": "Netherlands",
     "abstract": "Sand policy: Onto-epistemologies of governance in the Dutch Wadden. Sustainable landscape and seascape for nature's contribution to people.",
     "abstract_word_count": 18
+  },
+  {
+    "id": "775",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.5",
+    "topic_title": "Economic approaches beyond GDP, including circularity and  bioeconomy",
+    "keywords": "",
+    "title": "EXPLORING THE UNTAPPED VALUE OF DISCARDED MATERIALS INTO INTEGRATED VALORIZATION AND RECYCLING IN PHILIPPINES – A CASE STUDY",
+    "authors": [
+      "Figueroa, Arturo Mariano"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Figueroa, Dr. Arturo Mariano",
+      "angeles university foundation"
+    ],
+    "countries": [
+      "Philippines"
+    ],
+    "primary_country": "Philippines",
+    "abstract": "EXPLORING THE UNTAPPED VALUE OF DISCARDED MATERIALS INTO INTEGRATED VALORIZATION AND RECYCLING IN PHILIPPINES – A CASE STUDY. Economic approaches beyond GDP, including circularity and  bioeconomy.",
+    "abstract_word_count": 26
+  },
+  {
+    "id": "776",
+    "theme_num": 4,
+    "theme_title": "Health, well-being, and societal foundations as key drivers of sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "4.5",
+    "topic_title": "Health as both an outcome and driver of sustainable development",
+    "keywords": "",
+    "title": "Heat, not harvests: attributing climate change impacts on child undernutrition and anaemia in India",
+    "authors": [
+      "Arumugam, Ponraj",
+      "Jha, Alokita",
+      "Aggile, Lakshmi Prasanna",
+      "Sagalgile, Archana",
+      "Samykannu, Venkadesh"
+    ],
+    "presenter": "Arumugam, Ponraj",
+    "symp_authors": [],
+    "orgs": [
+      "Arumugam, Dr. Ponraj",
+      "University of Groningen"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Heat, not harvests: attributing climate change impacts on child undernutrition and anaemia in India. Health as both an outcome and driver of sustainable development.",
+    "abstract_word_count": 24
+  },
+  {
+    "id": "777",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Innovative Session",
+    "topic_code": "2.1",
+    "topic_title": "Ensuring food, water, and energy security and understanding their nexus",
+    "keywords": "",
+    "title": "Next level theory of change",
+    "authors": [
+      "van Poelje, Rob"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Stichting SDG Nederland"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Next level theory of change. Ensuring food, water, and energy security and understanding their nexus.",
+    "abstract_word_count": 15
+  },
+  {
+    "id": "778",
+    "theme_num": 3,
+    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
+    "format": "Oral Presentation",
+    "topic_code": "3.3",
+    "topic_title": "Climate change mitigation and net-zero pathways for a just transition",
+    "keywords": "",
+    "title": "Energy Market Regulation in the North Sea: A Legal-Normative Analysis of Support Instruments for a Sustainable Energy Transition",
+    "authors": [
+      "Sergeeva, Yulia"
+    ],
+    "presenter": "Sergeeva, Yulia",
+    "symp_authors": [],
+    "orgs": [
+      "University of Groningen"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Energy Market Regulation in the North Sea: A Legal-Normative Analysis of Support Instruments for a Sustainable Energy Transition. Climate change mitigation and net-zero pathways for a just transition.",
+    "abstract_word_count": 28
+  },
+  {
+    "id": "779",
+    "theme_num": 3,
+    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
+    "format": "Oral Presentation",
+    "topic_code": "3.3",
+    "topic_title": "Climate change mitigation and net-zero pathways for a just transition",
+    "keywords": "",
+    "title": "Political feasibility constrains global mitigation pathways",
+    "authors": [
+      "Poujon, Adrien",
+      "Marangoni, Giacomo",
+      "Filatova, Tatiana",
+      "Kwakkel, Jan"
+    ],
+    "presenter": "Poujon, Adrien",
+    "symp_authors": [],
+    "orgs": [
+      "Poujon, A. G.",
+      "TU Delft"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Political feasibility constrains global mitigation pathways. Climate change mitigation and net-zero pathways for a just transition.",
+    "abstract_word_count": 16
+  },
+  {
+    "id": "780",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.3",
+    "topic_title": "AI and big data for decision-making and sustainable governance as a supporting decision tool",
+    "keywords": "",
+    "title": "True Price's vision and work to make data-driven accounting for important things the norm in the economy, and how environmental and social accounting is enabling food businesses to take new sustainable interventions",
+    "authors": [
+      "Galgani, Pietro"
+    ],
+    "presenter": "Galgani, Pietro",
+    "symp_authors": [],
+    "orgs": [
+      "True Price"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "True Price's vision and work to make data-driven accounting for important things the norm in the economy, and how environmental and social accounting is enabling food businesses to take new sustainable interventions. AI and big data for decision-making and sustainable governance as a supporting decision tool.",
+    "abstract_word_count": 46
+  },
+  {
+    "id": "781",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.1",
+    "topic_title": "Advances in AI methods, big data, and digital technologies for sustainability analytics",
+    "keywords": "",
+    "title": "Intelligent and Sustainable Energy Campus Management Using Digital Twins",
+    "authors": [
+      "Makrides, George",
+      "Herodotou, Panagiotis",
+      "Kaimakis, Paris"
+    ],
+    "presenter": "Makrides, George",
+    "symp_authors": [],
+    "orgs": [
+      "Makrides, Dr. George",
+      "University of Cyprus - PHAETHON CoE"
+    ],
+    "countries": [
+      "Cyprus",
+      "France"
+    ],
+    "primary_country": "Cyprus",
+    "abstract": "Intelligent and Sustainable Energy Campus Management Using Digital Twins. Advances in AI methods, big data, and digital technologies for sustainability analytics.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "782",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.4",
+    "topic_title": "Measures for urban transformation, including sustainable mobility",
+    "keywords": "",
+    "title": "Weather-Related Urban Traffic Speed Dynamics Using High-Frequency Navigation Data",
+    "authors": [
+      "Shi, Hui"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Shi, Dr. Hui",
+      "Beijing Normal University"
+    ],
+    "countries": [
+      "China"
+    ],
+    "primary_country": "China",
+    "abstract": "Weather-Related Urban Traffic Speed Dynamics Using High-Frequency Navigation Data. Measures for urban transformation, including sustainable mobility.",
+    "abstract_word_count": 16
+  },
+  {
+    "id": "783",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.4",
+    "topic_title": "Missing links and reforms for a sustainable development agenda beyond 2030",
+    "keywords": "",
+    "title": "The Peace That Was Not Made: Youth Exclusion as Structural Violence in Sub-Saharan Africa and the Urgency of Action before 2030",
+    "authors": [
+      "Zvaita, Gilbert Tinashe",
+      "Nyatanga, Phocenah"
+    ],
+    "presenter": "Zvaita, Gilbert Tinashe",
+    "symp_authors": [],
+    "orgs": [
+      "Zvaita, Dr. Gilbert Tinashe",
+      "University of KwaZulu-Natal"
+    ],
+    "countries": [
+      "South Africa"
+    ],
+    "primary_country": "South Africa",
+    "abstract": "The Peace That Was Not Made: Youth Exclusion as Structural Violence in Sub-Saharan Africa and the Urgency of Action before 2030. Missing links and reforms for a sustainable development agenda beyond 2030.",
+    "abstract_word_count": 32
+  },
+  {
+    "id": "784",
+    "theme_num": 3,
+    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
+    "format": "Oral Presentation",
+    "topic_code": "3.3",
+    "topic_title": "Climate change mitigation and net-zero pathways for a just transition",
+    "keywords": "",
+    "title": "To be added soon",
+    "authors": [
+      "Pathak, Minal"
+    ],
+    "presenter": "Pathak, Minal",
+    "symp_authors": [],
+    "orgs": [
+      "Pathak, Prof. Minal",
+      "Ahmedabad University"
+    ],
+    "countries": [
+      "India"
+    ],
+    "primary_country": "India",
+    "abstract": "To be added soon. Climate change mitigation and net-zero pathways for a just transition.",
+    "abstract_word_count": 14
+  },
+  {
+    "id": "785",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.3",
+    "topic_title": "Roles of equity & justice for sustainable transformation and resilience",
+    "keywords": "",
+    "title": "Social Collateral and Systemic Risk: A Systematic Review of Money-Lending Stokvels as Contested Resilience Infrastructure",
+    "authors": [
+      "Nyatanga, Phocenah",
+      "Zvaita, Gilbert Tinashe"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Zvaita, Dr. Gilbert Tinashe",
+      "University of KwaZulu-Natal"
+    ],
+    "countries": [
+      "South Africa"
+    ],
+    "primary_country": "South Africa",
+    "abstract": "Social Collateral and Systemic Risk: A Systematic Review of Money-Lending Stokvels as Contested Resilience Infrastructure. Roles of equity & justice for sustainable transformation and resilience.",
+    "abstract_word_count": 25
+  },
+  {
+    "id": "786",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.5",
+    "topic_title": "AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges",
+    "keywords": "",
+    "title": "Are digital public goods where the Sustainable Development Goals need them? A target-level mapping of claims",
+    "authors": [
+      "Saklani, Akansha"
+    ],
+    "presenter": "Saklani, Akansha",
+    "symp_authors": [],
+    "orgs": [
+      "University of Groningen"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Are digital public goods where the Sustainable Development Goals need them? A target-level mapping of claims. AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges.",
+    "abstract_word_count": 32
+  },
+  {
+    "id": "787",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.3",
+    "topic_title": "Roles of equity & justice for sustainable transformation and resilience",
+    "keywords": "",
+    "title": "Supporting Mapudungun learners: keys for sustainable language revitalisation",
+    "authors": [
+      "Mazzoli, Maria",
+      "Huilcán, Marcela"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Mazzoli, Dr. Maria",
+      "University of Groningen"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Supporting Mapudungun learners: keys for sustainable language revitalisation. Roles of equity & justice for sustainable transformation and resilience.",
+    "abstract_word_count": 18
+  },
+  {
+    "id": "788",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.4",
+    "topic_title": "Missing links and reforms for a sustainable development agenda beyond 2030",
+    "keywords": "",
+    "title": "Prioritizing SDG 5 Indicators for Policy Action: A Data-Driven Analysis of Gender Equality Using Global Gender Indices",
+    "authors": [
+      "Geis, Alexandra",
+      "Lensink, Robert"
+    ],
+    "presenter": "Geis, Alexandra",
+    "symp_authors": [],
+    "orgs": [
+      "University of Groningen"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Prioritizing SDG 5 Indicators for Policy Action: A Data-Driven Analysis of Gender Equality Using Global Gender Indices. Missing links and reforms for a sustainable development agenda beyond 2030.",
+    "abstract_word_count": 28
+  },
+  {
+    "id": "789",
+    "theme_num": 4,
+    "theme_title": "Health, well-being, and societal foundations as key drivers of sustainable development",
+    "format": "Poster Presentation",
+    "topic_code": "4.2",
+    "topic_title": "Environmental health and emerging pollutants, including regulatory and governance responses, and policy translation of exposure science",
+    "keywords": "",
+    "title": "Reducing Pharmaceutical Residues in Water: A Cross-Sectional Survey among Community Pharmacists in the Netherlands on Practices, Barriers and Facilitators",
+    "authors": [
+      "Dael, Nina",
+      "van Gosliga, Froucke",
+      "Schilders, Annemoon",
+      "van den Bemt, Patricia",
+      "Cardon, Helena",
+      "Lahousse, Lies",
+      "Witte, Benedikt",
+      "de Vries, Dianna",
+      "Culkin, Laura",
+      "Ryan..."
+    ],
+    "presenter": "Dael, Nina",
+    "symp_authors": [],
+    "orgs": [
+      "Groningen University"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Reducing Pharmaceutical Residues in Water: A Cross-Sectional Survey among Community Pharmacists in the Netherlands on Practices, Barriers and Facilitators. Environmental health and emerging pollutants, including regulatory and governance responses, and policy translation of exposure science.",
+    "abstract_word_count": 35
+  },
+  {
+    "id": "790",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.4",
+    "topic_title": "Missing links and reforms for a sustainable development agenda beyond 2030",
+    "keywords": "",
+    "title": "Financing sustainable development in a permanently high-debt world: lessons from Kenya, Botswana, Argentina and the United Kingdom",
+    "authors": [
+      "Nyagah, Ann"
+    ],
+    "presenter": "Nyagah, Ann",
+    "symp_authors": [],
+    "orgs": [
+      "The National Treasury and Economic Planning"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Financing sustainable development in a permanently high-debt world: lessons from Kenya, Botswana, Argentina and the United Kingdom. Missing links and reforms for a sustainable development agenda beyond 2030.",
+    "abstract_word_count": 28
+  },
+  {
+    "id": "791",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Poster Presentation",
+    "topic_code": "2.3",
+    "topic_title": "Roles of equity & justice for sustainable transformation and resilience",
+    "keywords": "",
+    "title": "Fair adjustment in a high-debt world: the distributional politics of fiscal consolidation in Kenya and beyond",
+    "authors": [
+      "Nyagah, Ann"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "The National Treasury and Economic Planning"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Fair adjustment in a high-debt world: the distributional politics of fiscal consolidation in Kenya and beyond. Roles of equity & justice for sustainable transformation and resilience.",
+    "abstract_word_count": 26
+  },
+  {
+    "id": "792",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.5",
+    "topic_title": "AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges",
+    "keywords": "",
+    "title": "Digital credit as a double-edged sword: mobile loans and household financial distress in Kenya",
+    "authors": [
+      "Nyagah, Ann"
+    ],
+    "presenter": "Nyagah, Ann",
+    "symp_authors": [],
+    "orgs": [
+      "The National Treasury and Economic Planning"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Digital credit as a double-edged sword: mobile loans and household financial distress in Kenya. AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges.",
+    "abstract_word_count": 30
   }
 ]

@@ -19,25 +19,7 @@ os.makedirs('visuals', exist_ok=True)
 # -----------------------------------------------------------------------------
 # Country to Continent / Region Mapping
 # -----------------------------------------------------------------------------
-REGION_MAP = {
-    'Netherlands': 'Europe', 'India': 'Asia', 'China': 'Asia', 'Germany': 'Europe',
-    'Indonesia': 'Asia', 'Nepal': 'Asia', 'United Kingdom': 'Europe', 'Ghana': 'Africa',
-    'South Africa': 'Africa', 'United States': 'Americas', 'Nigeria': 'Africa',
-    'Bangladesh': 'Asia', 'Belgium': 'Europe', 'Pakistan': 'Asia', 'Morocco': 'Africa',
-    'Thailand': 'Asia', 'Italy': 'Europe', 'Kenya': 'Africa', 'Malaysia': 'Asia',
-    'Spain': 'Europe', 'Ecuador': 'Americas', 'Japan': 'Asia', 'Uganda': 'Africa',
-    'Sri Lanka': 'Asia', 'Tanzania': 'Africa', 'Finland': 'Europe', 'Brazil': 'Americas',
-    'Poland': 'Europe', 'Mozambique': 'Africa', 'New Zealand': 'Oceania', 'Malawi': 'Africa',
-    'Ireland': 'Europe', 'Canada': 'Americas', 'Cameroon': 'Africa', 'Egypt': 'Africa',
-    'Czech Republic': 'Europe', 'Lebanon': 'Asia', 'Mexico': 'Americas', 'Sweden': 'Europe',
-    'France': 'Europe', 'Palestine': 'Asia', 'Philippines': 'Asia', 'DR Congo': 'Africa',
-    'The Gambia': 'Africa', 'Colombia': 'Americas', 'Venezuela': 'Americas', 'Romania': 'Europe',
-    'United Arab Emirates': 'Asia', 'Australia': 'Oceania', 'Yemen': 'Asia', 'Benin': 'Africa',
-    'Zambia': 'Africa', 'Zimbabwe': 'Africa', 'Austria': 'Europe', 'Denmark': 'Europe',
-    'Norway': 'Europe', 'Switzerland': 'Europe', 'Turkey': 'Europe/Asia', 'Portugal': 'Europe',
-    'Greece': 'Europe', 'Hungary': 'Europe', 'Iran': 'Asia', 'Iraq': 'Asia', 'Jordan': 'Asia',
-    'Vietnam': 'Asia', 'Ivory Coast': 'Africa'
-}
+from prepare_advanced_dashboard_data import REGION_MAP
 
 # Aggregate data by country
 country_stats = defaultdict(lambda: {

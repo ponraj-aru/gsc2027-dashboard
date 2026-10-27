@@ -129,7 +129,7 @@ html_template = f"""<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GSC 2027 | Global Outreach Poster & Marketing Pamphlet</title>
-  <meta name="description" content="Official marketing poster and conference pamphlet for the Groningen Sustainability Conference 2027 at the University of Groningen. 73 Nations participating across 5 global themes.">
+  <meta name="description" content="Official marketing poster and conference pamphlet for the Groningen Sustainability Conference 2027 at the University of Groningen. {total_nations} Nations participating across 5 global themes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
@@ -959,7 +959,7 @@ html_template = f"""<!DOCTYPE html>
       <!-- THEMATIC PILLARS -->
       <section class="themes-section">
         <h2 class="section-title">Global Thematic Pillars & Nation Engagement</h2>
-        <p class="section-desc">Discover how 73 nations are channeling their research focus into the 5 core conference themes.</p>
+        <p class="section-desc">Discover how {total_nations} nations are channeling their research focus into the 5 core conference themes.</p>
 
         <div class="themes-grid">
 """

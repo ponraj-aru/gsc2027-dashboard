@@ -16,6 +16,8 @@ os.makedirs(os.path.join(_HERE, 'visuals'), exist_ok=True)
 with open(os.path.join(_HERE, 'parsed_dataset.json'), 'r', encoding='utf-8') as f:
     ds = json.load(f)
 
+from prepare_advanced_dashboard_data import REGION_MAP
+
 all_countries = sorted(list({d['primary_country'] for d in ds if d.get('primary_country') and d.get('primary_country') != 'Unknown'}))
 total_nations = len(all_countries)
 
@@ -27,12 +29,19 @@ theme_countries = {
     5: len({d['primary_country'] for d in ds if d.get('theme_num') == 5 and d.get('primary_country') and d.get('primary_country') != 'Unknown'}),
 }
 
+reg_counts = {}
+for c in all_countries:
+    r = REGION_MAP.get(c, 'Other')
+    if r == 'Europe/Asia':
+        r = 'Europe'
+    reg_counts[r] = reg_counts.get(r, 0) + 1
+
 themes_meta = [
     {
         'num': 1,
         'title': 'SDGs Beyond 2030',
         'subtitle': 'Governance, Multilevel Targets & Institutional Delivery',
-        'nations': 41,
+        'nations': theme_countries[1],
         'color': '#0D9488',
         'badge_bg': '#CCFBF1'
     },
@@ -40,7 +49,7 @@ themes_meta = [
         'num': 2,
         'title': 'Resilience Across Systems',
         'subtitle': 'Food-Water-Energy Nexus & Nature-Based Solutions',
-        'nations': 32,
+        'nations': theme_countries[2],
         'color': '#0284C7',
         'badge_bg': '#E0F2FE'
     },
@@ -48,7 +57,7 @@ themes_meta = [
         'num': 3,
         'title': 'Climate–Development Nexus',
         'subtitle': 'Just Transitions, Climate Equity & Adaptation Finance',
-        'nations': 33,
+        'nations': theme_countries[3],
         'color': '#BA1C24',
         'badge_bg': '#FEE2E2'
     },
@@ -56,7 +65,7 @@ themes_meta = [
         'num': 4,
         'title': 'Health & Well-being Foundations',
         'subtitle': 'Planetary Health, Health Equity & Well-being Models',
-        'nations': 21,
+        'nations': theme_countries[4],
         'color': '#7C3AED',
         'badge_bg': '#F3E8FF'
     },
@@ -64,7 +73,7 @@ themes_meta = [
         'num': 5,
         'title': 'AI, Big Data & Digitalization',
         'subtitle': 'Digital Twins, Frontier Tech & Ethical AI for SDGs',
-        'nations': 26,
+        'nations': theme_countries[5],
         'color': '#D97706',
         'badge_bg': '#FEF3C7'
     }
@@ -98,25 +107,29 @@ def make_linkedin_portrait():
     ax.text(8, 104, "APRIL 05 – 10, 2027   |   ZERNIKE CAMPUS, GRONINGEN, THE NETHERLANDS", 
             fontsize=7.2, weight='bold', color='#94A3B8', family='sans-serif')
 
-    # HERO STAT: 73 NATIONS CALLOUT
+    # HERO STAT: NATIONS CALLOUT
     hero_box = patches.FancyBboxPatch((5, 84), 90, 16.5, boxstyle="round,pad=0.4,rounding_size=1.5",
                                      facecolor='#1E293B', edgecolor='#334155', linewidth=1.2)
     ax.add_patch(hero_box)
 
-    ax.text(9, 91.5, "73", fontsize=38, weight='black', color='#BA1C24', family='sans-serif')
+    ax.text(9, 91.5, str(total_nations), fontsize=38, weight='black', color='#BA1C24', family='sans-serif')
     ax.text(23, 95.5, "NATIONS REPRESENTED WORLDWIDE", fontsize=12.5, weight='black', color='#FFFFFF', family='sans-serif')
     ax.text(23, 91.5, "Across 6 Continents • Connecting Leading Global Research Institutions", fontsize=8.2, color='#94A3B8', family='sans-serif')
     
     # Regional Badges
-    conts = [("Europe", "18 Nations", "#BA1C24"), ("Asia", "17 Nations", "#D97706"), 
-             ("Africa", "16 Nations", "#0D9488"), ("Americas", "8 Nations", "#38BDF8"), 
-             ("Oceania", "2 Nations", "#0284C7"), ("Mid East", "10 Nations", "#A855F7")]
+    conts = [
+        ("Europe", f"{reg_counts.get('Europe', 0)} Nations", "#BA1C24"),
+        ("Asia", f"{reg_counts.get('Asia', 0)} Nations", "#D97706"),
+        ("Africa", f"{reg_counts.get('Africa', 0)} Nations", "#0D9488"),
+        ("Americas", f"{reg_counts.get('Americas', 0)} Nations", "#38BDF8"),
+        ("Oceania", f"{reg_counts.get('Oceania', 0)} Nations", "#0284C7"),
+    ]
     cx = 23
     for cname, cnum, ccol in conts:
-        p = patches.FancyBboxPatch((cx, 86), 11, 3.8, boxstyle="round,pad=0.15,rounding_size=0.6", facecolor='#0F172A', edgecolor=ccol, linewidth=1)
+        p = patches.FancyBboxPatch((cx, 86), 13.5, 3.8, boxstyle="round,pad=0.15,rounding_size=0.6", facecolor='#0F172A', edgecolor=ccol, linewidth=1)
         ax.add_patch(p)
-        ax.text(cx + 5.5, 87.9, f"{cname}\n{cnum}", fontsize=5.8, weight='bold', color='#F8FAFC', ha='center', va='center', family='sans-serif', linespacing=1.05)
-        cx += 11.5
+        ax.text(cx + 6.75, 87.9, f"{cname}\n{cnum}", fontsize=5.8, weight='bold', color='#F8FAFC', ha='center', va='center', family='sans-serif', linespacing=1.05)
+        cx += 14.2
 
     # SECTION TITLE
     ax.text(6, 80, "WHAT PARTICIPATING NATIONS ARE EXPLORING", fontsize=10.5, weight='black', color='#FFFFFF', family='sans-serif')
@@ -185,9 +198,10 @@ def make_linkedin_square():
     hero_box = patches.FancyBboxPatch((5, 68), 90, 14.5, boxstyle="round,pad=0.3,rounding_size=1.2",
                                      facecolor='#1E293B', edgecolor='#334155', linewidth=1)
     ax.add_patch(hero_box)
-    ax.text(9, 74.5, "73", fontsize=34, weight='black', color='#BA1C24', family='sans-serif')
+    ax.text(9, 74.5, str(total_nations), fontsize=34, weight='black', color='#BA1C24', family='sans-serif')
     ax.text(22, 78, "NATIONS REPRESENTED WORLDWIDE", fontsize=11.5, weight='black', color='#FFFFFF', family='sans-serif')
-    ax.text(22, 74.5, "Europe (18) • Asia (17) • Africa (16) • Americas (8) • Oceania (2) • Mid East (10)", fontsize=7.5, color='#94A3B8', family='sans-serif')
+    reg_summary = f"Europe ({reg_counts.get('Europe', 0)}) • Asia ({reg_counts.get('Asia', 0)}) • Africa ({reg_counts.get('Africa', 0)}) • Americas ({reg_counts.get('Americas', 0)}) • Oceania ({reg_counts.get('Oceania', 0)})"
+    ax.text(22, 74.5, reg_summary, fontsize=7.5, color='#94A3B8', family='sans-serif')
     ax.text(22, 71, "Zero abstract limits — A global movement of universities and researchers.", fontsize=7, color='#CBD5E1', style='italic', family='sans-serif')
 
     # 5 THEMES COMPACT GRID
@@ -211,7 +225,7 @@ def make_linkedin_square():
     # BOTTOM CTA
     cta = patches.FancyBboxPatch((5, 3), 90, 7, boxstyle="round,pad=0.3,rounding_size=1", facecolor='#BA1C24', edgecolor='none')
     ax.add_patch(cta)
-    ax.text(50, 7.2, "TAG YOUR INSTITUTION & JOIN 73+ NATIONS IN GRONINGEN!", fontsize=8.5, weight='black', color='#FFFFFF', ha='center', va='center', family='sans-serif')
+    ax.text(50, 7.2, f"TAG YOUR INSTITUTION & JOIN {total_nations}+ NATIONS IN GRONINGEN!", fontsize=8.5, weight='black', color='#FFFFFF', ha='center', va='center', family='sans-serif')
     ax.text(50, 4.8, "rug.nl/sustainability-conference-2027  •  April 05–10, 2027", fontsize=7, color='#FEE2E2', ha='center', va='center', family='sans-serif')
 
     out_path = os.path.join(_HERE, 'visuals', 'GSC2027_LinkedIn_Poster_Square.png')

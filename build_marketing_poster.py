@@ -15,9 +15,18 @@ os.makedirs(os.path.join(_HERE, 'visuals'), exist_ok=True)
 with open(os.path.join(_HERE, 'parsed_dataset.json'), 'r', encoding='utf-8') as f:
     ds = json.load(f)
 
+from prepare_advanced_dashboard_data import REGION_MAP
+
 # Countries computation
 all_countries = sorted(list({d['primary_country'] for d in ds if d.get('primary_country') and d.get('primary_country') != 'Unknown'}))
 total_nations = len(all_countries)
+
+reg_counts = {}
+for c in all_countries:
+    r = REGION_MAP.get(c, 'Other')
+    if r == 'Europe/Asia':
+        r = 'Europe'
+    reg_counts[r] = reg_counts.get(r, 0) + 1
 
 theme_countries = {
     1: sorted(list({d['primary_country'] for d in ds if d.get('theme_num') == 1 and d.get('primary_country') and d.get('primary_country') != 'Unknown'})),
@@ -120,8 +129,8 @@ def build_marketing_poster():
     )
     ax.add_patch(hero_box)
 
-    # Left Column: Big 73 Callout
-    ax.text(8, 102.5, "73", fontsize=48, weight='black', color='#BA1C24', family='sans-serif')
+    # Left Column: Big Callout
+    ax.text(8, 102.5, str(total_nations), fontsize=48, weight='black', color='#BA1C24', family='sans-serif')
     ax.text(25, 106, "NATIONS", fontsize=18, weight='black', color='#0F172A', family='sans-serif')
     ax.text(25, 101.5, "REPRESENTED WORLDWIDE", fontsize=11, weight='bold', color='#64748B', family='sans-serif')
     ax.text(25, 96, "A truly global convergence of researchers, policymakers, and innovators across 6 continents.", 
@@ -129,18 +138,18 @@ def build_marketing_poster():
 
     # Right Badges: Continent Counts
     continents = [
-        ("Europe", "18 Nations", "#BA1C24"),
-        ("Asia", "17 Nations", "#D97706"),
-        ("Africa", "16 Nations", "#0D9488"),
-        ("Americas", "8 Nations", "#2563EB"),
-        ("Oceania", "2 Nations", "#0284C7"),
+        ("Europe", f"{reg_counts.get('Europe', 0)} Nations", "#BA1C24"),
+        ("Asia", f"{reg_counts.get('Asia', 0)} Nations", "#D97706"),
+        ("Africa", f"{reg_counts.get('Africa', 0)} Nations", "#0D9488"),
+        ("Americas", f"{reg_counts.get('Americas', 0)} Nations", "#2563EB"),
+        ("Oceania", f"{reg_counts.get('Oceania', 0)} Nations", "#0284C7"),
     ]
     cx = 8.5
     for cname, ccount, ccol in continents:
-        badge = patches.FancyBboxPatch((cx, 92.5), 16.5, 2.8, boxstyle="round,pad=0.2,rounding_size=0.6", facecolor='#F1F5F9', edgecolor=ccol, linewidth=1.2)
+        badge = patches.FancyBboxPatch((cx, 92.5), 17.5, 2.8, boxstyle="round,pad=0.2,rounding_size=0.6", facecolor='#F1F5F9', edgecolor=ccol, linewidth=1.2)
         ax.add_patch(badge)
-        ax.text(cx + 8.25, 93.7, f"{cname}: {ccount}", fontsize=7.2, weight='bold', color='#0F172A', ha='center', va='center', family='sans-serif')
-        cx += 18
+        ax.text(cx + 8.75, 93.7, f"{cname}: {ccount}", fontsize=7.2, weight='bold', color='#0F172A', ha='center', va='center', family='sans-serif')
+        cx += 18.5
 
     # SECTION HEADER: THEMES OF INTEREST
     ax.text(5, 87, "GLOBAL THEMATIC PILLARS & NATION INTEREST", fontsize=12.5, weight='black', color='#0F172A', family='sans-serif')
