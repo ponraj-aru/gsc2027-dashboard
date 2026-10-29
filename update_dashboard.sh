@@ -6,9 +6,9 @@ P=.venv/bin/python
 SRC=$($P -c 'from source_config import SOURCE_DOC; print(SOURCE_DOC)')
 echo "Source: $SRC"
 for s in analyze_dataset build_word_clusters export_tables generate_maps prepare_dashboard_data \
-         build_clean_dashboard prepare_advanced_dashboard_data build_wgs_reactive_dashboard \
-         generate_visuals build_full_deck build_poster_graphics build_marketing_poster \
-         build_linkedin_posters build_poster_html; do
+         prepare_advanced_dashboard_data generate_visuals build_full_deck \
+         build_poster_graphics build_marketing_poster build_linkedin_posters \
+         build_poster_html build_wgs_reactive_dashboard; do
   echo "== $s"; $P $s.py | tail -1
 done
 
