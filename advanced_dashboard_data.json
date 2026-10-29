@@ -3,13 +3,13 @@
     {
       "country": "Netherlands",
       "region": "Europe",
-      "total": 132,
+      "total": 131,
       "t1": 32,
       "t2": 27,
       "t3": 33,
-      "t4": 24,
+      "t4": 23,
       "t5": 16,
-      "oral": 95,
+      "oral": 94,
       "poster": 11,
       "special": 26,
       "titles": [
@@ -66,13 +66,13 @@
     {
       "country": "Germany",
       "region": "Europe",
-      "total": 45,
-      "t1": 11,
+      "total": 46,
+      "t1": 12,
       "t2": 14,
       "t3": 10,
       "t4": 5,
       "t5": 5,
-      "oral": 39,
+      "oral": 40,
       "poster": 2,
       "special": 4,
       "titles": [
@@ -87,14 +87,14 @@
     {
       "country": "Unknown",
       "region": "Other",
-      "total": 37,
+      "total": 40,
       "t1": 9,
-      "t2": 11,
-      "t3": 10,
+      "t2": 13,
+      "t3": 11,
       "t4": 1,
       "t5": 6,
-      "oral": 32,
-      "poster": 5,
+      "oral": 33,
+      "poster": 7,
       "special": 0,
       "titles": [
         "Exploring Indigenous Practices for Environmental Sustainability in Gassol, Wukari and Ibi Local Government Areas, Taraba State, Nigeria",
@@ -108,13 +108,13 @@
     {
       "country": "Indonesia",
       "region": "Asia",
-      "total": 32,
+      "total": 33,
       "t1": 4,
-      "t2": 8,
+      "t2": 9,
       "t3": 2,
       "t4": 11,
       "t5": 7,
-      "oral": 28,
+      "oral": 29,
       "poster": 3,
       "special": 1,
       "titles": [
@@ -129,13 +129,13 @@
     {
       "country": "Ghana",
       "region": "Africa",
-      "total": 28,
-      "t1": 3,
+      "total": 29,
+      "t1": 4,
       "t2": 4,
       "t3": 7,
       "t4": 10,
       "t5": 4,
-      "oral": 19,
+      "oral": 20,
       "poster": 8,
       "special": 1,
       "titles": [
@@ -169,36 +169,15 @@
       "rank": 8
     },
     {
-      "country": "South Africa",
-      "region": "Africa",
-      "total": 23,
-      "t1": 3,
-      "t2": 5,
-      "t3": 9,
-      "t4": 0,
-      "t5": 6,
-      "oral": 19,
-      "poster": 4,
-      "special": 0,
-      "titles": [
-        "Towards a climate-adaptive governance framework for interconnected transboundary water infrastructure: the Lesotho Highlands Water Project and Integrated Vaal River System",
-        "When liabilities depend on information: Conceptualising and analysing the EU CBAM information “wedge”",
-        "Bridging the Implementation Gap in South Africa’s Land Policy: Lessons for Sustainable Development Beyond 2030",
-        "Policy Uncertainty and Market Resilience in Carbon and Clean Energy Markets: A Regime-Switching Perspective",
-        "From technology adoption to development outcomes: A systematic review of artificial intelligence’s contribution to sustainable development in Africa"
-      ],
-      "rank": 9
-    },
-    {
       "country": "United States",
       "region": "Americas",
-      "total": 22,
-      "t1": 2,
+      "total": 25,
+      "t1": 5,
       "t2": 8,
       "t3": 5,
       "t4": 6,
       "t5": 1,
-      "oral": 19,
+      "oral": 22,
       "poster": 3,
       "special": 0,
       "titles": [
@@ -207,6 +186,27 @@
         "From Digital Divide to AI Divide: Emerging Inequalities in the Intelligent University",
         "Kumayam: Reviving Traditional Shell-Lime Mortar for Coastal Ecosystem Resilience and Sustainable Landscapes along India’s Malabar Coast",
         "Kumayam: Reviving Traditional Shell-Lime Mortar for Coastal Ecosystem Resilience and Sustainable Landscapes along India’s Malabar Coast"
+      ],
+      "rank": 9
+    },
+    {
+      "country": "South Africa",
+      "region": "Africa",
+      "total": 24,
+      "t1": 3,
+      "t2": 6,
+      "t3": 9,
+      "t4": 0,
+      "t5": 6,
+      "oral": 20,
+      "poster": 4,
+      "special": 0,
+      "titles": [
+        "Towards a climate-adaptive governance framework for interconnected transboundary water infrastructure: the Lesotho Highlands Water Project and Integrated Vaal River System",
+        "When liabilities depend on information: Conceptualising and analysing the EU CBAM information “wedge”",
+        "Bridging the Implementation Gap in South Africa’s Land Policy: Lessons for Sustainable Development Beyond 2030",
+        "Policy Uncertainty and Market Resilience in Carbon and Clean Energy Markets: A Regime-Switching Perspective",
+        "From technology adoption to development outcomes: A systematic review of artificial intelligence’s contribution to sustainable development in Africa"
       ],
       "rank": 10
     },
@@ -1475,58 +1475,58 @@
   "theme_details": {
     "0": {
       "theme_num": 0,
-      "total_papers": 690,
+      "total_papers": 699,
       "subtopics_title": "Overall Thematic Distribution (Themes 1 to 5)",
       "subtopics": [
         {
           "label": "Theme 1: SDGs Beyond 2030",
           "short": "Theme 1",
-          "count": 155,
-          "pct": 22.5
+          "count": 160,
+          "pct": 22.9
         },
         {
           "label": "Theme 2: Resilience Across Systems",
           "short": "Theme 2",
-          "count": 171,
-          "pct": 24.8
+          "count": 175,
+          "pct": 25.0
         },
         {
           "label": "Theme 3: Climate Nexus",
           "short": "Theme 3",
-          "count": 166,
-          "pct": 24.1
+          "count": 167,
+          "pct": 23.9
         },
         {
           "label": "Theme 4: Health & Well-being",
           "short": "Theme 4",
-          "count": 106,
-          "pct": 15.4
+          "count": 105,
+          "pct": 15.0
         },
         {
           "label": "Theme 5: AI & Digitalization",
           "short": "Theme 5",
           "count": 92,
-          "pct": 13.3
+          "pct": 13.2
         }
       ],
       "formats": [
         {
           "label": "Oral Presentation",
           "short": "Oral",
-          "count": 545,
+          "count": 552,
           "pct": 79.0
         },
         {
           "label": "Poster Presentation",
           "short": "Poster",
-          "count": 91,
-          "pct": 13.2
+          "count": 93,
+          "pct": 13.3
         },
         {
           "label": "Innovative Session",
           "short": "Innovative",
           "count": 29,
-          "pct": 4.2
+          "pct": 4.1
         },
         {
           "label": "Full Panel Session",
@@ -1538,23 +1538,23 @@
       "regions": [
         {
           "region": "Asia",
-          "count": 225,
-          "pct": 32.6
+          "count": 226,
+          "pct": 32.3
         },
         {
           "region": "Europe",
           "count": 274,
-          "pct": 39.7
+          "pct": 39.2
         },
         {
           "region": "Africa",
-          "count": 104,
-          "pct": 15.1
+          "count": 106,
+          "pct": 15.2
         },
         {
           "region": "Americas",
-          "count": 38,
-          "pct": 5.5
+          "count": 41,
+          "pct": 5.9
         },
         {
           "region": "Oceania",
@@ -1568,65 +1568,65 @@
         },
         {
           "region": "Other",
-          "count": 37,
-          "pct": 5.4
+          "count": 40,
+          "pct": 5.7
         }
       ]
     },
     "1": {
       "theme_num": 1,
-      "total_papers": 155,
+      "total_papers": 160,
       "subtopics_title": "Theme 1 Subtopics Distribution",
       "subtopics": [
         {
           "label": "1.1 National and local implementation of SDGs, including barriers and opportunities",
           "short": "Topic 1.1",
-          "count": 57,
-          "pct": 36.8
+          "count": 58,
+          "pct": 36.2
         },
         {
           "label": "1.2 Lessons learned from SDG governance and multi-stakeholder partnerships",
           "short": "Topic 1.2",
           "count": 26,
-          "pct": 16.8
+          "pct": 16.2
         },
         {
           "label": "1.3 Integrated sustainability assessment of progress made on the SDGs",
           "short": "Topic 1.3",
-          "count": 20,
-          "pct": 12.9
+          "count": 21,
+          "pct": 13.1
         },
         {
           "label": "1.4 Missing links and reforms for a sustainable development agenda beyond 2030",
           "short": "Topic 1.4",
-          "count": 33,
-          "pct": 21.3
+          "count": 35,
+          "pct": 21.9
         },
         {
           "label": "1.5 Methods and processes for a sustainable development agenda beyond 2030",
           "short": "Topic 1.5",
-          "count": 19,
-          "pct": 12.3
+          "count": 20,
+          "pct": 12.5
         }
       ],
       "formats": [
         {
           "label": "Oral Presentation",
           "short": "Oral",
-          "count": 119,
-          "pct": 76.8
+          "count": 124,
+          "pct": 77.5
         },
         {
           "label": "Poster Presentation",
           "short": "Poster",
           "count": 21,
-          "pct": 13.5
+          "pct": 13.1
         },
         {
           "label": "Innovative Session",
           "short": "Innovative",
           "count": 12,
-          "pct": 7.7
+          "pct": 7.5
         },
         {
           "label": "Full Panel Session",
@@ -1639,22 +1639,22 @@
         {
           "region": "Asia",
           "count": 40,
-          "pct": 25.8
+          "pct": 25.0
         },
         {
           "region": "Europe",
-          "count": 75,
-          "pct": 48.4
+          "count": 76,
+          "pct": 47.5
         },
         {
           "region": "Africa",
-          "count": 17,
-          "pct": 11.0
+          "count": 18,
+          "pct": 11.2
         },
         {
           "region": "Americas",
-          "count": 11,
-          "pct": 7.1
+          "count": 14,
+          "pct": 8.8
         },
         {
           "region": "Oceania",
@@ -1664,63 +1664,63 @@
         {
           "region": "Europe/Asia",
           "count": 2,
-          "pct": 1.3
+          "pct": 1.2
         },
         {
           "region": "Other",
           "count": 9,
-          "pct": 5.8
+          "pct": 5.6
         }
       ]
     },
     "2": {
       "theme_num": 2,
-      "total_papers": 171,
+      "total_papers": 175,
       "subtopics_title": "Theme 2 Subtopics Distribution",
       "subtopics": [
         {
           "label": "2.1 Ensuring food, water, and energy security and understanding their nexus",
           "short": "Topic 2.1",
           "count": 45,
-          "pct": 26.3
+          "pct": 25.7
         },
         {
           "label": "2.2 Sustainable landscape and seascape for nature's contribution to people",
           "short": "Topic 2.2",
-          "count": 29,
-          "pct": 17.0
+          "count": 30,
+          "pct": 17.1
         },
         {
           "label": "2.3 Roles of equity & justice for sustainable transformation and resilience",
           "short": "Topic 2.3",
-          "count": 38,
-          "pct": 22.2
+          "count": 40,
+          "pct": 22.9
         },
         {
           "label": "2.4 Measures for urban transformation, including sustainable mobility",
           "short": "Topic 2.4",
           "count": 29,
-          "pct": 17.0
+          "pct": 16.6
         },
         {
           "label": "2.5 Economic approaches beyond GDP, including circularity and  bioeconomy",
           "short": "Topic 2.5",
-          "count": 30,
-          "pct": 17.5
+          "count": 31,
+          "pct": 17.7
         }
       ],
       "formats": [
         {
           "label": "Oral Presentation",
           "short": "Oral",
-          "count": 143,
-          "pct": 83.6
+          "count": 146,
+          "pct": 83.4
         },
         {
           "label": "Poster Presentation",
           "short": "Poster",
-          "count": 18,
-          "pct": 10.5
+          "count": 19,
+          "pct": 10.9
         },
         {
           "label": "Innovative Session",
@@ -1738,44 +1738,44 @@
       "regions": [
         {
           "region": "Asia",
-          "count": 61,
-          "pct": 35.7
+          "count": 62,
+          "pct": 35.4
         },
         {
           "region": "Europe",
           "count": 70,
-          "pct": 40.9
+          "pct": 40.0
         },
         {
           "region": "Africa",
-          "count": 17,
-          "pct": 9.9
+          "count": 18,
+          "pct": 10.3
         },
         {
           "region": "Americas",
           "count": 8,
-          "pct": 4.7
+          "pct": 4.6
         },
         {
           "region": "Oceania",
           "count": 2,
-          "pct": 1.2
+          "pct": 1.1
         },
         {
           "region": "Europe/Asia",
           "count": 2,
-          "pct": 1.2
+          "pct": 1.1
         },
         {
           "region": "Other",
-          "count": 11,
-          "pct": 6.4
+          "count": 13,
+          "pct": 7.4
         }
       ]
     },
     "3": {
       "theme_num": 3,
-      "total_papers": 166,
+      "total_papers": 167,
       "subtopics_title": "Theme 3 Subtopics Distribution",
       "subtopics": [
         {
@@ -1788,13 +1788,13 @@
           "label": "3.2 Actions for climate change adaptation to build societal resilience",
           "short": "Topic 3.2",
           "count": 40,
-          "pct": 24.1
+          "pct": 24.0
         },
         {
           "label": "3.3 Climate change mitigation and net-zero pathways for a just transition",
           "short": "Topic 3.3",
-          "count": 51,
-          "pct": 30.7
+          "count": 52,
+          "pct": 31.1
         },
         {
           "label": "3.4 Understanding climate change and climate actions for human security",
@@ -1806,7 +1806,7 @@
           "label": "3.5 Climate governance, finance, and negotiation for sustainable development",
           "short": "Topic 3.5",
           "count": 48,
-          "pct": 28.9
+          "pct": 28.7
         }
       ],
       "formats": [
@@ -1814,13 +1814,13 @@
           "label": "Oral Presentation",
           "short": "Oral",
           "count": 135,
-          "pct": 81.3
+          "pct": 80.8
         },
         {
           "label": "Poster Presentation",
           "short": "Poster",
-          "count": 20,
-          "pct": 12.0
+          "count": 21,
+          "pct": 12.6
         },
         {
           "label": "Innovative Session",
@@ -1839,17 +1839,17 @@
         {
           "region": "Asia",
           "count": 56,
-          "pct": 33.7
+          "pct": 33.5
         },
         {
           "region": "Europe",
           "count": 63,
-          "pct": 38.0
+          "pct": 37.7
         },
         {
           "region": "Africa",
           "count": 27,
-          "pct": 16.3
+          "pct": 16.2
         },
         {
           "region": "Americas",
@@ -1863,14 +1863,14 @@
         },
         {
           "region": "Other",
-          "count": 10,
-          "pct": 6.0
+          "count": 11,
+          "pct": 6.6
         }
       ]
     },
     "4": {
       "theme_num": 4,
-      "total_papers": 106,
+      "total_papers": 105,
       "subtopics_title": "Theme 4 Subtopics Distribution",
       "subtopics": [
         {
@@ -1883,39 +1883,39 @@
           "label": "4.2 Environmental health and emerging pollutants, including regulatory and governance responses, and policy translation of exposure science",
           "short": "Topic 4.2",
           "count": 21,
-          "pct": 19.8
+          "pct": 20.0
         },
         {
           "label": "4.3 Developing solutions and innovations for healthier societies",
           "short": "Topic 4.3",
           "count": 13,
-          "pct": 12.3
+          "pct": 12.4
         },
         {
           "label": "4.4 Health equity, well-being, inner development, and societal foundations as societal outcomes",
           "short": "Topic 4.4",
-          "count": 41,
-          "pct": 38.7
+          "count": 40,
+          "pct": 38.1
         },
         {
           "label": "4.5 Health as both an outcome and driver of sustainable development",
           "short": "Topic 4.5",
           "count": 25,
-          "pct": 23.6
+          "pct": 23.8
         }
       ],
       "formats": [
         {
           "label": "Oral Presentation",
           "short": "Oral",
-          "count": 76,
-          "pct": 71.7
+          "count": 75,
+          "pct": 71.4
         },
         {
           "label": "Poster Presentation",
           "short": "Poster",
           "count": 21,
-          "pct": 19.8
+          "pct": 20.0
         },
         {
           "label": "Innovative Session",
@@ -1927,34 +1927,34 @@
           "label": "Full Panel Session",
           "short": "Full Panel",
           "count": 5,
-          "pct": 4.7
+          "pct": 4.8
         }
       ],
       "regions": [
         {
           "region": "Asia",
           "count": 43,
-          "pct": 40.6
+          "pct": 41.0
         },
         {
           "region": "Europe",
-          "count": 36,
-          "pct": 34.0
+          "count": 35,
+          "pct": 33.3
         },
         {
           "region": "Africa",
           "count": 19,
-          "pct": 17.9
+          "pct": 18.1
         },
         {
           "region": "Americas",
           "count": 7,
-          "pct": 6.6
+          "pct": 6.7
         },
         {
           "region": "Other",
           "count": 1,
-          "pct": 0.9
+          "pct": 1.0
         }
       ]
     },
@@ -2062,33 +2062,33 @@
   "word_clusters": {
     "0": {
       "theme_num": 0,
-      "theme_title": "All Themes (690 Abstracts)",
-      "papers_count": 690,
-      "total_words": 73416,
+      "theme_title": "All Themes (699 Abstracts)",
+      "papers_count": 699,
+      "total_words": 73541,
       "top_words": [
         {
           "word": "sustainable",
-          "count": 730,
-          "pct": 0.99
+          "count": 737,
+          "pct": 1.0
         },
         {
           "word": "development",
-          "count": 709,
+          "count": 711,
           "pct": 0.97
         },
         {
           "word": "climate",
-          "count": 619,
+          "count": 620,
           "pct": 0.84
         },
         {
           "word": "sustainability",
-          "count": 456,
+          "count": 458,
           "pct": 0.62
         },
         {
           "word": "environmental",
-          "count": 418,
+          "count": 417,
           "pct": 0.57
         },
         {
@@ -2098,22 +2098,22 @@
         },
         {
           "word": "governance",
-          "count": 342,
+          "count": 344,
           "pct": 0.47
         },
         {
           "word": "beyond",
-          "count": 306,
+          "count": 311,
           "pct": 0.42
         },
         {
           "word": "health",
-          "count": 299,
-          "pct": 0.41
+          "count": 297,
+          "pct": 0.4
         },
         {
           "word": "framework",
-          "count": 288,
+          "count": 289,
           "pct": 0.39
         },
         {
@@ -2128,12 +2128,12 @@
         },
         {
           "word": "local",
-          "count": 260,
+          "count": 261,
           "pct": 0.35
         },
         {
           "word": "global",
-          "count": 255,
+          "count": 256,
           "pct": 0.35
         },
         {
@@ -2143,7 +2143,7 @@
         },
         {
           "word": "change",
-          "count": 246,
+          "count": 248,
           "pct": 0.34
         },
         {
@@ -2153,12 +2153,12 @@
         },
         {
           "word": "economic",
-          "count": 215,
+          "count": 216,
           "pct": 0.29
         },
         {
           "word": "institutional",
-          "count": 213,
+          "count": 215,
           "pct": 0.29
         },
         {
@@ -2178,8 +2178,13 @@
         },
         {
           "word": "transition",
-          "count": 195,
+          "count": 196,
           "pct": 0.27
+        },
+        {
+          "word": "implementation",
+          "count": 193,
+          "pct": 0.26
         },
         {
           "word": "food",
@@ -2187,24 +2192,19 @@
           "pct": 0.26
         },
         {
-          "word": "implementation",
-          "count": 192,
-          "pct": 0.26
-        },
-        {
           "word": "sdgs",
-          "count": 189,
+          "count": 193,
           "pct": 0.26
         },
         {
           "word": "resilience",
-          "count": 188,
+          "count": 192,
           "pct": 0.26
         },
         {
           "word": "national",
-          "count": 179,
-          "pct": 0.24
+          "count": 181,
+          "pct": 0.25
         },
         {
           "word": "adaptation",
@@ -2217,19 +2217,19 @@
           "pct": 0.24
         },
         {
-          "word": "conditions",
-          "count": 159,
+          "word": "knowledge",
+          "count": 162,
           "pct": 0.22
         },
         {
-          "word": "knowledge",
+          "word": "conditions",
           "count": 159,
           "pct": 0.22
         },
         {
           "word": "evidence",
           "count": 158,
-          "pct": 0.22
+          "pct": 0.21
         },
         {
           "word": "challenges",
@@ -2238,7 +2238,7 @@
         },
         {
           "word": "community",
-          "count": 147,
+          "count": 148,
           "pct": 0.2
         }
       ],
@@ -2308,68 +2308,68 @@
     "1": {
       "theme_num": 1,
       "theme_title": "Theme 1: Lessons from the SDGs beyond 2030",
-      "papers_count": 155,
-      "total_words": 13945,
+      "papers_count": 160,
+      "total_words": 14010,
       "top_words": [
         {
           "word": "development",
-          "count": 247,
-          "pct": 1.77
+          "count": 250,
+          "pct": 1.78
         },
         {
           "word": "sustainable",
-          "count": 229,
-          "pct": 1.64
+          "count": 233,
+          "pct": 1.66
         },
         {
           "word": "sustainability",
-          "count": 196,
+          "count": 198,
           "pct": 1.41
         },
         {
           "word": "sdgs",
-          "count": 125,
-          "pct": 0.9
+          "count": 129,
+          "pct": 0.92
         },
         {
           "word": "beyond",
-          "count": 103,
-          "pct": 0.74
+          "count": 106,
+          "pct": 0.76
         },
         {
           "word": "local",
-          "count": 95,
-          "pct": 0.68
+          "count": 96,
+          "pct": 0.69
         },
         {
           "word": "governance",
           "count": 93,
-          "pct": 0.67
+          "pct": 0.66
         },
         {
           "word": "implementation",
-          "count": 90,
+          "count": 91,
           "pct": 0.65
+        },
+        {
+          "word": "agenda",
+          "count": 85,
+          "pct": 0.61
         },
         {
           "word": "goals",
           "count": 83,
-          "pct": 0.6
-        },
-        {
-          "word": "national",
-          "count": 82,
           "pct": 0.59
         },
         {
-          "word": "agenda",
-          "count": 82,
+          "word": "national",
+          "count": 83,
           "pct": 0.59
         },
         {
           "word": "environmental",
           "count": 79,
-          "pct": 0.57
+          "pct": 0.56
         },
         {
           "word": "institutional",
@@ -2393,8 +2393,13 @@
         },
         {
           "word": "progress",
-          "count": 58,
+          "count": 59,
           "pct": 0.42
+        },
+        {
+          "word": "framework",
+          "count": 57,
+          "pct": 0.41
         },
         {
           "word": "social",
@@ -2403,11 +2408,6 @@
         },
         {
           "word": "indicators",
-          "count": 56,
-          "pct": 0.4
-        },
-        {
-          "word": "framework",
           "count": 56,
           "pct": 0.4
         },
@@ -2423,8 +2423,8 @@
         },
         {
           "word": "opportunities",
-          "count": 48,
-          "pct": 0.34
+          "count": 49,
+          "pct": 0.35
         },
         {
           "word": "participation",
@@ -2437,6 +2437,11 @@
           "pct": 0.32
         },
         {
+          "word": "action",
+          "count": 43,
+          "pct": 0.31
+        },
+        {
           "word": "approaches",
           "count": 43,
           "pct": 0.31
@@ -2445,11 +2450,6 @@
           "word": "economic",
           "count": 43,
           "pct": 0.31
-        },
-        {
-          "word": "action",
-          "count": 42,
-          "pct": 0.3
         },
         {
           "word": "priorities",
@@ -2478,8 +2478,8 @@
         },
         {
           "word": "assessment",
-          "count": 34,
-          "pct": 0.24
+          "count": 35,
+          "pct": 0.25
         },
         {
           "word": "practices",
@@ -2553,18 +2553,18 @@
     "2": {
       "theme_num": 2,
       "theme_title": "Theme 2: Building resilience across natural and human systems",
-      "papers_count": 171,
-      "total_words": 19689,
+      "papers_count": 175,
+      "total_words": 19749,
       "top_words": [
         {
           "word": "sustainable",
-          "count": 179,
-          "pct": 0.91
+          "count": 182,
+          "pct": 0.92
         },
         {
           "word": "energy",
           "count": 147,
-          "pct": 0.75
+          "pct": 0.74
         },
         {
           "word": "water",
@@ -2593,8 +2593,8 @@
         },
         {
           "word": "resilience",
-          "count": 95,
-          "pct": 0.48
+          "count": 98,
+          "pct": 0.5
         },
         {
           "word": "framework",
@@ -2617,18 +2617,18 @@
           "pct": 0.42
         },
         {
-          "word": "local",
-          "count": 79,
-          "pct": 0.4
-        },
-        {
           "word": "beyond",
-          "count": 79,
-          "pct": 0.4
+          "count": 81,
+          "pct": 0.41
         },
         {
           "word": "transformation",
-          "count": 78,
+          "count": 81,
+          "pct": 0.41
+        },
+        {
+          "word": "local",
+          "count": 79,
           "pct": 0.4
         },
         {
@@ -2639,17 +2639,17 @@
         {
           "word": "systems",
           "count": 70,
-          "pct": 0.36
+          "pct": 0.35
         },
         {
           "word": "economic",
-          "count": 69,
+          "count": 70,
           "pct": 0.35
         },
         {
           "word": "governance",
-          "count": 59,
-          "pct": 0.3
+          "count": 61,
+          "pct": 0.31
         },
         {
           "word": "demand",
@@ -2658,8 +2658,8 @@
         },
         {
           "word": "knowledge",
-          "count": 55,
-          "pct": 0.28
+          "count": 58,
+          "pct": 0.29
         },
         {
           "word": "social",
@@ -2673,8 +2673,8 @@
         },
         {
           "word": "community",
-          "count": 52,
-          "pct": 0.26
+          "count": 53,
+          "pct": 0.27
         },
         {
           "word": "biodiversity",
@@ -2727,7 +2727,7 @@
           "pct": 0.24
         },
         {
-          "word": "integrated",
+          "word": "change",
           "count": 46,
           "pct": 0.23
         }
@@ -2798,12 +2798,12 @@
     "3": {
       "theme_num": 3,
       "theme_title": "Theme 3: Navigating the climate change–development nexus",
-      "papers_count": 166,
-      "total_words": 18341,
+      "papers_count": 167,
+      "total_words": 18359,
       "top_words": [
         {
           "word": "climate",
-          "count": 379,
+          "count": 380,
           "pct": 2.07
         },
         {
@@ -2813,7 +2813,7 @@
         },
         {
           "word": "change",
-          "count": 128,
+          "count": 129,
           "pct": 0.7
         },
         {
@@ -2824,12 +2824,12 @@
         {
           "word": "sustainable",
           "count": 100,
-          "pct": 0.55
+          "pct": 0.54
         },
         {
           "word": "transition",
-          "count": 98,
-          "pct": 0.53
+          "count": 99,
+          "pct": 0.54
         },
         {
           "word": "energy",
@@ -2847,23 +2847,23 @@
           "pct": 0.46
         },
         {
+          "word": "mitigation",
+          "count": 84,
+          "pct": 0.46
+        },
+        {
           "word": "policy",
           "count": 83,
           "pct": 0.45
         },
         {
-          "word": "mitigation",
-          "count": 83,
-          "pct": 0.45
-        },
-        {
           "word": "emissions",
-          "count": 74,
-          "pct": 0.4
+          "count": 75,
+          "pct": 0.41
         },
         {
           "word": "pathways",
-          "count": 73,
+          "count": 74,
           "pct": 0.4
         },
         {
@@ -2903,7 +2903,7 @@
         },
         {
           "word": "global",
-          "count": 53,
+          "count": 54,
           "pct": 0.29
         },
         {
@@ -2943,7 +2943,7 @@
         },
         {
           "word": "net-zero",
-          "count": 42,
+          "count": 43,
           "pct": 0.23
         },
         {
@@ -3043,13 +3043,13 @@
     "4": {
       "theme_num": 4,
       "theme_title": "Theme 4: Health, well-being, and societal foundations",
-      "papers_count": 106,
-      "total_words": 10588,
+      "papers_count": 105,
+      "total_words": 10570,
       "top_words": [
         {
           "word": "health",
-          "count": 237,
-          "pct": 2.24
+          "count": 235,
+          "pct": 2.22
         },
         {
           "word": "sustainable",
@@ -3058,18 +3058,18 @@
         },
         {
           "word": "environmental",
-          "count": 86,
-          "pct": 0.81
+          "count": 85,
+          "pct": 0.8
         },
         {
           "word": "development",
-          "count": 79,
-          "pct": 0.75
+          "count": 78,
+          "pct": 0.74
         },
         {
           "word": "well-being",
-          "count": 69,
-          "pct": 0.65
+          "count": 68,
+          "pct": 0.64
         },
         {
           "word": "social",
@@ -3112,14 +3112,14 @@
           "pct": 0.31
         },
         {
-          "word": "societal",
+          "word": "care",
           "count": 32,
           "pct": 0.3
         },
         {
-          "word": "care",
-          "count": 32,
-          "pct": 0.3
+          "word": "societal",
+          "count": 30,
+          "pct": 0.28
         },
         {
           "word": "women",
@@ -3132,11 +3132,6 @@
           "pct": 0.27
         },
         {
-          "word": "outcomes",
-          "count": 29,
-          "pct": 0.27
-        },
-        {
           "word": "food",
           "count": 29,
           "pct": 0.27
@@ -3145,6 +3140,11 @@
           "word": "community",
           "count": 29,
           "pct": 0.27
+        },
+        {
+          "word": "outcomes",
+          "count": 28,
+          "pct": 0.26
         },
         {
           "word": "access",
@@ -3167,11 +3167,6 @@
           "pct": 0.25
         },
         {
-          "word": "equity",
-          "count": 26,
-          "pct": 0.25
-        },
-        {
           "word": "water",
           "count": 25,
           "pct": 0.24
@@ -3188,6 +3183,11 @@
         },
         {
           "word": "risks",
+          "count": 25,
+          "pct": 0.24
+        },
+        {
+          "word": "equity",
           "count": 25,
           "pct": 0.24
         },

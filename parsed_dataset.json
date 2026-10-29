@@ -13709,31 +13709,6 @@
     "abstract_word_count": 23
   },
   {
-    "id": "634",
-    "theme_num": 4,
-    "theme_title": "Health, well-being, and societal foundations as key drivers of sustainable development",
-    "format": "Oral Presentation",
-    "topic_code": "4.4",
-    "topic_title": "Health equity, well-being, inner development, and societal foundations as societal outcomes",
-    "keywords": "",
-    "title": "China’s changing diets improve human health but increase environmental pressures",
-    "authors": [
-      "shi, yufan",
-      "Liu, miaomiao"
-    ],
-    "presenter": "shi, yufan",
-    "symp_authors": [],
-    "orgs": [
-      "University of Groningen"
-    ],
-    "countries": [
-      "Netherlands"
-    ],
-    "primary_country": "Netherlands",
-    "abstract": "China’s changing diets improve human health but increase environmental pressures. Health equity, well-being, inner development, and societal foundations as societal outcomes.",
-    "abstract_word_count": 21
-  },
-  {
     "id": "635",
     "theme_num": 3,
     "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
@@ -17832,5 +17807,254 @@
     "primary_country": "Unknown",
     "abstract": "Digital credit as a double-edged sword: mobile loans and household financial distress in Kenya. AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges.",
     "abstract_word_count": 30
+  },
+  {
+    "id": "793",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.5",
+    "topic_title": "Economic approaches beyond GDP, including circularity and  bioeconomy",
+    "keywords": "",
+    "title": "Beyond GDP: A proposal for comprehensive national wealth reporting in Indonesia",
+    "authors": [
+      "Praditya, Mega Dipta"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Ministry of Finance of The Republic of Indonesia"
+    ],
+    "countries": [
+      "Indonesia"
+    ],
+    "primary_country": "Indonesia",
+    "abstract": "Beyond GDP: A proposal for comprehensive national wealth reporting in Indonesia. Economic approaches beyond GDP, including circularity and  bioeconomy.",
+    "abstract_word_count": 19
+  },
+  {
+    "id": "794",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.3",
+    "topic_title": "Roles of equity & justice for sustainable transformation and resilience",
+    "keywords": "",
+    "title": "Blue justice for resilient coasts: Integrating small-scale fisheries into South Africa’s ocean economy transformation",
+    "authors": [
+      "Williams, Samantha"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Williams, Dr. Samantha",
+      "Stellenbosch Uiversity"
+    ],
+    "countries": [
+      "South Africa"
+    ],
+    "primary_country": "South Africa",
+    "abstract": "Blue justice for resilient coasts: Integrating small-scale fisheries into South Africa’s ocean economy transformation. Roles of equity & justice for sustainable transformation and resilience.",
+    "abstract_word_count": 24
+  },
+  {
+    "id": "795",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.5",
+    "topic_title": "Methods and processes for a sustainable development agenda beyond 2030",
+    "keywords": "",
+    "title": "What Do the 2015 SDG Negotiations Teach Us for a Beyond-2030 Framework?",
+    "authors": [
+      "von Haaren, Paula",
+      "Berger, Axel"
+    ],
+    "presenter": "von Haaren, Paula",
+    "symp_authors": [],
+    "orgs": [
+      "von Haaren, Dr. Paula",
+      "IDOS"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "primary_country": "Germany",
+    "abstract": "What Do the 2015 SDG Negotiations Teach Us for a Beyond-2030 Framework?. Methods and processes for a sustainable development agenda beyond 2030.",
+    "abstract_word_count": 22
+  },
+  {
+    "id": "796",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.3",
+    "topic_title": "Integrated sustainability assessment of progress made on the SDGs",
+    "keywords": "",
+    "title": "A four-cornerstone dimensional model to create a scientific methodology SDG success",
+    "authors": [
+      "Perkins, David"
+    ],
+    "presenter": "Perkins, David",
+    "symp_authors": [],
+    "orgs": [
+      "Perkins, Dr. David",
+      "Missouri State University"
+    ],
+    "countries": [
+      "United States"
+    ],
+    "primary_country": "United States",
+    "abstract": "A four-cornerstone dimensional model to create a scientific methodology SDG success. Integrated sustainability assessment of progress made on the SDGs.",
+    "abstract_word_count": 20
+  },
+  {
+    "id": "797",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.1",
+    "topic_title": "National and local implementation of SDGs, including barriers and opportunities",
+    "keywords": "",
+    "title": "Scaling the SDGs to achieve sustainability action in private sector manufacturing",
+    "authors": [
+      "Perkins, David"
+    ],
+    "presenter": "Perkins, David",
+    "symp_authors": [],
+    "orgs": [
+      "Perkins, Dr. David",
+      "Missouri State University"
+    ],
+    "countries": [
+      "United States"
+    ],
+    "primary_country": "United States",
+    "abstract": "Scaling the SDGs to achieve sustainability action in private sector manufacturing. National and local implementation of SDGs, including barriers and opportunities.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "798",
+    "theme_num": 3,
+    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
+    "format": "Poster Presentation",
+    "topic_code": "3.3",
+    "topic_title": "Climate change mitigation and net-zero pathways for a just transition",
+    "keywords": "",
+    "title": "Greenhouse Gas and Air Pollutant Emissions from the Global Pulp and Paper Industry: Historical Trends, Driving Factors, and Future Scenarios",
+    "authors": [
+      "LI, Mengru",
+      "SHEN, Huizhong"
+    ],
+    "presenter": "LI, Mengru",
+    "symp_authors": [],
+    "orgs": [
+      "李, 孟如",
+      "southern university of science and technology"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Greenhouse Gas and Air Pollutant Emissions from the Global Pulp and Paper Industry: Historical Trends, Driving Factors, and Future Scenarios. Climate change mitigation and net-zero pathways for a just transition.",
+    "abstract_word_count": 30
+  },
+  {
+    "id": "799",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.4",
+    "topic_title": "Missing links and reforms for a sustainable development agenda beyond 2030",
+    "keywords": "",
+    "title": "SDGs as synergistic focal points for academic and career advisement",
+    "authors": [
+      "Perkins, David"
+    ],
+    "presenter": "Perkins, David",
+    "symp_authors": [],
+    "orgs": [
+      "Perkins, Dr. David",
+      "Missouri State University"
+    ],
+    "countries": [
+      "United States"
+    ],
+    "primary_country": "United States",
+    "abstract": "SDGs as synergistic focal points for academic and career advisement. Missing links and reforms for a sustainable development agenda beyond 2030.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "800",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.2",
+    "topic_title": "Sustainable landscape and seascape for nature's contribution to people",
+    "keywords": "",
+    "title": "From Community Practices to Institutional Change: Knowledge Co-Creation for Socio-Ecological Resilience in River Governance",
+    "authors": [
+      "Yadav, Anjali"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Indian Institute of Technology Kanpur"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "From Community Practices to Institutional Change: Knowledge Co-Creation for Socio-Ecological Resilience in River Governance. Sustainable landscape and seascape for nature's contribution to people.",
+    "abstract_word_count": 23
+  },
+  {
+    "id": "801",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Poster Presentation",
+    "topic_code": "2.3",
+    "topic_title": "Roles of equity & justice for sustainable transformation and resilience",
+    "keywords": "",
+    "title": "Whose Knowledge Counts? Institutional Authority and Knowledge Co-Creation in Ganga River Governance",
+    "authors": [
+      "Yadav, Anjali"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Indian Institute of Technology Kanpur"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Whose Knowledge Counts? Institutional Authority and Knowledge Co-Creation in Ganga River Governance. Roles of equity & justice for sustainable transformation and resilience.",
+    "abstract_word_count": 22
+  },
+  {
+    "id": "802",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.4",
+    "topic_title": "Missing links and reforms for a sustainable development agenda beyond 2030",
+    "keywords": "",
+    "title": "The Cost of Kinship: Black Tax, Entrepreneurial Financial Resilience, and Sustainable Livelihoods in Ghana",
+    "authors": [
+      "Amarteifio, Edward Nii Amar"
+    ],
+    "presenter": "Amarteifio, Edward Nii Amar",
+    "symp_authors": [],
+    "orgs": [
+      "Amarteifio, Dr. Edward Nii Amar",
+      "School of Business, University of Cape Coast"
+    ],
+    "countries": [
+      "Ghana"
+    ],
+    "primary_country": "Ghana",
+    "abstract": "The Cost of Kinship: Black Tax, Entrepreneurial Financial Resilience, and Sustainable Livelihoods in Ghana. Missing links and reforms for a sustainable development agenda beyond 2030.",
+    "abstract_word_count": 25
   }
 ]
