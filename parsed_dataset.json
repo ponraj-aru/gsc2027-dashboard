@@ -4953,7 +4953,10 @@
     "keywords": "alternative metrics, business models, sustainable tourism, community-based tourism, algorithmic exposure",
     "title": "Beyond visitor counts: an alternative sustainability metric for viral community-based tourism villages in Indonesia",
     "authors": [
-      "Alversia, Yeshika"
+      "Alversia, Yeshika",
+      "Hartoyo, Hartoyo",
+      "Sumarwan, Ujang",
+      "Afiff, Adi Zakaria"
     ],
     "presenter": null,
     "symp_authors": [],
@@ -18056,5 +18059,1087 @@
     "primary_country": "Ghana",
     "abstract": "The Cost of Kinship: Black Tax, Entrepreneurial Financial Resilience, and Sustainable Livelihoods in Ghana. Missing links and reforms for a sustainable development agenda beyond 2030.",
     "abstract_word_count": 25
+  },
+  {
+    "id": "803",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.3",
+    "topic_title": "AI and big data for decision-making and sustainable governance as a supporting decision tool",
+    "keywords": "",
+    "title": "Spatio-temporal patterns and obstacle factors of the “three states” human settlements coordinated development in China's coastal cities",
+    "authors": [
+      "Li, Xue Ming",
+      "Tian, Shen Zhen",
+      "Tao, Gui Qiao"
+    ],
+    "presenter": "Tian, Shen Zhen",
+    "symp_authors": [],
+    "orgs": [
+      "Li, Prof. Xue Ming",
+      "Liaoning Normal University"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Spatio-temporal patterns and obstacle factors of the “three states” human settlements coordinated development in China's coastal cities. AI and big data for decision-making and sustainable governance as a supporting decision tool.",
+    "abstract_word_count": 31
+  },
+  {
+    "id": "804",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.4",
+    "topic_title": "Missing links and reforms for a sustainable development agenda beyond 2030",
+    "keywords": "",
+    "title": "A Theory of Change and Priority Reforms for the Post-2030 Agenda",
+    "authors": [
+      "Allen, Cameron",
+      "Weitz, Nina"
+    ],
+    "presenter": "Allen, Cameron",
+    "symp_authors": [],
+    "orgs": [
+      "Allen, Dr. Cameron",
+      "Monash University"
+    ],
+    "countries": [
+      "Australia"
+    ],
+    "primary_country": "Australia",
+    "abstract": "A Theory of Change and Priority Reforms for the Post-2030 Agenda. Missing links and reforms for a sustainable development agenda beyond 2030.",
+    "abstract_word_count": 22
+  },
+  {
+    "id": "805",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.3",
+    "topic_title": "Integrated sustainability assessment of progress made on the SDGs",
+    "keywords": "",
+    "title": "From energy transition to sustainable transformation: The need for a holistic approach",
+    "authors": [
+      "Blanco, Gabriel",
+      "Keesler, Daniela",
+      "Laborde, Salomé",
+      "Salvo, Aien Weni"
+    ],
+    "presenter": "Blanco, Gabriel",
+    "symp_authors": [],
+    "orgs": [
+      "Blanco, Prof. Gabriel",
+      "Universidad Nacional del Centro"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "From energy transition to sustainable transformation: The need for a holistic approach. Integrated sustainability assessment of progress made on the SDGs.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "806",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.2",
+    "topic_title": "Sustainable landscape and seascape for nature's contribution to people",
+    "keywords": "",
+    "title": "Revealing the criteria used to prioritize the implementation of payments for ecosystem services: a scoping review of the literature",
+    "authors": [
+      "Medeiros, Gabriel"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Medeiros, Prof. Gabriel",
+      "ISEG - Lisbon University"
+    ],
+    "countries": [
+      "Portugal"
+    ],
+    "primary_country": "Portugal",
+    "abstract": "Revealing the criteria used to prioritize the implementation of payments for ecosystem services: a scoping review of the literature. Sustainable landscape and seascape for nature's contribution to people.",
+    "abstract_word_count": 28
+  },
+  {
+    "id": "807",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.1",
+    "topic_title": "National and local implementation of SDGs, including barriers and opportunities",
+    "keywords": "",
+    "title": "From Climate Awareness to Participation: University Students’ Perspectives on Government Climate Communication in Hungary",
+    "authors": [
+      "Csordás, Tamara Rita"
+    ],
+    "presenter": "Csordás, Tamara Rita",
+    "symp_authors": [],
+    "orgs": [
+      "Corvinus University of Budapest"
+    ],
+    "countries": [
+      "Hungary"
+    ],
+    "primary_country": "Hungary",
+    "abstract": "From Climate Awareness to Participation: University Students’ Perspectives on Government Climate Communication in Hungary. National and local implementation of SDGs, including barriers and opportunities.",
+    "abstract_word_count": 24
+  },
+  {
+    "id": "808",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Poster Presentation",
+    "topic_code": "2.2",
+    "topic_title": "Sustainable landscape and seascape for nature's contribution to people",
+    "keywords": "",
+    "title": "Beyond Standard Metrics: Behavioral Frictions, Opaque Value Chains, and the Structural Viability of Southern Tunisian Oasis Systems",
+    "authors": [
+      "Mlayeh, Taheni",
+      "Rached, Zouhair",
+      "Chebil, Ali"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "IRESA_ADAPT-AICS Project"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Beyond Standard Metrics: Behavioral Frictions, Opaque Value Chains, and the Structural Viability of Southern Tunisian Oasis Systems. Sustainable landscape and seascape for nature's contribution to people.",
+    "abstract_word_count": 26
+  },
+  {
+    "id": "809",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.5",
+    "topic_title": "Economic approaches beyond GDP, including circularity and  bioeconomy",
+    "keywords": "",
+    "title": "Digital inclusion and sustainable growth:lessons from SME-led mobile technology retail in Uganda",
+    "authors": [
+      "PETER, OPIO"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Jaytech gadgets shoppers"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Digital inclusion and sustainable growth:lessons from SME-led mobile technology retail in Uganda. Economic approaches beyond GDP, including circularity and  bioeconomy.",
+    "abstract_word_count": 20
+  },
+  {
+    "id": "810",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.5",
+    "topic_title": "Economic approaches beyond GDP, including circularity and  bioeconomy",
+    "keywords": "",
+    "title": "Diffusion of circular business innovations among large textile producers: Evidence from Pakistan",
+    "authors": [
+      "Azhar, Naila",
+      "Matus, Kira"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Azhar, Dr. Naila",
+      "The Hong Kong University of Science and Technology"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Diffusion of circular business innovations among large textile producers: Evidence from Pakistan. Economic approaches beyond GDP, including circularity and  bioeconomy.",
+    "abstract_word_count": 20
+  },
+  {
+    "id": "811",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Innovative Session",
+    "topic_code": "1.4",
+    "topic_title": "Missing links and reforms for a sustainable development agenda beyond 2030",
+    "keywords": "",
+    "title": "The Role of Culture in the Post 2030 Development Agenda",
+    "authors": [
+      "Watene, Krushil"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Watene, Dr. Krushil",
+      "University of Auckland and ANU"
+    ],
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "primary_country": "Australia",
+    "abstract": "The Role of Culture in the Post 2030 Development Agenda. Missing links and reforms for a sustainable development agenda beyond 2030.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "812",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.2",
+    "topic_title": "Lessons learned from SDG governance and multi-stakeholder partnerships",
+    "keywords": "",
+    "title": "Owning Without Controlling: Inclusive Business after Corporate Exit in an Indonesian Fishing Village",
+    "authors": [
+      "Rudiansyah, Helmi Fergian",
+      "Virgy, Muhammad Arief"
+    ],
+    "presenter": "Rudiansyah, Helmi Fergian",
+    "symp_authors": [],
+    "orgs": [
+      "Institut Teknologi Sepuluh Nopember (ITS)"
+    ],
+    "countries": [
+      "Indonesia"
+    ],
+    "primary_country": "Indonesia",
+    "abstract": "Owning Without Controlling: Inclusive Business after Corporate Exit in an Indonesian Fishing Village. Lessons learned from SDG governance and multi-stakeholder partnerships.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "813",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.1",
+    "topic_title": "National and local implementation of SDGs, including barriers and opportunities",
+    "keywords": "",
+    "title": "From Reporting to Learning: Evidence Use and Adaptive Decision-Making in Kenya’s Voluntary National Reviews",
+    "authors": [
+      "MUSUYA, JACKLINE"
+    ],
+    "presenter": "MUSUYA, JACKLINE",
+    "symp_authors": [],
+    "orgs": [
+      "Hewatele Limited"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "From Reporting to Learning: Evidence Use and Adaptive Decision-Making in Kenya’s Voluntary National Reviews. National and local implementation of SDGs, including barriers and opportunities.",
+    "abstract_word_count": 24
+  },
+  {
+    "id": "814",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.5",
+    "topic_title": "Economic approaches beyond GDP, including circularity and  bioeconomy",
+    "keywords": "",
+    "title": "Linking Green Intellectual Capital to Business Performance: Evidence From Government-Trained SMEs in Indonesia",
+    "authors": [
+      "Ma'ruf, Ma'ruf",
+      "Ainul Wafi Elyunusiah, Siti",
+      "Surya, Sari",
+      "Najja Kakeeto-Aelen, Terry"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Ma'ruf, Dr. Ma'ruf",
+      "Universitas Andalas"
+    ],
+    "countries": [
+      "Indonesia"
+    ],
+    "primary_country": "Indonesia",
+    "abstract": "Linking Green Intellectual Capital to Business Performance: Evidence From Government-Trained SMEs in Indonesia. Economic approaches beyond GDP, including circularity and  bioeconomy.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "815",
+    "theme_num": 4,
+    "theme_title": "Health, well-being, and societal foundations as key drivers of sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "4.4",
+    "topic_title": "Health equity, well-being, inner development, and societal foundations as societal outcomes",
+    "keywords": "",
+    "title": "Futurization as inner development: working with climate emotions through an immersive installation at a music festival",
+    "authors": [
+      "Sircova, Anna",
+      "Päivinen, Pinja",
+      "Fieulaine, Nicolas"
+    ],
+    "presenter": "Sircova, Anna",
+    "symp_authors": [],
+    "orgs": [
+      "Sircova, Dr. Anna",
+      "Creative Time Lab"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Futurization as inner development: working with climate emotions through an immersive installation at a music festival. Health equity, well-being, inner development, and societal foundations as societal outcomes.",
+    "abstract_word_count": 27
+  },
+  {
+    "id": "816",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.2",
+    "topic_title": "Sustainable landscape and seascape for nature's contribution to people",
+    "keywords": "",
+    "title": "From concept to impact beyond 2030 – experiences with implementing the ecosystem accounting approach in Germany",
+    "authors": [
+      "Syrbe, Ralf-Uwe",
+      "Grunewald, Karsten",
+      "Wende, Wolfgang"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Syrbe, Dr. Ralf-Uwe",
+      "Leibniz Institute of Ecological Urban and Regional Development (IOER)"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "primary_country": "Germany",
+    "abstract": "From concept to impact beyond 2030 – experiences with implementing the ecosystem accounting approach in Germany. Sustainable landscape and seascape for nature's contribution to people.",
+    "abstract_word_count": 25
+  },
+  {
+    "id": "817",
+    "theme_num": 3,
+    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
+    "format": "Oral Presentation",
+    "topic_code": "3.2",
+    "topic_title": "Actions for climate change adaptation to build societal resilience",
+    "keywords": "",
+    "title": "What is the problem of women's health vulnerability in the climate crisis? Analysing the construction of women's health risks in Bangladesh's climate adaptation policies",
+    "authors": [
+      "Jahan, Ishrat",
+      "Nadiruzzaman, Mohammed"
+    ],
+    "presenter": "Jahan, Ishrat",
+    "symp_authors": [],
+    "orgs": [
+      "Maastricht University"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "What is the problem of women's health vulnerability in the climate crisis? Analysing the construction of women's health risks in Bangladesh's climate adaptation policies. Actions for climate change adaptation to build societal resilience.",
+    "abstract_word_count": 33
+  },
+  {
+    "id": "818",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Full Panel Session",
+    "topic_code": "5.5",
+    "topic_title": "AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges",
+    "keywords": "",
+    "title": "Digital Science for Sustainable Development Beyond 2030: Evidence, Pathways and Partnerships",
+    "authors": [
+      "Chen, Yu"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Chen, Dr. Yu",
+      "International Research Center of Big Data for Sustainable Development Goals (CBAS)"
+    ],
+    "countries": [
+      "China"
+    ],
+    "primary_country": "China",
+    "abstract": "Digital Science for Sustainable Development Beyond 2030: Evidence, Pathways and Partnerships. AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges.",
+    "abstract_word_count": 27
+  },
+  {
+    "id": "819",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Full Panel Session",
+    "topic_code": "1.5",
+    "topic_title": "Methods and processes for a sustainable development agenda beyond 2030",
+    "keywords": "",
+    "title": "Lessons from scenario modelling for the post-2030 Agenda",
+    "authors": [
+      "Lucas, Paul"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "PBL Netherlands Environmental Assessment Agency"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Lessons from scenario modelling for the post-2030 Agenda. Methods and processes for a sustainable development agenda beyond 2030.",
+    "abstract_word_count": 18
+  },
+  {
+    "id": "820",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.2",
+    "topic_title": "Sustainable landscape and seascape for nature's contribution to people",
+    "keywords": "",
+    "title": "Unlocking the Ocean’s Potential in the Nature Relationship Index",
+    "authors": [
+      "Villasante, Sebastian",
+      "Ellis, Erle",
+      "Aragao, Guilherme"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Villasante, Prof. Sebastian",
+      "University of Santiago de Compostela"
+    ],
+    "countries": [
+      "Spain"
+    ],
+    "primary_country": "Spain",
+    "abstract": "Unlocking the Ocean’s Potential in the Nature Relationship Index. Sustainable landscape and seascape for nature's contribution to people.",
+    "abstract_word_count": 18
+  },
+  {
+    "id": "821",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.2",
+    "topic_title": "Lessons learned from SDG governance and multi-stakeholder partnerships",
+    "keywords": "",
+    "title": "Transformative science-society partnerships: Lessons from 15 years of real-world labs and place-based urban experimentation for sustainability transformations",
+    "authors": [
+      "Egermann, Markus",
+      "Wolfram, Marc"
+    ],
+    "presenter": "Egermann, Markus",
+    "symp_authors": [],
+    "orgs": [
+      "Egermann, Dr. Markus",
+      "Leibniz Institute of Ecological Urban and Regional Development"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "primary_country": "Germany",
+    "abstract": "Transformative science-society partnerships: Lessons from 15 years of real-world labs and place-based urban experimentation for sustainability transformations. Lessons learned from SDG governance and multi-stakeholder partnerships.",
+    "abstract_word_count": 25
+  },
+  {
+    "id": "822",
+    "theme_num": 4,
+    "theme_title": "Health, well-being, and societal foundations as key drivers of sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "4.3",
+    "topic_title": "Developing solutions and innovations for healthier societies",
+    "keywords": "",
+    "title": "Adolescent anemia as a sustainable development challenge: from understanding the problem to designing solutions through multi-stakeholder perspectives in Indonesia",
+    "authors": [
+      "Ramadhani, Kurnia",
+      "Geboers, Bas",
+      "Muthmainnah, Muthmainnah",
+      "Eka, Jayanti D.",
+      "Nurmala, Ira",
+      "Reijneveld, Sijmen A.",
+      "De Winter, Andrea F."
+    ],
+    "presenter": "Ramadhani, Kurnia",
+    "symp_authors": [],
+    "orgs": [
+      "UMCG, University of Groningen"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Adolescent anemia as a sustainable development challenge: from understanding the problem to designing solutions through multi-stakeholder perspectives in Indonesia. Developing solutions and innovations for healthier societies.",
+    "abstract_word_count": 26
+  },
+  {
+    "id": "823",
+    "theme_num": 4,
+    "theme_title": "Health, well-being, and societal foundations as key drivers of sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "4.4",
+    "topic_title": "Health equity, well-being, inner development, and societal foundations as societal outcomes",
+    "keywords": "",
+    "title": "Psychosocial resources as enabling conditions of the Sustainable Development Goals: a five-dimension model for public action",
+    "authors": [
+      "Fieulaine, Nicolas"
+    ],
+    "presenter": "Fieulaine, Nicolas",
+    "symp_authors": [],
+    "orgs": [
+      "Fieulaine, Dr. Nicolas",
+      "NFEtudes"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Psychosocial resources as enabling conditions of the Sustainable Development Goals: a five-dimension model for public action. Health equity, well-being, inner development, and societal foundations as societal outcomes.",
+    "abstract_word_count": 27
+  },
+  {
+    "id": "824",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.3",
+    "topic_title": "Integrated sustainability assessment of progress made on the SDGs",
+    "keywords": "",
+    "title": "SDGs and citizen science: Local actions Global Impact",
+    "authors": [
+      "FRAISL, Dilek"
+    ],
+    "presenter": "FRAISL, Dilek",
+    "symp_authors": [],
+    "orgs": [
+      "FRAISL, Dr. Dilek",
+      "International Institute for Applied Systems Analysis (IIASA)"
+    ],
+    "countries": [
+      "Austria"
+    ],
+    "primary_country": "Austria",
+    "abstract": "SDGs and citizen science: Local actions Global Impact. Integrated sustainability assessment of progress made on the SDGs.",
+    "abstract_word_count": 17
+  },
+  {
+    "id": "825",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.3",
+    "topic_title": "Roles of equity & justice for sustainable transformation and resilience",
+    "keywords": "",
+    "title": "Keeping it alive, passing it on: Quito's urban agriculture programme and the challenge of renewal",
+    "authors": [
+      "Cuestas-Caza, Javier",
+      "Mena, Erick",
+      "Viteri Salazar, Oswaldo",
+      "Toledo, Lucía"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Cuestas Caza, Prof. Javier",
+      "Escuela Politécnica Nacional"
+    ],
+    "countries": [
+      "Ecuador"
+    ],
+    "primary_country": "Ecuador",
+    "abstract": "Keeping it alive, passing it on: Quito's urban agriculture programme and the challenge of renewal. Roles of equity & justice for sustainable transformation and resilience.",
+    "abstract_word_count": 25
+  },
+  {
+    "id": "826",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.5",
+    "topic_title": "AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges",
+    "keywords": "",
+    "title": "Leveraging the collaborative power of AI and citizen science for sustainable development",
+    "authors": [
+      "FRAISL, Dilek",
+      "SEE, Linda",
+      "HAKLAY, Muki",
+      "FRITZ, Steffen",
+      "MCCALLUM, Ian"
+    ],
+    "presenter": "FRAISL, Dilek",
+    "symp_authors": [],
+    "orgs": [
+      "FRAISL, Dr. Dilek",
+      "International Institute for Applied Systems Analysis (IIASA)"
+    ],
+    "countries": [
+      "Austria"
+    ],
+    "primary_country": "Austria",
+    "abstract": "Leveraging the collaborative power of AI and citizen science for sustainable development. AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges.",
+    "abstract_word_count": 28
+  },
+  {
+    "id": "827",
+    "theme_num": 4,
+    "theme_title": "Health, well-being, and societal foundations as key drivers of sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "4.3",
+    "topic_title": "Developing solutions and innovations for healthier societies",
+    "keywords": "",
+    "title": "Citizen Science Data in Action: Concrete Contributions to Marine Plastic Litter Monitoring",
+    "authors": [
+      "FRAISL, Dilek"
+    ],
+    "presenter": "FRAISL, Dilek",
+    "symp_authors": [],
+    "orgs": [
+      "FRAISL, Dr. Dilek",
+      "International Institute for Applied Systems Analysis (IIASA)"
+    ],
+    "countries": [
+      "Austria"
+    ],
+    "primary_country": "Austria",
+    "abstract": "Citizen Science Data in Action: Concrete Contributions to Marine Plastic Litter Monitoring. Developing solutions and innovations for healthier societies.",
+    "abstract_word_count": 19
+  },
+  {
+    "id": "828",
+    "theme_num": 3,
+    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
+    "format": "Oral Presentation",
+    "topic_code": "3.2",
+    "topic_title": "Actions for climate change adaptation to build societal resilience",
+    "keywords": "",
+    "title": "Climate Change, Socio-Ecological Vulnerability and Equitable Resilient Development in Lagos, Nigeria",
+    "authors": [
+      "Oderinde, Folasade",
+      "Osibote, Olusola"
+    ],
+    "presenter": "Oderinde, Folasade",
+    "symp_authors": [],
+    "orgs": [
+      "Oderinde, Prof. Folasade",
+      "Tai Solarin Federal University of Education,"
+    ],
+    "countries": [
+      "Nigeria"
+    ],
+    "primary_country": "Nigeria",
+    "abstract": "Climate Change, Socio-Ecological Vulnerability and Equitable Resilient Development in Lagos, Nigeria. Actions for climate change adaptation to build societal resilience.",
+    "abstract_word_count": 20
+  },
+  {
+    "id": "829",
+    "theme_num": 3,
+    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
+    "format": "Oral Presentation",
+    "topic_code": "3.3",
+    "topic_title": "Climate change mitigation and net-zero pathways for a just transition",
+    "keywords": "",
+    "title": "Assessing Indonesia's Readiness to Comply with the IMO Net Zero Framework",
+    "authors": [
+      "Triatmaja, Reggi Dimas"
+    ],
+    "presenter": "Triatmaja, Reggi Dimas",
+    "symp_authors": [],
+    "orgs": [
+      "University of Dundee"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Assessing Indonesia's Readiness to Comply with the IMO Net Zero Framework. Climate change mitigation and net-zero pathways for a just transition.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "830",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Poster Presentation",
+    "topic_code": "2.1",
+    "topic_title": "Ensuring food, water, and energy security and understanding their nexus",
+    "keywords": "",
+    "title": "Rethinking Data Center Cooling in Tropical Coastal Regions: A Water–Energy Nexus Assessment of Sustainable Cooling Strategies in Indonesia",
+    "authors": [
+      "Khumayr, Zahroh Ayu",
+      "Puteri, Genduk Anggina"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Blue Bird Group"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Rethinking Data Center Cooling in Tropical Coastal Regions: A Water–Energy Nexus Assessment of Sustainable Cooling Strategies in Indonesia. Ensuring food, water, and energy security and understanding their nexus.",
+    "abstract_word_count": 28
+  },
+  {
+    "id": "831",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.1",
+    "topic_title": "National and local implementation of SDGs, including barriers and opportunities",
+    "keywords": "",
+    "title": "Access to Employment and the Implementation of the No Poverty Principle for the Visually Impaired in Medan, Indonesia.",
+    "authors": [
+      "Nasution, M Sutan Abdul Aziz F."
+    ],
+    "presenter": "Nasution, M Sutan Abdul Aziz F.",
+    "symp_authors": [],
+    "orgs": [
+      "Health Polytechnic of dr. Rusdi Medan/Yayasan Sufina Aziz Medan"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Access to Employment and the Implementation of the No Poverty Principle for the Visually Impaired in Medan, Indonesia.. National and local implementation of SDGs, including barriers and opportunities.",
+    "abstract_word_count": 28
+  },
+  {
+    "id": "832",
+    "theme_num": 1,
+    "theme_title": "Lessons from the Sustainable Development Goals for sustainable development beyond 2030",
+    "format": "Oral Presentation",
+    "topic_code": "1.1",
+    "topic_title": "National and local implementation of SDGs, including barriers and opportunities",
+    "keywords": "",
+    "title": "Out-Migration, Labor Shortage and Sustainability of Tourism Businesses: Evidence from Manang, Nepal",
+    "authors": [
+      "Pariyar, Shanta Maya",
+      "Ghising, Dipak"
+    ],
+    "presenter": "Pariyar, Shanta Maya",
+    "symp_authors": [],
+    "orgs": [
+      "TU"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Out-Migration, Labor Shortage and Sustainability of Tourism Businesses: Evidence from Manang, Nepal. National and local implementation of SDGs, including barriers and opportunities.",
+    "abstract_word_count": 22
+  },
+  {
+    "id": "833",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.1",
+    "topic_title": "Ensuring food, water, and energy security and understanding their nexus",
+    "keywords": "",
+    "title": "Designing a Conceptual Framework for Climate Risk-Based Integrated Water and Energy Governance: Emphasizing Sustainable Resilience in the Central Iranian Plateau",
+    "authors": [
+      "Givehchi, Saeed"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Givehchi, Dr. Saeed",
+      "University of Tehran"
+    ],
+    "countries": [
+      "Iran"
+    ],
+    "primary_country": "Iran",
+    "abstract": "Designing a Conceptual Framework for Climate Risk-Based Integrated Water and Energy Governance: Emphasizing Sustainable Resilience in the Central Iranian Plateau. Ensuring food, water, and energy security and understanding their nexus.",
+    "abstract_word_count": 30
+  },
+  {
+    "id": "835",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.3",
+    "topic_title": "Roles of equity & justice for sustainable transformation and resilience",
+    "keywords": "",
+    "title": "TEACH SUSTAINABILITY THROUGH PRACTICES OF RADICAL CARE STARTING FROM HIGHER EDUCATION.",
+    "authors": [
+      "Piantoni, Matteo"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "Piantoni, Dr. Matteo",
+      "Immaginare Orlando Association"
+    ],
+    "countries": [
+      "Italy"
+    ],
+    "primary_country": "Italy",
+    "abstract": "TEACH SUSTAINABILITY THROUGH PRACTICES OF RADICAL CARE STARTING FROM HIGHER EDUCATION.. Roles of equity & justice for sustainable transformation and resilience.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "836",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Poster Presentation",
+    "topic_code": "5.4",
+    "topic_title": "Trustworthy AI, information integrity, data autonomy, and sustainability impacts of AI",
+    "keywords": "",
+    "title": "A CRYPTO-ARCHIVE TO REIMAGINE ECOLOGICAL IMPLICATIONS FOR A TRUSTWORTHY AI BEYOND 2030",
+    "authors": [
+      "Piantoni, Matteo"
+    ],
+    "presenter": "Piantoni, Matteo",
+    "symp_authors": [],
+    "orgs": [
+      "Piantoni, Dr. Matteo",
+      "Immaginare Orlando Association"
+    ],
+    "countries": [
+      "Italy"
+    ],
+    "primary_country": "Italy",
+    "abstract": "A CRYPTO-ARCHIVE TO REIMAGINE ECOLOGICAL IMPLICATIONS FOR A TRUSTWORTHY AI BEYOND 2030. Trustworthy AI, information integrity, data autonomy, and sustainability impacts of AI.",
+    "abstract_word_count": 23
+  },
+  {
+    "id": "837",
+    "theme_num": 2,
+    "theme_title": "Building resilience through integrated sustainable transformation across natural and human systems",
+    "format": "Oral Presentation",
+    "topic_code": "2.4",
+    "topic_title": "Measures for urban transformation, including sustainable mobility",
+    "keywords": "",
+    "title": "Beyond Congestion and Floods: An Integrated Pathway to Sustainable Urban Mobility and Resilience in Kaduna Metropolis, Nigeria",
+    "authors": [
+      "ABDULKADIR, HINDATU"
+    ],
+    "presenter": null,
+    "symp_authors": [],
+    "orgs": [
+      "ABDULKADIR, Dr. HINDATU",
+      "KADUNA STATE UNIVERSITY"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Beyond Congestion and Floods: An Integrated Pathway to Sustainable Urban Mobility and Resilience in Kaduna Metropolis, Nigeria. Measures for urban transformation, including sustainable mobility.",
+    "abstract_word_count": 24
+  },
+  {
+    "id": "838",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.1",
+    "topic_title": "Advances in AI methods, big data, and digital technologies for sustainability analytics",
+    "keywords": "",
+    "title": "Automatically Spotting Deceptive Language in Sustainability Reports",
+    "authors": [
+      "Uribe Silva, Maria Pilar",
+      "van Noord, Rik",
+      "Nissim, Malvina"
+    ],
+    "presenter": "Uribe Silva, Maria Pilar",
+    "symp_authors": [],
+    "orgs": [
+      "University of Groningen"
+    ],
+    "countries": [
+      "Netherlands"
+    ],
+    "primary_country": "Netherlands",
+    "abstract": "Automatically Spotting Deceptive Language in Sustainability Reports. Advances in AI methods, big data, and digital technologies for sustainability analytics.",
+    "abstract_word_count": 19
+  },
+  {
+    "id": "839",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.5",
+    "topic_title": "AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges",
+    "keywords": "",
+    "title": "From data to action: Understanding and shaping sustainable land-use futures",
+    "authors": [
+      "Behnisch, Martin",
+      "Herold, Hendrik",
+      "Tobias, Krüger",
+      "Münzinger, Markus",
+      "Hecht, Robert",
+      "Jehling, Mathias"
+    ],
+    "presenter": "Behnisch, Martin",
+    "symp_authors": [],
+    "orgs": [
+      "Behnisch, Prof. Martin",
+      "Leibniz Institute of Ecological Urban and Regional Development / TU Dresden"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "primary_country": "Germany",
+    "abstract": "From data to action: Understanding and shaping sustainable land-use futures. AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges.",
+    "abstract_word_count": 26
+  },
+  {
+    "id": "840",
+    "theme_num": 4,
+    "theme_title": "Health, well-being, and societal foundations as key drivers of sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "4.5",
+    "topic_title": "Health as both an outcome and driver of sustainable development",
+    "keywords": "",
+    "title": "Food-system transformation pathways and the affordability of healthy diets in India",
+    "authors": [
+      "Subramaniam, Sowmiyaa"
+    ],
+    "presenter": "Subramaniam, Sowmiyaa",
+    "symp_authors": [],
+    "orgs": [
+      "Indian Institute of Management Ahmedabad (IIMA)"
+    ],
+    "countries": [
+      "India"
+    ],
+    "primary_country": "India",
+    "abstract": "Food-system transformation pathways and the affordability of healthy diets in India. Health as both an outcome and driver of sustainable development.",
+    "abstract_word_count": 21
+  },
+  {
+    "id": "841",
+    "theme_num": 4,
+    "theme_title": "Health, well-being, and societal foundations as key drivers of sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "4.4",
+    "topic_title": "Health equity, well-being, inner development, and societal foundations as societal outcomes",
+    "keywords": "",
+    "title": "Urban proximity and the double burden of malnutrition in rural India",
+    "authors": [
+      "Subramaniam, Sowmiyaa"
+    ],
+    "presenter": "Subramaniam, Sowmiyaa",
+    "symp_authors": [],
+    "orgs": [
+      "Indian Institute of Management Ahmedabad (IIMA)"
+    ],
+    "countries": [
+      "India"
+    ],
+    "primary_country": "India",
+    "abstract": "Urban proximity and the double burden of malnutrition in rural India. Health equity, well-being, inner development, and societal foundations as societal outcomes.",
+    "abstract_word_count": 22
+  },
+  {
+    "id": "842",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.5",
+    "topic_title": "AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges",
+    "keywords": "",
+    "title": "Powering Batam’s Data Centres: Catalyst or Constraint for Indonesia’s Energy Transition?",
+    "authors": [
+      "Tandirerung, Sartika",
+      "Rahardiansyah, Maulana",
+      "Desipradana, Sinar Timur"
+    ],
+    "presenter": "Tandirerung, Sartika",
+    "symp_authors": [],
+    "orgs": [
+      "University of Dundee"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "primary_country": "United Kingdom",
+    "abstract": "Powering Batam’s Data Centres: Catalyst or Constraint for Indonesia’s Energy Transition?. AI, big data, and digitalization for sustainable development by and beyond 2030, including opportunities and challenges.",
+    "abstract_word_count": 27
+  },
+  {
+    "id": "843",
+    "theme_num": 3,
+    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
+    "format": "Oral Presentation",
+    "topic_code": "3.5",
+    "topic_title": "Climate governance, finance, and negotiation for sustainable development",
+    "keywords": "",
+    "title": "Affordability and Fiscal Design in Indonesia’s Biomass Co-firing Policy: Implications for a Just Energy Transition",
+    "authors": [
+      "Desipradana, Sinar Timur",
+      "Tandirerung, Sartika",
+      "Rahardiansyah, Maulana"
+    ],
+    "presenter": "Desipradana, Sinar Timur",
+    "symp_authors": [],
+    "orgs": [
+      "University of Dundee"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "primary_country": "United Kingdom",
+    "abstract": "Affordability and Fiscal Design in Indonesia’s Biomass Co-firing Policy: Implications for a Just Energy Transition. Climate governance, finance, and negotiation for sustainable development.",
+    "abstract_word_count": 23
+  },
+  {
+    "id": "844",
+    "theme_num": 3,
+    "theme_title": "Navigating the climate change–development nexus for resilient, just and equitable transformations",
+    "format": "Oral Presentation",
+    "topic_code": "3.5",
+    "topic_title": "Climate governance, finance, and negotiation for sustainable development",
+    "keywords": "",
+    "title": "Assessing Indonesia's Waste-to-Energy Program: A Viable Electricity Source or a Short-Term Waste Management Solution?",
+    "authors": [
+      "Rahardiansyah, Maulana",
+      "Tandirerung, Sartika",
+      "Desipradana, Sinar"
+    ],
+    "presenter": "Rahardiansyah, Maulana",
+    "symp_authors": [],
+    "orgs": [
+      "University of Dundee"
+    ],
+    "countries": [
+      "Unknown"
+    ],
+    "primary_country": "Unknown",
+    "abstract": "Assessing Indonesia's Waste-to-Energy Program: A Viable Electricity Source or a Short-Term Waste Management Solution?. Climate governance, finance, and negotiation for sustainable development.",
+    "abstract_word_count": 22
+  },
+  {
+    "id": "845",
+    "theme_num": 5,
+    "theme_title": "Artificial Intelligence, big data, and digitalization as enablers for sustainable development",
+    "format": "Oral Presentation",
+    "topic_code": "5.1",
+    "topic_title": "Advances in AI methods, big data, and digital technologies for sustainability analytics",
+    "keywords": "",
+    "title": "Integrating computational text analysis and semiotics to understand values and narratives in sustainability transitions",
+    "authors": [
+      "Meriani, Alessandra"
+    ],
+    "presenter": "Meriani, Alessandra",
+    "symp_authors": [],
+    "orgs": [
+      "University of Bologna - Alma Mater Studiorum"
+    ],
+    "countries": [
+      "Italy"
+    ],
+    "primary_country": "Italy",
+    "abstract": "Integrating computational text analysis and semiotics to understand values and narratives in sustainability transitions. Advances in AI methods, big data, and digital technologies for sustainability analytics.",
+    "abstract_word_count": 26
   }
 ]

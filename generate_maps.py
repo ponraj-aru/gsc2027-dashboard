@@ -1,3 +1,5 @@
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from source_config import SOURCE_DOC
 import json
 import pandas as pd

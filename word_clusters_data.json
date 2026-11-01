@@ -1,97 +1,107 @@
 {
   "0": {
     "theme_num": 0,
-    "theme_title": "All Themes (699 Abstracts)",
-    "papers_count": 699,
-    "total_words": 73541,
+    "theme_title": "All Themes (741 Abstracts)",
+    "papers_count": 741,
+    "total_words": 74172,
     "top_words": [
       {
         "word": "sustainable",
-        "count": 737,
-        "pct": 1.0
+        "count": 765,
+        "pct": 1.03
       },
       {
         "word": "development",
-        "count": 711,
-        "pct": 0.97
+        "count": 732,
+        "pct": 0.99
       },
       {
         "word": "climate",
-        "count": 620,
-        "pct": 0.84
+        "count": 632,
+        "pct": 0.85
       },
       {
         "word": "sustainability",
-        "count": 458,
-        "pct": 0.62
+        "count": 468,
+        "pct": 0.63
       },
       {
         "word": "environmental",
         "count": 417,
-        "pct": 0.57
+        "pct": 0.56
       },
       {
         "word": "energy",
-        "count": 344,
+        "count": 351,
         "pct": 0.47
       },
       {
         "word": "governance",
-        "count": 344,
+        "count": 350,
         "pct": 0.47
       },
       {
         "word": "beyond",
-        "count": 311,
-        "pct": 0.42
+        "count": 326,
+        "pct": 0.44
       },
       {
         "word": "health",
-        "count": 297,
-        "pct": 0.4
+        "count": 303,
+        "pct": 0.41
       },
       {
         "word": "framework",
-        "count": 289,
+        "count": 291,
         "pct": 0.39
       },
       {
         "word": "policy",
-        "count": 272,
+        "count": 273,
         "pct": 0.37
       },
       {
         "word": "social",
         "count": 270,
-        "pct": 0.37
+        "pct": 0.36
       },
       {
         "word": "local",
-        "count": 261,
-        "pct": 0.35
+        "count": 266,
+        "pct": 0.36
       },
       {
         "word": "global",
-        "count": 256,
+        "count": 257,
         "pct": 0.35
       },
       {
         "word": "water",
-        "count": 249,
+        "count": 253,
         "pct": 0.34
       },
       {
         "word": "change",
-        "count": 248,
+        "count": 253,
         "pct": 0.34
       },
       {
         "word": "systems",
-        "count": 221,
+        "count": 222,
         "pct": 0.3
       },
       {
         "word": "economic",
+        "count": 219,
+        "pct": 0.3
+      },
+      {
+        "word": "urban",
+        "count": 218,
+        "pct": 0.29
+      },
+      {
+        "word": "digital",
         "count": 216,
         "pct": 0.29
       },
@@ -101,59 +111,54 @@
         "pct": 0.29
       },
       {
-        "word": "urban",
-        "count": 213,
-        "pct": 0.29
-      },
-      {
-        "word": "digital",
-        "count": 212,
-        "pct": 0.29
-      },
-      {
-        "word": "goals",
-        "count": 196,
+        "word": "sdgs",
+        "count": 200,
         "pct": 0.27
       },
       {
         "word": "transition",
-        "count": 196,
+        "count": 200,
         "pct": 0.27
       },
       {
         "word": "implementation",
-        "count": 193,
-        "pct": 0.26
-      },
-      {
-        "word": "food",
-        "count": 193,
-        "pct": 0.26
-      },
-      {
-        "word": "sdgs",
-        "count": 193,
-        "pct": 0.26
+        "count": 199,
+        "pct": 0.27
       },
       {
         "word": "resilience",
-        "count": 192,
+        "count": 198,
+        "pct": 0.27
+      },
+      {
+        "word": "goals",
+        "count": 197,
+        "pct": 0.27
+      },
+      {
+        "word": "food",
+        "count": 195,
         "pct": 0.26
       },
       {
         "word": "national",
-        "count": 181,
+        "count": 186,
         "pct": 0.25
       },
       {
         "word": "adaptation",
-        "count": 177,
+        "count": 180,
         "pct": 0.24
       },
       {
         "word": "support",
         "count": 173,
-        "pct": 0.24
+        "pct": 0.23
+      },
+      {
+        "word": "evidence",
+        "count": 163,
+        "pct": 0.22
       },
       {
         "word": "knowledge",
@@ -162,17 +167,12 @@
       },
       {
         "word": "conditions",
-        "count": 159,
+        "count": 160,
         "pct": 0.22
       },
       {
-        "word": "evidence",
-        "count": 158,
-        "pct": 0.21
-      },
-      {
         "word": "challenges",
-        "count": 151,
+        "count": 155,
         "pct": 0.21
       },
       {
@@ -247,61 +247,61 @@
   "1": {
     "theme_num": 1,
     "theme_title": "Theme 1: Lessons from the SDGs beyond 2030",
-    "papers_count": 160,
-    "total_words": 14010,
+    "papers_count": 171,
+    "total_words": 14160,
     "top_words": [
       {
         "word": "development",
-        "count": 250,
-        "pct": 1.78
+        "count": 254,
+        "pct": 1.79
       },
       {
         "word": "sustainable",
-        "count": 233,
-        "pct": 1.66
+        "count": 237,
+        "pct": 1.67
       },
       {
         "word": "sustainability",
-        "count": 198,
-        "pct": 1.41
+        "count": 202,
+        "pct": 1.43
       },
       {
         "word": "sdgs",
-        "count": 129,
-        "pct": 0.92
+        "count": 136,
+        "pct": 0.96
       },
       {
         "word": "beyond",
-        "count": 106,
-        "pct": 0.76
+        "count": 109,
+        "pct": 0.77
       },
       {
         "word": "local",
-        "count": 96,
-        "pct": 0.69
-      },
-      {
-        "word": "governance",
-        "count": 93,
-        "pct": 0.66
+        "count": 101,
+        "pct": 0.71
       },
       {
         "word": "implementation",
-        "count": 91,
-        "pct": 0.65
+        "count": 96,
+        "pct": 0.68
+      },
+      {
+        "word": "governance",
+        "count": 95,
+        "pct": 0.67
       },
       {
         "word": "agenda",
-        "count": 85,
-        "pct": 0.61
-      },
-      {
-        "word": "goals",
-        "count": 83,
-        "pct": 0.59
+        "count": 91,
+        "pct": 0.64
       },
       {
         "word": "national",
+        "count": 88,
+        "pct": 0.62
+      },
+      {
+        "word": "goals",
         "count": 83,
         "pct": 0.59
       },
@@ -316,34 +316,34 @@
         "pct": 0.52
       },
       {
-        "word": "global",
-        "count": 69,
+        "word": "climate",
+        "count": 70,
         "pct": 0.49
       },
       {
-        "word": "climate",
-        "count": 68,
+        "word": "global",
+        "count": 70,
         "pct": 0.49
       },
       {
         "word": "policy",
         "count": 67,
-        "pct": 0.48
+        "pct": 0.47
       },
       {
         "word": "progress",
-        "count": 59,
-        "pct": 0.42
+        "count": 61,
+        "pct": 0.43
       },
       {
         "word": "framework",
         "count": 57,
-        "pct": 0.41
+        "pct": 0.4
       },
       {
         "word": "social",
         "count": 57,
-        "pct": 0.41
+        "pct": 0.4
       },
       {
         "word": "indicators",
@@ -352,23 +352,23 @@
       },
       {
         "word": "energy",
-        "count": 54,
+        "count": 55,
         "pct": 0.39
       },
       {
-        "word": "post-",
-        "count": 49,
-        "pct": 0.35
+        "word": "opportunities",
+        "count": 53,
+        "pct": 0.37
       },
       {
-        "word": "opportunities",
-        "count": 49,
-        "pct": 0.35
+        "word": "post-",
+        "count": 51,
+        "pct": 0.36
       },
       {
         "word": "participation",
-        "count": 48,
-        "pct": 0.34
+        "count": 49,
+        "pct": 0.35
       },
       {
         "word": "systems",
@@ -376,19 +376,24 @@
         "pct": 0.32
       },
       {
+        "word": "lessons",
+        "count": 44,
+        "pct": 0.31
+      },
+      {
         "word": "action",
         "count": 43,
-        "pct": 0.31
+        "pct": 0.3
       },
       {
         "word": "approaches",
         "count": 43,
-        "pct": 0.31
+        "pct": 0.3
       },
       {
         "word": "economic",
         "count": 43,
-        "pct": 0.31
+        "pct": 0.3
       },
       {
         "word": "priorities",
@@ -401,29 +406,24 @@
         "pct": 0.29
       },
       {
-        "word": "lessons",
-        "count": 40,
-        "pct": 0.29
-      },
-      {
         "word": "monitoring",
         "count": 39,
         "pct": 0.28
       },
       {
-        "word": "education",
-        "count": 36,
+        "word": "assessment",
+        "count": 37,
         "pct": 0.26
       },
       {
-        "word": "assessment",
-        "count": 35,
+        "word": "education",
+        "count": 36,
         "pct": 0.25
       },
       {
-        "word": "practices",
-        "count": 33,
-        "pct": 0.24
+        "word": "barriers",
+        "count": 35,
+        "pct": 0.25
       }
     ],
     "top_keywords": [
@@ -492,28 +492,33 @@
   "2": {
     "theme_num": 2,
     "theme_title": "Theme 2: Building resilience across natural and human systems",
-    "papers_count": 175,
-    "total_words": 19749,
+    "papers_count": 187,
+    "total_words": 19941,
     "top_words": [
       {
         "word": "sustainable",
-        "count": 182,
-        "pct": 0.92
+        "count": 193,
+        "pct": 0.97
       },
       {
         "word": "energy",
-        "count": 147,
-        "pct": 0.74
+        "count": 151,
+        "pct": 0.76
       },
       {
         "word": "water",
-        "count": 126,
-        "pct": 0.64
+        "count": 130,
+        "pct": 0.65
       },
       {
         "word": "food",
-        "count": 118,
+        "count": 120,
         "pct": 0.6
+      },
+      {
+        "word": "urban",
+        "count": 118,
+        "pct": 0.59
       },
       {
         "word": "environmental",
@@ -521,29 +526,34 @@
         "pct": 0.59
       },
       {
-        "word": "urban",
-        "count": 115,
-        "pct": 0.58
-      },
-      {
         "word": "development",
         "count": 112,
-        "pct": 0.57
+        "pct": 0.56
       },
       {
         "word": "resilience",
-        "count": 98,
-        "pct": 0.5
+        "count": 102,
+        "pct": 0.51
       },
       {
         "word": "framework",
-        "count": 93,
+        "count": 94,
         "pct": 0.47
       },
       {
         "word": "sustainability",
-        "count": 89,
+        "count": 90,
         "pct": 0.45
+      },
+      {
+        "word": "beyond",
+        "count": 87,
+        "pct": 0.44
+      },
+      {
+        "word": "transformation",
+        "count": 84,
+        "pct": 0.42
       },
       {
         "word": "global",
@@ -556,38 +566,28 @@
         "pct": 0.42
       },
       {
-        "word": "beyond",
-        "count": 81,
-        "pct": 0.41
-      },
-      {
-        "word": "transformation",
-        "count": 81,
-        "pct": 0.41
-      },
-      {
         "word": "local",
         "count": 79,
         "pct": 0.4
       },
       {
         "word": "climate",
-        "count": 77,
+        "count": 78,
         "pct": 0.39
       },
       {
-        "word": "systems",
-        "count": 70,
-        "pct": 0.35
+        "word": "economic",
+        "count": 73,
+        "pct": 0.37
       },
       {
-        "word": "economic",
-        "count": 70,
-        "pct": 0.35
+        "word": "systems",
+        "count": 71,
+        "pct": 0.36
       },
       {
         "word": "governance",
-        "count": 61,
+        "count": 62,
         "pct": 0.31
       },
       {
@@ -626,6 +626,11 @@
         "pct": 0.26
       },
       {
+        "word": "security",
+        "count": 51,
+        "pct": 0.26
+      },
+      {
         "word": "policy",
         "count": 51,
         "pct": 0.26
@@ -636,19 +641,24 @@
         "pct": 0.26
       },
       {
+        "word": "value",
+        "count": 51,
+        "pct": 0.26
+      },
+      {
         "word": "spatial",
         "count": 50,
         "pct": 0.25
       },
       {
-        "word": "value",
-        "count": 50,
-        "pct": 0.25
+        "word": "integrated",
+        "count": 48,
+        "pct": 0.24
       },
       {
-        "word": "security",
-        "count": 49,
-        "pct": 0.25
+        "word": "strategies",
+        "count": 48,
+        "pct": 0.24
       },
       {
         "word": "agricultural",
@@ -659,16 +669,6 @@
         "word": "conservation",
         "count": 48,
         "pct": 0.24
-      },
-      {
-        "word": "strategies",
-        "count": 47,
-        "pct": 0.24
-      },
-      {
-        "word": "change",
-        "count": 46,
-        "pct": 0.23
       }
     ],
     "top_keywords": [
@@ -737,48 +737,58 @@
   "3": {
     "theme_num": 3,
     "theme_title": "Theme 3: Navigating the climate change–development nexus",
-    "papers_count": 167,
-    "total_words": 18359,
+    "papers_count": 172,
+    "total_words": 18442,
     "top_words": [
       {
         "word": "climate",
-        "count": 380,
-        "pct": 2.07
+        "count": 388,
+        "pct": 2.1
       },
       {
         "word": "development",
-        "count": 151,
-        "pct": 0.82
+        "count": 154,
+        "pct": 0.84
       },
       {
         "word": "change",
-        "count": 129,
-        "pct": 0.7
+        "count": 133,
+        "pct": 0.72
       },
       {
         "word": "adaptation",
-        "count": 108,
-        "pct": 0.59
+        "count": 111,
+        "pct": 0.6
       },
       {
         "word": "sustainable",
-        "count": 100,
-        "pct": 0.54
+        "count": 102,
+        "pct": 0.55
       },
       {
         "word": "transition",
-        "count": 99,
-        "pct": 0.54
-      },
-      {
-        "word": "energy",
-        "count": 88,
-        "pct": 0.48
+        "count": 101,
+        "pct": 0.55
       },
       {
         "word": "governance",
-        "count": 87,
-        "pct": 0.47
+        "count": 89,
+        "pct": 0.48
+      },
+      {
+        "word": "energy",
+        "count": 89,
+        "pct": 0.48
+      },
+      {
+        "word": "mitigation",
+        "count": 85,
+        "pct": 0.46
+      },
+      {
+        "word": "policy",
+        "count": 84,
+        "pct": 0.46
       },
       {
         "word": "environmental",
@@ -786,14 +796,9 @@
         "pct": 0.46
       },
       {
-        "word": "mitigation",
-        "count": 84,
-        "pct": 0.46
-      },
-      {
-        "word": "policy",
-        "count": 83,
-        "pct": 0.45
+        "word": "pathways",
+        "count": 75,
+        "pct": 0.41
       },
       {
         "word": "emissions",
@@ -801,14 +806,14 @@
         "pct": 0.41
       },
       {
-        "word": "pathways",
-        "count": 74,
-        "pct": 0.4
-      },
-      {
         "word": "social",
         "count": 69,
-        "pct": 0.38
+        "pct": 0.37
+      },
+      {
+        "word": "finance",
+        "count": 67,
+        "pct": 0.36
       },
       {
         "word": "sustainability",
@@ -816,29 +821,24 @@
         "pct": 0.35
       },
       {
-        "word": "finance",
+        "word": "framework",
         "count": 65,
         "pct": 0.35
       },
       {
-        "word": "framework",
-        "count": 64,
-        "pct": 0.35
-      },
-      {
         "word": "resilience",
-        "count": 58,
-        "pct": 0.32
+        "count": 60,
+        "pct": 0.33
       },
       {
         "word": "carbon",
         "count": 58,
-        "pct": 0.32
+        "pct": 0.31
       },
       {
         "word": "economic",
         "count": 56,
-        "pct": 0.31
+        "pct": 0.3
       },
       {
         "word": "global",
@@ -882,8 +882,8 @@
       },
       {
         "word": "net-zero",
-        "count": 43,
-        "pct": 0.23
+        "count": 44,
+        "pct": 0.24
       },
       {
         "word": "impacts",
@@ -982,18 +982,18 @@
   "4": {
     "theme_num": 4,
     "theme_title": "Theme 4: Health, well-being, and societal foundations",
-    "papers_count": 105,
-    "total_words": 10570,
+    "papers_count": 111,
+    "total_words": 10668,
     "top_words": [
       {
         "word": "health",
-        "count": 235,
-        "pct": 2.22
+        "count": 239,
+        "pct": 2.24
       },
       {
         "word": "sustainable",
-        "count": 89,
-        "pct": 0.84
+        "count": 92,
+        "pct": 0.86
       },
       {
         "word": "environmental",
@@ -1002,43 +1002,48 @@
       },
       {
         "word": "development",
-        "count": 78,
-        "pct": 0.74
+        "count": 85,
+        "pct": 0.8
       },
       {
         "word": "well-being",
-        "count": 68,
-        "pct": 0.64
+        "count": 71,
+        "pct": 0.67
       },
       {
         "word": "social",
         "count": 61,
-        "pct": 0.58
+        "pct": 0.57
       },
       {
         "word": "climate",
-        "count": 45,
+        "count": 46,
         "pct": 0.43
       },
       {
         "word": "exposure",
         "count": 42,
-        "pct": 0.4
+        "pct": 0.39
       },
       {
         "word": "healthcare",
         "count": 41,
-        "pct": 0.39
+        "pct": 0.38
       },
       {
         "word": "urban",
-        "count": 38,
-        "pct": 0.36
+        "count": 39,
+        "pct": 0.37
       },
       {
         "word": "policy",
         "count": 37,
         "pct": 0.35
+      },
+      {
+        "word": "societal",
+        "count": 36,
+        "pct": 0.34
       },
       {
         "word": "global",
@@ -1056,9 +1061,9 @@
         "pct": 0.3
       },
       {
-        "word": "societal",
-        "count": 30,
-        "pct": 0.28
+        "word": "outcomes",
+        "count": 31,
+        "pct": 0.29
       },
       {
         "word": "women",
@@ -1081,64 +1086,59 @@
         "pct": 0.27
       },
       {
-        "word": "outcomes",
+        "word": "access",
         "count": 28,
         "pct": 0.26
       },
       {
-        "word": "access",
+        "word": "equity",
         "count": 28,
         "pct": 0.26
       },
       {
         "word": "pollution",
         "count": 26,
-        "pct": 0.25
+        "pct": 0.24
       },
       {
         "word": "framework",
         "count": 26,
-        "pct": 0.25
+        "pct": 0.24
       },
       {
         "word": "institutional",
         "count": 26,
-        "pct": 0.25
+        "pct": 0.24
       },
       {
         "word": "water",
         "count": 25,
-        "pct": 0.24
+        "pct": 0.23
       },
       {
         "word": "education",
         "count": 25,
-        "pct": 0.24
+        "pct": 0.23
       },
       {
         "word": "economic",
         "count": 25,
-        "pct": 0.24
+        "pct": 0.23
       },
       {
         "word": "risks",
         "count": 25,
-        "pct": 0.24
-      },
-      {
-        "word": "equity",
-        "count": 25,
-        "pct": 0.24
+        "pct": 0.23
       },
       {
         "word": "ghana",
         "count": 25,
-        "pct": 0.24
+        "pct": 0.23
       },
       {
         "word": "associated",
         "count": 24,
-        "pct": 0.23
+        "pct": 0.22
       },
       {
         "word": "communities",
@@ -1151,12 +1151,12 @@
         "pct": 0.22
       },
       {
-        "word": "strategies",
+        "word": "public",
         "count": 23,
         "pct": 0.22
       },
       {
-        "word": "production",
+        "word": "strategies",
         "count": 23,
         "pct": 0.22
       }
@@ -1227,47 +1227,47 @@
   "5": {
     "theme_num": 5,
     "theme_title": "Theme 5: AI, big data, and digitalization as enablers",
-    "papers_count": 92,
-    "total_words": 10853,
+    "papers_count": 100,
+    "total_words": 10961,
     "top_words": [
       {
         "word": "digital",
-        "count": 151,
-        "pct": 1.39
+        "count": 154,
+        "pct": 1.4
       },
       {
         "word": "sustainable",
-        "count": 133,
-        "pct": 1.23
+        "count": 141,
+        "pct": 1.29
       },
       {
         "word": "development",
-        "count": 120,
-        "pct": 1.11
+        "count": 127,
+        "pct": 1.16
       },
       {
         "word": "sustainability",
-        "count": 90,
-        "pct": 0.83
+        "count": 95,
+        "pct": 0.87
       },
       {
         "word": "governance",
-        "count": 70,
-        "pct": 0.64
+        "count": 71,
+        "pct": 0.65
+      },
+      {
+        "word": "beyond",
+        "count": 57,
+        "pct": 0.52
       },
       {
         "word": "intelligence",
         "count": 52,
-        "pct": 0.48
+        "pct": 0.47
       },
       {
         "word": "environmental",
         "count": 52,
-        "pct": 0.48
-      },
-      {
-        "word": "beyond",
-        "count": 51,
         "pct": 0.47
       },
       {
@@ -1297,17 +1297,17 @@
       },
       {
         "word": "energy",
+        "count": 46,
+        "pct": 0.42
+      },
+      {
+        "word": "information",
         "count": 45,
         "pct": 0.41
       },
       {
-        "word": "information",
-        "count": 44,
-        "pct": 0.41
-      },
-      {
         "word": "evidence",
-        "count": 44,
+        "count": 45,
         "pct": 0.41
       },
       {
@@ -1326,34 +1326,44 @@
         "pct": 0.31
       },
       {
+        "word": "opportunities",
+        "count": 34,
+        "pct": 0.31
+      },
+      {
+        "word": "challenges",
+        "count": 33,
+        "pct": 0.3
+      },
+      {
         "word": "support",
         "count": 32,
         "pct": 0.29
       },
       {
-        "word": "opportunities",
+        "word": "transition",
         "count": 30,
-        "pct": 0.28
+        "pct": 0.27
       },
       {
         "word": "sdgs",
         "count": 30,
-        "pct": 0.28
+        "pct": 0.27
       },
       {
         "word": "learning",
         "count": 29,
-        "pct": 0.27
+        "pct": 0.26
       },
       {
-        "word": "transition",
+        "word": "technologies",
         "count": 29,
-        "pct": 0.27
+        "pct": 0.26
       },
       {
-        "word": "challenges",
+        "word": "human",
         "count": 29,
-        "pct": 0.27
+        "pct": 0.26
       },
       {
         "word": "progress",
@@ -1366,17 +1376,12 @@
         "pct": 0.26
       },
       {
-        "word": "human",
-        "count": 28,
-        "pct": 0.26
-      },
-      {
         "word": "social",
         "count": 28,
         "pct": 0.26
       },
       {
-        "word": "technologies",
+        "word": "digitalization",
         "count": 27,
         "pct": 0.25
       },
@@ -1397,11 +1402,6 @@
       },
       {
         "word": "green",
-        "count": 25,
-        "pct": 0.23
-      },
-      {
-        "word": "institutional",
         "count": 25,
         "pct": 0.23
       }
